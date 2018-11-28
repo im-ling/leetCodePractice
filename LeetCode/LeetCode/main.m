@@ -30,6 +30,8 @@ int main(int argc, const char * argv[]) {
 //        question8();
 //        int question9(void);
 //        question9();
+//        int question10(void);   //todo: dp
+//        question10();
 
 //        int question70(void);
 //        question70();
@@ -717,6 +719,95 @@ int question9(){
     return 0;
 };
 
+
+//10. Regular Expression Matching
+//Hard
+//Given an input string (s) and a pattern (p), implement regular expression matching with support for '.' and '*'.
+//'.' Matches any single character.
+//'*' Matches zero or more of the preceding element.
+//The matching should cover the entire input string (not partial).
+//Note:
+//s could be empty and contains only lowercase letters a-z.
+//p could be empty and contains only lowercase letters a-z, and characters like . or *.
+//Example 1:
+//Input:
+//s = "aa"
+//p = "a"
+//Output: false
+//Explanation: "a" does not match the entire string "aa".
+//Example 2:
+//Input:
+//s = "aa"
+//p = "a*"
+//Output: true
+//Explanation: '*' means zero or more of the precedeng element, 'a'. Therefore, by repeating 'a' once, it becomes "aa".
+//Example 3:
+//Input:
+//s = "ab"
+//p = ".*"
+//Output: true
+//Explanation: ".*" means "zero or more (*) of any character (.)".
+//Example 4:
+//Input:
+//s = "aab"
+//p = "c*a*b"
+//Output: true
+//Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore it matches "aab".
+//Example 5:
+//Input:
+//s = "mississippi"
+//p = "mis*is*p*."
+//Output: false
+
+
+
+// first than fast than 13.61%  /(ㄒoㄒ)/~~
+//bool isMatch(char* s, char* p) {
+//    printf("\ns(%s) p(%s)",s,p);
+//    size_t sLen = strlen(s);
+//    size_t pLen = strlen(p);
+//    if (sLen == 0 && pLen == 0) {
+//        return true;
+//    }else if(pLen == 0){
+//        return false;
+//    }
+//    if (*(p+1) != '*') {
+////        if (*p == '.' || *p == *s) {
+////            return (sLen > 0 && isMatch(s+1, p+1));
+////        }else{
+////            return false;
+////        }
+//        return (sLen > 0) && (*p == '.' || *p == *s) && isMatch(s+1, p+1);
+//    }else{
+//        return (isMatch(s, p+2) || (sLen > 0 && (*s == *p || *p == '.') && isMatch(s+1, p)));
+//    }
+//}
+
+
+// fast than 36%
+bool isMatch(char *s, char* p)
+{
+//    printf("\ns(%s) p(%s)",s,p);
+    if(*p == '\0')
+        return *s=='\0';
+    if(*(p+1) == '*')
+        return isMatch(s, p+2) ||  //match zero letter in s;
+        (*s!='\0' && (*s==*p || '.'==*p) && isMatch(++s, p)); //match one or more;
+    else
+        return *s!='\0' && (*s==*p || '.'==*p) && isMatch(++s, ++p);
+}
+
+//todo: dp solution
+//
+//
+int question10(){
+    char *str = "bbbba";
+//    char *pattern = "b.*c";
+    char *pattern = ".*a*a";
+    //    11、121
+    printf("isMatch %d\n",isMatch(str, pattern));
+    return 0;
+};
 
 //70. Climbing Stairs
 //You are climbing a stair case. It takes n steps to reach to the top.
