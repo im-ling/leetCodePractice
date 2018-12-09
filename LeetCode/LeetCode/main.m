@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#include "Extra.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -30,6 +31,8 @@ int main(int argc, const char * argv[]) {
 //        question8();
 //        int question9(void);
 //        question9();
+//        dpExample();
+//        googleEggDropProblem();
 //        int question10(void);   //todo: dp
 //        question10();
 //        int question11(void);

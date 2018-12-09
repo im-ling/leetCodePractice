@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68004A9921BBB9D400C66CE9 /* Extra.c in Sources */ = {isa = PBXBuildFile; fileRef = 68004A9821BBB9D400C66CE9 /* Extra.c */; };
 		683B86D121A637890003AAA9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 683B86D021A637890003AAA9 /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		68004A9721BBB9D400C66CE9 /* Extra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Extra.h; sourceTree = "<group>"; };
+		68004A9821BBB9D400C66CE9 /* Extra.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Extra.c; sourceTree = "<group>"; };
 		683B86CD21A637890003AAA9 /* LeetCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LeetCode; sourceTree = BUILT_PRODUCTS_DIR; };
 		683B86D021A637890003AAA9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				683B86D021A637890003AAA9 /* main.m */,
+				68004A9721BBB9D400C66CE9 /* Extra.h */,
+				68004A9821BBB9D400C66CE9 /* Extra.c */,
 			);
 			path = LeetCode;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68004A9921BBB9D400C66CE9 /* Extra.c in Sources */,
 				683B86D121A637890003AAA9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
