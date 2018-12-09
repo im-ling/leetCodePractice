@@ -33,7 +33,7 @@ int main(int argc, const char * argv[]) {
 //        question9();
 //        dpExample();
 //        googleEggDropProblem();
-//        int question10(void);   //todo: dp
+//        int question10(void);   //todo: dp done
 //        question10();
 //        int question11(void);
 //        question11();
@@ -825,25 +825,58 @@ int question9(){
 
 
 // fast than 36%
-bool isMatch(char *s, char* p)
-{
-//    printf("\ns(%s) p(%s)",s,p);
-    if(*p == '\0')
-        return *s=='\0';
-    if(*(p+1) == '*')
-        return isMatch(s, p+2) ||  //match zero letter in s;
-        (*s!='\0' && (*s==*p || '.'==*p) && isMatch(++s, p)); //match one or more;
-    else
-        return *s!='\0' && (*s==*p || '.'==*p) && isMatch(++s, ++p);
-}
+//bool isMatch(char *s, char* p)
+//{
+////    printf("\ns(%s) p(%s)",s,p);
+//    if(*p == '\0')
+//        return *s=='\0';
+//    if(*(p+1) == '*')
+//        return isMatch(s, p+2) ||  //match zero letter in s;
+//        (*s!='\0' && (*s==*p || '.'==*p) && isMatch(++s, p)); //match one or more;
+//    else
+//        return *s!='\0' && (*s==*p || '.'==*p) && isMatch(++s, ++p);
+//}
 
 //todo: dp solution
-//
+//dp solution done
+bool isMatch(char *s, char* p)
+{
+    size_t sLen = strlen(s);
+    size_t pLen = strlen(p);
+    bool resultMap[sLen + 1][pLen + 1];
+    memset(resultMap, 0, (sLen + 1) * (pLen + 1) * sizeof(bool));
+    resultMap[0][0] = true;
+    for (int i = 0; i <= sLen; i++) {
+        for (int j = 1; j <= pLen; j++) {
+            if (p[j - 1] == '*') {
+                resultMap[i][j] = resultMap[i][j - 2] || (i > 0 && resultMap[i - 1][j] && (p[j - 2] == '.' || p[j - 2] == s[i - 1]));
+            }else{
+                resultMap[i][j] = i > 0 && resultMap[i - 1][j - 1] && (p[j - 1] == '.' || p[j - 1] == s[i - 1]);
+            }
+        }
+    }
+    
+//    for (int i = 0; i <= sLen; i++) {
+//        printf("\n");
+//        for (int j = 0; j <= pLen; j++) {
+//            printf(" %d",resultMap[i][j]);
+//        }
+//    }
+//    printf("\n");
+    return resultMap[sLen][pLen];
+}
+
 //
 int question10(){
-    char *str = "bbbba";
+    char *str =
+//    "bbbba";
+//    "aab";
+    "aa";
 //    char *pattern = "b.*c";
-    char *pattern = ".*a*a";
+    char *pattern =
+//    ".*a*a";
+//    "c*a*b";
+    "a";
     //    11、121
     printf("isMatch %d\n",isMatch(str, pattern));
     return 0;
