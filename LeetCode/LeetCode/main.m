@@ -89,6 +89,9 @@ int main(int argc, const char * argv[]) {
 //        question37();
 //        int question38(void);
 //        question38();
+//        int question41(void);
+//        question41();
+
 //        int question70(void);
 //        question70();
     }
@@ -1323,20 +1326,23 @@ int question14(){
  * Note: The returned array must be malloced, assume caller calls free().
  */
 
-//int compareIntFunction(const void *a, const void *b){
-//    int aValue = *((int*)a);
-//    int bVaule = *((int*)b);
-//    if (aValue > bVaule) {
-//        return 1;
-//    }else if (aValue < bVaule){
-//        return -1;
-//    }else{
-//        return 0;
-//    }
-//}
+int compareIntFunction(const void *a, const void *b){
+    int aValue = *((int*)a);
+    int bVaule = *((int*)b);
+    if (aValue > bVaule) {
+        return 1;
+    }else if (aValue < bVaule){
+        return -1;
+    }else{
+        return 0;
+    }
+}
+
+/**
 int compareIntFunction(const void *a, const void *b){
     return *(int *)a - *(int *)b;
 }
+ */
 
 int** threeSum(int* nums, int numsSize, int* returnSize) {
     int bufferSize = 100;
@@ -3550,6 +3556,78 @@ int question38(void){
     printf("\nresult(%s)\n",result);
     return 0;
 }
+
+
+//41. First Missing Positive
+//Share
+//Given an unsorted integer array, find the smallest missing positive integer.
+//
+//Example 1:
+//
+//Input: [1,2,0]
+//Output: 3
+//Example 2:
+//
+
+int firstMissingPositive(int* nums, int numsSize) {
+    /**
+    qsort(nums, numsSize, sizeof(int), compareIntFunction);
+    int result = 1;
+    bool flag = true;
+    for (int i = 0; i < numsSize && flag; i++) {
+        if (nums[i] >= result) {
+            if (nums[i] == result) {
+                result++;
+            }else{
+                flag = false;
+            }
+        }
+    }
+    return result;
+     */
+    int newNumsSize = numsSize + 3;
+    char *newNums = malloc(newNumsSize * sizeof(char));
+    memset(newNums, 1, sizeof(char) * newNumsSize);
+    newNums[0] = 0;
+    for (int i = 0; i < numsSize; i++) {
+        if (nums[i] > 0 && nums[i] < newNumsSize) {
+            newNums[nums[i]] = 0;
+        }
+    }
+    for (int i = 0; i < newNumsSize; i ++) {
+        if (newNums[i]) {
+            return i;
+        }
+    }
+    return -1;
+}
+int question41(){
+    int nums[] =
+    {7,8,9,11,12};
+    //    {3,4,-1,1};
+    //    {0 , 1 , 2};
+    int result = firstMissingPositive(nums, sizeof(nums) / sizeof(nums[0]));
+    printf("first missing positive number is %d",result);
+    return 0;
+}
+//Input: [3,4,-1,1]
+//Output: 2
+//Example 3:
+//
+//Input: [7,8,9,11,12]
+//Output: 1
+//Note:
+//
+//Your algorithm should run in O(n) time and uses constant extra space.
+//
+//Accepted
+//187,760
+//Submissions
+//668,756
+
+
+
+
 //70. Climbing Stairs
 //You are climbing a stair case. It takes n steps to reach to the top.
 //Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
