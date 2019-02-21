@@ -3653,6 +3653,8 @@ int question41(){
 //252,295
 //Submissions
 //605,652
+
+/**
 int trap(int* height, int heightSize) {
     if (heightSize <= 1) {
         return 0;
@@ -3703,6 +3705,41 @@ int trap(int* height, int heightSize) {
         }
         lastLeft = left;
         lastRight = right;
+    }
+    return result;
+}
+*/
+
+int MinInt(int a, int b){
+    return a < b ? a : b;
+}
+
+
+int trap(int* height, int heightSize) {
+    if (heightSize <= 1) {
+        return 0;
+    }
+    int result = 0;
+    int stackIndex = 0;
+    int stackSize = heightSize;
+    int stackIndexArray[stackSize];
+    int stackHeightArray[stackSize];
+    memset(stackIndexArray , 0, stackSize * sizeof(int));
+    memset(stackHeightArray, 0, stackSize * sizeof(int));
+    
+    stackIndexArray[stackIndex] = 0;
+    stackHeightArray[stackIndex] = height[0];
+    for (int i = 1; i < heightSize; i++) {
+        while (stackIndex >= 0 && height[i] >= stackHeightArray[stackIndex]) {
+            if (stackIndex > 0) {
+                //                printf("\nresult(%d) i(%d) stackIndex(%d) ; %d * (%d - %d)",result, i, stackIndex, (i - stackIndexArray[stackIndex - 1] - 1),MIN(stackHeightArray[stackIndex - 1], height[i]), stackHeightArray[stackIndex]);
+                result += (i - stackIndexArray[stackIndex - 1] - 1) * (MinInt(stackHeightArray[stackIndex - 1], height[i]) - stackHeightArray[stackIndex]);
+            }
+            stackIndex--;
+        }
+        stackIndex++;
+        stackHeightArray[stackIndex] = height[i];
+        stackIndexArray[stackIndex] = i;
     }
     return result;
 }
