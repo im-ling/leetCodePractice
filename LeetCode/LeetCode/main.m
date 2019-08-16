@@ -2144,12 +2144,16 @@ int question22(){
  *     struct ListNode *next;
  * };
  */
-
+int printListWithThreshold(struct ListNode* list, int threshold);
 int printList(struct ListNode* list){
+    printListWithThreshold(list, 5);
+    return 0;
+}
+int printListWithThreshold(struct ListNode* list, int threshold){
     printf("\n printLists:");
     int count = 0;
     while (list != NULL) {
-        if (count++ %5 == 0) {
+        if (count++ % threshold == 0) {
             printf("\n");
         }
         printf(" %d",list->val);
