@@ -1,4 +1,5 @@
 # leetCode
+### Problem No:
 1. Two Sum
 2. Add Two Numbers
 3. Longest Substring Without Repeating Characters
@@ -46,4 +47,17 @@
 45. --
 46. Permutations
 
+### Problem not in Order:
+#### Two Pointers
+1. Q61 Rotate List
+2. Q75 sortColors
+3. Q80 Remove Duplicates from Sorted Array II
+4. Q86 Partition List
+5. Q88 Merge Sorted Array
+6. Q125 Valid Palindrome
+7. Q141 Linked List Cycle
+8. Q142 Linked List Cycle II
+
+
+#### Others:
 Extra: Egg Drop Problem
