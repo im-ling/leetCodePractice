@@ -115,6 +115,18 @@ int main(int argc, const char * argv[]) {
 //        question141();
 //        int question142(void);
 //        question142();
+//        int question167(void);
+//        question167();
+//        int question209(void);
+//        question209();
+//        int question234(void);
+//        question234();
+//        int question283(void);
+//        question283();
+//        int question349(void);
+//        question349();
+//        int question350(void);
+//        question350();
     }
     return 0;
 }
@@ -4729,3 +4741,432 @@ int question142(){
     return 0;
 }
 
+
+
+//167. Two Sum II - Input array is sorted
+//Easy
+//1023
+//424
+//Favorite
+//
+//Share
+//Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
+//
+//The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2.
+//
+//Note:
+//
+//Your returned answers (both index1 and index2) are not zero-based.
+//You may assume that each input would have exactly one solution and you may not use the same element twice.
+//Example:
+//
+//Input: numbers = [2,7,11,15], target = 9
+//Output: [1,2]
+//Explanation: The sum of 2 and 7 is 9. Therefore index1 = 1, index2 = 2.
+//Accepted
+//277,543
+//Submissions
+//543,101
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* q167twoSum(int* numbers, int numbersSize, int target, int* returnSize){
+    int *result = calloc(2, sizeof(int));
+    bool foundFlag = false;
+    for (int i = 0; i < numbersSize; i++) {
+        int tempTarget = target - numbers[i];
+        int j = i + 1;
+        int k = numbersSize - 1;
+        if (tempTarget == numbers[j]) {
+            k = j;
+            foundFlag = true;
+        }else if(tempTarget == numbers[k]){
+            foundFlag = true;
+            j = k;
+        }
+        while (j < k) {
+            int half = (j + k) / 2;
+            if (half == j) {
+                break;
+            }
+            if (numbers[half] < tempTarget) {
+                j = half;
+            }else if(numbers[half] > tempTarget){
+                k = half;
+            }else{
+                j = half;
+                foundFlag = true;
+                break;
+            }
+        }
+        if (foundFlag) {
+            result[0] = i + 1;
+            result[1] = j + 1;
+            *returnSize = 2;
+            break;
+        }
+    }
+    return result;
+}
+
+int question167(){
+    int nums[] =
+//        {3,24,50,79,88,150,345};
+    {12,83,104,129,140,184,199,300,306,312,321,325,341,344,349,356,370,405,423,444,446,465,471,491,500,506,508,530,539,543,569,591,606,607,612,614,623,627,645,662,670,685,689,726,731,737,744,747,764,773,778,787,802,805,811,819,829,841,879,905,918,918,929,955,997};
+    int size = sizeof(nums) / sizeof(int);
+    for (int i = 0; i < size; i++) {
+//        nums[i] = i * i;
+        if (i % 10 == 0) {
+            printf("\n");
+        }
+        printf(" %d",nums[i]);
+    }
+    printf("\n");
+    int returnSize = 0;
+    int *result = q167twoSum(nums, size, 789, &returnSize);
+    for (int i = 0; i < returnSize; i++) {
+        printf(" %d",result[i]);
+    }
+    printf("\n");
+    return 0;
+}
+
+//209. Minimum Size Subarray Sum
+//Medium
+//1275
+//78
+//Favorite
+//
+//Share
+//Given an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn't one, return 0 instead.
+//
+//Example:
+//
+//Input: s = 7, nums = [2,3,1,2,4,3]
+//Output: 2
+//Explanation: the subarray [4,3] has the minimal length under the problem constraint.
+//Follow up:
+//If you have figured out the O(n) solution, try coding another solution of which the time complexity is O(n log n).
+//Accepted
+//190,893
+//Submissions
+//538,628
+
+int minSubArrayLen(int s, int* nums, int numsSize){
+    int len = numsSize;
+    int pLeft = 0;
+    int sum = 0;
+    for (int i = 0; i < numsSize; i++) {
+        sum += nums[i];
+        if (sum >= s) {
+            while (sum - nums[pLeft] >= s) {
+                sum -= nums[pLeft++];
+            }
+            if (len > i - pLeft) {
+                len = i - pLeft;
+            }
+        }
+    }
+    if (numsSize == len) {
+        return 0;
+    }
+    return len + 1;
+}
+int question209(){
+    int nums[] = {2,3,1,2,4,3};
+    int result = minSubArrayLen(7, nums, sizeof(nums) / sizeof(int));
+    printf(" %d \n",result);
+    return 0;
+}
+
+
+
+//234. Palindrome Linked List
+//Easy
+//1865
+//269
+//Favorite
+//Share
+//Given a singly linked list, determine if it is a palindrome.
+//
+//Example 1:
+//
+//Input: 1->2
+//Output: false
+//Example 2:
+//
+//Input: 1->2->2->1
+//Output: true
+//Follow up:
+//Could you do it in O(n) time and O(1) space?
+//
+//Accepted
+//288,126
+//Submissions
+//782,724
+
+bool q234isPalindrome(struct ListNode* head){
+    int len = 0;
+    struct ListNode *pHead = head;
+    while (pHead != NULL) {
+        pHead = pHead->next;
+        len++;
+    }
+    if (len < 2) {
+        return true;
+    }
+    pHead = head;
+    int stackLen = len / 2;
+    int temp[stackLen];
+    int len2 = 0;
+    while (len2 < stackLen) {
+        temp[len2++] = pHead->val;
+        pHead = pHead->next;
+    }
+    if (len % 2) {
+        pHead = pHead->next;
+    }
+    while (--len2 >= 0) {
+        if (temp[len2] != pHead->val) {
+            return false;
+        }
+        pHead = pHead->next;
+    }
+    return true;
+}
+int question234(){
+    int nums[] = {1,1,2,1,1};
+    struct ListNode *head = intArrayToList(nums, sizeof(nums) / sizeof(int));
+    bool result = q234isPalindrome(head);
+    printf(" %d \n",result);
+    return 0;
+}
+
+
+//283. Move Zeroes
+//Easy
+//
+//2312
+//83
+//Favorite
+//
+//Share
+//Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+//
+//Example:
+//
+//Input: [0,1,0,3,12]
+//Output: [1,3,12,0,0]
+//Note:
+//
+//You must do this in-place without making a copy of the array.
+//Minimize the total number of operations.
+//Accepted
+//515,477
+//Submissions
+//936,861
+void moveZeroes(int* nums, int numsSize){
+    int i = 0;
+    int j = 0;
+    while (i < numsSize) {
+        if (nums[i] != 0) {
+            nums[j++] = nums[i];
+        }
+        i++;
+    }
+    while (j < numsSize) {
+        nums[j++] = 0;
+    }
+}
+int question283(){
+    int nums[] = {0};
+    int size = sizeof(nums) / sizeof(int);
+    moveZeroes(nums, size);
+    for (int i = 0; i < size; i++) {
+        printf(" %d",nums[i]);
+    }
+    return 0;
+}
+
+
+
+//349. Intersection of Two Arrays
+//Easy
+//449
+//859
+//Favorite
+//
+//Share
+//Given two arrays, write a function to compute their intersection.
+//
+//Example 1:
+//
+//Input: nums1 = [1,2,2,1], nums2 = [2,2]
+//Output: [2]
+//Example 2:
+//
+//Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+//Output: [9,4]
+//Note:
+//
+//Each element in the result must be unique.
+//The result can be in any order.
+//
+//
+//Accepted
+//241,961
+//Submissions
+//431,435
+int* intersection(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize){
+    if (nums1 == NULL || nums2 == NULL) {
+        return NULL;
+    }
+    int size = nums1Size < nums2Size ? nums1Size : nums2Size;
+    int *result = (int*)calloc(size, sizeof(int));
+    int tempNums1[nums1Size];
+    memcpy(tempNums1, nums1, sizeof(int) * nums1Size);
+    int tempNums2[nums2Size];
+    memcpy(tempNums2, nums2, sizeof(int) * nums2Size);
+
+    int k = 0;
+    qsort(tempNums1, nums1Size, sizeof(int), compareIntFunction);
+    qsort(tempNums2, nums2Size, sizeof(int), compareIntFunction);
+    for (int i = 0,j = 0; i < nums1Size && j < nums2Size;) {
+        if (tempNums1[i] > tempNums2[j]) {
+            j++;
+        }else if(tempNums1[i] < tempNums2[j]){
+            i++;
+        }else{
+            if (k && tempNums1[i] == result[k - 1]) {
+                i++;
+                j++;
+                continue;
+            }
+            result[k++] = tempNums1[i];
+            i++;
+            j++;
+        }
+    }
+    *returnSize = k;
+    return result;
+}
+
+//int* intersection(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize){
+//    if (nums1 == NULL || nums2 == NULL) {
+//        return NULL;
+//    }
+//    int size = nums1Size < nums2Size ? nums1Size : nums2Size;
+//    int *result = (int*) malloc(size * sizeof(int));
+//    //    int nums1[nums1Size];
+//    //    memcpy(tempNums1, nums1, sizeof(int) * nums1Size);
+//    //    int nums2[nums2Size];
+//    //    memcpy(tempNums2, nums2, sizeof(int) * nums2Size);
+//    int k = 0;
+//    qsort(nums1, nums1Size, sizeof(int), compareIntFunction);
+//    qsort(nums2, nums2Size, sizeof(int), compareIntFunction);
+//    for (int i = 0,j = 0; i < nums1Size && j < nums2Size;) {
+//        if (nums1[i] > nums2[j]) {
+//            j++;
+//        }else if(nums1[i] < nums2[j]){
+//            i++;
+//        }else{
+//            if (k && result[k - 1] == nums1[i]) {
+//                i++;
+//                j++;
+//                continue;
+//            }
+//            result[k++] = nums1[i];
+//            i++;
+//            j++;
+//        }
+//    }
+//    *returnSize = k;
+//    return result;
+//}
+
+int question349(){
+    int nums1Size = 0;
+    int nums1[] = {};
+    int nums2Size = 0;
+    int nums2[] = {};
+    
+    int returnSize = 0;
+    int *result = intersection(nums1, nums1Size, nums2, nums2Size, &returnSize);
+    for (int i = 0; i < returnSize; i++) {
+        printf(" %d",*(result + i));
+    }
+    printf("\n");
+    return 0;
+}
+
+
+//350. Intersection of Two Arrays II
+//Easy
+//794
+//282
+//Favorite
+//
+//Share
+//Given two arrays, write a function to compute their intersection.
+//
+//Example 1:
+//
+//Input: nums1 = [1,2,2,1], nums2 = [2,2]
+//Output: [2,2]
+//Example 2:
+//
+//Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+//Output: [4,9]
+//Note:
+//
+//Each element in the result should appear as many times as it shows in both arrays.
+//The result can be in any order.
+//Follow up:
+//
+//What if the given array is already sorted? How would you optimize your algorithm?
+//What if nums1's size is small compared to nums2's size? Which algorithm is better?
+//What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
+//Accepted
+//230,600
+//Submissions
+//472,560
+
+int* q350intersection(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize){
+    if (nums1 == NULL || nums2 == NULL) {
+        return NULL;
+    }
+    int size = nums1Size < nums2Size ? nums1Size : nums2Size;
+    int *result = (int*) malloc(size * sizeof(int));
+    int k = 0;
+    qsort(nums1, nums1Size, sizeof(int), compareIntFunction);
+    qsort(nums2, nums2Size, sizeof(int), compareIntFunction);
+    for (int i = 0,j = 0; i < nums1Size && j < nums2Size;) {
+        if (nums1[i] > nums2[j]) {
+            j++;
+        }else if(nums1[i] < nums2[j]){
+            i++;
+        }else{
+            result[k++] = nums1[i];
+            i++;
+            j++;
+        }
+    }
+    *returnSize = k;
+    return result;
+}
+
+int question350(){
+    int nums1Size = 0;
+    int nums1[] = {};
+    int nums2Size = 0;
+    int nums2[] = {};
+    
+    int returnSize = 0;
+    int *result = q350intersection(nums1, nums1Size, nums2, nums2Size, &returnSize);
+    for (int i = 0; i < returnSize; i++) {
+        printf(" %d",*(result + i));
+    }
+    printf("\n");
+    return 0;
+}

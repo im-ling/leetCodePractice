@@ -57,6 +57,12 @@
 6. Q125 Valid Palindrome
 7. Q141 Linked List Cycle
 8. Q142 Linked List Cycle II
+9. Q167 Two Sum II
+10. Q209 Minimum Size Subarray Sum
+11. Q234 Palindrome Linked List
+12. Q283 Move Zeroes
+13. Q349 Intersection of Two Arrays
+14. Q350 Intersection of Two Arrays II
 
 
 #### Others:
