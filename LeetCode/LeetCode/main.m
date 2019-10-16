@@ -131,6 +131,14 @@ int main(int argc, const char * argv[]) {
 //        question349();
 //        int question350(void);
 //        question350();
+//        int question532(void);
+//        question532();
+//        int question844(void);
+//        question844();
+//        int question1081(void);
+//        question1081();
+//        int question1155(void);
+//        question1155();
     }
     return 0;
 }
@@ -5346,5 +5354,538 @@ int question350(){
         printf(" %d",*(result + i));
     }
     printf("\n");
+    return 0;
+}
+//532. K-diff Pairs in an Array
+//Easy
+//392
+//881
+//Favorite
+//
+//Share
+//Given an array of integers and an integer k, you need to find the number of unique k-diff pairs in the array. Here a k-diff pair is defined as an integer pair (i, j), where i and j are both numbers in the array and their absolute difference is k.
+//
+//Example 1:
+//Input: [3, 1, 4, 1, 5], k = 2
+//Output: 2
+//Explanation: There are two 2-diff pairs in the array, (1, 3) and (3, 5).
+//Although we have two 1s in the input, we should only return the number of unique pairs.
+//Example 2:
+//Input:[1, 2, 3, 4, 5], k = 1
+//Output: 4
+//Explanation: There are four 1-diff pairs in the array, (1, 2), (2, 3), (3, 4) and (4, 5).
+//Example 3:
+//Input: [1, 3, 1, 5, 4], k = 0
+//Output: 1
+//Explanation: There is one 0-diff pair in the array, (1, 1).
+//Note:
+//The pairs (i, j) and (j, i) count as the same pair.
+//The length of the array won't exceed 10,000.
+//All the integers in the given input belong to the range: [-1e7, 1e7].
+//Accepted
+//71,831
+//Submissions
+//237,500
+int findPairs(int* nums, int numsSize, int k){
+    if (nums == NULL || numsSize < 2) {
+        return 0;
+    }
+    int result = 0;
+    qsort(nums, numsSize, sizeof(int), compareIntFunction);
+//    for (int i = 0; i < numsSize; i++) {
+//        printf(" %d",nums[i]);
+//    }
+    int tempNumber = nums[0] - 1;
+    for (int i = 0; i < numsSize; i++) {
+        if (tempNumber != nums[i]) {
+            tempNumber = nums[i];
+            for (int j = i + 1; j < numsSize; j++) {
+                if (nums[j] - nums[i] > k) {
+                    j = numsSize;
+                }else if(nums[j] - nums[i] == k){
+                    result++;
+                    j = numsSize;
+                }
+            }
+        }
+    }
+    return result;
+}
+
+//int findPairs(int* nums, int numsSize, int k){
+//    int result = 0;
+//    qsort(nums, numsSize, sizeof(int), compareIntFunction);
+//    //    for (int i = 0; i < numsSize; i++) {
+//    //        printf(" %d",nums[i]);
+//    //    }
+//
+//    int i = 0;
+//    while (i < numsSize) {
+//        int j = i + 1;
+//        while (j < numsSize) {
+//            if (nums[j] - nums[i] == k) {
+//                result++;
+//                j = numsSize;
+//            }else if (nums[j] - nums[i] > k) {
+//                j = numsSize;
+//            }
+//            j++;
+//        }
+//        i++;
+//        while (i < numsSize && nums[i] == nums[i - 1]) {
+//            i++;
+//        }
+//    }
+//    return result;
+//}
+
+int question532(){
+    int array[] = {1,1,1,2,1};
+    int size = sizeof(array) / sizeof(int);
+    int k = 1;
+    int result = findPairs(array, size, k);
+    printf("\n result = %d \n",result);
+    return 0;
+}
+
+
+//844. Backspace String Compare
+//Easy
+//759
+//49
+//Favorite
+//
+//Share
+//Given two strings S and T, return if they are equal when both are typed into empty text editors. # means a backspace character.
+//
+//Example 1:
+//
+//Input: S = "ab#c", T = "ad#c"
+//Output: true
+//Explanation: Both S and T become "ac".
+//Example 2:
+//
+//Input: S = "ab##", T = "c#d#"
+//Output: true
+//Explanation: Both S and T become "".
+//Example 3:
+//
+//Input: S = "a##c", T = "#a#c"
+//Output: true
+//Explanation: Both S and T become "c".
+//Example 4:
+//
+//Input: S = "a#c", T = "b"
+//Output: false
+//Explanation: S becomes "c" while T becomes "b".
+//Note:
+//
+//1 <= S.length <= 200
+//1 <= T.length <= 200
+//S and T only contain lowercase letters and '#' characters.
+//Follow up:
+//
+//Can you solve it in O(N) time and O(1) space?
+//Accepted
+//71,617
+//Submissions
+//153,867
+//bool backspaceCompare(char * S, char * T){
+//    int len1 = (int) strlen(S);
+//    int len2 = (int) strlen(T);
+//    char stackS1[len1];
+//    char stackS2[len2];
+//
+//    int lenStackS1 = 0;
+//    for (int i = 0; i < len1; i++) {
+//        if (S[i] == '#') {
+//            lenStackS1--;
+//            if (lenStackS1 < 0) {
+//                lenStackS1 = 0;
+//            }
+//        }else{
+//            stackS1[lenStackS1++] = S[i];
+//        }
+//    }
+//
+//    int lenStackS2 = 0;
+//    for (int i = 0; i < len2; i++) {
+//        if (T[i] == '#') {
+//            lenStackS2--;
+//            if (lenStackS2 < 0) {
+//                lenStackS2 = 0;
+//            }
+//        }else{
+//            stackS2[lenStackS2++] = T[i];
+//        }
+//    }
+//
+//    if (lenStackS1 != lenStackS2) {
+//        return false;
+//    }
+//    for (int i = 0; i < lenStackS1; i++) {
+//        if (stackS1[i] != stackS2[i]) {
+//            return false;
+//        }
+//    }
+//    return true;
+//}
+
+//bool backspaceCompare(char * S, char * T){
+//    int len1 = (int) strlen(S);
+//    int len2 = (int) strlen(T);
+//
+//    int lenStackS1 = 0;
+//    for (int i = 0; i < len1; i++) {
+//        if (S[i] == '#') {
+//            lenStackS1--;
+//            if (lenStackS1 < 0) {
+//                lenStackS1 = 0;
+//            }
+//        }else{
+//            S[lenStackS1++] = S[i];
+//        }
+//    }
+//
+//    int lenStackS2 = 0;
+//    for (int i = 0; i < len2; i++) {
+//        if (T[i] == '#') {
+//            lenStackS2--;
+//            if (lenStackS2 < 0) {
+//                lenStackS2 = 0;
+//            }
+//        }else{
+//            T[lenStackS2++] = T[i];
+//        }
+//    }
+//
+//    if (lenStackS1 != lenStackS2) {
+//        return false;
+//    }
+//    for (int i = 0; i < lenStackS1; i++) {
+//        if (S[i] != T[i]) {
+//            return false;
+//        }
+//    }
+//    return true;
+//}
+
+bool backspaceCompare(char * S, char * T){
+    int len1 = (int) strlen(S);
+    int len2 = (int) strlen(T);
+    
+    char *p_tail_S = S + len1 - 1;
+    char *p_tail_T = T + len2 - 1;
+    int count_backspace_S = 0;
+    int count_backspace_T = 0;
+    
+    while (p_tail_S >= S && p_tail_T >= T) {
+        if (*p_tail_S == '#') {
+            count_backspace_S++;
+            p_tail_S--;
+            continue;
+        }else if (count_backspace_S) {
+            count_backspace_S--;
+            p_tail_S--;
+            continue;
+        }
+        if (*p_tail_T == '#') {
+            count_backspace_T++;
+            p_tail_T--;
+            continue;
+        }else if (count_backspace_T) {
+            count_backspace_T--;
+            p_tail_T--;
+            continue;
+        }
+        if (*p_tail_T != *p_tail_S) {
+            return false;
+        }
+        p_tail_S--;
+        p_tail_T--;
+    }
+    
+    if (p_tail_T >= T) {
+        while (p_tail_T >= T) {
+            if (*p_tail_T == '#') {
+                count_backspace_T++;
+                p_tail_T--;
+                continue;
+            }else if (count_backspace_T) {
+                count_backspace_T--;
+                p_tail_T--;
+                continue;
+            }
+            if (*p_tail_T) {
+                return false;
+            }
+        }
+    }
+
+    if (p_tail_S >= S) {
+        while (p_tail_S >= S) {
+            if (*p_tail_S == '#') {
+                count_backspace_S++;
+                p_tail_S--;
+                continue;
+            }else if (count_backspace_S) {
+                count_backspace_S--;
+                p_tail_S--;
+                continue;
+            }
+            if (*p_tail_S) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+int question844(){
+    char s1[] = "ad#c";
+    char s2[] = "ab#c";
+    int result = backspaceCompare(s1, s2);
+    printf("%d \n",result);
+    return 0;
+}
+
+
+
+//1081. Smallest Subsequence of Distinct Characters
+//Medium
+//165
+//30
+//Favorite
+//Share
+//Return the lexicographically smallest subsequence of text that contains all the distinct characters of text exactly once.
+//
+//Example 1:
+//
+//Input: "cdadabcc"
+//Output: "adbc"
+//Example 2:
+//
+//Input: "abcd"
+//Output: "abcd"
+//Example 3:
+//
+//Input: "ecbacba"
+//Output: "eacb"
+//Example 4:
+//
+//Input: "leetcode"
+//Output: "letcod"
+//
+//
+//Note:
+//
+//1 <= text.length <= 1000
+//text consists of lowercase English letters.
+//
+//
+//Accepted
+//4,707
+//Submissions
+//10,762
+
+//char * smallestSubsequence(char * text){
+//    int len = (int) strlen(text);
+//    char *result = calloc(27, sizeof(char));
+//    int result_len = 0;
+//    int ascii_size = 128;
+//    int record[ascii_size];
+//    char z_plus_one = 'z' + 1;
+//    for (int i = 'a'; i < ascii_size; i++) {
+//        record[i] = -1;
+//    }
+//
+//    for (int i = len - 1; i >= 0; i--) {
+//        if (text[i] >= 'a' && record[text[i]] == -1) {
+//            record[text[i]] = i;
+//        }
+//    }
+//
+//    int leftIndex = 0;
+//    while (1) {
+//        int rightIndex = len;
+//        for (char i = 'a'; i < z_plus_one; i++) {
+//            if (record[i] != -1 && record[i] < rightIndex) {
+//                rightIndex = record[i];
+//            }
+//        }
+//        if (rightIndex == len || leftIndex > rightIndex) {
+//            break;
+//        }
+//        char minChar = z_plus_one;
+//        for (int i = leftIndex; i <= rightIndex; i++) {
+//            if (record[text[i]] >= 0 && text[i] < minChar) {
+//                minChar = text[i];
+//                leftIndex = i;
+//            }
+//        }
+//        if (minChar == z_plus_one) {
+//            break;
+//        }
+////        printf("\n left%d(%c) right%d(%c) minChar(%d)",leftIndex,minChar,rightIndex,text[rightIndex],minChar);
+//        result[result_len++] = minChar;
+//        record[minChar] = -1;
+//        leftIndex++;
+//    }
+////    printf("  %d  ", result_len);
+//    return result;
+//}
+
+char * smallestSubsequence(char * text){
+    int len = (int) strlen(text);
+    char *result_stack = calloc(27, sizeof(char));
+    int ascii_size = 128;
+    int last_appearance_array[ascii_size];
+    memset(last_appearance_array, 0, sizeof(int) * ascii_size);
+    for (int i = 0; i < len; i++) {
+        last_appearance_array[text[i]] = i;
+    }
+    
+    bool seen[ascii_size];
+    for (int i = 0; i < ascii_size; i++) {
+        seen[i] = false;
+    }
+    memset(seen, 0, sizeof(bool) * ascii_size);
+    int stack_index = -1;
+    for (int i = 0; i < len; i++) {
+        bool flag = seen[text[i]];
+        if (flag) {
+            continue;
+        }
+//        printf("\n stack_index(%d) text[i](%c) result_stack[stack_index](%c) i(%d) result_stack[stack_index](%c) last_appearance_array[result_stack[stack_index]](%d)",stack_index,text[i], result_stack[stack_index], i,result_stack[stack_index],last_appearance_array[result_stack[stack_index]]);
+        while (stack_index >= 0 && text[i] < result_stack[stack_index] && i < last_appearance_array[result_stack[stack_index]]) {
+            seen[result_stack[stack_index--]] = false;
+        }
+        seen[text[i]] = true;
+        result_stack[++stack_index] = text[i];
+//        printf("\n i(%d) stack(%d) %s",i,stack_index,result_stack);
+    }
+    memset(result_stack + stack_index + 1, 0, sizeof(char) * (26 - stack_index));
+    return result_stack;
+}
+
+
+int question1081(){
+    char *str =
+    "aaeeeceabbfdaefdeefbabaabbdbaadbebfaabfadcaacddebfdbeaceffaaadcaeddbadebdebccbcbccefeaffbfdcdaefeefeffefcfbbbdabdbddcaaeaacecefbbbeaacdafdfbcdfcbedaff";
+//    "cdadabcc";
+//    "nfrgpdkaawogejjtsiilzbwduusydlijrbyfvacgeguvccpdvhfdxzygndxzpzwaffxgvijhyblrrjtlinysreitegavkrtbzeyzrokwhtwzegxsjbbwqczlfxndsnfxjnxhsezsmxtvkcxevrboxjqrthujosysfwpgrbpozbvugdjvgpeutulqusssruktnghecvwq";
+    char *result = smallestSubsequence(str);
+    printf("\n q1081 %s \n",result);
+    return 0;
+}
+
+//1155. Number of Dice Rolls With Target Sum
+//Medium
+//158
+//13
+//Favorite
+//Share
+//You have d dice, and each die has f faces numbered 1, 2, ..., f.
+//Return the number of possible ways (out of fd total ways) modulo 10^9 + 7 to roll the dice so the sum of the face up numbers equals target.
+//
+//
+//Example 1:
+//Input: d = 1, f = 6, target = 3
+//Output: 1
+//Explanation:
+//You throw one die with 6 faces.  There is only one way to get a sum of 3.
+//
+//Example 2:
+//Input: d = 2, f = 6, target = 7
+//Output: 6
+//Explanation:
+//You throw two dice, each with 6 faces.  There are 6 ways to get a sum of 7:
+//1+6, 2+5, 3+4, 4+3, 5+2, 6+1.
+//
+//Example 3:
+//Input: d = 2, f = 5, target = 10
+//Output: 1
+//Explanation:
+//You throw two dice, each with 5 faces.  There is only one way to get a sum of 10: 5+5.
+//
+//Example 4:
+//Input: d = 1, f = 2, target = 3
+//Output: 0
+//Explanation:
+//You throw one die with 2 faces.  There is no way to get a sum of 3.
+//
+//Example 5:
+//Input: d = 30, f = 30, target = 500
+//Output: 222616187
+//Explanation:
+//The answer must be returned modulo 10^9 + 7.
+//
+//Constraints:
+//1 <= d, f <= 30
+//1 <= target <= 1000
+//Accepted
+//9,608
+//Submissions
+//19,918
+
+int numRollsToTarget_backup(int d, int f, int target){
+    if (d <= 0 || f <= 0 || d * f < target || d > target) {
+        return 0;
+    }
+    int dp_array[d][f * d];
+    memset(dp_array, 0, sizeof(int) * d * f * d);
+    for (int i = 0; i < f; i++) {
+        dp_array[0][i] = 1;
+    }
+    int mod_number = pow(10, 9) + 7;
+    for (int i = 1; i < d; i++) {
+        for (int j = i; j < i * f + f && j < target; j++) {
+            int sum = 0;
+            //注意边界 k >= 0
+            for (int k = j - 1; k >= 0 && k >= j - f; k--) {
+                sum += dp_array[i - 1][k];
+                sum = sum % mod_number;
+            }
+            dp_array[i][j] = sum;
+        }
+    }
+    return dp_array[d-1][target-1];
+}
+
+int numRollsToTarget(int d, int f, int target){
+    if (d <= 0 || f <= 0 || d * f < target || d > target) {
+        return 0;
+    }
+    int size = target;
+    int stack1[size];
+    int stack2[size];
+    memset(stack1, 0, sizeof(int) * size);
+    memset(stack2, 0, sizeof(int) * size);
+    for (int i = 0; i < f; i++) {
+        stack1[i] = 1;
+    }
+    
+    int mod_number = pow(10, 9) + 7;
+    for (int i = 1; i < d; i++) {
+        stack2[i - 1] = 0;
+        for (int j = i; j < i * f + f && j < target; j++) {
+            int sum = 0;
+            for (int k = j - 1; k >= 0 && k >= j - f; k--) {
+                sum += stack1[k];
+                sum = sum % mod_number;
+            }
+            stack2[j] = sum;
+        }
+        memcpy(stack1, stack2, sizeof(int) * size);
+    }
+    return stack1[target - 1];
+}
+
+int question1155(){
+    int d = 2;
+    int f = 6;
+    int target = 7;
+    int result = numRollsToTarget_backup(d, f, target);
+    printf("\n1155 result : %d\n",result);
     return 0;
 }
