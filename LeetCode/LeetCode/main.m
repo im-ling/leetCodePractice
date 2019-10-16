@@ -123,6 +123,10 @@ int main(int argc, const char * argv[]) {
 //        question234();
 //        int question283(void);
 //        question283();
+//        int question344(void);
+//        question344();
+//        int question345(void);
+//        question345();
 //        int question349(void);
 //        question349();
 //        int question350(void);
@@ -4986,6 +4990,180 @@ int question283(){
     for (int i = 0; i < size; i++) {
         printf(" %d",nums[i]);
     }
+    return 0;
+}
+
+
+//344. Reverse String
+//Easy
+//852
+//552
+//
+//Favorite
+//
+//Share
+//Write a function that reverses a string. The input string is given as an array of characters char[].
+//
+//Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+//
+//You may assume all the characters consist of printable ascii characters.
+//
+//Example 1:
+//
+//Input: ["h","e","l","l","o"]
+//Output: ["o","l","l","e","h"]
+//Example 2:
+//
+//Input: ["H","a","n","n","a","h"]
+//Output: ["h","a","n","n","a","H"]
+//Accepted
+//484,280
+//Submissions
+//757,501
+void reverseString(char* s, int sSize){
+    char *p_head = s;
+    char *p_tail = s + sSize - 1;
+    char temp = -1;
+    while (p_head < p_tail) {
+        temp = *p_head;
+        *p_head = *p_tail;
+        *p_tail = temp;
+        p_head++;
+        p_tail--;
+    }
+}
+
+int question344(){
+    char s[] = "this is a test";
+    int size = sizeof(s) / sizeof(char);
+    printf("%s\n",s);
+    reverseString(s, size);
+    printf("%s\n",s);
+    return 0;
+}
+
+//345. Reverse Vowels of a String
+//Easy
+//426
+//808
+//
+//Favorite
+//
+//Share
+//Write a function that takes a string as input and reverse only the vowels of a string.
+//
+//Example 1:
+//
+//Input: "hello"
+//Output: "holle"
+//Example 2:
+//
+//Input: "leetcode"
+//Output: "leotcede"
+//Note:
+//The vowels does not include the letter "y".
+//
+//
+//
+//Accepted
+//169,913
+//Submissions
+//403,691
+bool isVowels(char c){
+    bool flag = false;
+    switch (c) {
+        case 'a':
+            flag = true;
+            break;
+        case 'A':
+            flag = true;
+            break;
+        case 'e':
+            flag = true;
+            break;
+        case 'E':
+            flag = true;
+            break;
+        case 'i':
+            flag = true;
+            break;
+        case 'I':
+            flag = true;
+            break;
+        case 'o':
+            flag = true;
+            break;
+        case 'O':
+            flag = true;
+            break;
+        case 'u':
+            flag = true;
+            break;
+        case 'U':
+            flag = true;
+            break;
+        default:
+            break;
+    }
+    return flag;
+}
+// why heap-buffer-overflow?
+//char * reverseVowels(char * s){
+//    int len = (int) strlen(s);
+//    if (len < 1) {
+//        return s;
+//    }
+//    char *p_tail = s + len - 1;
+//    char *p_head = s;
+//    char *result = calloc(len, sizeof(char));
+//    char *p_result = result;
+//    while (*p_head != '\0') {
+//        if (isVowels(*p_head)) {
+//            while (!isVowels(*p_tail)) {
+//                p_tail--;
+//            }
+//            *p_result++ = *p_tail--;
+//        }else{
+//            *p_result++ = *p_head;
+//        }
+//        p_head++;
+//    }
+//    return result;
+//}
+
+char * reverseVowels(char * s){
+    int len = (int) strlen(s);
+    if (len < 2) {
+        return s;
+    }
+    char *p_tail = s + len - 1;
+    char *p_head = s;
+    
+    char temp = ' ';
+    while (p_head < p_tail) {
+        bool head_flag = isVowels(*p_head);
+        bool tail_flag = isVowels(*p_tail);
+        if (head_flag && tail_flag) {
+            temp = *p_head;
+            *p_head = *p_tail;
+            *p_tail = temp;
+        }else if (head_flag){
+            p_head--;
+        }else if(tail_flag){
+            p_tail++;
+        }else{
+        }
+        p_head++;
+        p_tail--;
+    }
+    return s;
+}
+
+int question345(){
+    char s[] = "hello";
+    printf("%s\n",s);
+    char *result = reverseVowels(s);
+    printf("%s\n",result);
     return 0;
 }
 
