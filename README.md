@@ -51,22 +51,24 @@
 #### Two Pointers
 1. Q61 Rotate List
 2. Q75 sortColors
-3. Q80 Remove Duplicates from Sorted Array II
-4. Q86 Partition List
-5. Q88 Merge Sorted Array
-6. Q125 Valid Palindrome
-7. Q141 Linked List Cycle
-8. Q142 Linked List Cycle II
-9. Q167 Two Sum II
-10. Q209 Minimum Size Subarray Sum
-11. Q234 Palindrome Linked List
-12. Q283 Move Zeroes
-13. Q344 Reverse String
-14. Q345 Reverse Vowels of a String
-15. Q349 Intersection of Two Arrays
-16. Q350 Intersection of Two Arrays II
-17. Q532 K-diff Pairs in an Array
-18. Q844 Backspace String Compare
+3. Q76 Minimum Window Substring
+4. Q80 Remove Duplicates from Sorted Array II
+5. Q86 Partition List
+6. Q88 Merge Sorted Array
+7. Q125 Valid Palindrome
+8. Q141 Linked List Cycle
+9. Q142 Linked List Cycle II
+10. Q167 Two Sum II
+11. Q209 Minimum Size Subarray Sum
+12. Q234 Palindrome Linked List
+13. Q283 Move Zeroes
+14. Q344 Reverse String
+15. Q345 Reverse Vowels of a String
+16. Q349 Intersection of Two Arrays
+17. Q350 Intersection of Two Arrays II
+18. Q424 Longest Repeating Character Replacement
+19. Q532 K-diff Pairs in an Array
+20. Q844 Backspace String Compare
 
 
 #### A friend's recommendation
