@@ -61,8 +61,20 @@
 10. Q209 Minimum Size Subarray Sum
 11. Q234 Palindrome Linked List
 12. Q283 Move Zeroes
-13. Q349 Intersection of Two Arrays
-14. Q350 Intersection of Two Arrays II
+13. Q344 Reverse String
+14. Q345 Reverse Vowels of a String
+15. Q349 Intersection of Two Arrays
+16. Q350 Intersection of Two Arrays II
+17. Q532 K-diff Pairs in an Array
+18. Q844 Backspace String Compare
+
+
+#### A friend's recommendation
+|No.|Question Index|Question|Topic|
+|-|-|-|-|
+|1.|844|Backspace String Compare| Stack, Two Pointer 
+|2.|1081|Smallest Subsequence of Distinct Characters| Stack
+|3|1155|Number of Dice Rolls With Target Sum| Dynamic Programming
 
 
 #### Others:
