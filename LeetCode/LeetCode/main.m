@@ -103,6 +103,8 @@ int main(int argc, const char * argv[]) {
 //        question70();
 //        int question75(void);
 //        question75();
+//        int question76(void);
+//        question76();
 //        int question80(void);
 //        question80();
 //        int question86(void);
@@ -131,6 +133,8 @@ int main(int argc, const char * argv[]) {
 //        question349();
 //        int question350(void);
 //        question350();
+//        int question424(void);
+//        question424();
 //        int question532(void);
 //        question532();
 //        int question844(void);
@@ -4270,6 +4274,92 @@ int question75(){
 }
 
 
+//76. Minimum Window Substring
+//Hard
+//
+//2920
+//
+//210
+//
+//Favorite
+//
+//Share
+//Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
+//
+//Example:
+//
+//Input: S = "ADOBECODEBANC", T = "ABC"
+//Output: "BANC"
+//Note:
+//
+//If there is no such window in S that covers all characters in T, return the empty string "".
+//If there is such window, you are guaranteed that there will always be only one unique minimum window in S.
+//Accepted
+//287,665
+//Submissions
+//892,426
+
+#define ASCIISIZE 128
+char* minWindow(char* s, char* t){
+    char *result = "";
+    if (s == NULL || t == NULL) {
+        return result;
+    }
+    int str_len_s = (int) strlen(s);
+    int str_len_t = (int) strlen(t);
+    if (str_len_t < 1 || str_len_s < 1) {
+        return result;
+    }
+    int count[ASCIISIZE] = {0};
+    for (int i = 0; i < ASCIISIZE; i++) {   //mark all the characters in s
+        count[i] = -str_len_t;
+    }
+    for (int i = 0; i < str_len_t; i++) {   //mark all the characters in t
+        count[t[i]] = 0;
+    }
+    for (int i = 0; i < str_len_t; i++) {   //record times of all the characters in t
+        count[t[i]]++;
+    }
+    
+    char *start = s;
+    char *end = s;
+    int result_len = INT_MAX;
+    char *result_pointer = s;
+    
+    while (*end) {
+        if (count[*end]-- > 0) { //if *end is the element of string t
+            str_len_t--;
+        }
+        printf("\n result_len(%d) str_len_t(%d) A(%d) B(%d) C(%d) start(%s) end(%s)", result_len, str_len_t, count['A'], count['B'], count['C'], start, end);
+        end++;
+        while (str_len_t == 0) {
+            if (result_len > end - start) {
+                result_len = (int)(end - start);
+                result_pointer = start;
+            }
+            if (++count[*start] > 0) {  //remove prefix
+                str_len_t++;
+            }
+            start++;
+        }
+    }
+    printf("\n result_len(%d) str_len_t(%d) A(%d) B(%d) C(%d) start(%s) end(%s)", result_len, str_len_t, count['A'], count['B'], count['C'], start, end);
+
+    if (result_len == INT_MAX) {
+        return result;
+    }
+    result = calloc(result_len + 1, sizeof(char));
+    memcpy(result, result_pointer, result_len);
+    return result;
+}
+int question76(){
+    char *s = "ADOBBECODEBANC";
+    char *t = "ABC";
+    char *result = minWindow(s,t);
+    printf("\n question76 is : %s\n",result);
+    return 0;
+}
+
 //80. Remove Duplicates from Sorted Array II
 //Medium
 //728
@@ -5356,6 +5446,96 @@ int question350(){
     printf("\n");
     return 0;
 }
+
+
+//424. Longest Repeating Character Replacement
+//Medium
+//625
+//50
+//Favorite
+//
+//Share
+//Given a string s that consists of only uppercase English letters, you can perform at most k operations on that string.
+//
+//In one operation, you can choose any character of the string and change it to any other uppercase English character.
+//
+//Find the length of the longest sub-string containing all repeating letters you can get after performing the above operations.
+//
+//Note:
+//Both the string's length and k will not exceed 104.
+//
+//Example 1:
+//Input:
+//s = "ABAB", k = 2
+//Output:
+//4
+//Explanation:
+//Replace the two 'A's with two 'B's or vice versa.
+//
+//
+//Example 2:
+//Input:
+//s = "AABABBA", k = 1
+//Output:
+//4
+//Explanation:
+//Replace the one 'A' in the middle with 'B' and form "AABBBBA".
+//The substring "BBBB" has the longest repeating letters, which is 4.
+//Accepted
+//36,249
+//Submissions
+//81,015
+
+
+
+int maxValue(int x, int y) {
+    return x > y ? x : y;
+}
+
+
+int characterReplacement(char * s, int k){
+    if (s == NULL) {
+        return 0;
+    }
+    int string_len = (int) strlen(s);
+    int numberCount[128] = {0};
+    int result = 0;
+    
+    int i = 0;
+    int j = 0;
+    int max = 0;
+    
+    while (j < string_len) {
+        numberCount[(int) s[j] ]++;
+        // max记录当前stack中，最多相同元素个数
+        max = maxValue(max, numberCount[(int) s[j]]);
+        if( j - i - max < k){
+            if ( j - i + 1 > result) {
+                result = j - i + 1;
+//                printf("\n i(%d) j(%d) max(%d) s(%s) result(%d)", i, j, maxValueOfAArray(numberCount,'A' + 26), s + i, result);
+//                printf("---");
+            }
+            j++;
+        }else{
+            numberCount[(int) s[i++] ]--;
+            numberCount[(int) s[j] ]--;
+        }
+    }
+    return result;
+}
+
+int question424(){
+    char *s =
+        "ABAA";
+//        "ABAB";
+//    "KRSCDCSONAJNHLBMDQGIFCPEKPOHQIHLTDIQGEKLRLCQNBOHNDQGHJPNDQPERNFSSSRDEQLFPCCCARFMDLHADJADAGNNSBNCJQOF";
+//    "ABBB";
+    int result = characterReplacement(s, 1);
+    printf("\n question424 %d \n",result);
+    return 0;
+}
+
+
 //532. K-diff Pairs in an Array
 //Easy
 //392
