@@ -9,8 +9,7 @@
 #ifndef Extra_h
 #define Extra_h
 
-#include <stdio.h>
-
+#include "common.h"
 int googleEggDropProblem(void);
 int dpExample(void);
 
