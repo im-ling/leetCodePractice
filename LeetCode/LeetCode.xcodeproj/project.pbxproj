@@ -74,6 +74,7 @@
 		9492FE8A235F5083006FC733 /* q0844.c in Sources */ = {isa = PBXBuildFile; fileRef = 9492FE89235F5083006FC733 /* q0844.c */; };
 		9492FE8D235F50B8006FC733 /* q1081.c in Sources */ = {isa = PBXBuildFile; fileRef = 9492FE8C235F50B7006FC733 /* q1081.c */; };
 		9492FE90235F50EC006FC733 /* q1155.c in Sources */ = {isa = PBXBuildFile; fileRef = 9492FE8F235F50EC006FC733 /* q1155.c */; };
+		94E6EAA8236225B700B25080 /* q0287.c in Sources */ = {isa = PBXBuildFile; fileRef = 94E6EAA7236225B700B25080 /* q0287.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -224,6 +225,8 @@
 		9492FE8C235F50B7006FC733 /* q1081.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q1081.c; sourceTree = "<group>"; };
 		9492FE8E235F50EC006FC733 /* q1155.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q1155.h; sourceTree = "<group>"; };
 		9492FE8F235F50EC006FC733 /* q1155.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q1155.c; sourceTree = "<group>"; };
+		94E6EAA6236225B700B25080 /* q0287.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0287.h; sourceTree = "<group>"; };
+		94E6EAA7236225B700B25080 /* q0287.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0287.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +383,8 @@
 				9492FE6B235F4EAB006FC733 /* q0234.c */,
 				9492FE6D235F4EDC006FC733 /* q0283.h */,
 				9492FE6E235F4EDC006FC733 /* q0283.c */,
+				94E6EAA6236225B700B25080 /* q0287.h */,
+				94E6EAA7236225B700B25080 /* q0287.c */,
 				9492FE70235F4F1A006FC733 /* q0344.h */,
 				9492FE71235F4F1A006FC733 /* q0344.c */,
 				9492FE76235F4F57006FC733 /* q0345.h */,
@@ -521,6 +526,7 @@
 				9492FE33235F4886006FC733 /* q0038.c in Sources */,
 				9492FDEE235F0873006FC733 /* q0015.c in Sources */,
 				9492FDD0235F0437006FC733 /* q0005.c in Sources */,
+				94E6EAA8236225B700B25080 /* q0287.c in Sources */,
 				9492FE4E235F4B9A006FC733 /* q0080.c in Sources */,
 				9492FE78235F4F57006FC733 /* q0345.c in Sources */,
 				9492FE45235F4B04006FC733 /* q0070.c in Sources */,

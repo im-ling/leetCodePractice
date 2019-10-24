@@ -64,13 +64,14 @@
 11. Q209 Minimum Size Subarray Sum
 12. Q234 Palindrome Linked List
 13. Q283 Move Zeroes
-14. Q344 Reverse String
-15. Q345 Reverse Vowels of a String
-16. Q349 Intersection of Two Arrays
-17. Q350 Intersection of Two Arrays II
-18. Q424 Longest Repeating Character Replacement
-19. Q532 K-diff Pairs in an Array
-20. Q844 Backspace String Compare
+14. Q287 Find the Duplicate Number
+15. Q344 Reverse String
+16. Q345 Reverse Vowels of a String
+17. Q349 Intersection of Two Arrays
+18. Q350 Intersection of Two Arrays II
+19. Q424 Longest Repeating Character Replacement
+20. Q532 K-diff Pairs in an Array
+21. Q844 Backspace String Compare
 
 
 #### A friend's recommendation
