@@ -70,8 +70,9 @@
 17. Q349 Intersection of Two Arrays
 18. Q350 Intersection of Two Arrays II
 19. Q424 Longest Repeating Character Replacement
-20. Q532 K-diff Pairs in an Array
-21. Q844 Backspace String Compare
+20. Q457 Circular Array Loop
+21. Q532 K-diff Pairs in an Array
+22. Q844 Backspace String Compare
 
 
 #### A friend's recommendation
