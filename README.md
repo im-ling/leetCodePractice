@@ -51,28 +51,28 @@
 
 ### Problem not in Order:
 #### Two Pointers
-1. Q61 Rotate List
-2. Q75 sortColors
-3. Q76 Minimum Window Substring
-4. Q80 Remove Duplicates from Sorted Array II
-5. Q86 Partition List
-6. Q88 Merge Sorted Array
-7. Q125 Valid Palindrome
-8. Q141 Linked List Cycle
-9. Q142 Linked List Cycle II
-10. Q167 Two Sum II
-11. Q209 Minimum Size Subarray Sum
-12. Q234 Palindrome Linked List
-13. Q283 Move Zeroes
-14. Q287 Find the Duplicate Number
-15. Q344 Reverse String
-16. Q345 Reverse Vowels of a String
-17. Q349 Intersection of Two Arrays
-18. Q350 Intersection of Two Arrays II
-19. Q424 Longest Repeating Character Replacement
-20. Q457 Circular Array Loop
-21. Q532 K-diff Pairs in an Array
-22. Q844 Backspace String Compare
+1. Q61 [Rotate List](./LeetCode/LeetCode/algorithms/q0061.c)
+2. Q75 [Sort Colors](./LeetCode/LeetCode/algorithms/q0075.c)
+3. Q76 [Minimum Window Substring](./LeetCode/LeetCode/algorithms/q0076.c)
+4. Q80 [Remove Duplicates from Sorted Array II](./LeetCode/LeetCode/algorithms/q0080.c)
+5. Q86 [Partition List](./LeetCode/LeetCode/algorithms/q0086.c)
+6. Q88 [Merge Sorted Array](./LeetCode/LeetCode/algorithms/q0088.c)
+7. Q125 [Valid Palindrome](./LeetCode/LeetCode/algorithms/q0125.c)
+8. Q141 [Linked List Cycle](./LeetCode/LeetCode/algorithms/q0141.c)
+9. Q142 [Linked List Cycle II](./LeetCode/LeetCode/algorithms/q0142.c)
+10. Q167 [Two Sum II](./LeetCode/LeetCode/algorithms/q0167.c)
+11. Q209 [Minimum Size Subarray Sum](./LeetCode/LeetCode/algorithms/q0209.c)
+12. Q234 [Palindrome Linked List](./LeetCode/LeetCode/algorithms/q0234.c)
+13. Q283 [Move Zeroes](./LeetCode/LeetCode/algorithms/q0283.c)
+14. Q287 [Find the Duplicate Number](./LeetCode/LeetCode/algorithms/q0287.c)
+15. Q344 [Reverse String](./LeetCode/LeetCode/algorithms/q0344.c)
+16. Q345 [Reverse Vowels of a String](./LeetCode/LeetCode/algorithms/q0345.c)
+17. Q349 [Intersection of Two Arrays](./LeetCode/LeetCode/algorithms/q0349.c)
+18. Q350 [Intersection of Two Arrays II](./LeetCode/LeetCode/algorithms/q0350.c)
+19. Q424 [Longest Repeating Character Replacement](./LeetCode/LeetCode/algorithms/q0424.c)
+20. Q457 [Circular Array Loop](./LeetCode/LeetCode/algorithms/q0457.c)
+21. Q532 [K-diff Pairs in an Array](./LeetCode/LeetCode/algorithms/q0532.c)
+22. Q844 [Backspace String Compare](./LeetCode/LeetCode/algorithms/q0844.c)
 
 
 #### A friend's recommendation
@@ -84,4 +84,4 @@
 
 
 #### Others:
-Extra: Egg Drop Problem
+Extra: [Egg Drop Problem](./LeetCode/LeetCode/Extra.c)
