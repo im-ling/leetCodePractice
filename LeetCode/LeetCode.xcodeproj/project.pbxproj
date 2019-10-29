@@ -76,6 +76,7 @@
 		9492FE90235F50EC006FC733 /* q1155.c in Sources */ = {isa = PBXBuildFile; fileRef = 9492FE8F235F50EC006FC733 /* q1155.c */; };
 		94A095962365CD11006AC152 /* q0457.c in Sources */ = {isa = PBXBuildFile; fileRef = 94A095952365CD11006AC152 /* q0457.c */; };
 		94E6EAA8236225B700B25080 /* q0287.c in Sources */ = {isa = PBXBuildFile; fileRef = 94E6EAA7236225B700B25080 /* q0287.c */; };
+		94ED2C43236729D100CB335A /* q0524.c in Sources */ = {isa = PBXBuildFile; fileRef = 94ED2C42236729D100CB335A /* q0524.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -230,6 +231,8 @@
 		94A095952365CD11006AC152 /* q0457.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0457.c; sourceTree = "<group>"; };
 		94E6EAA6236225B700B25080 /* q0287.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0287.h; sourceTree = "<group>"; };
 		94E6EAA7236225B700B25080 /* q0287.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0287.c; sourceTree = "<group>"; };
+		94ED2C41236729D100CB335A /* q0524.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0524.h; sourceTree = "<group>"; };
+		94ED2C42236729D100CB335A /* q0524.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0524.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +403,8 @@
 				9492FE80235F4FE5006FC733 /* q0424.c */,
 				94A095942365CD11006AC152 /* q0457.h */,
 				94A095952365CD11006AC152 /* q0457.c */,
+				94ED2C41236729D100CB335A /* q0524.h */,
+				94ED2C42236729D100CB335A /* q0524.c */,
 				9492FE85235F504B006FC733 /* q0532.h */,
 				9492FE86235F504B006FC733 /* q0532.c */,
 				9492FE88235F5083006FC733 /* q0844.h */,
@@ -499,6 +504,7 @@
 				9492FE48235F4B3C006FC733 /* q0075.c in Sources */,
 				9492FDF7235F09A9006FC733 /* q0018.c in Sources */,
 				9492FE1E235F12DC006FC733 /* q0031.c in Sources */,
+				94ED2C43236729D100CB335A /* q0524.c in Sources */,
 				9492FDDC235F05CF006FC733 /* q0009.c in Sources */,
 				9492FE03235F0A7C006FC733 /* q0021.c in Sources */,
 				9492FE8A235F5083006FC733 /* q0844.c in Sources */,

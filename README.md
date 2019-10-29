@@ -71,8 +71,9 @@
 18. Q350 [Intersection of Two Arrays II](./LeetCode/LeetCode/algorithms/q0350.c)
 19. Q424 [Longest Repeating Character Replacement](./LeetCode/LeetCode/algorithms/q0424.c)
 20. Q457 [Circular Array Loop](./LeetCode/LeetCode/algorithms/q0457.c)
-21. Q532 [K-diff Pairs in an Array](./LeetCode/LeetCode/algorithms/q0532.c)
-22. Q844 [Backspace String Compare](./LeetCode/LeetCode/algorithms/q0844.c)
+21. Q524 [Longest Word in Dictionary through Deleting](./LeetCode/LeetCode/algorithms/q0524.c)
+22. Q532 [K-diff Pairs in an Array](./LeetCode/LeetCode/algorithms/q0532.c)
+23. Q844 [Backspace String Compare](./LeetCode/LeetCode/algorithms/q0844.c)
 
 
 #### A friend's recommendation
