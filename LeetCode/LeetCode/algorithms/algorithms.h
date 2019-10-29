@@ -95,6 +95,8 @@
 
 #include "q0532.h"
 
+#include "q0567.h"
+
 #include "q0844.h"
 
 #include "q1081.h"
