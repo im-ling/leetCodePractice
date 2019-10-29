@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		68004A9921BBB9D400C66CE9 /* Extra.c in Sources */ = {isa = PBXBuildFile; fileRef = 68004A9821BBB9D400C66CE9 /* Extra.c */; };
 		683B86D121A637890003AAA9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 683B86D021A637890003AAA9 /* main.m */; };
+		9465F0B523687C79005F8BD0 /* q0058.c in Sources */ = {isa = PBXBuildFile; fileRef = 9465F0B423687C79005F8BD0 /* q0058.c */; };
+		9465F0B823687FF2005F8BD0 /* q0066.c in Sources */ = {isa = PBXBuildFile; fileRef = 9465F0B723687FF2005F8BD0 /* q0066.c */; };
+		9465F0BB236885BA005F8BD0 /* q0067.c in Sources */ = {isa = PBXBuildFile; fileRef = 9465F0BA236885BA005F8BD0 /* q0067.c */; };
+		9465F0BE2368969A005F8BD0 /* q0069.c in Sources */ = {isa = PBXBuildFile; fileRef = 9465F0BD2368969A005F8BD0 /* q0069.c */; };
+		9465F0C12368B1FB005F8BD0 /* q0083.c in Sources */ = {isa = PBXBuildFile; fileRef = 9465F0C02368B1FB005F8BD0 /* q0083.c */; };
+		9465F0C72368B7AA005F8BD0 /* q0100.c in Sources */ = {isa = PBXBuildFile; fileRef = 9465F0C62368B7AA005F8BD0 /* q0100.c */; };
+		9465F0CA2368BC6A005F8BD0 /* q0101.c in Sources */ = {isa = PBXBuildFile; fileRef = 9465F0C92368BC6A005F8BD0 /* q0101.c */; };
+		9465F0CD2368C399005F8BD0 /* q0104.c in Sources */ = {isa = PBXBuildFile; fileRef = 9465F0CC2368C399005F8BD0 /* q0104.c */; };
 		9492FDBB235EF100006FC733 /* common.c in Sources */ = {isa = PBXBuildFile; fileRef = 9492FDBA235EF100006FC733 /* common.c */; };
 		9492FDC3235EFD7B006FC733 /* q0001.c in Sources */ = {isa = PBXBuildFile; fileRef = 9492FDC2235EFD7B006FC733 /* q0001.c */; };
 		9492FDC7235EFEBA006FC733 /* q0002.c in Sources */ = {isa = PBXBuildFile; fileRef = 9492FDC6235EFEBA006FC733 /* q0002.c */; };
@@ -97,6 +105,22 @@
 		68004A9821BBB9D400C66CE9 /* Extra.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Extra.c; sourceTree = "<group>"; };
 		683B86CD21A637890003AAA9 /* LeetCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LeetCode; sourceTree = BUILT_PRODUCTS_DIR; };
 		683B86D021A637890003AAA9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9465F0B323687C79005F8BD0 /* q0058.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0058.h; sourceTree = "<group>"; };
+		9465F0B423687C79005F8BD0 /* q0058.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0058.c; sourceTree = "<group>"; };
+		9465F0B623687FF2005F8BD0 /* q0066.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0066.h; sourceTree = "<group>"; };
+		9465F0B723687FF2005F8BD0 /* q0066.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0066.c; sourceTree = "<group>"; };
+		9465F0B9236885BA005F8BD0 /* q0067.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0067.h; sourceTree = "<group>"; };
+		9465F0BA236885BA005F8BD0 /* q0067.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0067.c; sourceTree = "<group>"; };
+		9465F0BC2368969A005F8BD0 /* q0069.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0069.h; sourceTree = "<group>"; };
+		9465F0BD2368969A005F8BD0 /* q0069.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0069.c; sourceTree = "<group>"; };
+		9465F0BF2368B1FB005F8BD0 /* q0083.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0083.h; sourceTree = "<group>"; };
+		9465F0C02368B1FB005F8BD0 /* q0083.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0083.c; sourceTree = "<group>"; };
+		9465F0C52368B7AA005F8BD0 /* q0100.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0100.h; sourceTree = "<group>"; };
+		9465F0C62368B7AA005F8BD0 /* q0100.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0100.c; sourceTree = "<group>"; };
+		9465F0C82368BC6A005F8BD0 /* q0101.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0101.h; sourceTree = "<group>"; };
+		9465F0C92368BC6A005F8BD0 /* q0101.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0101.c; sourceTree = "<group>"; };
+		9465F0CB2368C399005F8BD0 /* q0104.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0104.h; sourceTree = "<group>"; };
+		9465F0CC2368C399005F8BD0 /* q0104.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0104.c; sourceTree = "<group>"; };
 		9492FDB9235EEE9A006FC733 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		9492FDBA235EF100006FC733 /* common.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = common.c; sourceTree = "<group>"; };
 		9492FDC1235EFD7B006FC733 /* q0001.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0001.h; sourceTree = "<group>"; };
@@ -364,8 +388,16 @@
 				9492FE3B235F4A12006FC733 /* q0043.c */,
 				9492FE3D235F4A44006FC733 /* q0046.h */,
 				9492FE3E235F4A44006FC733 /* q0046.c */,
+				9465F0B323687C79005F8BD0 /* q0058.h */,
+				9465F0B423687C79005F8BD0 /* q0058.c */,
 				9492FE40235F4A7C006FC733 /* q0061.h */,
 				9492FE41235F4A7C006FC733 /* q0061.c */,
+				9465F0B623687FF2005F8BD0 /* q0066.h */,
+				9465F0B723687FF2005F8BD0 /* q0066.c */,
+				9465F0B9236885BA005F8BD0 /* q0067.h */,
+				9465F0BA236885BA005F8BD0 /* q0067.c */,
+				9465F0BC2368969A005F8BD0 /* q0069.h */,
+				9465F0BD2368969A005F8BD0 /* q0069.c */,
 				9492FE43235F4B04006FC733 /* q0070.h */,
 				9492FE44235F4B04006FC733 /* q0070.c */,
 				9492FE46235F4B3C006FC733 /* q0075.h */,
@@ -374,10 +406,18 @@
 				9492FE4A235F4B6A006FC733 /* q0076.c */,
 				9492FE4C235F4B9A006FC733 /* q0080.h */,
 				9492FE4D235F4B9A006FC733 /* q0080.c */,
+				9465F0BF2368B1FB005F8BD0 /* q0083.h */,
+				9465F0C02368B1FB005F8BD0 /* q0083.c */,
 				9492FE4F235F4C3E006FC733 /* q0086.h */,
 				9492FE50235F4C3E006FC733 /* q0086.c */,
 				9492FE52235F4CDA006FC733 /* q0088.h */,
 				9492FE53235F4CDA006FC733 /* q0088.c */,
+				9465F0C52368B7AA005F8BD0 /* q0100.h */,
+				9465F0C62368B7AA005F8BD0 /* q0100.c */,
+				9465F0C82368BC6A005F8BD0 /* q0101.h */,
+				9465F0C92368BC6A005F8BD0 /* q0101.c */,
+				9465F0CB2368C399005F8BD0 /* q0104.h */,
+				9465F0CC2368C399005F8BD0 /* q0104.c */,
 				9492FE55235F4D55006FC733 /* q0125.h */,
 				9492FE56235F4D55006FC733 /* q0125.c */,
 				9492FE5B235F4DBC006FC733 /* q0141.h */,
@@ -485,6 +525,9 @@
 				9492FE81235F4FE5006FC733 /* q0424.c in Sources */,
 				9492FE0C235F0E94006FC733 /* q0024.c in Sources */,
 				9492FE54235F4CDA006FC733 /* q0088.c in Sources */,
+				9465F0C72368B7AA005F8BD0 /* q0100.c in Sources */,
+				9465F0CA2368BC6A005F8BD0 /* q0101.c in Sources */,
+				9465F0BB236885BA005F8BD0 /* q0067.c in Sources */,
 				9492FDCA235EFF87006FC733 /* q0003.c in Sources */,
 				9492FDF4235F094C006FC733 /* q0017.c in Sources */,
 				9492FDF1235F0914006FC733 /* q0016.c in Sources */,
@@ -502,12 +545,16 @@
 				9492FE87235F504B006FC733 /* q0532.c in Sources */,
 				9492FE09235F0B0F006FC733 /* q0023.c in Sources */,
 				9492FE42235F4A7C006FC733 /* q0061.c in Sources */,
+				9465F0BE2368969A005F8BD0 /* q0069.c in Sources */,
 				9492FE60235F4DE9006FC733 /* q0142.c in Sources */,
+				9465F0C12368B1FB005F8BD0 /* q0083.c in Sources */,
 				9492FE0F235F0F15006FC733 /* q0025.c in Sources */,
+				9465F0CD2368C399005F8BD0 /* q0104.c in Sources */,
 				9492FE36235F48DB006FC733 /* q0041.c in Sources */,
 				9492FE12235F0F56006FC733 /* q0026.c in Sources */,
 				9492FE48235F4B3C006FC733 /* q0075.c in Sources */,
 				9492FDF7235F09A9006FC733 /* q0018.c in Sources */,
+				9465F0B823687FF2005F8BD0 /* q0066.c in Sources */,
 				9492FE1E235F12DC006FC733 /* q0031.c in Sources */,
 				94ED2C43236729D100CB335A /* q0524.c in Sources */,
 				9492FDDC235F05CF006FC733 /* q0009.c in Sources */,
@@ -545,6 +592,7 @@
 				9492FDEE235F0873006FC733 /* q0015.c in Sources */,
 				9492FDD0235F0437006FC733 /* q0005.c in Sources */,
 				94E6EAA8236225B700B25080 /* q0287.c in Sources */,
+				9465F0B523687C79005F8BD0 /* q0058.c in Sources */,
 				9492FE4E235F4B9A006FC733 /* q0080.c in Sources */,
 				9492FE78235F4F57006FC733 /* q0345.c in Sources */,
 				9492FE45235F4B04006FC733 /* q0070.c in Sources */,

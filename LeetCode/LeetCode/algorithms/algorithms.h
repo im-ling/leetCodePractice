@@ -53,8 +53,14 @@
 
 #include "q0046.h"
 
+#include "q0058.h"
+
 #include "q0061.h"
 
+#include "q0066.h"
+#include "q0067.h"
+
+#include "q0069.h"
 #include "q0070.h"
 
 #include "q0075.h"
@@ -62,9 +68,16 @@
 
 #include "q0080.h"
 
+#include "q0083.h"
+
 #include "q0086.h"
 
 #include "q0088.h"
+
+#include "q0100.h"
+#include "q0101.h"
+
+#include "q0104.h"
 
 #include "q0125.h"
 

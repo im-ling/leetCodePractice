@@ -54,8 +54,14 @@ int main(int argc, const char * argv[]) {
 
 //        question46();
 
+//        question58();
+
 //        question61();
 
+//        question66();
+//        question67();
+
+//        question69();
 //        question70();
 
 //        question75();
@@ -63,10 +69,17 @@ int main(int argc, const char * argv[]) {
 
 //        question80();
 
+//        question83();
+    
 //        question86();
 
 //        question88();
 
+//        question100();
+//        question101();
+
+//        question104();
+        
 //        question125();
 
 //        question141();

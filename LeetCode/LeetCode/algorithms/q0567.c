@@ -45,7 +45,7 @@
 
 bool checkInclusion(char * s1, char * s2){
     int ascii_s1[128] = {0};
-    int len_s1 = strlen(s1);
+    int len_s1 = (int)strlen(s1);
 //    int len_s2 = strlen(s2);
     int count = len_s1;
     char *start = s2;
