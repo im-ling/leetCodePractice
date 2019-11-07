@@ -80,15 +80,50 @@ int main(int argc, const char * argv[]) {
 
 //        question104();
         
+//        question108();
+
+//        question110();
+//        question111();
+//        question112();
+
+//        question118();
+
+//        question121();
+//        question122();
+
 //        question125();
+//        question136();
 
 //        question141();
 //        question142();
 
+//        question160();
+
 //        question167();
+//        question169();
+
+//        question172();
+
+//        question189();
+//        question190();
+//        question191();
+
+//        question198();
+
+//        question202();
+//        question203();
+
+//        question205();
+//        question206();
 
 //        question209();
 
+//        question217();
+
+//        question226();
+
+//        question231();
+    
 //        question234();
 
 //        question283();

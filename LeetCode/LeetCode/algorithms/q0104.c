@@ -7,7 +7,6 @@
 //
 
 #include "q0104.h"
-#include "../common.h"
 
 //104. Maximum Depth of Binary Tree
 //Easy

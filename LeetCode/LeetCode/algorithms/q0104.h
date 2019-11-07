@@ -10,5 +10,8 @@
 #define q0104_h
 
 #include <stdio.h>
+#include "../common.h"
+
+int maxDepth(struct TreeNode* root);
 int question104(void);
 #endif /* q0104_h */
