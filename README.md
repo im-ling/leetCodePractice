@@ -49,40 +49,76 @@
 |45 |[Jump Game II](https://leetcode.com/problems/jump-game-ii)|[C](./LeetCode/LeetCode/algorithms/q0045.c)  |Hard ||
 |46 |[Permutations](https://leetcode.com/problems/permutations)|[C](./LeetCode/LeetCode/algorithms/q0046.c)  |Medium |✔️|
 
+
 ### Problem not in Order:
 #### Two Pointers
-1. Q61 [Rotate List](./LeetCode/LeetCode/algorithms/q0061.c)
-2. Q75 [Sort Colors](./LeetCode/LeetCode/algorithms/q0075.c)
-3. Q76 [Minimum Window Substring](./LeetCode/LeetCode/algorithms/q0076.c)
-4. Q80 [Remove Duplicates from Sorted Array II](./LeetCode/LeetCode/algorithms/q0080.c)
-5. Q86 [Partition List](./LeetCode/LeetCode/algorithms/q0086.c)
-6. Q88 [Merge Sorted Array](./LeetCode/LeetCode/algorithms/q0088.c)
-7. Q125 [Valid Palindrome](./LeetCode/LeetCode/algorithms/q0125.c)
-8. Q141 [Linked List Cycle](./LeetCode/LeetCode/algorithms/q0141.c)
-9. Q142 [Linked List Cycle II](./LeetCode/LeetCode/algorithms/q0142.c)
-10. Q167 [Two Sum II](./LeetCode/LeetCode/algorithms/q0167.c)
-11. Q209 [Minimum Size Subarray Sum](./LeetCode/LeetCode/algorithms/q0209.c)
-12. Q234 [Palindrome Linked List](./LeetCode/LeetCode/algorithms/q0234.c)
-13. Q283 [Move Zeroes](./LeetCode/LeetCode/algorithms/q0283.c)
-14. Q287 [Find the Duplicate Number](./LeetCode/LeetCode/algorithms/q0287.c)
-15. Q344 [Reverse String](./LeetCode/LeetCode/algorithms/q0344.c)
-16. Q345 [Reverse Vowels of a String](./LeetCode/LeetCode/algorithms/q0345.c)
-17. Q349 [Intersection of Two Arrays](./LeetCode/LeetCode/algorithms/q0349.c)
-18. Q350 [Intersection of Two Arrays II](./LeetCode/LeetCode/algorithms/q0350.c)
-19. Q424 [Longest Repeating Character Replacement](./LeetCode/LeetCode/algorithms/q0424.c)
-20. Q457 [Circular Array Loop](./LeetCode/LeetCode/algorithms/q0457.c)
-21. Q524 [Longest Word in Dictionary through Deleting](./LeetCode/LeetCode/algorithms/q0524.c)
-22. Q532 [K-diff Pairs in an Array](./LeetCode/LeetCode/algorithms/q0532.c)
-23. Q567 [Permutation in String](./LeetCode/LeetCode/algorithms/q0567.c)
-24. Q844 [Backspace String Compare](./LeetCode/LeetCode/algorithms/q0844.c)
+|No.|Question|Solution|Difficulty|Finished|
+|-|-|-|-|-|
+|Q61|[Rotate List](https://leetcode.com/problems/rotate-list/)|[C](./LeetCode/LeetCode/algorithms/q0061.c)  |Medium |✔️|
+|Q75|[Sort Colors](https://leetcode.com/problems/sort-colors/)|[C](./LeetCode/LeetCode/algorithms/q0075.c)  |Medium |✔️|
+|Q76|[Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)|[C](./LeetCode/LeetCode/algorithms/q0076.c)  |Hard |✔️|
+|Q80|[Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)|[C](./LeetCode/LeetCode/algorithms/q0080.c)  |Medium |✔️|
+|Q86|[Partition List](https://leetcode.com/problems/partition-list/)|[C](./LeetCode/LeetCode/algorithms/q0086.c)  |Medium |✔️|
+|Q88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[C](./LeetCode/LeetCode/algorithms/q0088.c)  |Easy |✔️|
+|Q125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[C](./LeetCode/LeetCode/algorithms/q0125.c)  |Easy |✔️|
+|Q141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)|[C](./LeetCode/LeetCode/algorithms/q0141.c)  |Easy |✔️|
+|Q142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|[C](./LeetCode/LeetCode/algorithms/q0142.c)  |Medium |✔️|
+|Q167|[Two Sum II](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|[C](./LeetCode/LeetCode/algorithms/q0167.c)  |Easy |✔️|
+|Q209|[Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)|[C](./LeetCode/LeetCode/algorithms/q0209.c)  |Medium |✔️|
+|Q234|[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)|[C](./LeetCode/LeetCode/algorithms/q0234.c)  |Easy |✔️|
+|Q283|[Move Zeroes](https://leetcode.com/problems/move-zeroes/)|[C](./LeetCode/LeetCode/algorithms/q0283.c)  |Easy |✔️|
+|Q287|[Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)|[C](./LeetCode/LeetCode/algorithms/q0287.c)  |Medium |✔️|
+|Q344|[Reverse String](https://leetcode.com/problems/reverse-string/)|[C](./LeetCode/LeetCode/algorithms/q0344.c)  |Easy |✔️|
+|Q345|[Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/)|[C](./LeetCode/LeetCode/algorithms/q0345.c)  |Easy |✔️|
+|Q349|[Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/)|[C](./LeetCode/LeetCode/algorithms/q0349.c)  |Easy |✔️|
+|Q350|[Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/)|[C](./LeetCode/LeetCode/algorithms/q0350.c)  |Easy |✔️|
+|Q424|[Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)|[C](./LeetCode/LeetCode/algorithms/q0424.c)  |Medium |✔️|
+|Q457|[Circular Array Loop](https://leetcode.com/problems/circular-array-loop/)|[C](./LeetCode/LeetCode/algorithms/q0457.c)  |Medium |✔️|
+|Q524|[Longest Word in Dictionary through Deleting](https://leetcode.com/problems/longest-word-in-dictionary-through-deleting/)|[C](./LeetCode/LeetCode/algorithms/q0524.c)  |Medium |✔️|
+|Q532|[K-diff Pairs in an Array](https://leetcode.com/problems/k-diff-pairs-in-an-array/)|[C](./LeetCode/LeetCode/algorithms/q0532.c)  |Easy |✔️|
+|Q567|[Permutation in String](https://leetcode.com/problems/permutation-in-string/)|[C](./LeetCode/LeetCode/algorithms/q0567.c)  |Medium |✔️|
+|Q844|[Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)|[C](./LeetCode/LeetCode/algorithms/q0844.c)  |Easy |✔️|
 
+#### Rush in C
+|No.|Question|Solution|Difficulty|Finished|
+|-|-|-|-|-|
+|Q58|[Length of Last Word](https://leetcode.com/problems/length-of-last-word/)|[C](./LeetCode/LeetCode/algorithms/q0058.c)  |Easy |✔️|
+|Q66|[Plus One](https://leetcode.com/problems/plus-one/)|[C](./LeetCode/LeetCode/algorithms/q0066.c)  |Easy |✔️|
+|Q67|[Add Binary](https://leetcode.com/problems/add-binary/)|[C](./LeetCode/LeetCode/algorithms/q0067.c)  |Easy |✔️|
+|Q69|[Sqrt(x)](https://leetcode.com/problems/sqrtx/)|[C](./LeetCode/LeetCode/algorithms/q0069.c)  |Easy |✔️|
+|Q83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)|[C](./LeetCode/LeetCode/algorithms/q0083.c)  |Easy |✔️|
+|Q100|[Same Tree](https://leetcode.com/problems/same-tree/)|[C](./LeetCode/LeetCode/algorithms/q0100.c)  |Easy |✔️|
+|Q101|[Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)|[C](./LeetCode/LeetCode/algorithms/q0101.c)  |Easy |✔️|
+|Q104|[Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0104.c)  |Easy |✔️|
+|Q108|[ Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)|[C](./LeetCode/LeetCode/algorithms/q0108.c)  |Easy |✔️|
+|Q110|[Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0110.c)  |Easy |✔️|
+|Q111|[Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0111.c)  |Easy |✔️|
+|Q112|[Path Sum](https://leetcode.com/problems/path-sum/)|[C](./LeetCode/LeetCode/algorithms/q0112.c)  |Easy |✔️|
+|Q118|[Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)|[C](./LeetCode/LeetCode/algorithms/q0118.c)  |Easy |✔️|
+|Q121|[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)|[C](./LeetCode/LeetCode/algorithms/q0121.c)  |Easy |✔️|
+|Q122|[Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)|[C](./LeetCode/LeetCode/algorithms/q0122.c)  |Easy |✔️|
+|Q136|[Single Number](https://leetcode.com/problems/single-number/)|[C](./LeetCode/LeetCode/algorithms/q0136.c)  |Easy |✔️|
+|Q160|[Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)|[C](./LeetCode/LeetCode/algorithms/q0160.c)  |Easy |✔️|
+|Q169|[Majority Element](https://leetcode.com/problems/majority-element/)|[C](./LeetCode/LeetCode/algorithms/q0169.c)  |Easy |✔️|
+|Q172|[Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/)|[C](./LeetCode/LeetCode/algorithms/q0172.c)  |Easy |✔️|
+|Q189|[Rotate Array](https://leetcode.com/problems/rotate-array/)|[C](./LeetCode/LeetCode/algorithms/q0189.c)  |Easy |✔️|
+|Q190|[Reverse Bits](https://leetcode.com/problems/reverse-bits/)|[C](./LeetCode/LeetCode/algorithms/q0190.c)  |Easy |✔️|
+|Q191|[Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)|[C](./LeetCode/LeetCode/algorithms/q0191.c)  |Easy |✔️|
+|Q198|[ House Robber](https://leetcode.com/problems/house-robber/)|[C](./LeetCode/LeetCode/algorithms/q0198.c)  |Easy |✔️|
+|Q202|[Happy Number](https://leetcode.com/problems/happy-number/)|[C](./LeetCode/LeetCode/algorithms/q0202.c)  |Easy |✔️|
+|Q203|[Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)|[C](./LeetCode/LeetCode/algorithms/q0203.c)  |Easy |✔️|
+|Q205|[Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/)|[C](./LeetCode/LeetCode/algorithms/q0205.c)  |Easy |✔️|
+|Q206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|[C](./LeetCode/LeetCode/algorithms/q0206.c)  |Easy |✔️|
+|Q217|[Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)|[C](./LeetCode/LeetCode/algorithms/q0217.c)  |Easy |✔️|
+|Q226|[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0226.c)  |Easy |✔️|
+|Q231|[Power of Two](https://leetcode.com/problems/power-of-two/)|[C](./LeetCode/LeetCode/algorithms/q0231.c)  |Easy |✔️|
 
 #### A friend's recommendation
-|No.|Question Index|Question|Topic|
-|-|-|-|-|
-|1|844|Backspace String Compare| Stack, Two Pointer 
-|2|1081|Smallest Subsequence of Distinct Characters| Stack
-|3|1155|Number of Dice Rolls With Target Sum| Dynamic Programming
+|No.|Question Index|Question|solution|Topic|
+|-|-|-|-|-|
+|1|844|[Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)|[C](./LeetCode/LeetCode/algorithms/q0844.c)|Stack, Two Pointer 
+|2|1081|[Smallest Subsequence of Distinct Characters](https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/)|[C](./LeetCode/LeetCode/algorithms/q1081.c)| Stack
+|3|1155|[Number of Dice Rolls With Target Sum](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/)|[C](/LeetCode/LeetCode/algorithms/q1155.c)| Dynamic Programming
 
 
 #### Others:
