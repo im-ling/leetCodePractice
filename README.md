@@ -21,7 +21,7 @@
 |17 |[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number)|[C](./LeetCode/LeetCode/algorithms/q0017.c)  |Medium |✔️|
 |18 |[4Sum](https://leetcode.com/problems/4sum)|[C](./LeetCode/LeetCode/algorithms/q0018.c)  |Medium |✔️|
 |19 |[Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list)|[C](./LeetCode/LeetCode/algorithms/q0019.c)  |Medium |✔️|
-|20 |[Valid Parentheses](https://leetcode.com/problems/valid-parentheses)|[C](./LeetCode/LeetCode/algorithms/q0020.c)  |Easy |✔️|
+|20 |[Valid Parentheses](https://leetcode.com/problems/valid-parentheses)|[C](./LeetCode/LeetCode/algorithms/q0020.c) , [Python3](./LeetCode/LeetCode/algorithms/q0020.py)  |Easy |✔️|
 |21 |[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists)|[C](./LeetCode/LeetCode/algorithms/q0021.c)  |Easy |✔️|
 |22 |[Generate Parentheses](https://leetcode.com/problems/generate-parentheses)|[C](./LeetCode/LeetCode/algorithms/q0022.c)  |Medium |✔️|
 |23 |[Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists)|[C](./LeetCode/LeetCode/algorithms/q0023.c)  |Hard |✔️|
