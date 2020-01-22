@@ -71,35 +71,59 @@
 //Submissions
 //484,486
 
-bool fillABlank(bool *blanks,char element){
-    if (element == '.') {
-    }else if (blanks[element] == true){
-        return false;
-    }else{
-        blanks[element] = true;
+
+bool checkOneNumber(char** board, char c, int row, int col){
+    board[row][col] = '.';
+    for (int i = 0; i < 9; i++) {
+        if ((board[row][i] == c) || (board[i][col] == c) || board[row / 3 * 3 + i / 3][col / 3 * 3 + i % 3] == c){
+            board[row][col] = c;
+            return false;
+        }
     }
+    board[row][col] = 'c';
     return true;
 }
-#define Q36BlankSize 128
+
 bool isValidSudoku(char** board, int boardRowSize, int boardColSize) {
-    int result = true;
-    int blankSize = 128;
-    static bool *blank[Q36BlankSize];
-    static bool *blank2[Q36BlankSize];
-    static bool *blank3[Q36BlankSize];
     for (int i = 0; i < boardRowSize; i++) {
-        memset(blank, false, blankSize * sizeof(bool));
-        memset(blank2, false, blankSize * sizeof(bool));
-        memset(blank3, false, blankSize * sizeof(bool));
         for (int j = 0; j < boardColSize; j++) {
-            result = (fillABlank((bool *)blank, board[i][j]) && fillABlank((bool *)blank2, board[j][i]) && fillABlank((bool *)blank3, board[(i / 3) * 3 + j / 3][(i % 3) * 3 + j % 3]));
-            if (!result) {
-                return result;
+            if (board[i][j] != '.' && !checkOneNumber(board, board[i][j], i, j)) {
+                return false;
             }
         }
     }
-    return result;
+    return true;
 }
+
+//bool fillABlank(bool *blanks,char element){
+//    if (element == '.') {
+//    }else if (blanks[element] == true){
+//        return false;
+//    }else{
+//        blanks[element] = true;
+//    }
+//    return true;
+//}
+//#define Q36BlankSize 128
+//bool isValidSudoku(char** board, int boardRowSize, int boardColSize) {
+//    int result = true;
+//    int blankSize = 128;
+//    static bool *blank[Q36BlankSize];
+//    static bool *blank2[Q36BlankSize];
+//    static bool *blank3[Q36BlankSize];
+//    memset(blank, false, blankSize * sizeof(bool));
+//    memset(blank2, false, blankSize * sizeof(bool));
+//    memset(blank3, false, blankSize * sizeof(bool));
+//    for (int i = 0; i < boardRowSize; i++) {
+//        for (int j = 0; j < boardColSize; j++) {
+//            result = (fillABlank((bool *)blank, board[i][j]) && fillABlank((bool *)blank2, board[j][i]) && fillABlank((bool *)blank3, board[(i / 3) * 3 + j / 3][(i % 3) * 3 + j % 3]));
+//            if (!result) {
+//                return result;
+//            }
+//        }
+//    }
+//    return result;
+//}
 int question36(void){
     int boardRowSize = 9;
     int boardColSize = 9;
@@ -107,7 +131,9 @@ int question36(void){
     for (int i = 0; i < boardRowSize; i++) {
         board[i] = calloc(boardColSize, sizeof(char));
     }
-    char *str = "[['.','9','.','.','4','.','.','.','.'],['1','.','.','.','.','.','6','.','.'],['.','.','3','.','.','.','.','.','.'],['.','.','.','.','.','.','.','.','.'],['.','.','.','7','.','.','.','.','.'],['3','.','.','.','5','.','.','.','.'],['.','.','7','.','.','4','.','.','.'],['.','.','.','.','.','.','.','.','.'],['.','.','.','.','7','.','.','.','.']]";
+    
+    char *str = "[['5','3','.','.','7','.','.','.','.'],['6','.','.','1','9','5','.','.','.'],['.','9','8','.','.','.','.','6','.'],['8','.','.','.','6','.','.','.','3'],['4','.','.','8','.','3','.','.','1'],['7','.','.','.','2','.','.','.','6'],['.','6','.','.','.','.','2','8','.'],['.','.','.','4','1','9','.','.','5'],['.','.','.','.','8','.','.','7','9']]";
+//    "[['.','9','.','.','4','.','.','.','.'],['1','.','.','.','.','.','6','.','.'],['.','.','3','.','.','.','.','.','.'],['.','.','.','.','.','.','.','.','.'],['.','.','.','7','.','.','.','.','.'],['3','.','.','.','5','.','.','.','.'],['.','.','7','.','.','4','.','.','.'],['.','.','.','.','.','.','.','.','.'],['.','.','.','.','7','.','.','.','.']]";
     int count = 0;
     for (char *p = str; *p != '\0'; p++) {
         if (*p != '[' && *p != '\'' && *p != ',' && *p !=']') {

@@ -10,5 +10,4 @@
 #define q0036_h
 #include "../common.h"
 int question36(void);
-bool isValidSudoku(char** board, int boardRowSize, int boardColSize);
 #endif /* q0036_h */
