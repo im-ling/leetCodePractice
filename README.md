@@ -112,6 +112,7 @@
 |Q217|[Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)|[C](./LeetCode/LeetCode/algorithms/q0217.c)  |Easy |✔️|
 |Q226|[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0226.c)  |Easy |✔️|
 |Q231|[Power of Two](https://leetcode.com/problems/power-of-two/)|[C](./LeetCode/LeetCode/algorithms/q0231.c)  |Easy |✔️|
+|Q696|[Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/)|[C](./LeetCode/LeetCode/algorithms/q0696.c)  |Easy |✔️|
 
 #### A friend's recommendation
 |No.|Question Index|Question|solution|Topic|
