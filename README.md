@@ -31,7 +31,7 @@
 |27 |[Remove Element](https://leetcode.com/problems/remove-element)|[C](./LeetCode/LeetCode/algorithms/q0027.c)  |Easy |✔️|
 |28 |[Implement strStr()](https://leetcode.com/problems/implement-strstr)|[C](./LeetCode/LeetCode/algorithms/q0028.c)  |Easy |✔️|
 |29 |[Divide Two Integers](https://leetcode.com/problems/divide-two-integers)|[C](./LeetCode/LeetCode/algorithms/q0029.c)  |Medium |✔️|
-|30 |[Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words)|[C](./LeetCode/LeetCode/algorithms/q0030.c)  |Hard ||
+|30 |[Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words)| |Hard ||
 |31 |[Next Permutation](https://leetcode.com/problems/next-permutation)|[C](./LeetCode/LeetCode/algorithms/q0031.c)  |Medium |✔️|
 |32 |[Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses)|[C](./LeetCode/LeetCode/algorithms/q0032.c)  |Hard |✔️|
 |33 |[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array)|[C](./LeetCode/LeetCode/algorithms/q0033.c)  |Medium |✔️|
@@ -40,13 +40,13 @@
 |36 |[Valid Sudoku](https://leetcode.com/problems/valid-sudoku)|[C](./LeetCode/LeetCode/algorithms/q0036.c)  |Medium |✔️|
 |37 |[Sudoku Solver](https://leetcode.com/problems/sudoku-solver)|[C](./LeetCode/LeetCode/algorithms/q0037.c)  |Hard |✔️|
 |38 |[Count and Say](https://leetcode.com/problems/count-and-say)|[C](./LeetCode/LeetCode/algorithms/q0038.c)  |Easy |✔️|
-|39 |[Combination Sum](https://leetcode.com/problems/combination-sum)|[C](./LeetCode/LeetCode/algorithms/q0039.c)  |Medium ||
-|40 |[Combination Sum II](https://leetcode.com/problems/combination-sum-ii)|[C](./LeetCode/LeetCode/algorithms/q0040.c)  |Medium |✔️|
+|39 |[Combination Sum](https://leetcode.com/problems/combination-sum)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0039.swift)  |Medium |✔️|
+|40 |[Combination Sum II](https://leetcode.com/problems/combination-sum-ii)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0040.swift)  |Medium |✔️|
 |41 |[First Missing Positive](https://leetcode.com/problems/first-missing-positive)|[C](./LeetCode/LeetCode/algorithms/q0041.c)  |Hard |✔️|
 |42 |[Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water)|[C](./LeetCode/LeetCode/algorithms/q0042.c)  |Hard |✔️|
-|43 |[Multiply Strings](https://leetcode.com/problems/multiply-strings)|[C](./LeetCode/LeetCode/algorithms/q0043.c)  |Medium ||
-|44 |[Wildcard Matching](https://leetcode.com/problems/wildcard-matching)|[C](./LeetCode/LeetCode/algorithms/q0044.c)  |Hard ||
-|45 |[Jump Game II](https://leetcode.com/problems/jump-game-ii)|[C](./LeetCode/LeetCode/algorithms/q0045.c)  |Hard ||
+|43 |[Multiply Strings](https://leetcode.com/problems/multiply-strings)|[C](./LeetCode/LeetCode/algorithms/q0043.c)  |Medium |✔️|
+|44 |[Wildcard Matching](https://leetcode.com/problems/wildcard-matching)| |Hard ||
+|45 |[Jump Game II](https://leetcode.com/problems/jump-game-ii)|  |Hard ||
 |46 |[Permutations](https://leetcode.com/problems/permutations)|[C](./LeetCode/LeetCode/algorithms/q0046.c)  |Medium |✔️|
 
 
