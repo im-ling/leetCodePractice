@@ -51,6 +51,12 @@
 
 
 ### Problem not in Order:
+#### Random
+|No.|Question|Solution|Difficulty|Finished|
+|-|-|-|-|-|
+|Q678|[Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/)|[C](./LeetCode/LeetCode/algorithms/q0678.c),[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0678.swift)|Medium |✔️|
+|Q704|[Binary Search](https://leetcode.com/problems/binary-search/)|[C](./LeetCode/LeetCode/algorithms/q0704.c)  |Easy |✔️|
+
 #### Two Pointers
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
@@ -79,7 +85,7 @@
 |Q567|[Permutation in String](https://leetcode.com/problems/permutation-in-string/)|[C](./LeetCode/LeetCode/algorithms/q0567.c)  |Medium |✔️|
 |Q844|[Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)|[C](./LeetCode/LeetCode/algorithms/q0844.c)  |Easy |✔️|
 
-#### Rush in C
+#### Rush
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
 |Q58|[Length of Last Word](https://leetcode.com/problems/length-of-last-word/)|[C](./LeetCode/LeetCode/algorithms/q0058.c)  |Easy |✔️|
@@ -90,6 +96,7 @@
 |Q100|[Same Tree](https://leetcode.com/problems/same-tree/)|[C](./LeetCode/LeetCode/algorithms/q0100.c)  |Easy |✔️|
 |Q101|[Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)|[C](./LeetCode/LeetCode/algorithms/q0101.c)  |Easy |✔️|
 |Q104|[Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0104.c)  |Easy |✔️|
+|Q107|[Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0107.swift)  |Easy |✔️|
 |Q108|[ Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)|[C](./LeetCode/LeetCode/algorithms/q0108.c)  |Easy |✔️|
 |Q110|[Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0110.c)  |Easy |✔️|
 |Q111|[Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0111.c)  |Easy |✔️|

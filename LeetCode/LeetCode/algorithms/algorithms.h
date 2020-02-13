@@ -145,7 +145,11 @@
 
 #include "q0567.h"
 
+#include "q0678.h"
+
 #include "q0696.h"
+
+#include "q0704.h"
 
 #include "q0844.h"
 

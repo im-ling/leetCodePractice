@@ -10,5 +10,7 @@ import Foundation
 
 print("Hello, leetcode!")
 
-//q0039();
-//q0040();
+//q0039()
+//q0040()
+//q0107()
+//q0678()

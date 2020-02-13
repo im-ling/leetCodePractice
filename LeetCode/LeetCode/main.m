@@ -145,8 +145,12 @@ int main(int argc, const char * argv[]) {
 //        question524();
     
 //        question567();
-    
+
+//        question678();
+
 //        question696();
+
+//        question704();
 
 //        question844();
 
