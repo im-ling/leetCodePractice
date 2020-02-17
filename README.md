@@ -48,6 +48,7 @@
 |44 |[Wildcard Matching](https://leetcode.com/problems/wildcard-matching)| |Hard ||
 |45 |[Jump Game II](https://leetcode.com/problems/jump-game-ii)|  |Hard ||
 |46 |[Permutations](https://leetcode.com/problems/permutations)|[C](./LeetCode/LeetCode/algorithms/q0046.c)  |Medium |✔️|
+|47 |[Permutations II](https://leetcode.com/problems/permutations-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0047.swift)  |Medium |✔️|
 
 
 ### Problem not in Order:
