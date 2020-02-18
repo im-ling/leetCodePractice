@@ -27,10 +27,12 @@
 		9471640923F16B9500163DE8 /* q0696.c in Sources */ = {isa = PBXBuildFile; fileRef = 9471640823F16B9500163DE8 /* q0696.c */; };
 		9471640C23F266E700163DE8 /* q0704.c in Sources */ = {isa = PBXBuildFile; fileRef = 9471640B23F266E700163DE8 /* q0704.c */; };
 		9471643B23F57D7D00163DE8 /* q0678.c in Sources */ = {isa = PBXBuildFile; fileRef = 9471643A23F57D7D00163DE8 /* q0678.c */; };
+		9471643E23F63CAC00163DE8 /* q0980.c in Sources */ = {isa = PBXBuildFile; fileRef = 9471643D23F63CAC00163DE8 /* q0980.c */; };
 		9471644123F7C99600163DE8 /* q0456.c in Sources */ = {isa = PBXBuildFile; fileRef = 9471644023F7C99600163DE8 /* q0456.c */; };
 		94896616236ABA5B008C50E6 /* q0169.c in Sources */ = {isa = PBXBuildFile; fileRef = 94896615236ABA5B008C50E6 /* q0169.c */; };
 		94896619236ABD4A008C50E6 /* q0172.c in Sources */ = {isa = PBXBuildFile; fileRef = 94896618236ABD4A008C50E6 /* q0172.c */; };
 		9490A06423FBB1260037F06D /* q0437.c in Sources */ = {isa = PBXBuildFile; fileRef = 9490A06323FBB1260037F06D /* q0437.c */; };
+		9490A06723FBB3C60037F06D /* q0119.c in Sources */ = {isa = PBXBuildFile; fileRef = 9490A06623FBB3C60037F06D /* q0119.c */; };
 		9492FDBB235EF100006FC733 /* common.c in Sources */ = {isa = PBXBuildFile; fileRef = 9492FDBA235EF100006FC733 /* common.c */; };
 		9492FDC3235EFD7B006FC733 /* q0001.c in Sources */ = {isa = PBXBuildFile; fileRef = 9492FDC2235EFD7B006FC733 /* q0001.c */; };
 		9492FDC7235EFEBA006FC733 /* q0002.c in Sources */ = {isa = PBXBuildFile; fileRef = 9492FDC6235EFEBA006FC733 /* q0002.c */; };
@@ -168,6 +170,8 @@
 		9471640B23F266E700163DE8 /* q0704.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0704.c; sourceTree = "<group>"; };
 		9471643923F57D7D00163DE8 /* q0678.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0678.h; sourceTree = "<group>"; };
 		9471643A23F57D7D00163DE8 /* q0678.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0678.c; sourceTree = "<group>"; };
+		9471643C23F63CAC00163DE8 /* q0980.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0980.h; sourceTree = "<group>"; };
+		9471643D23F63CAC00163DE8 /* q0980.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0980.c; sourceTree = "<group>"; };
 		9471643F23F7C99600163DE8 /* q0456.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0456.h; sourceTree = "<group>"; };
 		9471644023F7C99600163DE8 /* q0456.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0456.c; sourceTree = "<group>"; };
 		94896614236ABA5B008C50E6 /* q0169.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0169.h; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 		94896618236ABD4A008C50E6 /* q0172.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0172.c; sourceTree = "<group>"; };
 		9490A06223FBB1260037F06D /* q0437.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0437.h; sourceTree = "<group>"; };
 		9490A06323FBB1260037F06D /* q0437.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0437.c; sourceTree = "<group>"; };
+		9490A06523FBB3C60037F06D /* q0119.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0119.h; sourceTree = "<group>"; };
+		9490A06623FBB3C60037F06D /* q0119.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0119.c; sourceTree = "<group>"; };
 		9492FDB9235EEE9A006FC733 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		9492FDBA235EF100006FC733 /* common.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = common.c; sourceTree = "<group>"; };
 		9492FDC1235EFD7B006FC733 /* q0001.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0001.h; sourceTree = "<group>"; };
@@ -351,6 +357,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9465F0D92368CE51005F8BD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -509,6 +522,8 @@
 				94CF876C2369FE0A0085BC53 /* q0112.c */,
 				94CF876E236A048E0085BC53 /* q0118.h */,
 				94CF876F236A048E0085BC53 /* q0118.c */,
+				9490A06523FBB3C60037F06D /* q0119.h */,
+				9490A06623FBB3C60037F06D /* q0119.c */,
 				94CF8771236A166F0085BC53 /* q0121.h */,
 				94CF8772236A166F0085BC53 /* q0121.c */,
 				94CF8774236A18DF0085BC53 /* q0122.h */,
@@ -589,6 +604,8 @@
 				9471640B23F266E700163DE8 /* q0704.c */,
 				9492FE88235F5083006FC733 /* q0844.h */,
 				9492FE89235F5083006FC733 /* q0844.c */,
+				9471643C23F63CAC00163DE8 /* q0980.h */,
+				9471643D23F63CAC00163DE8 /* q0980.c */,
 				9492FE8B235F50B7006FC733 /* q1081.h */,
 				9492FE8C235F50B7006FC733 /* q1081.c */,
 				9492FE8E235F50EC006FC733 /* q1155.h */,
@@ -617,17 +634,37 @@
 			productReference = 683B86CD21A637890003AAA9 /* LeetCode */;
 			productType = "com.apple.product-type.tool";
 		};
+		9465F0DB2368CE51005F8BD0 /* LeetCodeSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9465F0E02368CE51005F8BD0 /* Build configuration list for PBXNativeTarget "LeetCodeSwift" */;
+			buildPhases = (
+				9465F0D82368CE51005F8BD0 /* Sources */,
+				9465F0D92368CE51005F8BD0 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LeetCodeSwift;
+			productName = LeetCodeSwift;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		683B86C521A637890003AAA9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = DoubleL;
 				TargetAttributes = {
 					683B86CC21A637890003AAA9 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1110;
+					};
+					9465F0DB2368CE51005F8BD0 = {
+						CreatedOnToolsVersion = 11.1;
 					};
 				};
 			};
@@ -645,6 +682,7 @@
 			projectRoot = "";
 			targets = (
 				683B86CC21A637890003AAA9 /* LeetCode */,
+				9465F0DB2368CE51005F8BD0 /* LeetCodeSwift */,
 			);
 		};
 /* End PBXProject section */
@@ -658,11 +696,13 @@
 				9492FE3C235F4A12006FC733 /* q0043.c in Sources */,
 				9492FE2D235F47A5006FC733 /* q0036.c in Sources */,
 				9492FE81235F4FE5006FC733 /* q0424.c in Sources */,
+				9490A06423FBB1260037F06D /* q0437.c in Sources */,
 				9492FE0C235F0E94006FC733 /* q0024.c in Sources */,
 				9492FE54235F4CDA006FC733 /* q0088.c in Sources */,
 				9465F0C72368B7AA005F8BD0 /* q0100.c in Sources */,
 				9465F0CA2368BC6A005F8BD0 /* q0101.c in Sources */,
 				9465F0BB236885BA005F8BD0 /* q0067.c in Sources */,
+				9471643E23F63CAC00163DE8 /* q0980.c in Sources */,
 				9492FDCA235EFF87006FC733 /* q0003.c in Sources */,
 				9492FDF4235F094C006FC733 /* q0017.c in Sources */,
 				9492FDF1235F0914006FC733 /* q0016.c in Sources */,
@@ -736,6 +776,7 @@
 				9492FE27235F46B9006FC733 /* q0034.c in Sources */,
 				9492FE30235F47DC006FC733 /* q0037.c in Sources */,
 				683B86D121A637890003AAA9 /* main.m in Sources */,
+				9490A06723FBB3C60037F06D /* q0119.c in Sources */,
 				9492FDE2235F0681006FC733 /* q0011.c in Sources */,
 				9492FDC7235EFEBA006FC733 /* q0002.c in Sources */,
 				9492FE21235F461F006FC733 /* q0032.c in Sources */,
@@ -759,6 +800,13 @@
 				9492FE7B235F4F90006FC733 /* q0349.c in Sources */,
 				943D2FF72374BF30003B85EA /* q0203.c in Sources */,
 				9492FDCD235F03B9006FC733 /* q0004.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9465F0D82368CE51005F8BD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -879,18 +927,59 @@
 		683B86D521A637890003AAA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LeetCode/LeetCode-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		683B86D621A637890003AAA9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LeetCode/LeetCode-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		9465F0E12368CE51005F8BD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9465F0E22368CE51005F8BD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -911,6 +1000,15 @@
 			buildConfigurations = (
 				683B86D521A637890003AAA9 /* Debug */,
 				683B86D621A637890003AAA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9465F0E02368CE51005F8BD0 /* Build configuration list for PBXNativeTarget "LeetCodeSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9465F0E12368CE51005F8BD0 /* Debug */,
+				9465F0E22368CE51005F8BD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

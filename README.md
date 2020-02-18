@@ -106,6 +106,7 @@
 |Q111|[Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0111.c)  |Easy |✔️|
 |Q112|[Path Sum](https://leetcode.com/problems/path-sum/)|[C](./LeetCode/LeetCode/algorithms/q0112.c)  |Easy |✔️|
 |Q118|[Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)|[C](./LeetCode/LeetCode/algorithms/q0118.c)  |Easy |✔️|
+|Q119|[Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/submissions/)|[C](./LeetCode/LeetCode/algorithms/q0119.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0119.swift) |Easy |✔️|
 |Q121|[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)|[C](./LeetCode/LeetCode/algorithms/q0121.c)  |Easy |✔️|
 |Q122|[Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)|[C](./LeetCode/LeetCode/algorithms/q0122.c)  |Easy |✔️|
 |Q136|[Single Number](https://leetcode.com/problems/single-number/)|[C](./LeetCode/LeetCode/algorithms/q0136.c)  |Easy |✔️|
@@ -118,6 +119,7 @@
 |Q198|[ House Robber](https://leetcode.com/problems/house-robber/)|[C](./LeetCode/LeetCode/algorithms/q0198.c)  |Easy |✔️|
 |Q202|[Happy Number](https://leetcode.com/problems/happy-number/)|[C](./LeetCode/LeetCode/algorithms/q0202.c)  |Easy |✔️|
 |Q203|[Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)|[C](./LeetCode/LeetCode/algorithms/q0203.c)  |Easy |✔️|
+|Q204|[Count Primes](https://leetcode.com/problems/count-primes/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0119.swift) |Easy |✔️|
 |Q205|[Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/)|[C](./LeetCode/LeetCode/algorithms/q0205.c)  |Easy |✔️|
 |Q206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|[C](./LeetCode/LeetCode/algorithms/q0206.c)  |Easy |✔️|
 |Q217|[Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)|[C](./LeetCode/LeetCode/algorithms/q0217.c)  |Easy |✔️|
