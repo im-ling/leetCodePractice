@@ -2,7 +2,7 @@
 ### Problem No:
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|1 |[Two Sum](https://leetcode.com/problems/two-sum)|[C](./LeetCode/LeetCode/algorithms/q0001.c)  |Easy | ✔️ |
+|1 |[Two Sum](https://leetcode.com/problems/two-sum)|[C](./LeetCode/LeetCode/algorithms/q0001.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0001.swift) |Easy | ✔️ |
 |2 |[Add Two Numbers](https://leetcode.com/problems/add-two-numbers)|[C](./LeetCode/LeetCode/algorithms/q0002.c)  |Medium |✔️|
 |3 |[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)|[C](./LeetCode/LeetCode/algorithms/q0003.c)  |Medium |✔️|
 |4 |[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)|[C](./LeetCode/LeetCode/algorithms/q0004.c)  |Hard |✔️|
@@ -50,6 +50,7 @@
 |46 |[Permutations](https://leetcode.com/problems/permutations)|[C](./LeetCode/LeetCode/algorithms/q0046.c)  |Medium |✔️|
 |47 |[Permutations II](https://leetcode.com/problems/permutations-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0047.swift)  |Medium |✔️|
 |48 |[Rotate Image](https://leetcode.com/problems/rotate-image/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0048.swift)  |Medium |✔️|
+|49 |[Group Anagrams](https://leetcode.com/problems/group-anagrams/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0049.swift)  |Medium |✔️|
 
 
 ### Problem not in Order:
@@ -62,6 +63,7 @@
 |Q456|[132 Pattern](https://leetcode.com/problems/132-pattern/)|[C](./LeetCode/LeetCode/algorithms/q0456.c)|Medium |✔️|
 |Q678|[Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/)|[C](./LeetCode/LeetCode/algorithms/q0678.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0678.swift)|Medium |✔️|
 |Q704|[Binary Search](https://leetcode.com/problems/binary-search/)|[C](./LeetCode/LeetCode/algorithms/q0704.c)  |Easy |✔️|
+|Q771|[Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0771.swift)  |Easy |✔️|
 
 #### Two Pointers
 |No.|Question|Solution|Difficulty|Finished|
