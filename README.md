@@ -54,13 +54,16 @@
 |50 |[Pow(x, n)](https://leetcode.com/problems/powx-n/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0050.swift)  |Medium |✔️|
 |51 |[N-Queens](https://leetcode.com/problems/n-queens/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0051.swift)  |Hard |✔️|
 |52 |[N-Queens II](https://leetcode.com/problems/n-queens-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0052.swift)  |Hard |✔️|
-
+|53 |[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0053.swift)  |Easy |✔️|
+|54 |[Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0054.swift)  |Medium |✔️|
+|55 |[Jump Game](https://leetcode.com/problems/jump-game/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0055.swift)  |Medium |✔️|
+|56 |[Merge Intervals](https://leetcode.com/problems/merge-intervals/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0056.swift)  |Medium |✔️|
+|57 |[Insert Interval](https://leetcode.com/problems/insert-interval/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0057.swift)  |Hard |✔️|
 
 ### Problem not in Order:
 #### Random
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|54 |[Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0054.swift)  |Medium |✔️|
 |Q416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0416.swift)|Medium |✔️|
 |Q437|[Path Sum III](https://leetcode.com/problems/path-sum-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift) , [C](./LeetCode/LeetCode/algorithms/q0437.c)|Easy |✔️|
 |Q456|[132 Pattern](https://leetcode.com/problems/132-pattern/)|[C](./LeetCode/LeetCode/algorithms/q0456.c)|Medium |✔️|
