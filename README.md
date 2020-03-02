@@ -52,6 +52,8 @@
 |48 |[Rotate Image](https://leetcode.com/problems/rotate-image/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0048.swift)  |Medium |✔️|
 |49 |[Group Anagrams](https://leetcode.com/problems/group-anagrams/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0049.swift)  |Medium |✔️|
 |50 |[Pow(x, n)](https://leetcode.com/problems/powx-n/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0050.swift)  |Medium |✔️|
+|51 |[N-Queens](https://leetcode.com/problems/n-queens/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0051.swift)  |Hard |✔️|
+|52 |[N-Queens II](https://leetcode.com/problems/n-queens-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0052.swift)  |Hard |✔️|
 
 
 ### Problem not in Order:
