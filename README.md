@@ -51,6 +51,7 @@
 |47 |[Permutations II](https://leetcode.com/problems/permutations-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0047.swift)  |Medium |✔️|
 |48 |[Rotate Image](https://leetcode.com/problems/rotate-image/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0048.swift)  |Medium |✔️|
 |49 |[Group Anagrams](https://leetcode.com/problems/group-anagrams/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0049.swift)  |Medium |✔️|
+|50 |[Pow(x, n)](https://leetcode.com/problems/powx-n/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0050.swift)  |Medium |✔️|
 
 
 ### Problem not in Order:
