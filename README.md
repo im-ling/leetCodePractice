@@ -59,6 +59,9 @@
 |55 |[Jump Game](https://leetcode.com/problems/jump-game/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0055.swift)  |Medium |✔️|
 |56 |[Merge Intervals](https://leetcode.com/problems/merge-intervals/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0056.swift)  |Medium |✔️|
 |57 |[Insert Interval](https://leetcode.com/problems/insert-interval/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0057.swift)  |Hard |✔️|
+|58|[Length of Last Word](https://leetcode.com/problems/length-of-last-word/)|[C](./LeetCode/LeetCode/algorithms/q0058.c)  |Easy |✔️|
+|59 |[Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0059.swift)  |Medium |✔️|
+|60 |[Permutation Sequence](https://leetcode.com/problems/permutation-sequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0060.swift)  |Medium |✔️|
 
 ### Problem not in Order:
 #### Random
@@ -102,7 +105,6 @@
 #### Rush
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|Q58|[Length of Last Word](https://leetcode.com/problems/length-of-last-word/)|[C](./LeetCode/LeetCode/algorithms/q0058.c)  |Easy |✔️|
 |Q66|[Plus One](https://leetcode.com/problems/plus-one/)|[C](./LeetCode/LeetCode/algorithms/q0066.c)  |Easy |✔️|
 |Q67|[Add Binary](https://leetcode.com/problems/add-binary/)|[C](./LeetCode/LeetCode/algorithms/q0067.c)  |Easy |✔️|
 |Q69|[Sqrt(x)](https://leetcode.com/problems/sqrtx/)|[C](./LeetCode/LeetCode/algorithms/q0069.c)  |Easy |✔️|
