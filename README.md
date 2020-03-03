@@ -21,7 +21,7 @@
 |17 |[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number)|[C](./LeetCode/LeetCode/algorithms/q0017.c)  |Medium |✔️|
 |18 |[4Sum](https://leetcode.com/problems/4sum)|[C](./LeetCode/LeetCode/algorithms/q0018.c)  |Medium |✔️|
 |19 |[Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list)|[C](./LeetCode/LeetCode/algorithms/q0019.c)  |Medium |✔️|
-|20 |[Valid Parentheses](https://leetcode.com/problems/valid-parentheses)|[C](./LeetCode/LeetCode/algorithms/q0020.c) , [Python3](./LeetCode/LeetCode/algorithms/q0020.py)  |Easy |✔️|
+|20 |[Valid Parentheses](https://leetcode.com/problems/valid-parentheses)|[C](./LeetCode/LeetCode/algorithms/q0020.c) , [Python3](./LeetcodePython3/q0020.py)  |Easy |✔️|
 |21 |[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists)|[C](./LeetCode/LeetCode/algorithms/q0021.c)  |Easy |✔️|
 |22 |[Generate Parentheses](https://leetcode.com/problems/generate-parentheses)|[C](./LeetCode/LeetCode/algorithms/q0022.c)  |Medium |✔️|
 |23 |[Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists)|[C](./LeetCode/LeetCode/algorithms/q0023.c)  |Hard |✔️|
@@ -31,7 +31,7 @@
 |27 |[Remove Element](https://leetcode.com/problems/remove-element)|[C](./LeetCode/LeetCode/algorithms/q0027.c)  |Easy |✔️|
 |28 |[Implement strStr()](https://leetcode.com/problems/implement-strstr)|[C](./LeetCode/LeetCode/algorithms/q0028.c)  |Easy |✔️|
 |29 |[Divide Two Integers](https://leetcode.com/problems/divide-two-integers)|[C](./LeetCode/LeetCode/algorithms/q0029.c)  |Medium |✔️|
-|30 |[Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words)| |Hard ||
+|30 |[Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words)| [Python3](./LeetcodePython3/q0020.py) |Hard |✔️|
 |31 |[Next Permutation](https://leetcode.com/problems/next-permutation)|[C](./LeetCode/LeetCode/algorithms/q0031.c)  |Medium |✔️|
 |32 |[Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses)|[C](./LeetCode/LeetCode/algorithms/q0032.c)  |Hard |✔️|
 |33 |[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array)|[C](./LeetCode/LeetCode/algorithms/q0033.c)  |Medium |✔️|
@@ -62,6 +62,7 @@
 |58|[Length of Last Word](https://leetcode.com/problems/length-of-last-word/)|[C](./LeetCode/LeetCode/algorithms/q0058.c)  |Easy |✔️|
 |59 |[Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0059.swift)  |Medium |✔️|
 |60 |[Permutation Sequence](https://leetcode.com/problems/permutation-sequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0060.swift)  |Medium |✔️|
+|61 |[Rotate List](https://leetcode.com/problems/rotate-list/)|[C](./LeetCode/LeetCode/algorithms/q0061.c)  |Medium |✔️|
 
 ### Problem not in Order:
 #### Random
@@ -73,11 +74,11 @@
 |Q678|[Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/)|[C](./LeetCode/LeetCode/algorithms/q0678.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0678.swift)|Medium |✔️|
 |Q704|[Binary Search](https://leetcode.com/problems/binary-search/)|[C](./LeetCode/LeetCode/algorithms/q0704.c)  |Easy |✔️|
 |Q771|[Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0771.swift)  |Easy |✔️|
+|1275 |[Find Winner on a Tic Tac Toe Game](https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/)|[Python3](./LeetcodePython3/q1275.py)  |Easy |✔️|
 
 #### Two Pointers
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|Q61|[Rotate List](https://leetcode.com/problems/rotate-list/)|[C](./LeetCode/LeetCode/algorithms/q0061.c)  |Medium |✔️|
 |Q75|[Sort Colors](https://leetcode.com/problems/sort-colors/)|[C](./LeetCode/LeetCode/algorithms/q0075.c)  |Medium |✔️|
 |Q76|[Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)|[C](./LeetCode/LeetCode/algorithms/q0076.c)  |Hard |✔️|
 |Q80|[Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)|[C](./LeetCode/LeetCode/algorithms/q0080.c)  |Medium |✔️|
