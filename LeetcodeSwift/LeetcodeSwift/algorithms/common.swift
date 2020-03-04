@@ -17,3 +17,13 @@ public class TreeNode {
         self.right = nil
     }
 }
+
+func printGrid(_ grid: [[Int]]){
+    for i in 0..<grid.count {
+        print("")
+        for j in 0..<grid[i].count {
+            print("\(grid[i][j]) ", separator: "", terminator: "")
+        }
+    }
+    print("")
+}

@@ -63,6 +63,8 @@
 |59 |[Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0059.swift)  |Medium |✔️|
 |60 |[Permutation Sequence](https://leetcode.com/problems/permutation-sequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0060.swift)  |Medium |✔️|
 |61 |[Rotate List](https://leetcode.com/problems/rotate-list/)|[C](./LeetCode/LeetCode/algorithms/q0061.c)  |Medium |✔️|
+|62 |[Unique Paths](https://leetcode.com/problems/unique-paths/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0062.swift)  |Medium |✔️|
+|63 |[Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0063.swift)  |Medium |✔️|
 
 ### Problem not in Order:
 #### Random
@@ -74,7 +76,8 @@
 |Q678|[Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/)|[C](./LeetCode/LeetCode/algorithms/q0678.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0678.swift)|Medium |✔️|
 |Q704|[Binary Search](https://leetcode.com/problems/binary-search/)|[C](./LeetCode/LeetCode/algorithms/q0704.c)  |Easy |✔️|
 |Q771|[Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0771.swift)  |Easy |✔️|
-|1275 |[Find Winner on a Tic Tac Toe Game](https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/)|[Python3](./LeetcodePython3/q1275.py)  |Easy |✔️|
+|Q980 |[Unique Paths III](https://leetcode.com/problems/unique-paths-iii/)|[C](./LeetCode/LeetCode/algorithms/q0980.c)  |Hard |✔️|
+|Q1275 |[Find Winner on a Tic Tac Toe Game](https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/)|[Python3](./LeetcodePython3/q1275.py)  |Easy |✔️|
 
 #### Two Pointers
 |No.|Question|Solution|Difficulty|Finished|

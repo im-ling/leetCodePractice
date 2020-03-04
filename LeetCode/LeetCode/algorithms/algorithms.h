@@ -159,6 +159,8 @@
 
 #include "q0844.h"
 
+#include "q0980.h"
+
 #include "q1081.h"
 
 #include "q1155.h"
