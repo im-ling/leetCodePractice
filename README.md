@@ -70,6 +70,9 @@
 |66|[Plus One](https://leetcode.com/problems/plus-one/)|[C](./LeetCode/LeetCode/algorithms/q0066.c)  |Easy |✔️|
 |67|[Add Binary](https://leetcode.com/problems/add-binary/)|[C](./LeetCode/LeetCode/algorithms/q0067.c)  |Easy |✔️|
 |68 |[Text Justification](https://leetcode.com/problems/text-justification/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0068.swift)  |Hard |✔️|
+|69|[Sqrt(x)](https://leetcode.com/problems/sqrtx/)|[C](./LeetCode/LeetCode/algorithms/q0069.c)  |Easy |✔️|
+|70 |[Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0070.swift)  |Easy |✔️|
+|71 |[Simplify Path](https://leetcode.com/problems/simplify-path/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0071.swift)  |EaMediumsy |✔️|
 
 ### Problem not in Order:
 #### Random
@@ -114,7 +117,6 @@
 #### Rush
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|Q69|[Sqrt(x)](https://leetcode.com/problems/sqrtx/)|[C](./LeetCode/LeetCode/algorithms/q0069.c)  |Easy |✔️|
 |Q83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)|[C](./LeetCode/LeetCode/algorithms/q0083.c)  |Easy |✔️|
 |Q100|[Same Tree](https://leetcode.com/problems/same-tree/)|[C](./LeetCode/LeetCode/algorithms/q0100.c)  |Easy |✔️|
 |Q101|[Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)|[C](./LeetCode/LeetCode/algorithms/q0101.c)  |Easy |✔️|
