@@ -65,6 +65,11 @@
 |61 |[Rotate List](https://leetcode.com/problems/rotate-list/)|[C](./LeetCode/LeetCode/algorithms/q0061.c)  |Medium |✔️|
 |62 |[Unique Paths](https://leetcode.com/problems/unique-paths/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0062.swift)  |Medium |✔️|
 |63 |[Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0063.swift)  |Medium |✔️|
+|64 |[Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0064.swift)  |Medium |✔️|
+|65 |[Valid Number](https://leetcode.com/problems/valid-number/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0065.swift)  |Medium |✔️|
+|66|[Plus One](https://leetcode.com/problems/plus-one/)|[C](./LeetCode/LeetCode/algorithms/q0066.c)  |Easy |✔️|
+|67|[Add Binary](https://leetcode.com/problems/add-binary/)|[C](./LeetCode/LeetCode/algorithms/q0067.c)  |Easy |✔️|
+|68 |[Text Justification](https://leetcode.com/problems/text-justification/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0068.swift)  |Hard |✔️|
 
 ### Problem not in Order:
 #### Random
@@ -109,8 +114,6 @@
 #### Rush
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|Q66|[Plus One](https://leetcode.com/problems/plus-one/)|[C](./LeetCode/LeetCode/algorithms/q0066.c)  |Easy |✔️|
-|Q67|[Add Binary](https://leetcode.com/problems/add-binary/)|[C](./LeetCode/LeetCode/algorithms/q0067.c)  |Easy |✔️|
 |Q69|[Sqrt(x)](https://leetcode.com/problems/sqrtx/)|[C](./LeetCode/LeetCode/algorithms/q0069.c)  |Easy |✔️|
 |Q83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)|[C](./LeetCode/LeetCode/algorithms/q0083.c)  |Easy |✔️|
 |Q100|[Same Tree](https://leetcode.com/problems/same-tree/)|[C](./LeetCode/LeetCode/algorithms/q0100.c)  |Easy |✔️|
