@@ -72,7 +72,9 @@
 |68 |[Text Justification](https://leetcode.com/problems/text-justification/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0068.swift)  |Hard |✔️|
 |69|[Sqrt(x)](https://leetcode.com/problems/sqrtx/)|[C](./LeetCode/LeetCode/algorithms/q0069.c)  |Easy |✔️|
 |70 |[Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0070.swift)  |Easy |✔️|
-|71 |[Simplify Path](https://leetcode.com/problems/simplify-path/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0071.swift)  |EaMediumsy |✔️|
+|71 |[Simplify Path](https://leetcode.com/problems/simplify-path/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0071.swift)  |Medium |✔️|
+|72 |[Edit Distance](https://leetcode.com/problems/edit-distance/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0072.swift)  |Hard |✔️|
+|73 |[Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0073.swift)  |Medium |✔️|
 
 ### Problem not in Order:
 #### Random
