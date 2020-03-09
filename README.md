@@ -75,6 +75,13 @@
 |71 |[Simplify Path](https://leetcode.com/problems/simplify-path/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0071.swift)  |Medium |✔️|
 |72 |[Edit Distance](https://leetcode.com/problems/edit-distance/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0072.swift)  |Hard |✔️|
 |73 |[Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0073.swift)  |Medium |✔️|
+|74 |[Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0074.swift)  |Medium |✔️|
+|75|[Sort Colors](https://leetcode.com/problems/sort-colors/)|[C](./LeetCode/LeetCode/algorithms/q0075.c)  |Medium |✔️|
+|76|[Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)|[C](./LeetCode/LeetCode/algorithms/q0076.c)  |Hard |✔️|
+|77|[Combinations](https://leetcode.com/problems/combinations/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0077.swift)  |Medium |✔️|
+|78|[Subsets](https://leetcode.com/problems/subsets/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0078.swift)  |Medium |✔️|
+|79|[Word Search](https://leetcode.com/problems/word-search/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0079.swift)  |Medium |✔️|
+|80|[Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)|[C](./LeetCode/LeetCode/algorithms/q0080.c)  |Medium |✔️|
 
 ### Problem not in Order:
 #### Random
@@ -92,9 +99,6 @@
 #### Two Pointers
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|Q75|[Sort Colors](https://leetcode.com/problems/sort-colors/)|[C](./LeetCode/LeetCode/algorithms/q0075.c)  |Medium |✔️|
-|Q76|[Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)|[C](./LeetCode/LeetCode/algorithms/q0076.c)  |Hard |✔️|
-|Q80|[Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)|[C](./LeetCode/LeetCode/algorithms/q0080.c)  |Medium |✔️|
 |Q86|[Partition List](https://leetcode.com/problems/partition-list/)|[C](./LeetCode/LeetCode/algorithms/q0086.c)  |Medium |✔️|
 |Q88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[C](./LeetCode/LeetCode/algorithms/q0088.c)  |Easy |✔️|
 |Q125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[C](./LeetCode/LeetCode/algorithms/q0125.c)  |Easy |✔️|
