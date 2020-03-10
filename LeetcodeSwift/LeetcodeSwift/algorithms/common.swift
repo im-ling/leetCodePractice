@@ -18,6 +18,15 @@ public class TreeNode {
     }
 }
 
+public class ListNode {
+    public var val: Int
+    public var next: ListNode?
+    public init(_ val: Int) {
+        self.val = val
+        self.next = nil
+    }
+}
+
 func printGrid(_ grid: [[Int]]){
     for i in 0..<grid.count {
         print("")
@@ -25,5 +34,28 @@ func printGrid(_ grid: [[Int]]){
             print("\(grid[i][j]) ", separator: "", terminator: "")
         }
     }
+    print("")
+}
+
+func listToListNode(list:[Int]) -> ListNode?{
+    let result = ListNode.init(0)
+    var p = result
+    for item in list {
+        p.next = ListNode.init(item)
+        p = p.next!
+    }
+    return result.next
+}
+func printListNode(head:ListNode?){
+    var p = head
+    print("[", separator: "", terminator: "")
+    while p != nil && p!.next != nil{
+        print("\(p!.val),", separator: "", terminator: "")
+        p = p?.next
+    }
+    if p != nil {
+        print("\(p!.val)", separator: "", terminator: "")
+    }
+    print("]", separator: "", terminator: "")
     print("")
 }

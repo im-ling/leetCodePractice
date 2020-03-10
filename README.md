@@ -34,7 +34,7 @@
 |30 |[Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words)| [Python3](./LeetcodePython3/q0020.py) |Hard |✔️|
 |31 |[Next Permutation](https://leetcode.com/problems/next-permutation)|[C](./LeetCode/LeetCode/algorithms/q0031.c)  |Medium |✔️|
 |32 |[Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses)|[C](./LeetCode/LeetCode/algorithms/q0032.c)  |Hard |✔️|
-|33 |[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array)|[C](./LeetCode/LeetCode/algorithms/q0033.c)  |Medium |✔️|
+|33 |[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array)|[C](./LeetCode/LeetCode/algorithms/q0033.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0033.swift) |Medium |✔️|
 |34 |[Search for a Range](https://leetcode.com/problems/search-for-a-range)|[C](./LeetCode/LeetCode/algorithms/q0034.c)  |Medium |✔️|
 |35 |[Search Insert Position](https://leetcode.com/problems/search-insert-position)|[C](./LeetCode/LeetCode/algorithms/q0035.c)  |Easy |✔️|
 |36 |[Valid Sudoku](https://leetcode.com/problems/valid-sudoku)|[C](./LeetCode/LeetCode/algorithms/q0036.c)  |Medium |✔️|
@@ -82,6 +82,8 @@
 |78|[Subsets](https://leetcode.com/problems/subsets/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0078.swift)  |Medium |✔️|
 |79|[Word Search](https://leetcode.com/problems/word-search/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0079.swift)  |Medium |✔️|
 |80|[Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)|[C](./LeetCode/LeetCode/algorithms/q0080.c)  |Medium |✔️|
+|81 |[Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0081.swift)  |Medium |✔️|
+|82 |[Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0082.swift)  |Medium |✔️|
 
 ### Problem not in Order:
 #### Random
