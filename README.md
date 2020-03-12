@@ -86,7 +86,12 @@
 |82 |[Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0082.swift)  |Medium |✔️|
 |83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)|[C](./LeetCode/LeetCode/algorithms/q0083.c)  |Easy |✔️|
 |84 |[Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0084.swift)  |Hard |✔️|
-
+|85 |[Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)||Hard |✔️|
+|86 |[Partition List](https://leetcode.com/problems/partition-list/)|[C](./LeetCode/LeetCode/algorithms/q0086.c)  |Medium |✔️|
+|87 |[Scramble String](https://leetcode.com/problems/scramble-string/)||Hard ||
+|88 |[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[C](./LeetCode/LeetCode/algorithms/q0088.c)  |Easy |✔️|
+|89 |[Gray Code](https://leetcode.com/problems/gray-code/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0089.swift)  |Medium |✔️|
+|90 |[Subsets II](https://leetcode.com/problems/subsets-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0090.swift)  |Medium |✔️|
 
 ### Problem not in Order:
 #### Random
@@ -104,8 +109,6 @@
 #### Two Pointers
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|Q86|[Partition List](https://leetcode.com/problems/partition-list/)|[C](./LeetCode/LeetCode/algorithms/q0086.c)  |Medium |✔️|
-|Q88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[C](./LeetCode/LeetCode/algorithms/q0088.c)  |Easy |✔️|
 |Q125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[C](./LeetCode/LeetCode/algorithms/q0125.c)  |Easy |✔️|
 |Q141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)|[C](./LeetCode/LeetCode/algorithms/q0141.c)  |Easy |✔️|
 |Q142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|[C](./LeetCode/LeetCode/algorithms/q0142.c)  |Medium |✔️|

@@ -47,7 +47,7 @@ class q0078Solution {
             result.append(path)
             return
         }
-        if start >= nums.count {
+        if path.count + nums.count - start < k {
             return
         }
         for i in start..<nums.count {
