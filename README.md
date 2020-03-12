@@ -92,6 +92,9 @@
 |88 |[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[C](./LeetCode/LeetCode/algorithms/q0088.c)  |Easy |✔️|
 |89 |[Gray Code](https://leetcode.com/problems/gray-code/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0089.swift)  |Medium |✔️|
 |90 |[Subsets II](https://leetcode.com/problems/subsets-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0090.swift)  |Medium |✔️|
+|91 |[Decode Ways](https://leetcode.com/problems/decode-ways/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0091.swift)  |Medium |✔️|
+|92 |[Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0092.swift)  |Medium |✔️|
+|93 |[Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0093.swift)  |Medium |✔️|
 
 ### Problem not in Order:
 #### Random
