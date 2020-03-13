@@ -86,7 +86,7 @@
 |82 |[Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0082.swift)  |Medium |✔️|
 |83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)|[C](./LeetCode/LeetCode/algorithms/q0083.c)  |Easy |✔️|
 |84 |[Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0084.swift)  |Hard |✔️|
-|85 |[Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)||Hard |✔️|
+|85 |[Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)||Hard ||
 |86 |[Partition List](https://leetcode.com/problems/partition-list/)|[C](./LeetCode/LeetCode/algorithms/q0086.c)  |Medium |✔️|
 |87 |[Scramble String](https://leetcode.com/problems/scramble-string/)||Hard ||
 |88 |[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[C](./LeetCode/LeetCode/algorithms/q0088.c)  |Easy |✔️|
@@ -95,6 +95,8 @@
 |91 |[Decode Ways](https://leetcode.com/problems/decode-ways/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0091.swift)  |Medium |✔️|
 |92 |[Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0092.swift)  |Medium |✔️|
 |93 |[Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0093.swift)  |Medium |✔️|
+|94 |[Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0094.swift)  |Medium |✔️|
+|98 |[Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0098.swift)  |Medium |✔️|
 
 ### Problem not in Order:
 #### Random

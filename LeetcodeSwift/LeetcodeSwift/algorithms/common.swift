@@ -46,6 +46,7 @@ func listToListNode(list:[Int]) -> ListNode?{
     }
     return result.next
 }
+
 func printListNode(head:ListNode?){
     var p = head
     print("[", separator: "", terminator: "")
@@ -55,6 +56,15 @@ func printListNode(head:ListNode?){
     }
     if p != nil {
         print("\(p!.val)", separator: "", terminator: "")
+    }
+    print("]", separator: "", terminator: "")
+    print("")
+}
+
+func printTreeNodeStack(stack:[TreeNode]){
+    print("[", separator: "", terminator: "")
+    for item in stack {
+        print("\(item.val),", separator: "", terminator: "")
     }
     print("]", separator: "", terminator: "")
     print("")
