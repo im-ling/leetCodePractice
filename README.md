@@ -96,6 +96,9 @@
 |92 |[Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0092.swift)  |Medium |✔️|
 |93 |[Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0093.swift)  |Medium |✔️|
 |94 |[Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0094.swift)  |Medium |✔️|
+|95 |[Unique Binary Search Trees II](https://leetcode.com/problems/unique-binary-search-trees-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0095.swift)  |Medium |✔️|
+|96 |[Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0096.swift)  |Medium |✔️|
+|97 |[Interleaving String](https://leetcode.com/problems/interleaving-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0097.swift)  |Hard |✔️|
 |98 |[Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0098.swift)  |Medium |✔️|
 
 ### Problem not in Order:
