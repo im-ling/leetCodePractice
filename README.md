@@ -88,7 +88,7 @@
 |84 |[Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0084.swift)  |Hard |✔️|
 |85 |[Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0085.swift)|Hard |✔️|
 |86 |[Partition List](https://leetcode.com/problems/partition-list/)|[C](./LeetCode/LeetCode/algorithms/q0086.c)  |Medium |✔️|
-|87 |[Scramble String](https://leetcode.com/problems/scramble-string/)||Hard ||
+|87 |[Scramble String](https://leetcode.com/problems/scramble-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0087.swift)|Hard |✔️|
 |88 |[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[C](./LeetCode/LeetCode/algorithms/q0088.c)  |Easy |✔️|
 |89 |[Gray Code](https://leetcode.com/problems/gray-code/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0089.swift)  |Medium |✔️|
 |90 |[Subsets II](https://leetcode.com/problems/subsets-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0090.swift)  |Medium |✔️|
@@ -100,6 +100,7 @@
 |96 |[Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0096.swift)  |Medium |✔️|
 |97 |[Interleaving String](https://leetcode.com/problems/interleaving-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0097.swift)  |Hard |✔️|
 |98 |[Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0098.swift)  |Medium |✔️|
+|99 |[Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0099.swift)  |Hard |✔️|
 
 ### Problem not in Order:
 #### Random
