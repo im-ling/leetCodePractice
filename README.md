@@ -110,6 +110,14 @@
 #### Random
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
+|Q104|[Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0104.c)  |Easy |✔️|
+|Q107|[Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0107.swift)  |Easy |✔️|
+|Q108|[ Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)|[C](./LeetCode/LeetCode/algorithms/q0108.c)  |Easy |✔️|
+|Q110|[Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0110.c)  |Easy |✔️|
+|Q111|[Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0111.c)  |Easy |✔️|
+|Q112|[Path Sum](https://leetcode.com/problems/path-sum/)|[C](./LeetCode/LeetCode/algorithms/q0112.c)  |Easy |✔️|
+|Q113 |[Path Sum II](https://leetcode.com/problems/path-sum-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0113.swift)  |Medium |✔️|
+|Q114 |[Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0114.swift)  |Medium |✔️|
 |Q416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0416.swift)|Medium |✔️|
 |Q437|[Path Sum III](https://leetcode.com/problems/path-sum-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift) , [C](./LeetCode/LeetCode/algorithms/q0437.c)|Easy |✔️|
 |Q456|[132 Pattern](https://leetcode.com/problems/132-pattern/)|[C](./LeetCode/LeetCode/algorithms/q0456.c)|Medium |✔️|
@@ -144,12 +152,6 @@
 #### Rush
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|Q104|[Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0104.c)  |Easy |✔️|
-|Q107|[Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0107.swift)  |Easy |✔️|
-|Q108|[ Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)|[C](./LeetCode/LeetCode/algorithms/q0108.c)  |Easy |✔️|
-|Q110|[Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0110.c)  |Easy |✔️|
-|Q111|[Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0111.c)  |Easy |✔️|
-|Q112|[Path Sum](https://leetcode.com/problems/path-sum/)|[C](./LeetCode/LeetCode/algorithms/q0112.c)  |Easy |✔️|
 |Q118|[Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)|[C](./LeetCode/LeetCode/algorithms/q0118.c)  |Easy |✔️|
 |Q119|[Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/submissions/)|[C](./LeetCode/LeetCode/algorithms/q0119.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0119.swift) |Easy |✔️|
 |Q121|[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)|[C](./LeetCode/LeetCode/algorithms/q0121.c)  |Easy |✔️|
