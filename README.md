@@ -101,6 +101,10 @@
 |97 |[Interleaving String](https://leetcode.com/problems/interleaving-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0097.swift)  |Hard |✔️|
 |98 |[Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0098.swift)  |Medium |✔️|
 |99 |[Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0099.swift)  |Hard |✔️|
+|100|[Same Tree](https://leetcode.com/problems/same-tree/)|[C](./LeetCode/LeetCode/algorithms/q0100.c)  |Easy |✔️|
+|101|[Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)|[C](./LeetCode/LeetCode/algorithms/q0101.c)  |Easy |✔️|
+|102 |[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0102.swift)  |Medium |✔️|
+|103 |[Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0103.swift)  |Medium |✔️|
 
 ### Problem not in Order:
 #### Random
@@ -140,8 +144,6 @@
 #### Rush
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|Q100|[Same Tree](https://leetcode.com/problems/same-tree/)|[C](./LeetCode/LeetCode/algorithms/q0100.c)  |Easy |✔️|
-|Q101|[Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)|[C](./LeetCode/LeetCode/algorithms/q0101.c)  |Easy |✔️|
 |Q104|[Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0104.c)  |Easy |✔️|
 |Q107|[Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0107.swift)  |Easy |✔️|
 |Q108|[ Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)|[C](./LeetCode/LeetCode/algorithms/q0108.c)  |Easy |✔️|
