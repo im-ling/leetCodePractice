@@ -28,6 +28,20 @@ public class ListNode {
     }
 }
 
+public class Node {
+    public var val: Int
+    public var left: Node?
+    public var right: Node?
+    public var next: Node?
+    public init(_ val: Int) {
+        self.val = val
+        self.left = nil
+        self.right = nil
+        self.next = nil
+    }
+}
+
+
 func printGrid(_ grid: [[Int]]){
     for i in 0..<grid.count {
         print("")
@@ -69,4 +83,13 @@ func printTreeNodeStack(stack:[TreeNode]){
     }
     print("]", separator: "", terminator: "")
     print("")
+}
+
+func printTreeNode(root: TreeNode?){
+    guard let root = root else {
+        return
+    }
+    printTreeNode(root: root.left)
+    print("\(root.val),", separator: "", terminator: " ")
+    printTreeNode(root: root.right)
 }
