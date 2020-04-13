@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		94012F59244303B90029AF5E /* q1046.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94012F58244303B90029AF5E /* q1046.swift */; };
+		94026E4D2444552800130D7C /* q0525.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94026E4C2444552800130D7C /* q0525.swift */; };
 		940B494E241BD0D800319C4B /* q0085.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940B494D241BD0D800319C4B /* q0085.swift */; };
 		940CB496241A957D0020C344 /* q0089.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940CB495241A957D0020C344 /* q0089.swift */; };
 		940CB498241AA25E0020C344 /* q0090.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940CB497241AA25E0020C344 /* q0090.swift */; };
@@ -95,6 +96,7 @@
 
 /* Begin PBXFileReference section */
 		94012F58244303B90029AF5E /* q1046.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q1046.swift; sourceTree = "<group>"; };
+		94026E4C2444552800130D7C /* q0525.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0525.swift; sourceTree = "<group>"; };
 		940B494D241BD0D800319C4B /* q0085.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0085.swift; sourceTree = "<group>"; };
 		940CB495241A957D0020C344 /* q0089.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0089.swift; sourceTree = "<group>"; };
 		940CB497241AA25E0020C344 /* q0090.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0090.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				9456D7B6243873D80087364C /* q0283.swift */,
 				94F80EA12406196700464D77 /* q0416.swift */,
 				9490A06023FAC95C0037F06D /* q0437.swift */,
+				94026E4C2444552800130D7C /* q0525.swift */,
 				946B8D792441B33300405D2A /* q0543.swift */,
 				9471643723F5687300163DE8 /* q0678.swift */,
 				94F80EA92407F4DA00464D77 /* q0771.swift */,
@@ -341,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94026E4D2444552800130D7C /* q0525.swift in Sources */,
 				9429F723241ED61D002A565F /* q0113.swift in Sources */,
 				946636B3240CD02300A46021 /* q0051.swift in Sources */,
 				9490A06923FBB86C0037F06D /* q0119.swift in Sources */,
