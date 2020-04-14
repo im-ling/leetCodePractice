@@ -67,3 +67,7 @@ print("Hello, leetcode!")
 //q0844()
 //q0876()
 //q1046()
+
+//daily challenge
+//day7()
+//day14()
