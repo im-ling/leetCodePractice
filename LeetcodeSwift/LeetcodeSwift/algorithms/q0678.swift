@@ -41,33 +41,6 @@ import Foundation
 //115,883
 class q0678Solution {
     
-    func checkValidString_helper(s: [Character], position:Int, countLeft:Int) -> Bool {
-        var localCountLeft = countLeft
-        for i in position ..< s.count {
-            if s[i] == "(" {
-                localCountLeft += 1
-            }else if s[i] == ")"{
-                if localCountLeft < 1 {
-                    return false
-                }
-                localCountLeft -= 1
-            }else{
-                return checkValidString_helper(s: s, position: i + 1, countLeft: localCountLeft - 1) || checkValidString_helper(s: s, position: i + 1, countLeft: localCountLeft) || checkValidString_helper(s: s, position: i + 1, countLeft: localCountLeft + 1)
-            }
-        }
-        if localCountLeft == 0 {
-            return true
-        }
-        return false
-    }
-    
-    
-
-    
-    func checkValidString(_ s: String) -> Bool {
-        return checkValidString_helper(s: Array.init(s), position: 0, countLeft: 0)
-    }
-    
 //Approach #3: Greedy [Accepted]
 //Intuition
 //
@@ -109,13 +82,88 @@ class q0678Solution {
         }
         return low == 0
     }
-
+    
+    
+    
+//    personal
+    
+    func checkValidString_helper(s: [Character], position:Int, countLeft:Int) -> Bool {
+        var localCountLeft = countLeft
+        for i in position ..< s.count {
+            if s[i] == "(" {
+                localCountLeft += 1
+            }else if s[i] == ")"{
+                if localCountLeft < 1 {
+                    return false
+                }
+                localCountLeft -= 1
+            }else{
+                return checkValidString_helper(s: s, position: i + 1, countLeft: localCountLeft - 1) || checkValidString_helper(s: s, position: i + 1, countLeft: localCountLeft) || checkValidString_helper(s: s, position: i + 1, countLeft: localCountLeft + 1)
+            }
+        }
+        if localCountLeft == 0 {
+            return true
+        }
+        return false
+    }
+    
+    func checkValidString(_ s: String) -> Bool {
+        return checkValidString_helper(s: Array.init(s), position: 0, countLeft: 0)
+    }
+    
+    
+    
+    func checkValidString2(_ s: String) -> Bool {
+        var left = 0
+        var star = 0
+        var right = 0
+        for i in s {
+            if i == "(" {
+                left += 1
+            }else if i == "*" {
+                star += 1
+            }else{
+                if left > 0 {
+                    left -= 1
+                }else if star > 0 {
+                    star -= 1
+                }else{
+                    return false
+                }
+            }
+        }
+        if star < left {
+            return false
+        }
+        
+        star = 0
+        for i in s.reversed() {
+            if i == ")" {
+                right += 1
+            }else if i == "*"{
+                star += 1
+            }else{
+                if right > 0 {
+                    right -= 1
+                }else if star > 0 {
+                    star -= 1
+                }else{
+                    return false
+                }
+            }
+        }
+        if star < right {
+            return false
+        }
+        return true
+    }
 }
 
 func q0678() -> () {
-    let s = "(*)"
+    let s = "(())(())(((()*()()()))()((()()(*()())))(((*)()"
+//    let s = "()"
     let solution = q0678Solution()
-    let result = solution.checkValidString(s)
+    let result = solution.checkValidString2(s)
     print(result)
 }
 
