@@ -119,6 +119,9 @@
 |115|[Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0115.swift)  |Hard |✔️|
 |116|[Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0116.swift)  |Medium |✔️|
 |117|[Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0117.swift)  |Medium |✔️|
+|118|[Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)|[C](./LeetCode/LeetCode/algorithms/q0118.c)  |Easy |✔️|
+|119|[Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/submissions/)|[C](./LeetCode/LeetCode/algorithms/q0119.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0119.swift) |Easy |✔️|
+|120|[Triangle](https://leetcode.com/problems/triangle/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0120.swift)  |Medium |✔️|
 
 
 ### Problem not in Order:
@@ -168,8 +171,6 @@
 #### Rush
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|Q118|[Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)|[C](./LeetCode/LeetCode/algorithms/q0118.c)  |Easy |✔️|
-|Q119|[Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/submissions/)|[C](./LeetCode/LeetCode/algorithms/q0119.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0119.swift) |Easy |✔️|
 |Q121|[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)|[C](./LeetCode/LeetCode/algorithms/q0121.c)  |Easy |✔️|
 |Q122|[Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)|[C](./LeetCode/LeetCode/algorithms/q0122.c)  |Easy |✔️|
 |Q136|[Single Number](https://leetcode.com/problems/single-number/)|[C](./LeetCode/LeetCode/algorithms/q0136.c)  |Easy |✔️|
