@@ -76,3 +76,4 @@ print("Hello, leetcode!")
 //daily challenge
 //day7()
 //day14()
+//day21()
