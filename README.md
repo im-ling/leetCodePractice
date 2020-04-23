@@ -130,12 +130,14 @@
 |-|-|-|-|-|
 |Q155 |[Min Stack](https://leetcode.com/problems/min-stack/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0155.swift)  |Easy |✔️|
 |Q200 |[Number of Islands](https://leetcode.com/problems/number-of-islands/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0200.swift)  |Medium |✔️|
+|Q201 |[Bitwise AND of Numbers Range](https://leetcode.com/problems/bitwise-and-of-numbers-range/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0201.swift)  |Medium |✔️|
 |Q238 |[Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0238.swift)  |Medium |✔️|
 |Q416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0416.swift)|Medium |✔️|
 |Q437|[Path Sum III](https://leetcode.com/problems/path-sum-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift) , [C](./LeetCode/LeetCode/algorithms/q0437.c)|Easy |✔️|
 |Q456|[132 Pattern](https://leetcode.com/problems/132-pattern/)|[C](./LeetCode/LeetCode/algorithms/q0456.c)|Medium |✔️|
-|Q543|[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0543.swift)|Easy |✔️|
 |Q525|[Contiguous Array](https://leetcode.com/problems/contiguous-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0525.swift)|Medium |✔️|
+|Q543|[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0543.swift)|Easy |✔️|
+|Q560|[Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0560.swift)|Medium |✔️|
 |Q678|[Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/)|[C](./LeetCode/LeetCode/algorithms/q0678.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0678.swift)|Medium |✔️|
 |Q704|[Binary Search](https://leetcode.com/problems/binary-search/)|[C](./LeetCode/LeetCode/algorithms/q0704.c)  |Easy |✔️|
 |Q771|[Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0771.swift)  |Easy |✔️|
