@@ -58,6 +58,7 @@
 		9471643623F55E6700163DE8 /* common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9471643523F55E6700163DE8 /* common.swift */; };
 		9471643823F5687300163DE8 /* q0678.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9471643723F5687300163DE8 /* q0678.swift */; };
 		9473FE05243DC3DA00FDAD89 /* q0876.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FE04243DC3DA00FDAD89 /* q0876.swift */; };
+		947AAFBF24598E610068A3AE /* q0124.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947AAFBE24598E610068A3AE /* q0124.swift */; };
 		948B9763241CE8340027D96E /* q0095.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B9762241CE8330027D96E /* q0095.swift */; };
 		948B9765241CEF350027D96E /* q0096.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B9764241CEF350027D96E /* q0096.swift */; };
 		948B9767241CFB580027D96E /* q0097.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B9766241CFB580027D96E /* q0097.swift */; };
@@ -161,6 +162,7 @@
 		9471643523F55E6700163DE8 /* common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
 		9471643723F5687300163DE8 /* q0678.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0678.swift; sourceTree = "<group>"; };
 		9473FE04243DC3DA00FDAD89 /* q0876.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0876.swift; sourceTree = "<group>"; };
+		947AAFBE24598E610068A3AE /* q0124.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0124.swift; sourceTree = "<group>"; };
 		948B9762241CE8330027D96E /* q0095.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0095.swift; sourceTree = "<group>"; };
 		948B9764241CEF350027D96E /* q0096.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0096.swift; sourceTree = "<group>"; };
 		948B9766241CFB580027D96E /* q0097.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0097.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				946B8D7F2442050400405D2A /* q0117.swift */,
 				9490A06823FBB86C0037F06D /* q0119.swift */,
 				9443C66A244DA1B00092A65B /* q0120.swift */,
+				947AAFBE24598E610068A3AE /* q0124.swift */,
 				94DCB6E52453155A007B39C1 /* q0146.swift */,
 				94E1DF192440603500B87814 /* q0155.swift */,
 				9493E3A824499BA7001832C5 /* q0200.swift */,
@@ -424,6 +427,7 @@
 				941C6863244EDA2D0045503C /* day21.swift in Sources */,
 				9443C66B244DA1B00092A65B /* q0120.swift in Sources */,
 				946636B1240AAFE000A46021 /* q0049.swift in Sources */,
+				947AAFBF24598E610068A3AE /* q0124.swift in Sources */,
 				946B8D7E244202CB00405D2A /* q0116.swift in Sources */,
 				9413C47B241A424C004073D8 /* q0084.swift in Sources */,
 				9429F71D241EC924002A565F /* q0102.swift in Sources */,

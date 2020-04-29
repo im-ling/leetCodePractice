@@ -122,6 +122,10 @@
 |118|[Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)|[C](./LeetCode/LeetCode/algorithms/q0118.c)  |Easy |✔️|
 |119|[Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/submissions/)|[C](./LeetCode/LeetCode/algorithms/q0119.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0119.swift) |Easy |✔️|
 |120|[Triangle](https://leetcode.com/problems/triangle/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0120.swift)  |Medium |✔️|
+|121|[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)|[C](./LeetCode/LeetCode/algorithms/q0121.c)  |Easy |✔️|
+|122|[Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)|[C](./LeetCode/LeetCode/algorithms/q0122.c)  |Easy |✔️|
+|124|[Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0124.swift)|Hard |✔️|
+
 
 
 ### Problem not in Order:
@@ -176,8 +180,6 @@
 #### Rush
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|Q121|[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)|[C](./LeetCode/LeetCode/algorithms/q0121.c)  |Easy |✔️|
-|Q122|[Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)|[C](./LeetCode/LeetCode/algorithms/q0122.c)  |Easy |✔️|
 |Q136|[Single Number](https://leetcode.com/problems/single-number/)|[C](./LeetCode/LeetCode/algorithms/q0136.c)  |Easy |✔️|
 |Q160|[Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)|[C](./LeetCode/LeetCode/algorithms/q0160.c)  |Easy |✔️|
 |Q169|[Majority Element](https://leetcode.com/problems/majority-element/)|[C](./LeetCode/LeetCode/algorithms/q0169.c)  |Easy |✔️|
