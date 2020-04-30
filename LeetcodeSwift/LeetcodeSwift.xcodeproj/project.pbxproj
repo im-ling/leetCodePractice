@@ -59,6 +59,7 @@
 		9471643823F5687300163DE8 /* q0678.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9471643723F5687300163DE8 /* q0678.swift */; };
 		9473FE05243DC3DA00FDAD89 /* q0876.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FE04243DC3DA00FDAD89 /* q0876.swift */; };
 		947AAFBF24598E610068A3AE /* q0124.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947AAFBE24598E610068A3AE /* q0124.swift */; };
+		947AAFC6245ABC2E0068A3AE /* day30.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947AAFC5245ABC2E0068A3AE /* day30.swift */; };
 		948B9763241CE8340027D96E /* q0095.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B9762241CE8330027D96E /* q0095.swift */; };
 		948B9765241CEF350027D96E /* q0096.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B9764241CEF350027D96E /* q0096.swift */; };
 		948B9767241CFB580027D96E /* q0097.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B9766241CFB580027D96E /* q0097.swift */; };
@@ -163,6 +164,7 @@
 		9471643723F5687300163DE8 /* q0678.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0678.swift; sourceTree = "<group>"; };
 		9473FE04243DC3DA00FDAD89 /* q0876.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0876.swift; sourceTree = "<group>"; };
 		947AAFBE24598E610068A3AE /* q0124.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0124.swift; sourceTree = "<group>"; };
+		947AAFC5245ABC2E0068A3AE /* day30.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day30.swift; sourceTree = "<group>"; };
 		948B9762241CE8330027D96E /* q0095.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0095.swift; sourceTree = "<group>"; };
 		948B9764241CEF350027D96E /* q0096.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0096.swift; sourceTree = "<group>"; };
 		948B9766241CFB580027D96E /* q0097.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0097.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				94D683652445F6610097F202 /* day14.swift */,
 				941C6862244EDA2D0045503C /* day21.swift */,
 				941A0C242458437600FFE205 /* day28.swift */,
+				947AAFC5245ABC2E0068A3AE /* day30.swift */,
 			);
 			path = dailyChallenge;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				9413C47B241A424C004073D8 /* q0084.swift in Sources */,
 				9429F71D241EC924002A565F /* q0102.swift in Sources */,
 				943290182410A1F900EFB3D4 /* q0073.swift in Sources */,
+				947AAFC6245ABC2E0068A3AE /* day30.swift in Sources */,
 				94C6CC79240D2D0400D7A0EF /* q0053.swift in Sources */,
 				94AD1D7224177AC50076BF04 /* q0081.swift in Sources */,
 				94E83F0C2416A511000B2369 /* wip_problem.swift in Sources */,
