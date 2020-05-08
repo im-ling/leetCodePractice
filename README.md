@@ -137,6 +137,7 @@
 |Q201 |[Bitwise AND of Numbers Range](https://leetcode.com/problems/bitwise-and-of-numbers-range/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0201.swift)  |Medium |✔️|
 |Q221 |[Maximal Square](https://leetcode.com/problems/maximal-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0221.swift)  |Medium |✔️|
 |Q238 |[Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0238.swift)  |Medium |✔️|
+|Q367 |[Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0367.swift)  |Easy |✔️|
 |Q383 |[Ransom Note](https://leetcode.com/problems/ransom-note/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0383.swift)  |Easy |✔️|
 |Q387 |[First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0387.swift)  |Easy |✔️|
 |Q416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0416.swift)|Medium |✔️|
@@ -157,6 +158,7 @@
 |Q1046 |[Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1046.swift)  |Easy |✔️|
 |Q1143 |[Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1143.swift)  |Medium |✔️|
 |Q1275 |[Find Winner on a Tic Tac Toe Game](https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/)|[Python3](./LeetcodePython3/q1275.py)  |Easy |✔️|
+|Q1232 |[Check If It Is a Straight Line](https://leetcode.com/problems/check-if-it-is-a-straight-line/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1232.swift)  |Easy |✔️|
 
 #### Two Pointers
 |No.|Question|Solution|Difficulty|Finished|
