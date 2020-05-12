@@ -140,11 +140,13 @@
 |Q367 |[Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0367.swift)  |Easy |✔️|
 |Q383 |[Ransom Note](https://leetcode.com/problems/ransom-note/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0383.swift)  |Easy |✔️|
 |Q387 |[First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0387.swift)  |Easy |✔️|
+|Q402|[Remove K Digits](https://leetcode.com/problems/remove-k-digits/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0402.swift)|Medium |✔️|
 |Q416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0416.swift)|Medium |✔️|
 |Q437|[Path Sum III](https://leetcode.com/problems/path-sum-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift) , [C](./LeetCode/LeetCode/algorithms/q0437.c)|Easy |✔️|
 |Q456|[132 Pattern](https://leetcode.com/problems/132-pattern/)|[C](./LeetCode/LeetCode/algorithms/q0456.c)|Medium |✔️|
 |Q476|[Number Complement](https://leetcode.com/problems/number-complement/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0476.swift)|Easy |✔️|
 |Q525|[Contiguous Array](https://leetcode.com/problems/contiguous-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0525.swift)|Medium |✔️|
+|Q540|[Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0540.swift)|Medium |✔️|
 |Q543|[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0543.swift)|Easy |✔️|
 |Q560|[Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0560.swift)|Medium |✔️|
 |Q678|[Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/)|[C](./LeetCode/LeetCode/algorithms/q0678.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0678.swift)|Medium |✔️|
