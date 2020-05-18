@@ -189,7 +189,7 @@
 |Q457|[Circular Array Loop](https://leetcode.com/problems/circular-array-loop/)|[C](./LeetCode/LeetCode/algorithms/q0457.c)  |Medium |✔️|
 |Q524|[Longest Word in Dictionary through Deleting](https://leetcode.com/problems/longest-word-in-dictionary-through-deleting/)|[C](./LeetCode/LeetCode/algorithms/q0524.c)  |Medium |✔️|
 |Q532|[K-diff Pairs in an Array](https://leetcode.com/problems/k-diff-pairs-in-an-array/)|[C](./LeetCode/LeetCode/algorithms/q0532.c)  |Easy |✔️|
-|Q567|[Permutation in String](https://leetcode.com/problems/permutation-in-string/)|[C](./LeetCode/LeetCode/algorithms/q0567.c)  |Medium |✔️|
+|Q567|[Permutation in String](https://leetcode.com/problems/permutation-in-string/)|[C](./LeetCode/LeetCode/algorithms/q0567.c) ,[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1143.swift) |Medium |✔️|
 |Q844|[Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)|[C](./LeetCode/LeetCode/algorithms/q0844.c)  |Easy |✔️|
 
 #### Rush
