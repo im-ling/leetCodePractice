@@ -137,6 +137,7 @@
 |Q201 |[Bitwise AND of Numbers Range](https://leetcode.com/problems/bitwise-and-of-numbers-range/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0201.swift)  |Medium |✔️|
 |Q208 |[Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0208.swift)  |Medium |✔️|
 |Q221 |[Maximal Square](https://leetcode.com/problems/maximal-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0221.swift)  |Medium |✔️|
+|Q230 |[Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0230.swift)  |Medium |✔️|
 |Q238 |[Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0238.swift)  |Medium |✔️|
 |Q328 |[Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0328.swift)  |Medium |✔️|
 |Q367 |[Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0367.swift)  |Easy |✔️|
@@ -145,7 +146,7 @@
 |Q402|[Remove K Digits](https://leetcode.com/problems/remove-k-digits/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0402.swift)|Medium |✔️|
 |Q416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0416.swift)|Medium |✔️|
 |Q437|[Path Sum III](https://leetcode.com/problems/path-sum-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift) , [C](./LeetCode/LeetCode/algorithms/q0437.c)|Easy |✔️|
-|Q438|[Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift) |Medium |✔️|
+|Q438|[Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift),[C](./LeetCode/LeetCode/algorithms/q0438.c)|Medium |✔️|
 |Q456|[132 Pattern](https://leetcode.com/problems/132-pattern/)|[C](./LeetCode/LeetCode/algorithms/q0456.c)|Medium |✔️|
 |Q476|[Number Complement](https://leetcode.com/problems/number-complement/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0476.swift)|Easy |✔️|
 |Q525|[Contiguous Array](https://leetcode.com/problems/contiguous-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0525.swift)|Medium |✔️|
@@ -158,6 +159,7 @@
 |Q771|[Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0771.swift)  |Easy |✔️|
 |Q844 |[Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0844.swift)  |Easy |✔️|
 |Q876 |[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0876.swift)  |Easy |✔️|
+|Q901 |[Online Stock Span](https://leetcode.com/problems/online-stock-span/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0901.swift)  |Medium |✔️|
 |Q918 |[Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0918.swift)  |Medium |✔️|
 |Q980 |[Unique Paths III](https://leetcode.com/problems/unique-paths-iii/)|[C](./LeetCode/LeetCode/algorithms/q0980.c)  |Hard |✔️|
 |Q993 |[Cousins in Binary Tree](https://leetcode.com/problems/cousins-in-binary-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0993.swift)  |Easy |✔️|
