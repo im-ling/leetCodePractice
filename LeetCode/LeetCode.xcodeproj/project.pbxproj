@@ -116,6 +116,7 @@
 		94E6EAA8236225B700B25080 /* q0287.c in Sources */ = {isa = PBXBuildFile; fileRef = 94E6EAA7236225B700B25080 /* q0287.c */; };
 		94ED2C43236729D100CB335A /* q0524.c in Sources */ = {isa = PBXBuildFile; fileRef = 94ED2C42236729D100CB335A /* q0524.c */; };
 		94ED2C46236794A600CB335A /* q0567.c in Sources */ = {isa = PBXBuildFile; fileRef = 94ED2C45236794A600CB335A /* q0567.c */; };
+		94F4080C24727877009106FE /* q0438.c in Sources */ = {isa = PBXBuildFile; fileRef = 94F4080B24727877009106FE /* q0438.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -350,6 +351,8 @@
 		94ED2C42236729D100CB335A /* q0524.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0524.c; sourceTree = "<group>"; };
 		94ED2C44236794A600CB335A /* q0567.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0567.h; sourceTree = "<group>"; };
 		94ED2C45236794A600CB335A /* q0567.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0567.c; sourceTree = "<group>"; };
+		94F4080A24727877009106FE /* q0438.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0438.h; sourceTree = "<group>"; };
+		94F4080B24727877009106FE /* q0438.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0438.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -591,6 +594,8 @@
 				9492FE80235F4FE5006FC733 /* q0424.c */,
 				9490A06223FBB1260037F06D /* q0437.h */,
 				9490A06323FBB1260037F06D /* q0437.c */,
+				94F4080A24727877009106FE /* q0438.h */,
+				94F4080B24727877009106FE /* q0438.c */,
 				9471643F23F7C99600163DE8 /* q0456.h */,
 				9471644023F7C99600163DE8 /* q0456.c */,
 				94A095942365CD11006AC152 /* q0457.h */,
@@ -769,6 +774,7 @@
 				9492FE90235F50EC006FC733 /* q1155.c in Sources */,
 				94CF87672369E3270085BC53 /* q0110.c in Sources */,
 				9492FE18235F1252006FC733 /* q0028.c in Sources */,
+				94F4080C24727877009106FE /* q0438.c in Sources */,
 				9492FE1B235F1296006FC733 /* q0029.c in Sources */,
 				9471640C23F266E700163DE8 /* q0704.c in Sources */,
 				9492FE5D235F4DBC006FC733 /* q0141.c in Sources */,
