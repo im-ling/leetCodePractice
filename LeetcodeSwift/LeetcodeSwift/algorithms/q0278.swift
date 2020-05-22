@@ -38,7 +38,7 @@ import Foundation
 //955,344
 class VersionControl: NSObject {
     func isBadVersion(_ version: Int) -> Bool{
-        var result = false
+        let result = false
         return result
     }
 }
