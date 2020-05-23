@@ -164,6 +164,7 @@
 |Q901 |[Online Stock Span](https://leetcode.com/problems/online-stock-span/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0901.swift)  |Medium |✔️|
 |Q918 |[Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0918.swift)  |Medium |✔️|
 |Q980 |[Unique Paths III](https://leetcode.com/problems/unique-paths-iii/)|[C](./LeetCode/LeetCode/algorithms/q0980.c)  |Hard |✔️|
+|Q986 |[Interval List Intersections](https://leetcode.com/problems/interval-list-intersections/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0986.swift)  |Medium |✔️|
 |Q993 |[Cousins in Binary Tree](https://leetcode.com/problems/cousins-in-binary-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0993.swift)  |Easy |✔️|
 |Q997 |[Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0997.swift)  |Easy |✔️|
 |Q1008 |[Construct Binary Search Tree from Preorder Traversal](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1008.swift)  |Medium |✔️|
