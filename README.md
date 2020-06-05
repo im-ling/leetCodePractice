@@ -154,6 +154,7 @@
 |Q456|[132 Pattern](https://leetcode.com/problems/132-pattern/)|[C](./LeetCode/LeetCode/algorithms/q0456.c)|Medium |✔️|
 |Q476|[Number Complement](https://leetcode.com/problems/number-complement/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0476.swift)|Easy |✔️|
 |Q525|[Contiguous Array](https://leetcode.com/problems/contiguous-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0525.swift)|Medium |✔️|
+|Q528|[Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0528.swift)|Medium |✔️|
 |Q540|[Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0540.swift)|Medium |✔️|
 |Q543|[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0543.swift)|Easy |✔️|
 |Q560|[Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0560.swift)|Medium |✔️|
