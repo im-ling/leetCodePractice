@@ -8,44 +8,6 @@
 
 #include "Extra.h"
 #include "time.h"
-#define DpLength 8
-int maxInt(int a,int b){
-    return a > b ? a : b;
-}
-int dpExample(){
-    int a[DpLength][DpLength];
-    memset(a, 0, sizeof(int) * DpLength * DpLength);
-    srand((int) time(0));
-    for (int i = 0; i < DpLength; i++) {
-        for (int j = 0; j <= i; j++) {
-            int randomNumber = rand() % 100;
-            a[i][j] = randomNumber;
-            printf("%-3d ",randomNumber);
-        }
-        printf("\n");
-    }
-    
-    int dp[DpLength][DpLength];
-    memset(dp, 0, sizeof(int) * DpLength * DpLength);
-    for (int i = 0; i < DpLength ; i++) {
-        dp[DpLength - 1][i] = a[DpLength - 1][i];
-    }
-    for (int i = DpLength - 2; i >= 0; i--) {
-        for (int j = 0; j <= i; j++) {
-            dp[i][j] = a[i][j] + maxInt(dp[i + 1][j], dp[i + 1][j + 1]);
-        }
-    }
-    for (int i = 0; i < DpLength; i++) {
-        for (int j = 0; j <= i; j++) {
-            printf("%-3d ",dp[i][j]);
-        }
-        printf("\n");
-    }
-
-    return 0;
-}
-
-
 
 //You are given two eggs, and access to a 100-storey building. Both eggs are identical. The aim is to find out the highest floor from which an egg will not break when dropped out of a window from that floor. If an egg is dropped and does not break, it is undamaged and can be dropped again. However, once an egg is broken, that’s it for that egg.
 //

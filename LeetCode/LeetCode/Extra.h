@@ -11,6 +11,4 @@
 
 #include "common.h"
 int googleEggDropProblem(void);
-int dpExample(void);
-
 #endif /* Extra_h */
