@@ -147,6 +147,7 @@
 |Q383 |[Ransom Note](https://leetcode.com/problems/ransom-note/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0383.swift)  |Easy |✔️|
 |Q387 |[First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0387.swift)  |Easy |✔️|
 |Q402|[Remove K Digits](https://leetcode.com/problems/remove-k-digits/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0402.swift)|Medium |✔️|
+|Q406|[Queue Reconstruction by Height](https://leetcode.com/problems/queue-reconstruction-by-height/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0406.swift)|Medium |✔️|
 |Q416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0416.swift)|Medium |✔️|
 |Q437|[Path Sum III](https://leetcode.com/problems/path-sum-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift) , [C](./LeetCode/LeetCode/algorithms/q0437.c)|Easy |✔️|
 |Q438|[Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift),[C](./LeetCode/LeetCode/algorithms/q0438.c)|Medium |✔️|
