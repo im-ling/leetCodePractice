@@ -44,6 +44,34 @@ bool isPowerOfTwo(int n){
     if (n < 1) {
         return 0;
     }
+    return !(n & (n - 1));
+}
+
+bool isPowerOfTwo2(int n){
+    if (n < 1) {
+        return 0;
+    }
+    // (n & -n) 取最低位1
+    n &=  ~(n & -n);    // 去最低位1
+    return !n;
+}
+
+bool isPowerOfTwo3(int n){
+    if (n < 1) {
+        return 0;
+    }
+    while (!(n & 1)) {
+        n >>= 1;
+    }
+    if (n == 1)
+        return true;
+    return 0;
+}
+
+bool isPowerOfTwo4(int n){
+    if (n < 1) {
+        return 0;
+    }
     while (n % 2 == 0) {
         n /= 2;
     }
@@ -52,6 +80,8 @@ bool isPowerOfTwo(int n){
     }
     return 0;
 }
+
+
 
 int question231(){
     return 0;
