@@ -146,6 +146,7 @@
 |Q367 |[Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0367.swift)  |Easy |✔️|
 |Q383 |[Ransom Note](https://leetcode.com/problems/ransom-note/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0383.swift)  |Easy |✔️|
 |Q387 |[First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0387.swift)  |Easy |✔️|
+|Q392 |[Is Subsequence](https://leetcode.com/problems/is-subsequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0392.swift)  |Easy |✔️|
 |Q402|[Remove K Digits](https://leetcode.com/problems/remove-k-digits/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0402.swift)|Medium |✔️|
 |Q406|[Queue Reconstruction by Height](https://leetcode.com/problems/queue-reconstruction-by-height/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0406.swift)|Medium |✔️|
 |Q416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0416.swift)|Medium |✔️|
