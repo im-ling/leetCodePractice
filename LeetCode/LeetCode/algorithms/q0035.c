@@ -45,8 +45,25 @@
 //Submissions
 //825,733
 
-
 int searchInsert(int* nums, int numsSize, int target) {
+    int result = 0;
+    int left = 0;
+    int right = numsSize - 1;
+    while (left <= right) {
+        int mid = (left + right) / 2;
+        if (nums[mid] == target) {
+            return mid;
+        }else if (nums[mid] < target){
+            left = mid + 1;
+            result = mid + 1;
+        }else{
+            right = mid - 1;
+        }
+    }
+    return result;
+}
+
+int searchInsert2(int* nums, int numsSize, int target) {
     int result = 0;
     int *lastLeft = searchLastLeft(nums, numsSize, target);
     result = (int)(lastLeft - nums + 1);
@@ -55,6 +72,8 @@ int searchInsert(int* nums, int numsSize, int target) {
     }
     return result;
 }
+
+
 
 int question35(){
     int nums[4] = {1,3,5,6};
