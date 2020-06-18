@@ -142,6 +142,8 @@
 |Q230 |[Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0230.swift)  |Medium |✔️|
 |Q237 |[Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0237.swift)  |Easy |✔️|
 |Q238 |[Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0238.swift)  |Medium |✔️|
+|Q274 |[H-Index](https://leetcode.com/problems/h-index/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0274.swift)  |Medium |✔️|
+|Q275 |[H-Index II](https://leetcode.com/problems/h-index-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0275.swift)  |Medium |✔️|
 |Q328 |[Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0328.swift)  |Medium |✔️|
 |Q338 |[Counting Bits](https://leetcode.com/problems/counting-bits/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0338.swift)  |Medium |✔️|
 |Q367 |[Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0367.swift)  |Easy |✔️|
@@ -157,7 +159,7 @@
 |Q438|[Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift),[C](./LeetCode/LeetCode/algorithms/q0438.c)|Medium |✔️|
 |Q451|[Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0451.swift)|Medium |✔️|
 |Q456|[132 Pattern](https://leetcode.com/problems/132-pattern/)|[C](./LeetCode/LeetCode/algorithms/q0456.c)|Medium |✔️|
-|Q468|[Validate IP Address](https://leetcode.com/problems/validate-ip-address/)|[[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0468.swift)|Medium |✔️|
+|Q468|[Validate IP Address](https://leetcode.com/problems/validate-ip-address/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0468.swift)|Medium |✔️|
 |Q476|[Number Complement](https://leetcode.com/problems/number-complement/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0476.swift)|Easy |✔️|
 |Q518|[Coin Change 2](https://leetcode.com/problems/coin-change-2/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0518.swift)|Medium |✔️|
 |Q525|[Contiguous Array](https://leetcode.com/problems/contiguous-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0525.swift)|Medium |✔️|
@@ -232,6 +234,7 @@
 |Q226|[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0226.c)  |Easy |✔️|
 |Q231|[Power of Two](https://leetcode.com/problems/power-of-two/)|[C](./LeetCode/LeetCode/algorithms/q0231.c)  |Easy |✔️|
 |Q696|[Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/)|[C](./LeetCode/LeetCode/algorithms/q0696.c)  |Easy |✔️|
+|Q1480 |[Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1480.swift)  |Easy |✔️|
 
 #### A friend's recommendation
 |No.|Question Index|Question|solution|Topic|
