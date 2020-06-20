@@ -47,6 +47,30 @@ import Foundation
 //467,944
 
 class q0060Solution {
+    
+    func getPermutation2(_ n: Int, _ k: Int) -> String {
+        var candidates = [Int]()
+        var factor = 1
+        for i in 1...n {
+            candidates.append(i)
+            factor *= i
+        }
+        factor /= n
+
+        var resultNumber = 0
+        var tempk = k - 1
+        for i in (1..<n).reversed() {
+            let index = tempk / factor
+            resultNumber = resultNumber * 10 + candidates[index]
+            candidates.remove(at: index)
+            tempk %= factor
+            factor /= i
+        }
+        resultNumber = resultNumber * 10 + candidates[0]
+
+        return String(resultNumber)
+    }
+    
     func getPermutation_helper(_ n: Int, _ k: Int, candidate:inout [Int] , path:inout [Int]){
         if candidate.count == 0 {
             return
