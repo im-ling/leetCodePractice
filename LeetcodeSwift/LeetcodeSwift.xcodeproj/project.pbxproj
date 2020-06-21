@@ -109,6 +109,9 @@
 		94C6CC81240D4F6500D7A0EF /* q0060.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6CC80240D4F6500D7A0EF /* q0060.swift */; };
 		94C6CC83240D500B00D7A0EF /* q0059.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6CC82240D500B00D7A0EF /* q0059.swift */; };
 		94C6CC87240E4CED00D7A0EF /* q0045.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6CC86240E4CED00D7A0EF /* q0045.swift */; };
+		94CCE4D7249EFDDC00C12404 /* q1486.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CCE4D6249EFDDC00C12404 /* q1486.swift */; };
+		94CCE4D9249F009400C12404 /* q1487.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CCE4D8249F009400C12404 /* q1487.swift */; };
+		94CCE4DB249F057B00C12404 /* q1488.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CCE4DA249F057B00C12404 /* q1488.swift */; };
 		94D13E52246950FA00DBF0AB /* q0733.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D13E51246950FA00DBF0AB /* q0733.swift */; };
 		94D1FF1B248BE979002C3298 /* q0406.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D1FF1A248BE979002C3298 /* q0406.swift */; };
 		94D26706246AB9B0001ACE9D /* q0540.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D26705246AB9B0001ACE9D /* q0540.swift */; };
@@ -252,6 +255,9 @@
 		94C6CC80240D4F6500D7A0EF /* q0060.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0060.swift; sourceTree = "<group>"; };
 		94C6CC82240D500B00D7A0EF /* q0059.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0059.swift; sourceTree = "<group>"; };
 		94C6CC86240E4CED00D7A0EF /* q0045.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0045.swift; sourceTree = "<group>"; };
+		94CCE4D6249EFDDC00C12404 /* q1486.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q1486.swift; sourceTree = "<group>"; };
+		94CCE4D8249F009400C12404 /* q1487.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q1487.swift; sourceTree = "<group>"; };
+		94CCE4DA249F057B00C12404 /* q1488.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q1488.swift; sourceTree = "<group>"; };
 		94D13E51246950FA00DBF0AB /* q0733.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0733.swift; sourceTree = "<group>"; };
 		94D1FF1A248BE979002C3298 /* q0406.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0406.swift; sourceTree = "<group>"; };
 		94D26705246AB9B0001ACE9D /* q0540.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0540.swift; sourceTree = "<group>"; };
@@ -440,6 +446,9 @@
 				94E5121F2465735000E95E8D /* q1232.swift */,
 				94AC6DF32476A8A00022BE35 /* q1277.swift */,
 				94F2D1E0249B7F2C00A40D56 /* q1480.swift */,
+				94CCE4D6249EFDDC00C12404 /* q1486.swift */,
+				94CCE4D8249F009400C12404 /* q1487.swift */,
+				94CCE4DA249F057B00C12404 /* q1488.swift */,
 			);
 			path = algorithms;
 			sourceTree = "<group>";
@@ -535,11 +544,13 @@
 				94C6CC7D240D361400D7A0EF /* q0056.swift in Sources */,
 				94C6CC81240D4F6500D7A0EF /* q0060.swift in Sources */,
 				94517B492417CD6800889D6C /* q0082.swift in Sources */,
+				94CCE4D9249F009400C12404 /* q1487.swift in Sources */,
 				948C7A0C2496F49E0006C082 /* q0787.swift in Sources */,
 				9443C669244D97DD0092A65B /* q1008.swift in Sources */,
 				94E83F142416B2E2000B2369 /* q0079.swift in Sources */,
 				94012F59244303B90029AF5E /* q1046.swift in Sources */,
 				9471643823F5687300163DE8 /* q0678.swift in Sources */,
+				94CCE4D7249EFDDC00C12404 /* q1486.swift in Sources */,
 				9484D058246D6AB4007E9A8F /* q0208.swift in Sources */,
 				947D9D00249A196C00DB1779 /* q0130.swift in Sources */,
 				9432900A240F5FCA00EFB3D4 /* q0063.swift in Sources */,
@@ -583,6 +594,7 @@
 				94459067241ABD1800818EEE /* q0091.swift in Sources */,
 				9481D08D2460583200C9A784 /* q0476.swift in Sources */,
 				94AC6DF42476A8A00022BE35 /* q1277.swift in Sources */,
+				94CCE4DB249F057B00C12404 /* q1488.swift in Sources */,
 				946B8D802442050400405D2A /* q0117.swift in Sources */,
 				94E83F0A24169969000B2369 /* q0074.swift in Sources */,
 				94329010240FB30800EFB3D4 /* q0065.swift in Sources */,

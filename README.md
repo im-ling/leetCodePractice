@@ -190,6 +190,9 @@
 |Q1232 |[Check If It Is a Straight Line](https://leetcode.com/problems/check-if-it-is-a-straight-line/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1232.swift)  |Easy |✔️|
 |Q1275 |[Find Winner on a Tic Tac Toe Game](https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/)|[Python3](./LeetcodePython3/q1275.py)  |Easy |✔️|
 |Q1277 |[Count Square Submatrices with All Ones](https://leetcode.com/problems/count-square-submatrices-with-all-ones/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1277.swift)  |Medium |✔️|
+|Q1486 |[XOR Operation in an Array](https://leetcode.com/problems/xor-operation-in-an-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1486.swift)  |Easy |✔️|
+|Q1487 |[Making File Names Unique](https://leetcode.com/problems/making-file-names-unique/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1487.swift)  |Medium |✔️|
+|Q1488 |[Avoid Flood in The City](https://leetcode.com/problems/avoid-flood-in-the-city/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1488.swift)  |Medium |✔️|
 
 #### Two Pointers
 |No.|Question|Solution|Difficulty|Finished|

@@ -105,6 +105,9 @@ print("Hello, leetcode!")
 //q1143()
 //q1232()
 //q1277()
+//q1486()
+//q1487()
+//q1488()
 
 //daily challenge
 //day7()
