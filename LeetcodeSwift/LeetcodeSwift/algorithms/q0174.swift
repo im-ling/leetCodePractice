@@ -53,7 +53,9 @@ class q0174Solution {
         dp[maxHeight - 1][maxWidth] = 1
         for i in (0..<maxHeight).reversed() {
             for j in (0..<maxWidth).reversed() {
+                // dp[i][j] 表明要到达dungeon[maxWidth][maxHeight], (i,j) 需要的最小hp;
                 let requireHp = min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j]
+                // dp[i][j] 是从上一步(dp[i - 1][j], dp[i][j - 1])过来的，上一步不可以小于等于零，小于0就死了
                 dp[i][j] = max(requireHp, 1)
             }
         }
