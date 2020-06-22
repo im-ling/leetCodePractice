@@ -134,6 +134,7 @@
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
 |Q130|[Surrounded Regions](https://leetcode.com/problems/surrounded-regions/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0130.swift) |Medium |✔️|
+|Q137|[Single Number II](https://leetcode.com/problems/single-number-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0137.swift) |Medium |✔️|
 |Q155 |[Min Stack](https://leetcode.com/problems/min-stack/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0155.swift)  |Easy |✔️|
 |Q174 |[Dungeon Game](https://leetcode.com/problems/dungeon-game/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0174.swift)  |Hard |✔️|
 |Q200 |[Number of Islands](https://leetcode.com/problems/number-of-islands/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0200.swift)  |Medium |✔️|
@@ -143,6 +144,7 @@
 |Q230 |[Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0230.swift)  |Medium |✔️|
 |Q237 |[Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0237.swift)  |Easy |✔️|
 |Q238 |[Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0238.swift)  |Medium |✔️|
+|Q260 |[Single Number III](https://leetcode.com/problems/single-number-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0260.swift)  |Medium |✔️|
 |Q274 |[H-Index](https://leetcode.com/problems/h-index/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0274.swift)  |Medium |✔️|
 |Q275 |[H-Index II](https://leetcode.com/problems/h-index-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0275.swift)  |Medium |✔️|
 |Q328 |[Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0328.swift)  |Medium |✔️|
