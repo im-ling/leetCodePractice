@@ -43,6 +43,10 @@ class q0096Solution {
         var dp = [Int].init(repeating: 0, count: n + 1)
         dp[0] = 1
         dp[1] = 1
+        // https://leetcode.com/problems/unique-binary-search-trees/discuss/31666/DP-Solution-in-6-lines-with-explanation.-F(i-n)-G(i-1)-*-G(n-i)
+        // dp[i]  = nums_of_root[1] + nums_of_root[2] + ... + nums_of_root[i]
+        //        = dp[0] * dp[i - 1] + dp[1] * dp[i - 2] + ... + dp[i - 1] * dp[0]
+        // PS: nums_of_root[n] 以n为根结点的树
         for i in 2...n {
             for j in 0..<i {
                 dp[i] += dp[i - 1 - j] * dp[j]
