@@ -149,6 +149,7 @@
 |Q260 |[Single Number III](https://leetcode.com/problems/single-number-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0260.swift)  |Medium |✔️|
 |Q274 |[H-Index](https://leetcode.com/problems/h-index/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0274.swift)  |Medium |✔️|
 |Q275 |[H-Index II](https://leetcode.com/problems/h-index-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0275.swift)  |Medium |✔️|
+|Q279 |[Perfect Squares](https://leetcode.com/problems/perfect-squares/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0279.swift)  |Medium |✔️|
 |Q328 |[Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0328.swift)  |Medium |✔️|
 |Q338 |[Counting Bits](https://leetcode.com/problems/counting-bits/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0338.swift)  |Medium |✔️|
 |Q367 |[Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0367.swift)  |Easy |✔️|
