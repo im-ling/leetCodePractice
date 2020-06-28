@@ -203,6 +203,9 @@
 |Q1491 |[Average Salary Excluding the Minimum and Maximum Salary](https://leetcode.com/problems/average-salary-excluding-the-minimum-and-maximum-salary/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1491.swift)  |Easy |✔️|
 |Q1492 |[The kth Factor of n](https://leetcode.com/problems/the-kth-factor-of-n/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1492.swift)  |Medium |✔️|
 |Q1493 |[Longest Subarray of 1's After Deleting One Element](https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1493.swift)  |Medium |✔️|
+|Q1496 |[Path Crossing](https://leetcode.com/problems/path-crossing/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1496.swift)  |Easy |✔️|
+|Q1497 |[Check If Array Pairs Are Divisible by k](https://leetcode.com/problems/check-if-array-pairs-are-divisible-by-k/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1497.swift)  |Medium |✔️|
+|Q1498 |[Number of Subsequences That Satisfy the Given Sum Condition](https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1498.swift)  |Medium |✔️|
 
 #### Two Pointers
 |No.|Question|Solution|Difficulty|Finished|
