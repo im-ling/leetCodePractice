@@ -200,6 +200,9 @@
 |Q1486 |[XOR Operation in an Array](https://leetcode.com/problems/xor-operation-in-an-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1486.swift)  |Easy |✔️|
 |Q1487 |[Making File Names Unique](https://leetcode.com/problems/making-file-names-unique/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1487.swift)  |Medium |✔️|
 |Q1488 |[Avoid Flood in The City](https://leetcode.com/problems/avoid-flood-in-the-city/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1488.swift)  |Medium |✔️|
+|Q1491 |[Average Salary Excluding the Minimum and Maximum Salary](https://leetcode.com/problems/average-salary-excluding-the-minimum-and-maximum-salary/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1491.swift)  |Easy |✔️|
+|Q1492 |[The kth Factor of n](https://leetcode.com/problems/the-kth-factor-of-n/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1492.swift)  |Medium |✔️|
+|Q1493 |[Longest Subarray of 1's After Deleting One Element](https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1493.swift)  |Medium |✔️|
 
 #### Two Pointers
 |No.|Question|Solution|Difficulty|Finished|

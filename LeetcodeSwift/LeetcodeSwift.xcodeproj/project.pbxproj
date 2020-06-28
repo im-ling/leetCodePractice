@@ -136,6 +136,9 @@
 		94E83F142416B2E2000B2369 /* q0079.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E83F132416B2E2000B2369 /* q0079.swift */; };
 		94EE8C6024717EB700FCB386 /* q0438.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EE8C5F24717EB700FCB386 /* q0438.swift */; };
 		94EF1ECB24A735240065D5EA /* q0279.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EF1ECA24A735240065D5EA /* q0279.swift */; };
+		94EF1ECD24A78FA60065D5EA /* q1491.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EF1ECC24A78FA60065D5EA /* q1491.swift */; };
+		94EF1ECF24A791B00065D5EA /* q1492.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EF1ECE24A791B00065D5EA /* q1492.swift */; };
+		94EF1ED124A792C00065D5EA /* q1493.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EF1ED024A792C00065D5EA /* q1493.swift */; };
 		94F13318246BE43E0017F189 /* q0402.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F13317246BE43E0017F189 /* q0402.swift */; };
 		94F2D1E1249B7F2C00A40D56 /* q1480.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F2D1E0249B7F2C00A40D56 /* q1480.swift */; };
 		94F4080924727129009106FE /* q0567.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F4080824727129009106FE /* q0567.swift */; };
@@ -289,6 +292,9 @@
 		94E83F132416B2E2000B2369 /* q0079.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0079.swift; sourceTree = "<group>"; };
 		94EE8C5F24717EB700FCB386 /* q0438.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0438.swift; sourceTree = "<group>"; };
 		94EF1ECA24A735240065D5EA /* q0279.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0279.swift; sourceTree = "<group>"; };
+		94EF1ECC24A78FA60065D5EA /* q1491.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q1491.swift; sourceTree = "<group>"; };
+		94EF1ECE24A791B00065D5EA /* q1492.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q1492.swift; sourceTree = "<group>"; };
+		94EF1ED024A792C00065D5EA /* q1493.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q1493.swift; sourceTree = "<group>"; };
 		94F13317246BE43E0017F189 /* q0402.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0402.swift; sourceTree = "<group>"; };
 		94F2D1E0249B7F2C00A40D56 /* q1480.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q1480.swift; sourceTree = "<group>"; };
 		94F4080824727129009106FE /* q0567.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q0567.swift; sourceTree = "<group>"; };
@@ -470,6 +476,9 @@
 				94CCE4D6249EFDDC00C12404 /* q1486.swift */,
 				94CCE4D8249F009400C12404 /* q1487.swift */,
 				94CCE4DA249F057B00C12404 /* q1488.swift */,
+				94EF1ECC24A78FA60065D5EA /* q1491.swift */,
+				94EF1ECE24A791B00065D5EA /* q1492.swift */,
+				94EF1ED024A792C00065D5EA /* q1493.swift */,
 			);
 			path = algorithms;
 			sourceTree = "<group>";
@@ -544,6 +553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94EF1ED124A792C00065D5EA /* q1493.swift in Sources */,
 				9481D091246379EB00C9A784 /* q0169.swift in Sources */,
 				94026E4D2444552800130D7C /* q0525.swift in Sources */,
 				9429F723241ED61D002A565F /* q0113.swift in Sources */,
@@ -569,6 +579,7 @@
 				948C7A0C2496F49E0006C082 /* q0787.swift in Sources */,
 				9443C669244D97DD0092A65B /* q1008.swift in Sources */,
 				94E83F142416B2E2000B2369 /* q0079.swift in Sources */,
+				94EF1ECD24A78FA60065D5EA /* q1491.swift in Sources */,
 				94012F59244303B90029AF5E /* q1046.swift in Sources */,
 				94D38C2624A359F600325582 /* q0937.swift in Sources */,
 				9471643823F5687300163DE8 /* q0678.swift in Sources */,
@@ -611,6 +622,7 @@
 				948D51C7248B0D3A00EE0101 /* q0528.swift in Sources */,
 				94F4080924727129009106FE /* q0567.swift in Sources */,
 				949E9285246E82CD00DBEE65 /* q0918.swift in Sources */,
+				94EF1ECF24A791B00065D5EA /* q1492.swift in Sources */,
 				94FB8779247BFE390035CE1E /* q1035.swift in Sources */,
 				94C6CC7B240D2F8A00D7A0EF /* q0055.swift in Sources */,
 				9445906D241AD9B200818EEE /* q0093.swift in Sources */,
