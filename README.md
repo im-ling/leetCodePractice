@@ -136,6 +136,7 @@
 |Q129|[Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0129.swift) |Medium |✔️|
 |Q130|[Surrounded Regions](https://leetcode.com/problems/surrounded-regions/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0130.swift) |Medium |✔️|
 |Q137|[Single Number II](https://leetcode.com/problems/single-number-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0137.swift) |Medium |✔️|
+|Q143|[Reorder List](https://leetcode.com/problems/reorder-list/)|[Python3](./LeetcodePython3/q0143.py) |Medium |✔️|
 |Q155 |[Min Stack](https://leetcode.com/problems/min-stack/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0155.swift)  |Easy |✔️|
 |Q174 |[Dungeon Game](https://leetcode.com/problems/dungeon-game/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0174.swift)  |Hard |✔️|
 |Q200 |[Number of Islands](https://leetcode.com/problems/number-of-islands/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0200.swift)  |Medium |✔️|
