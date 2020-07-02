@@ -103,12 +103,12 @@
 |99 |[Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0099.swift)  |Hard |✔️|
 |100|[Same Tree](https://leetcode.com/problems/same-tree/)|[C](./LeetCode/LeetCode/algorithms/q0100.c)  |Easy |✔️|
 |101|[Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)|[C](./LeetCode/LeetCode/algorithms/q0101.c)  |Easy |✔️|
-|102 |[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0102.swift)  |Medium |✔️|
+|102 |[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0102.swift), [Python3](./LeetcodePython3/q0102.py) |Medium |✔️|
 |103 |[Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0103.swift)  |Medium |✔️|
 |104|[Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0104.c)  |Easy |✔️|
 |105 |[Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0105.swift)  |Medium |✔️|
 |106 |[Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0106.swift)  |Medium |✔️|
-|107 |[Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0107.swift)  |Easy |✔️|
+|107 |[Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0107.swift) , [Python3](./LeetcodePython3/q0107.py) |Easy |✔️|
 |108 |[ Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)|[C](./LeetCode/LeetCode/algorithms/q0108.c)  |Easy |✔️|
 |109 |[Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0109.swift)  |Medium |✔️|
 |110|[Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0110.c)  |Easy |✔️|
@@ -137,6 +137,7 @@
 |Q130|[Surrounded Regions](https://leetcode.com/problems/surrounded-regions/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0130.swift) |Medium |✔️|
 |Q137|[Single Number II](https://leetcode.com/problems/single-number-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0137.swift) |Medium |✔️|
 |Q143|[Reorder List](https://leetcode.com/problems/reorder-list/)|[Python3](./LeetcodePython3/q0143.py) |Medium |✔️|
+|Q147|[Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)|[Python3](./LeetcodePython3/q0147.py) |Medium |✔️|
 |Q155 |[Min Stack](https://leetcode.com/problems/min-stack/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0155.swift)  |Easy |✔️|
 |Q174 |[Dungeon Game](https://leetcode.com/problems/dungeon-game/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0174.swift)  |Hard |✔️|
 |Q200 |[Number of Islands](https://leetcode.com/problems/number-of-islands/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0200.swift)  |Medium |✔️|
