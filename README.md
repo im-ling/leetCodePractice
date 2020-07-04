@@ -150,6 +150,8 @@
 |Q237 |[Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0237.swift)  |Easy |✔️|
 |Q238 |[Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0238.swift)  |Medium |✔️|
 |Q260 |[Single Number III](https://leetcode.com/problems/single-number-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0260.swift)  |Medium |✔️|
+|Q263 |[Ugly Number](https://leetcode.com/problems/ugly-number/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0263.swift)  |Easy |✔️|
+|Q264 |[Ugly Number II](https://leetcode.com/problems/ugly-number-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0264.swift)  |Medium |✔️|
 |Q274 |[H-Index](https://leetcode.com/problems/h-index/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0274.swift)  |Medium |✔️|
 |Q275 |[H-Index II](https://leetcode.com/problems/h-index-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0275.swift)  |Medium |✔️|
 |Q279 |[Perfect Squares](https://leetcode.com/problems/perfect-squares/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0279.swift)  |Medium |✔️|
@@ -200,6 +202,7 @@
 |Q1044 |[Longest Duplicate Substring](https://leetcode.com/problems/longest-duplicate-substring/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1044.swift)  |Hard |✔️|
 |Q1046 |[Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1046.swift)  |Easy |✔️|
 |Q1143 |[Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1143.swift)  |Medium |✔️|
+|Q1201 |[Ugly Number III](https://leetcode.com/problems/ugly-number-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1201.swift)  |Medium |✔️|
 |Q1232 |[Check If It Is a Straight Line](https://leetcode.com/problems/check-if-it-is-a-straight-line/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1232.swift)  |Easy |✔️|
 |Q1275 |[Find Winner on a Tic Tac Toe Game](https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/)|[Python3](./LeetcodePython3/q1275.py)  |Easy |✔️|
 |Q1277 |[Count Square Submatrices with All Ones](https://leetcode.com/problems/count-square-submatrices-with-all-ones/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1277.swift)  |Medium |✔️|
