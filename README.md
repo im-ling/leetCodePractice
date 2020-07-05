@@ -157,6 +157,7 @@
 |Q279 |[Perfect Squares](https://leetcode.com/problems/perfect-squares/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0279.swift)  |Medium |✔️|
 |Q322 |[Coin Change](https://leetcode.com/problems/coin-change/)|[Python3](./LeetcodePython3/q0322.py) |Medium |✔️|
 |Q328 |[Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0328.swift)  |Medium |✔️|
+|Q332 |[Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0332.swift)  |Medium |✔️|
 |Q338 |[Counting Bits](https://leetcode.com/problems/counting-bits/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0338.swift)  |Medium |✔️|
 |Q367 |[Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0367.swift)  |Easy |✔️|
 |Q368 |[Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0368.swift)  |Medium |✔️|
@@ -217,6 +218,9 @@
 |Q1496 |[Path Crossing](https://leetcode.com/problems/path-crossing/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1496.swift)  |Easy |✔️|
 |Q1497 |[Check If Array Pairs Are Divisible by k](https://leetcode.com/problems/check-if-array-pairs-are-divisible-by-k/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1497.swift)  |Medium |✔️|
 |Q1498 |[Number of Subsequences That Satisfy the Given Sum Condition](https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1498.swift)  |Medium |✔️|
+|Q1502 |[Can Make Arithmetic Progression From Sequence](https://leetcode.com/problems/can-make-arithmetic-progression-from-sequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1502.swift)  |Medium |✔️|
+|Q1503 |[Last Moment Before All Ants Fall Out of a Plank](https://leetcode.com/problems/last-moment-before-all-ants-fall-out-of-a-plank/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1503.swift)  |Medium |✔️|
+|Q1505 |[Minimum Possible Integer After at Most K Adjacent Swaps On Digits](https://leetcode.com/problems/minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1505.swift)  |Medium |✔️|
 
 #### Two Pointers
 |No.|Question|Solution|Difficulty|Finished|
