@@ -172,8 +172,10 @@
 |Q441|[Arranging Coins](https://leetcode.com/problems/arranging-coins/)|[Python3](./LeetcodePython3/q0441.py) |Easy |✔️|
 |Q451|[Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0451.swift)|Medium |✔️|
 |Q456|[132 Pattern](https://leetcode.com/problems/132-pattern/)|[C](./LeetCode/LeetCode/algorithms/q0456.c)|Medium |✔️|
+|Q461|[Hamming Distance](https://leetcode.com/problems/hamming-distance/)|[Python3](./LeetcodePython3/q0461.py) |Easy |✔️|
 |Q468|[Validate IP Address](https://leetcode.com/problems/validate-ip-address/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0468.swift)|Medium |✔️|
 |Q476|[Number Complement](https://leetcode.com/problems/number-complement/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0476.swift)|Easy |✔️|
+|Q477|[Total Hamming Distance](https://leetcode.com/problems/total-hamming-distance/)|[Python3](./LeetcodePython3/q0477.py) |Medium |✔️|
 |Q518|[Coin Change 2](https://leetcode.com/problems/coin-change-2/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0518.swift)|Medium |✔️|
 |Q525|[Contiguous Array](https://leetcode.com/problems/contiguous-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0525.swift)|Medium |✔️|
 |Q528|[Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0528.swift)|Medium |✔️|
