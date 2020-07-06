@@ -67,7 +67,7 @@
 |63 |[Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0063.swift)  |Medium |✔️|
 |64 |[Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0064.swift)  |Medium |✔️|
 |65 |[Valid Number](https://leetcode.com/problems/valid-number/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0065.swift)  |Medium |✔️|
-|66|[Plus One](https://leetcode.com/problems/plus-one/)|[C](./LeetCode/LeetCode/algorithms/q0066.c)  |Easy |✔️|
+|66|[Plus One](https://leetcode.com/problems/plus-one/)|[C](./LeetCode/LeetCode/algorithms/q0066.c), [Python3](./LeetcodePython3/q0066.py) |Easy |✔️|
 |67|[Add Binary](https://leetcode.com/problems/add-binary/)|[C](./LeetCode/LeetCode/algorithms/q0067.c)  |Easy |✔️|
 |68 |[Text Justification](https://leetcode.com/problems/text-justification/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0068.swift)  |Hard |✔️|
 |69|[Sqrt(x)](https://leetcode.com/problems/sqrtx/)|[C](./LeetCode/LeetCode/algorithms/q0069.c)  |Easy |✔️|
@@ -220,7 +220,8 @@
 |Q1498 |[Number of Subsequences That Satisfy the Given Sum Condition](https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1498.swift)  |Medium |✔️|
 |Q1502 |[Can Make Arithmetic Progression From Sequence](https://leetcode.com/problems/can-make-arithmetic-progression-from-sequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1502.swift)  |Medium |✔️|
 |Q1503 |[Last Moment Before All Ants Fall Out of a Plank](https://leetcode.com/problems/last-moment-before-all-ants-fall-out-of-a-plank/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1503.swift)  |Medium |✔️|
-|Q1505 |[Minimum Possible Integer After at Most K Adjacent Swaps On Digits](https://leetcode.com/problems/minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1505.swift)  |Medium |✔️|
+|Q1504 |[Count Submatrices With All Ones](https://leetcode.com/problems/count-submatrices-with-all-ones/)|[Python3](./LeetcodePython3/q1504.py)  |Medium |✔️|
+|Q1505 |[Minimum Possible Integer After at Most K Adjacent Swaps On Digits](https://leetcode.com/problems/minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1505.swift)  |Hard |✔️|
 
 #### Two Pointers
 |No.|Question|Solution|Difficulty|Finished|
