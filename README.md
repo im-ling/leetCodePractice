@@ -16,8 +16,8 @@
 |12 |[Integer to Roman](https://leetcode.com/problems/integer-to-roman)|[C](./LeetCode/LeetCode/algorithms/q0012.c)  |Medium |✔️|
 |13 |[Roman to Integer](https://leetcode.com/problems/roman-to-integer)|[C](./LeetCode/LeetCode/algorithms/q0013.c)  |Easy |✔️|
 |14 |[Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix)|[C](./LeetCode/LeetCode/algorithms/q0014.c)  |Easy |✔️|
-|15 |[3Sum](https://leetcode.com/problems/3sum)|[C](./LeetCode/LeetCode/algorithms/q0015.c)  |Medium |✔️|
-|16 |[3Sum Closest](https://leetcode.com/problems/3sum-closest)|[C](./LeetCode/LeetCode/algorithms/q0016.c)  |Medium |✔️|
+|15 |[3Sum](https://leetcode.com/problems/3sum)|[C](./LeetCode/LeetCode/algorithms/q0015.c) , [Python3](./LeetcodePython3/q0015.py) |Medium |✔️|
+|16 |[3Sum Closest](https://leetcode.com/problems/3sum-closest)|[C](./LeetCode/LeetCode/algorithms/q0016.c) , [Python3](./LeetcodePython3/q0016.py)    |Medium |✔️|
 |17 |[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number)|[C](./LeetCode/LeetCode/algorithms/q0017.c)  |Medium |✔️|
 |18 |[4Sum](https://leetcode.com/problems/4sum)|[C](./LeetCode/LeetCode/algorithms/q0018.c)  |Medium |✔️|
 |19 |[Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list)|[C](./LeetCode/LeetCode/algorithms/q0019.c)  |Medium |✔️|
@@ -184,6 +184,7 @@
 |Q540|[Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0540.swift)|Medium |✔️|
 |Q543|[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0543.swift)|Easy |✔️|
 |Q560|[Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0560.swift)|Medium |✔️|
+|Q662|[Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/)|[Python3](./LeetcodePython3/q0662.py) |Medium |✔️|
 |Q678|[Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/)|[C](./LeetCode/LeetCode/algorithms/q0678.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0678.swift)|Medium |✔️|
 |Q700|[Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0700.swift)  |Easy |✔️|
 |Q704|[Binary Search](https://leetcode.com/problems/binary-search/)|[C](./LeetCode/LeetCode/algorithms/q0704.c)  |Easy |✔️|
@@ -194,6 +195,7 @@
 |Q876 |[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0876.swift)  |Easy |✔️|
 |Q901 |[Online Stock Span](https://leetcode.com/problems/online-stock-span/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0901.swift)  |Medium |✔️|
 |Q918 |[Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0918.swift)  |Medium |✔️|
+|Q923|[3Sum With Multiplicity](https://leetcode.com/problems/3sum-with-multiplicity/)|[Python3](./LeetcodePython3/q0923.py) |Medium |✔️|
 |Q937 |[K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0937.swift)  |Medium |✔️|
 |Q957|[Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/)|[Python3](./LeetcodePython3/q0957.py) |Medium |✔️|
 |Q980 |[Unique Paths III](https://leetcode.com/problems/unique-paths-iii/)|[C](./LeetCode/LeetCode/algorithms/q0980.c)  |Hard |✔️|
