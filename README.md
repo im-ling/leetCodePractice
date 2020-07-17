@@ -162,6 +162,8 @@
 |Q332 |[Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0332.swift)  |Medium |✔️|
 |Q338 |[Counting Bits](https://leetcode.com/problems/counting-bits/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0338.swift)  |Medium |✔️|
 |Q342|[Power of Four](https://leetcode.com/problems/power-of-four/)|[Python3](./LeetcodePython3/q0342.py) |Medium |✔️||Q367 |[Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0367.swift)  |Easy |✔️|
+|Q347|[Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)|[Python3](./LeetcodePython3/q0347.py) |Medium |✔️|
+|Q367 |[Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0367.swift)  |Easy |✔️|
 |Q368 |[Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0368.swift)  |Medium |✔️|
 |Q380 |[Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0380.swift)  |Medium |✔️|
 |Q383 |[Ransom Note](https://leetcode.com/problems/ransom-note/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0383.swift)  |Easy |✔️|
