@@ -143,7 +143,9 @@
 |Q174 |[Dungeon Game](https://leetcode.com/problems/dungeon-game/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0174.swift)  |Hard |✔️|
 |Q200 |[Number of Islands](https://leetcode.com/problems/number-of-islands/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0200.swift)  |Medium |✔️|
 |Q201 |[Bitwise AND of Numbers Range](https://leetcode.com/problems/bitwise-and-of-numbers-range/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0201.swift)  |Medium |✔️|
+|Q207 |[Course Schedule](https://leetcode.com/problems/course-schedule/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0207.swift)  |Medium |✔️|
 |Q208 |[Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0208.swift)  |Medium |✔️|
+|Q210 |[Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0210.swift)  |Medium |✔️|
 |Q212 |[Word Search II](https://leetcode.com/problems/word-search-ii/)|[Python3](./LeetcodePython3/q0212.py)  |Hard |✔️|
 |Q221 |[Maximal Square](https://leetcode.com/problems/maximal-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0221.swift)  |Medium |✔️|
 |Q222 |[Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0222.swift)  |Medium |✔️|
