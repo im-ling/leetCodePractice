@@ -216,6 +216,7 @@
 |Q1044 |[Longest Duplicate Substring](https://leetcode.com/problems/longest-duplicate-substring/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1044.swift)  |Hard |✔️|
 |Q1046 |[Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1046.swift)  |Easy |✔️|
 |Q1143 |[Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1143.swift)  |Medium |✔️|
+|Q1171 |[Remove Zero Sum Consecutive Nodes from Linked List](https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/)|[Python3](./LeetcodePython3/q1171.py)  |Medium |✔️|
 |Q1201 |[Ugly Number III](https://leetcode.com/problems/ugly-number-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1201.swift)  |Medium |✔️|
 |Q1232 |[Check If It Is a Straight Line](https://leetcode.com/problems/check-if-it-is-a-straight-line/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1232.swift)  |Easy |✔️|
 |Q1275 |[Find Winner on a Tic Tac Toe Game](https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/)|[Python3](./LeetcodePython3/q1275.py)  |Easy |✔️|
@@ -239,6 +240,7 @@
 |Q1512 |[Number of Good Pairs](https://leetcode.com/problems/number-of-good-pairs/)|[Python3](./LeetcodePython3/q1512.py)  |Easy |✔️|
 |Q1513 |[Number of Substrings With Only 1s](https://leetcode.com/problems/number-of-substrings-with-only-1s/)|[Python3](./LeetcodePython3/q1513.py)  |Medium |✔️|
 |Q1514 |[Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/)|[Python3](./LeetcodePython3/q1514.py)  |Medium |✔️|
+|Q1518 |[Water Bottles](https://leetcode.com/problems/water-bottles/)|[Python3](./LeetcodePython3/q1518.py)  |Medium |✔️|
 
 #### Two Pointers
 |No.|Question|Solution|Difficulty|Finished|
@@ -276,7 +278,7 @@
 |Q191|[Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)|[C](./LeetCode/LeetCode/algorithms/q0191.c)  |Easy |✔️|
 |Q198|[ House Robber](https://leetcode.com/problems/house-robber/)|[C](./LeetCode/LeetCode/algorithms/q0198.c)  |Easy |✔️|
 |Q202|[Happy Number](https://leetcode.com/problems/happy-number/)|[C](./LeetCode/LeetCode/algorithms/q0202.c)  |Easy |✔️|
-|Q203|[Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)|[C](./LeetCode/LeetCode/algorithms/q0203.c)  |Easy |✔️|
+|Q203|[Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)|[C](./LeetCode/LeetCode/algorithms/q0203.c),[Python3](./LeetcodePython3/q0326.py)|Easy |✔️|
 |Q204|[Count Primes](https://leetcode.com/problems/count-primes/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0119.swift) |Easy |✔️|
 |Q205|[Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/)|[C](./LeetCode/LeetCode/algorithms/q0205.c)  |Easy |✔️|
 |Q206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|[C](./LeetCode/LeetCode/algorithms/q0206.c)  |Easy |✔️|
