@@ -147,6 +147,8 @@
 |Q146|[LRU Cache](https://leetcode.com/problems/lru-cache/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0146.swift)  |Medium |✔️|
 |Q147|[Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)|[Python3](./LeetcodePython3/q0147.py) |Medium |✔️|
 |Q151 |[Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)|[Python3](./LeetcodePython3/q0151.py)  |Medium |✔️|
+|Q153 |[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|[Python3](./LeetcodePython3/q0153.py)  |Medium |✔️|
+|Q154 |[Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)|[Python3](./LeetcodePython3/q0154.py)  |Hard |✔️|
 |Q155 |[Min Stack](https://leetcode.com/problems/min-stack/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0155.swift)  |Easy |✔️|
 |Q160|[Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)|[C](./LeetCode/LeetCode/algorithms/q0160.c)  |Easy |✔️|
 |Q167|[Two Sum II](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|[C](./LeetCode/LeetCode/algorithms/q0167.c)  |Easy |✔️|
