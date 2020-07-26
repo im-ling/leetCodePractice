@@ -107,7 +107,7 @@
 |103 |[Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0103.swift)  |Medium |✔️|
 |104|[Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0104.c)  |Easy |✔️|
 |105 |[Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0105.swift)  |Medium |✔️|
-|106 |[Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0106.swift)  |Medium |✔️|
+|106 |[Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0106.swift) , [Python3](./LeetcodePython3/q0106.py) |Medium |✔️|
 |107 |[Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0107.swift) , [Python3](./LeetcodePython3/q0107.py) |Easy |✔️|
 |108 |[ Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)|[C](./LeetCode/LeetCode/algorithms/q0108.c)  |Easy |✔️|
 |109 |[Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0109.swift)  |Medium |✔️|
@@ -180,6 +180,7 @@
 |Q234|[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)|[C](./LeetCode/LeetCode/algorithms/q0234.c)  |Easy |✔️|
 |Q237 |[Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0237.swift)  |Easy |✔️|
 |Q238 |[Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0238.swift)  |Medium |✔️|
+|Q258 |[Add Digits](https://leetcode.com/problems/add-digits/)|[Python3](./LeetcodePython3/q0258.py)   |Easy |✔️|
 |Q260 |[Single Number III](https://leetcode.com/problems/single-number-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0260.swift)  |Medium |✔️|
 |Q263 |[Ugly Number](https://leetcode.com/problems/ugly-number/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0263.swift)  |Easy |✔️|
 |Q264 |[Ugly Number II](https://leetcode.com/problems/ugly-number-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0264.swift)  |Medium |✔️|
@@ -189,6 +190,7 @@
 |Q279 |[Perfect Squares](https://leetcode.com/problems/perfect-squares/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0279.swift)  |Medium |✔️|
 |Q283|[Move Zeroes](https://leetcode.com/problems/move-zeroes/)|[C](./LeetCode/LeetCode/algorithms/q0283.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0283.swift)  |Easy |✔️|
 |Q287|[Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)|[C](./LeetCode/LeetCode/algorithms/q0287.c)  |Medium |✔️|
+|Q309 |[Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)|[Python3](./LeetcodePython3/q0309.py) |Medium |✔️|
 |Q322 |[Coin Change](https://leetcode.com/problems/coin-change/)|[Python3](./LeetcodePython3/q0322.py) |Medium |✔️|
 |Q326|[Power of Three](https://leetcode.com/problems/power-of-three/)|[Python3](./LeetcodePython3/q0326.py) |Easy |✔️|
 |Q328 |[Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0328.swift)  |Medium |✔️|
@@ -232,6 +234,7 @@
 |Q557 |[Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/)|[Python3](./LeetcodePython3/q0557.py)  |Easy |✔️|
 |Q560|[Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0560.swift)|Medium |✔️|
 |Q567|[Permutation in String](https://leetcode.com/problems/permutation-in-string/)|[C](./LeetCode/LeetCode/algorithms/q0567.c) ,[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1143.swift) |Medium |✔️|
+|Q621|[Task Scheduler](https://leetcode.com/problems/task-scheduler/)|[Python3](./LeetcodePython3/q0621.py) |Medium |✔️|
 |Q662|[Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/)|[Python3](./LeetcodePython3/q0662.py) |Medium |✔️|
 |Q678|[Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/)|[C](./LeetCode/LeetCode/algorithms/q0678.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0678.swift)|Medium |✔️|
 |Q696|[Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/)|[C](./LeetCode/LeetCode/algorithms/q0696.c)  |Easy |✔️|
