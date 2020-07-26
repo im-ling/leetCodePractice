@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from typing import List, Dict
+import sys
 
 
 class Solution:
@@ -30,7 +31,7 @@ class Solution:
         flagBoard: List[List[bool]] = [[True for i in range(xMax)] for j in range(yMax)]
 
         letter26String = "abcdefghijklmnopqrstuvwxyz"
-        letterDic: Dict[str:List[List]] = dict()
+        letterDic: Dict[str, List[List]] = dict()
         for char in letter26String:
             letterDic[char] = list()
 
@@ -49,6 +50,7 @@ class Solution:
         return result
 
 
+print(sys.version)
 solu = Solution()
 board = [["o", "a", "a", "n"], ["e", "t", "a", "e"], ["i", "h", "k", "r"], ["i", "f", "l", "v"]]
 words = ["oath", "pea", "eat", "rain"]

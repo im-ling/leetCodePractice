@@ -287,3 +287,9 @@
 |Q1514 |[Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/)|[Python3](./LeetcodePython3/q1514.py)  |Medium |✔️|
 |Q1518 |[Water Bottles](https://leetcode.com/problems/water-bottles/)|[Python3](./LeetcodePython3/q1518.py)  |Medium |✔️|
 |Q1519 |[Number of Nodes in the Sub-Tree With the Same Label](https://leetcode.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label/)|[Python3](./LeetcodePython3/q1519.py)  |Medium |✔️|
+|Q1523 |[Count Odd Numbers in an Interval Range](https://leetcode.com/problems/count-odd-numbers-in-an-interval-range/)|[Python3](./LeetcodePython3/q1523.py)  |Easy |✔️|
+|Q1524 |[Number of Sub-arrays With Odd Sum](https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/)|[Python3](./LeetcodePython3/q1524.py)  |Medium |✔️|
+|Q1525 |[Number of Good Ways to Split a String](https://leetcode.com/problems/number-of-good-ways-to-split-a-string/)|[Python3](./LeetcodePython3/q1525.py)  |Medium |✔️|
+|Q1528 |[Shuffle String](https://leetcode.com/problems/shuffle-string/)|[Python3](./LeetcodePython3/q1528.py)  |Easy |✔️|
+|Q1529 |[Bulb Switcher IV](https://leetcode.com/problems/bulb-switcher-iv/)|[Python3](./LeetcodePython3/q1529.py)  |Medium |✔️|
+|Q1530 |[Number of Good Leaf Nodes Pairs](https://leetcode.com/problems/number-of-good-leaf-nodes-pairs/)|[Python3](./LeetcodePython3/q1530.py)  |Medium |✔️|
