@@ -47,7 +47,7 @@
 |43 |[Multiply Strings](https://leetcode.com/problems/multiply-strings)|[C](./LeetCode/LeetCode/algorithms/q0043.c)  |Medium |✔️|
 |44 |[Wildcard Matching](https://leetcode.com/problems/wildcard-matching)|[C](./LeetCode/LeetCode/algorithms/q0044.c) |Hard |✔️|
 |45 |[Jump Game II](https://leetcode.com/problems/jump-game-ii)| [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0045.swift)   |Hard |✔️|
-|46 |[Permutations](https://leetcode.com/problems/permutations)|[C](./LeetCode/LeetCode/algorithms/q0046.c)  |Medium |✔️|
+|46 |[Permutations](https://leetcode.com/problems/permutations)|[C](./LeetCode/LeetCode/algorithms/q0046.c) ,[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0046.swift) |Medium |✔️|
 |47 |[Permutations II](https://leetcode.com/problems/permutations-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0047.swift)  |Medium |✔️|
 |48 |[Rotate Image](https://leetcode.com/problems/rotate-image/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0048.swift)  |Medium |✔️|
 |49 |[Group Anagrams](https://leetcode.com/problems/group-anagrams/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0049.swift)  |Medium |✔️|
@@ -262,7 +262,7 @@
 |Q1046 |[Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1046.swift)  |Easy |✔️|
 |Q1081 |[Smallest Subsequence of Distinct Characters](https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/)|[C](./LeetCode/LeetCode/algorithms/q1081.c)|Medium|✔️|
 |Q1143 |[Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1143.swift)  |Medium |✔️|
-|1155|[Number of Dice Rolls With Target Sum](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/)|[C](/LeetCode/LeetCode/algorithms/q1155.c)|Medium|✔️|
+|Q1155|[Number of Dice Rolls With Target Sum](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/)|[C](./LeetCode/LeetCode/algorithms/q0004.c)|Medium|✔️|
 |Q1171 |[Remove Zero Sum Consecutive Nodes from Linked List](https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/)|[Python3](./LeetcodePython3/q1171.py)  |Medium |✔️|
 |Q1201 |[Ugly Number III](https://leetcode.com/problems/ugly-number-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1201.swift)  |Medium |✔️|
 |Q1232 |[Check If It Is a Straight Line](https://leetcode.com/problems/check-if-it-is-a-straight-line/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1232.swift)  |Easy |✔️|
