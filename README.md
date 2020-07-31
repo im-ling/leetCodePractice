@@ -141,6 +141,8 @@
 |Q136|[Single Number](https://leetcode.com/problems/single-number/)|[C](./LeetCode/LeetCode/algorithms/q0136.c)  |Easy |✔️|
 |Q137|[Single Number II](https://leetcode.com/problems/single-number-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0137.swift) |Medium |✔️|
 |Q138|[Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)|[Python3](./LeetcodePython3/q0138.py) |Medium |✔️|
+|Q139|[Word Break](https://leetcode.com/problems/word-break/)|[Python3](./LeetcodePython3/q0139.py) |Medium |✔️|
+|Q140|[Word Break II](https://leetcode.com/problems/word-break-ii/)|[Python3](./LeetcodePython3/q0140.py) |Hard |✔️|
 |Q141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)|[C](./LeetCode/LeetCode/algorithms/q0141.c)  |Easy |✔️|
 |Q142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|[C](./LeetCode/LeetCode/algorithms/q0142.c)  |Medium |✔️|
 |Q143|[Reorder List](https://leetcode.com/problems/reorder-list/)|[Python3](./LeetcodePython3/q0143.py) |Medium |✔️|
