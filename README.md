@@ -227,6 +227,7 @@
 |Q476|[Number Complement](https://leetcode.com/problems/number-complement/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0476.swift)|Easy |✔️|
 |Q477|[Total Hamming Distance](https://leetcode.com/problems/total-hamming-distance/)|[Python3](./LeetcodePython3/q0477.py) |Medium |✔️|
 |Q518|[Coin Change 2](https://leetcode.com/problems/coin-change-2/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0518.swift)|Medium |✔️|
+|Q520|[Detect Capital](https://leetcode.com/problems/detect-capital/)|[Python3](./LeetcodePython3/q0520.py) |Easy |✔️|
 |Q524|[Longest Word in Dictionary through Deleting](https://leetcode.com/problems/longest-word-in-dictionary-through-deleting/)|[C](./LeetCode/LeetCode/algorithms/q0524.c)  |Medium |✔️|
 |Q525|[Contiguous Array](https://leetcode.com/problems/contiguous-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0525.swift)|Medium |✔️|
 |Q528|[Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0528.swift)|Medium |✔️|
