@@ -50,6 +50,9 @@ import Foundation
 
 class q0039Solution {
     func tryANumber(candidates:[Int], target: Int,  index: Int,currentArray: inout [Int], resultArray: inout [[Int]]) {
+        if target < 0 {
+            return
+        }
         if target == 0 {
             resultArray.append(currentArray)
             return

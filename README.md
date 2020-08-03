@@ -133,7 +133,7 @@
 #### Random
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|Q125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[C](./LeetCode/LeetCode/algorithms/q0125.c)  |Easy |✔️|
+|Q125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[C](./LeetCode/LeetCode/algorithms/q0125.c), [Python3](./LeetcodePython3/q0125.py) |Easy |✔️|
 |Q129|[Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0129.swift) |Medium |✔️|
 |Q130|[Surrounded Regions](https://leetcode.com/problems/surrounded-regions/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0130.swift) |Medium |✔️|
 |Q133|[Clone Graph](https://leetcode.com/problems/clone-graph/)|[Python3](./LeetcodePython3/q0133.py) |Medium |✔️|
@@ -158,13 +158,13 @@
 |Q172|[Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/)|[C](./LeetCode/LeetCode/algorithms/q0172.c)  |Easy |✔️|
 |Q174 |[Dungeon Game](https://leetcode.com/problems/dungeon-game/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0174.swift)  |Hard |✔️|
 |Q189|[Rotate Array](https://leetcode.com/problems/rotate-array/)|[C](./LeetCode/LeetCode/algorithms/q0189.c)  |Easy |✔️|
-|Q190|[Reverse Bits](https://leetcode.com/problems/reverse-bits/)|[C](./LeetCode/LeetCode/algorithms/q0190.c) , [Python3](./LeetcodePython3/q0190.py) |Easy |✔️|
+|Q190|[Reverse Bits](https://leetcode.com/problems/reverse-bits/)|[C](./LeetCode/LeetCode/algorithms/q0190.c), [Python3](./LeetcodePython3/q0190.py) |Easy |✔️|
 |Q191|[Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)|[C](./LeetCode/LeetCode/algorithms/q0191.c)  |Easy |✔️|
 |Q198|[ House Robber](https://leetcode.com/problems/house-robber/)|[C](./LeetCode/LeetCode/algorithms/q0198.c)  |Easy |✔️|
 |Q200 |[Number of Islands](https://leetcode.com/problems/number-of-islands/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0200.swift)  |Medium |✔️|
 |Q201 |[Bitwise AND of Numbers Range](https://leetcode.com/problems/bitwise-and-of-numbers-range/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0201.swift)  |Medium |✔️|
 |Q202|[Happy Number](https://leetcode.com/problems/happy-number/)|[C](./LeetCode/LeetCode/algorithms/q0202.c)  |Easy |✔️|
-|Q203|[Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)|[C](./LeetCode/LeetCode/algorithms/q0203.c),[Python3](./LeetcodePython3/q0326.py)|Easy |✔️|
+|Q203|[Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)|[C](./LeetCode/LeetCode/algorithms/q0203.c), [Python3](./LeetcodePython3/q0326.py)|Easy |✔️|
 |Q204|[Count Primes](https://leetcode.com/problems/count-primes/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0119.swift) |Easy |✔️|
 |Q205|[Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/)|[C](./LeetCode/LeetCode/algorithms/q0205.c)  |Easy |✔️|
 |Q206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|[C](./LeetCode/LeetCode/algorithms/q0206.c)  |Easy |✔️|
@@ -190,7 +190,7 @@
 |Q275 |[H-Index II](https://leetcode.com/problems/h-index-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0275.swift)  |Medium |✔️|
 |Q278|[First Bad Version](https://leetcode.com/problems/first-bad-version/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0278.swift)  |Easy |✔️|
 |Q279 |[Perfect Squares](https://leetcode.com/problems/perfect-squares/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0279.swift)  |Medium |✔️|
-|Q283|[Move Zeroes](https://leetcode.com/problems/move-zeroes/)|[C](./LeetCode/LeetCode/algorithms/q0283.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0283.swift)  |Easy |✔️|
+|Q283|[Move Zeroes](https://leetcode.com/problems/move-zeroes/)|[C](./LeetCode/LeetCode/algorithms/q0283.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0283.swift)  |Easy |✔️|
 |Q287|[Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)|[C](./LeetCode/LeetCode/algorithms/q0287.c)  |Medium |✔️|
 |Q309 |[Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)|[Python3](./LeetcodePython3/q0309.py) |Medium |✔️|
 |Q322 |[Coin Change](https://leetcode.com/problems/coin-change/)|[Python3](./LeetcodePython3/q0322.py) |Medium |✔️|
@@ -215,8 +215,8 @@
 |Q416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0416.swift)|Medium |✔️|
 |Q424|[Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)|[C](./LeetCode/LeetCode/algorithms/q0424.c)  |Medium |✔️|
 |Q430 |[Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|[Python3](./LeetcodePython3/q0430.py)  |Medium |✔️|
-|Q437|[Path Sum III](https://leetcode.com/problems/path-sum-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift) , [C](./LeetCode/LeetCode/algorithms/q0437.c)|Easy |✔️|
-|Q438|[Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift),[C](./LeetCode/LeetCode/algorithms/q0438.c)|Medium |✔️|
+|Q437|[Path Sum III](https://leetcode.com/problems/path-sum-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift), [C](./LeetCode/LeetCode/algorithms/q0437.c)|Easy |✔️|
+|Q438|[Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift), [C](./LeetCode/LeetCode/algorithms/q0438.c)|Medium |✔️|
 |Q441|[Arranging Coins](https://leetcode.com/problems/arranging-coins/)|[Python3](./LeetcodePython3/q0441.py) |Easy |✔️|
 |Q451|[Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0451.swift)|Medium |✔️|
 |Q456|[132 Pattern](https://leetcode.com/problems/132-pattern/)|[C](./LeetCode/LeetCode/algorithms/q0456.c)|Medium |✔️|
@@ -236,18 +236,20 @@
 |Q543|[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0543.swift)|Easy |✔️|
 |Q557 |[Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/)|[Python3](./LeetcodePython3/q0557.py)  |Easy |✔️|
 |Q560|[Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0560.swift)|Medium |✔️|
-|Q567|[Permutation in String](https://leetcode.com/problems/permutation-in-string/)|[C](./LeetCode/LeetCode/algorithms/q0567.c) ,[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1143.swift) |Medium |✔️|
+|Q567|[Permutation in String](https://leetcode.com/problems/permutation-in-string/)|[C](./LeetCode/LeetCode/algorithms/q0567.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1143.swift) |Medium |✔️|
 |Q621|[Task Scheduler](https://leetcode.com/problems/task-scheduler/)|[Python3](./LeetcodePython3/q0621.py) |Medium |✔️|
 |Q662|[Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/)|[Python3](./LeetcodePython3/q0662.py) |Medium |✔️|
 |Q678|[Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/)|[C](./LeetCode/LeetCode/algorithms/q0678.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0678.swift)|Medium |✔️|
+|Q680|[Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)|[Python3](./LeetcodePython3/q0680.py) |Easy |✔️|
 |Q696|[Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/)|[C](./LeetCode/LeetCode/algorithms/q0696.c)  |Easy |✔️|
 |Q700|[Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0700.swift)  |Easy |✔️|
 |Q704|[Binary Search](https://leetcode.com/problems/binary-search/)|[C](./LeetCode/LeetCode/algorithms/q0704.c)  |Easy |✔️|
+|Q705|[Design HashSet](https://leetcode.com/problems/design-hashset/)|[Python3](./LeetcodePython3/q0705.py) |Easy |✔️|
 |Q733 |[Flood Fill](https://leetcode.com/problems/flood-fill/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0733.swift)  |Easy |✔️|
 |Q771|[Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0771.swift)  |Easy |✔️|
 |Q787|[Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0787.swift)  |Medium |✔️|
 |Q797|[All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target/)|[Python3](./LeetcodePython3/q0797.py) |Medium |✔️|
-|Q844 |[Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)|[C](./LeetCode/LeetCode/algorithms/q0844.c),[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0844.swift)  |Easy |✔️|
+|Q844 |[Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)|[C](./LeetCode/LeetCode/algorithms/q0844.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0844.swift)  |Easy |✔️|
 |Q876 |[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0876.swift)  |Easy |✔️|
 |Q901 |[Online Stock Span](https://leetcode.com/problems/online-stock-span/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0901.swift)  |Medium |✔️|
 |Q918 |[Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0918.swift)  |Medium |✔️|
@@ -299,3 +301,6 @@
 |Q1528 |[Shuffle String](https://leetcode.com/problems/shuffle-string/)|[Python3](./LeetcodePython3/q1528.py)  |Easy |✔️|
 |Q1529 |[Bulb Switcher IV](https://leetcode.com/problems/bulb-switcher-iv/)|[Python3](./LeetcodePython3/q1529.py)  |Medium |✔️|
 |Q1530 |[Number of Good Leaf Nodes Pairs](https://leetcode.com/problems/number-of-good-leaf-nodes-pairs/)|[Python3](./LeetcodePython3/q1530.py)  |Medium |✔️|
+|Q1534 |[Count Good Triplets](https://leetcode.com/problems/count-good-triplets/)|[Python3](./LeetcodePython3/q1534.py)  |Easy |✔️|
+|Q1535 |[Find the Winner of an Array Game](https://leetcode.com/problems/find-the-winner-of-an-array-game/)|[Python3](./LeetcodePython3/q1535.py)  |Medium |✔️|
+|Q1536 |[Minimum Swaps to Arrange a Binary Grid](https://leetcode.com/problems/minimum-swaps-to-arrange-a-binary-grid/)|[Python3](./LeetcodePython3/q1536.py)  |Medium |✔️|
