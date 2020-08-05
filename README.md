@@ -172,6 +172,7 @@
 |Q208 |[Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0208.swift)  |Medium |✔️|
 |Q209|[Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)|[C](./LeetCode/LeetCode/algorithms/q0209.c)  |Medium |✔️|
 |Q210 |[Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0210.swift)  |Medium |✔️|
+|Q211 |[Add and Search Word - Data structure design](https://leetcode.com/problems/add-and-search-word-data-structure-design/)|[Python3](./LeetcodePython3/q0211.py)  |Medium |✔️|
 |Q212 |[Word Search II](https://leetcode.com/problems/word-search-ii/)|[Python3](./LeetcodePython3/q0212.py)  |Hard |✔️|
 |Q217|[Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)|[C](./LeetCode/LeetCode/algorithms/q0217.c)  |Easy |✔️|
 |Q221 |[Maximal Square](https://leetcode.com/problems/maximal-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0221.swift)  |Medium |✔️|
