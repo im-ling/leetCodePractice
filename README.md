@@ -219,6 +219,7 @@
 |Q437|[Path Sum III](https://leetcode.com/problems/path-sum-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift), [C](./LeetCode/LeetCode/algorithms/q0437.c)|Easy |✔️|
 |Q438|[Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift), [C](./LeetCode/LeetCode/algorithms/q0438.c)|Medium |✔️|
 |Q441|[Arranging Coins](https://leetcode.com/problems/arranging-coins/)|[Python3](./LeetcodePython3/q0441.py) |Easy |✔️|
+|Q442|[Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/)|[Python3](./LeetcodePython3/q0442.py) |Medium |✔️|
 |Q451|[Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0451.swift)|Medium |✔️|
 |Q456|[132 Pattern](https://leetcode.com/problems/132-pattern/)|[C](./LeetCode/LeetCode/algorithms/q0456.c)|Medium |✔️|
 |Q457|[Circular Array Loop](https://leetcode.com/problems/circular-array-loop/)|[C](./LeetCode/LeetCode/algorithms/q0457.c)  |Medium |✔️|
