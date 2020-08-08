@@ -216,7 +216,7 @@
 |Q416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0416.swift)|Medium |✔️|
 |Q424|[Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)|[C](./LeetCode/LeetCode/algorithms/q0424.c)  |Medium |✔️|
 |Q430 |[Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|[Python3](./LeetcodePython3/q0430.py)  |Medium |✔️|
-|Q437|[Path Sum III](https://leetcode.com/problems/path-sum-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift), [C](./LeetCode/LeetCode/algorithms/q0437.c)|Easy |✔️|
+|Q437|[Path Sum III](https://leetcode.com/problems/path-sum-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift), [C](./LeetCode/LeetCode/algorithms/q0437.c), [Python3](./LeetcodePython3/q0437.py) |Medium |✔️|
 |Q438|[Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift), [C](./LeetCode/LeetCode/algorithms/q0438.c)|Medium |✔️|
 |Q441|[Arranging Coins](https://leetcode.com/problems/arranging-coins/)|[Python3](./LeetcodePython3/q0441.py) |Easy |✔️|
 |Q442|[Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/)|[Python3](./LeetcodePython3/q0442.py) |Medium |✔️|
@@ -243,6 +243,7 @@
 |Q662|[Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/)|[Python3](./LeetcodePython3/q0662.py) |Medium |✔️|
 |Q678|[Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/)|[C](./LeetCode/LeetCode/algorithms/q0678.c) , [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0678.swift)|Medium |✔️|
 |Q680|[Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)|[Python3](./LeetcodePython3/q0680.py) |Easy |✔️|
+|Q687|[Longest Univalue Path](https://leetcode.com/problems/longest-univalue-path/)|[Python3](./LeetcodePython3/q0687.py) |Easy |✔️|
 |Q696|[Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/)|[C](./LeetCode/LeetCode/algorithms/q0696.c)  |Easy |✔️|
 |Q700|[Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0700.swift)  |Easy |✔️|
 |Q704|[Binary Search](https://leetcode.com/problems/binary-search/)|[C](./LeetCode/LeetCode/algorithms/q0704.c)  |Easy |✔️|
