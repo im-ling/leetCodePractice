@@ -309,3 +309,7 @@
 |Q1534 |[Count Good Triplets](https://leetcode.com/problems/count-good-triplets/)|[Python3](./LeetcodePython3/q1534.py)  |Easy |✔️|
 |Q1535 |[Find the Winner of an Array Game](https://leetcode.com/problems/find-the-winner-of-an-array-game/)|[Python3](./LeetcodePython3/q1535.py)  |Medium |✔️|
 |Q1536 |[Minimum Swaps to Arrange a Binary Grid](https://leetcode.com/problems/minimum-swaps-to-arrange-a-binary-grid/)|[Python3](./LeetcodePython3/q1536.py)  |Medium |✔️|
+|Q1539 |[Kth Missing Positive Number](https://leetcode.com/problems/kth-missing-positive-number/)|[Python3](./LeetcodePython3/q1539.py)  |Easy |✔️|
+|Q1540 |[Can Convert String in K Moves](https://leetcode.com/problems/can-convert-string-in-k-moves/)|[Python3](./LeetcodePython3/q1540.py)  |Medium |✔️|
+|Q1541 |[Minimum Insertions to Balance a Parentheses String](https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string/)|[Python3](./LeetcodePython3/q1541.py)  |Medium |✔️|
+|Q1542 |[Find Longest Awesome Substring](https://leetcode.com/problems/find-longest-awesome-substring/)|[Python3](./LeetcodePython3/q1542.py)  |Hard |✔️|
