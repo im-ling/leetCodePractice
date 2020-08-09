@@ -115,7 +115,7 @@
 |111|[Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0111.c)  |Easy |✔️|
 |112|[Path Sum](https://leetcode.com/problems/path-sum/)|[C](./LeetCode/LeetCode/algorithms/q0112.c)  |Easy |✔️|
 |113|[Path Sum II](https://leetcode.com/problems/path-sum-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0113.swift)  |Medium |✔️|
-|114|[Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0114.swift)  |Medium |✔️|
+|114|[Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0114.swift) ,[Python3](./LeetcodePython3/q0114.py) |Medium |✔️|
 |115|[Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0115.swift)  |Hard |✔️|
 |116|[Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0116.swift)  |Medium |✔️|
 |117|[Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0117.swift)  |Medium |✔️|
@@ -263,6 +263,7 @@
 |Q986 |[Interval List Intersections](https://leetcode.com/problems/interval-list-intersections/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0986.swift)  |Medium |✔️|
 |Q987|[Vertical Order Traversal of a Binary Tree](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/)|[Python3](./LeetcodePython3/q0987.py) |Medium |✔️|
 |Q993 |[Cousins in Binary Tree](https://leetcode.com/problems/cousins-in-binary-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0993.swift)  |Easy |✔️|
+|Q994 |[Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)|[Python3](./LeetcodePython3/q0994.py) |Medium |✔️|
 |Q997 |[Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0997.swift)  |Easy |✔️|
 |Q1008 |[Construct Binary Search Tree from Preorder Traversal](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1008.swift)  |Medium |✔️|
 |Q1029 |[Two City Scheduling](https://leetcode.com/problems/two-city-scheduling/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1029.swift)  |Easy |✔️|
@@ -313,3 +314,6 @@
 |Q1540 |[Can Convert String in K Moves](https://leetcode.com/problems/can-convert-string-in-k-moves/)|[Python3](./LeetcodePython3/q1540.py)  |Medium |✔️|
 |Q1541 |[Minimum Insertions to Balance a Parentheses String](https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string/)|[Python3](./LeetcodePython3/q1541.py)  |Medium |✔️|
 |Q1542 |[Find Longest Awesome Substring](https://leetcode.com/problems/find-longest-awesome-substring/)|[Python3](./LeetcodePython3/q1542.py)  |Hard |✔️|
+|Q1544 |[Make The String Great](https://leetcode.com/problems/make-the-string-great/)|[Python3](./LeetcodePython3/q1544.py)  |Easy |✔️|
+|Q1545 |[Find Kth Bit in Nth Binary String](https://leetcode.com/problems/find-kth-bit-in-nth-binary-string/)|[Python3](./LeetcodePython3/q1545.py)  |Medium |✔️|
+|Q1546 |[Maximum Number of Non-Overlapping Subarrays With Sum Equals Target](https://leetcode.com/problems/maximum-number-of-non-overlapping-subarrays-with-sum-equals-target/)|[Python3](./LeetcodePython3/q1546.py)  |Medium |✔️|

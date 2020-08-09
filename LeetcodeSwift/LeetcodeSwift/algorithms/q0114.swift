@@ -57,24 +57,19 @@ import Foundation
  * }
  */
 class q0114Solution {
-    var lastNode = TreeNode.init(0)
+    var lastNode:TreeNode?
     func flatten_helper(_ root: TreeNode?) {
-        if root != nil {
-            let temp = root?.right
-            lastNode.right = root
-            lastNode = root!
-            flatten_helper(root?.left)
-            root?.left = nil
-            flatten_helper(temp)
+        if root == nil{
+            return
         }
+        flatten_helper(root?.right)
+        flatten_helper(root?.left)
+        root?.right = lastNode
+        root?.left = nil
+        lastNode = root
     }
     func flatten(_ root: TreeNode?) {
-        if root != nil {
-            let temp = root?.right
-            lastNode = root!
-            flatten_helper(root?.left)
-            root?.left = nil
-            flatten_helper(temp)
-        }
+        lastNode = nil
+        flatten_helper(root)
     }
 }
