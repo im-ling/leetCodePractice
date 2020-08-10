@@ -154,7 +154,9 @@
 |Q155 |[Min Stack](https://leetcode.com/problems/min-stack/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0155.swift)  |Easy |✔️|
 |Q160|[Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)|[C](./LeetCode/LeetCode/algorithms/q0160.c)  |Easy |✔️|
 |Q167|[Two Sum II](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|[C](./LeetCode/LeetCode/algorithms/q0167.c)  |Easy |✔️|
+|Q168 |[Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title/)|[Python3](./LeetcodePython3/q0168.py)  |Easy |✔️|
 |Q169|[Majority Element](https://leetcode.com/problems/majority-element/)|[C](./LeetCode/LeetCode/algorithms/q0169.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0169.swift) |Easy |✔️|
+|Q171 |[Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number/)|[Python3](./LeetcodePython3/q0171.py)  |Easy |✔️|
 |Q172|[Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/)|[C](./LeetCode/LeetCode/algorithms/q0172.c)  |Easy |✔️|
 |Q174 |[Dungeon Game](https://leetcode.com/problems/dungeon-game/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0174.swift)  |Hard |✔️|
 |Q189|[Rotate Array](https://leetcode.com/problems/rotate-array/)|[C](./LeetCode/LeetCode/algorithms/q0189.c)  |Easy |✔️|
