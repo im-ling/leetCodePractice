@@ -57,7 +57,7 @@
 |53 |[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0053.swift)  |Easy |✔️|
 |54 |[Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0054.swift)  |Medium |✔️|
 |55 |[Jump Game](https://leetcode.com/problems/jump-game/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0055.swift)  |Medium |✔️|
-|56 |[Merge Intervals](https://leetcode.com/problems/merge-intervals/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0056.swift)  |Medium |✔️|
+|56 |[Merge Intervals](https://leetcode.com/problems/merge-intervals/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0056.swift), [Python3](./LeetcodePython3/q0056.py)|Medium |✔️|
 |57 |[Insert Interval](https://leetcode.com/problems/insert-interval/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0057.swift)  |Hard |✔️|
 |58|[Length of Last Word](https://leetcode.com/problems/length-of-last-word/)|[C](./LeetCode/LeetCode/algorithms/q0058.c)  |Easy |✔️|
 |59 |[Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0059.swift)  |Medium |✔️|
@@ -219,11 +219,13 @@
 |Q416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0416.swift)|Medium |✔️|
 |Q424|[Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)|[C](./LeetCode/LeetCode/algorithms/q0424.c)  |Medium |✔️|
 |Q430 |[Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|[Python3](./LeetcodePython3/q0430.py)  |Medium |✔️|
+|Q435|[Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)|[Python3](./LeetcodePython3/q0435.py) |Medium |✔️|
 |Q437|[Path Sum III](https://leetcode.com/problems/path-sum-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift), [C](./LeetCode/LeetCode/algorithms/q0437.c), [Python3](./LeetcodePython3/q0437.py) |Medium |✔️|
 |Q438|[Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift), [C](./LeetCode/LeetCode/algorithms/q0438.c)|Medium |✔️|
 |Q441|[Arranging Coins](https://leetcode.com/problems/arranging-coins/)|[Python3](./LeetcodePython3/q0441.py) |Easy |✔️|
 |Q442|[Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/)|[Python3](./LeetcodePython3/q0442.py) |Medium |✔️|
 |Q451|[Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0451.swift)|Medium |✔️|
+|Q452|[Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/)|[Python3](./LeetcodePython3/q0452.py) |Medium |✔️|
 |Q456|[132 Pattern](https://leetcode.com/problems/132-pattern/)|[C](./LeetCode/LeetCode/algorithms/q0456.c)|Medium |✔️|
 |Q457|[Circular Array Loop](https://leetcode.com/problems/circular-array-loop/)|[C](./LeetCode/LeetCode/algorithms/q0457.c)  |Medium |✔️|
 |Q461|[Hamming Distance](https://leetcode.com/problems/hamming-distance/)|[Python3](./LeetcodePython3/q0461.py) |Easy |✔️|
@@ -323,3 +325,6 @@
 |Q1544 |[Make The String Great](https://leetcode.com/problems/make-the-string-great/)|[Python3](./LeetcodePython3/q1544.py)  |Easy |✔️|
 |Q1545 |[Find Kth Bit in Nth Binary String](https://leetcode.com/problems/find-kth-bit-in-nth-binary-string/)|[Python3](./LeetcodePython3/q1545.py)  |Medium |✔️|
 |Q1546 |[Maximum Number of Non-Overlapping Subarrays With Sum Equals Target](https://leetcode.com/problems/maximum-number-of-non-overlapping-subarrays-with-sum-equals-target/)|[Python3](./LeetcodePython3/q1546.py)  |Medium |✔️|
+|Q1550 |[Three Consecutive Odds](https://leetcode.com/problems/three-consecutive-odds/)|[Python3](./LeetcodePython3/q1550.py)  |Easy |✔️|
+|Q1551 |[Minimum Operations to Make Array Equal](https://leetcode.com/problems/minimum-operations-to-make-array-equal/)|[Python3](./LeetcodePython3/q1551.py)  |Medium |✔️|
+|Q1543 |[Minimum Number of Days to Eat N Oranges](https://leetcode.com/problems/minimum-number-of-days-to-eat-n-oranges/)|[Python3](./LeetcodePython3/q1553.py)  |Hard |✔️|
