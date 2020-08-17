@@ -278,6 +278,7 @@
 |Q1044 |[Longest Duplicate Substring](https://leetcode.com/problems/longest-duplicate-substring/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1044.swift)  |Hard |✔️|
 |Q1046 |[Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1046.swift)  |Easy |✔️|
 |Q1081 |[Smallest Subsequence of Distinct Characters](https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/)|[C](./LeetCode/LeetCode/algorithms/q1081.c)|Medium|✔️|
+|Q1103 |[Distribute Candies to People](https://leetcode.com/problems/distribute-candies-to-people/)|[Python3](./LeetcodePython3/q1103.py)  |Easy |✔️|
 |Q1143 |[Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1143.swift)  |Medium |✔️|
 |Q1155|[Number of Dice Rolls With Target Sum](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/)|[C](./LeetCode/LeetCode/algorithms/q0004.c)|Medium|✔️|
 |Q1171 |[Remove Zero Sum Consecutive Nodes from Linked List](https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/)|[Python3](./LeetcodePython3/q1171.py)  |Medium |✔️|
