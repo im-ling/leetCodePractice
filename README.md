@@ -266,6 +266,7 @@
 |Q923|[3Sum With Multiplicity](https://leetcode.com/problems/3sum-with-multiplicity/)|[Python3](./LeetcodePython3/q0923.py) |Medium |✔️|
 |Q937 |[K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0937.swift)  |Medium |✔️|
 |Q957|[Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/)|[Python3](./LeetcodePython3/q0957.py) |Medium |✔️|
+|Q967|[Numbers With Same Consecutive Differences](https://leetcode.com/problems/numbers-with-same-consecutive-differences/)|[Python3](./LeetcodePython3/q0967.py) |Medium |✔️|
 |Q980 |[Unique Paths III](https://leetcode.com/problems/unique-paths-iii/)|[C](./LeetCode/LeetCode/algorithms/q0980.c)  |Hard |✔️|
 |Q986 |[Interval List Intersections](https://leetcode.com/problems/interval-list-intersections/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0986.swift)  |Medium |✔️|
 |Q987|[Vertical Order Traversal of a Binary Tree](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/)|[Python3](./LeetcodePython3/q0987.py) |Medium |✔️|
