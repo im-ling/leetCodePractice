@@ -264,7 +264,9 @@
 |Q869|[Reordered Power of 2](https://leetcode.com/problems/reordered-power-of-2/)|[Python3](./LeetcodePython3/q0869.py) |Medium |✔️|
 |Q876 |[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0876.swift)  |Easy |✔️|
 |Q901 |[Online Stock Span](https://leetcode.com/problems/online-stock-span/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0901.swift)  |Medium |✔️|
+|Q905|[Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity/)|[Python3](./LeetcodePython3/q0905.py) |Easy |✔️|
 |Q918 |[Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0918.swift)  |Medium |✔️|
+|Q922|[Sort Array By Parity II](https://leetcode.com/problems/sort-array-by-parity-ii/)|[Python3](./LeetcodePython3/q0922.py) |Easy |✔️|
 |Q923|[3Sum With Multiplicity](https://leetcode.com/problems/3sum-with-multiplicity/)|[Python3](./LeetcodePython3/q0923.py) |Medium |✔️|
 |Q937 |[K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0937.swift)  |Medium |✔️|
 |Q957|[Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/)|[Python3](./LeetcodePython3/q0957.py) |Medium |✔️|
