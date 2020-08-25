@@ -218,6 +218,7 @@
 |Q406|[Queue Reconstruction by Height](https://leetcode.com/problems/queue-reconstruction-by-height/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0406.swift)|Medium |✔️|
 |Q409 |[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python3](./LeetcodePython3/q0409.py)  |Easy |✔️|
 |Q410|[Split Array Largest Sum](https://leetcode.com/problems/split-array-largest-sum/)|[Python3](./LeetcodePython3/q0410.py) |Hard |✔️|
+|Q412|[Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)|[Python3](./LeetcodePython3/q0412.py) |Easy |✔️|
 |Q416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0416.swift)|Medium |✔️|
 |Q424|[Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)|[C](./LeetCode/LeetCode/algorithms/q0424.c)  |Medium |✔️|
 |Q430 |[Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|[Python3](./LeetcodePython3/q0430.py)  |Medium |✔️|
@@ -276,12 +277,14 @@
 |Q957|[Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/)|[Python3](./LeetcodePython3/q0957.py) |Medium |✔️|
 |Q967|[Numbers With Same Consecutive Differences](https://leetcode.com/problems/numbers-with-same-consecutive-differences/)|[Python3](./LeetcodePython3/q0967.py) |Medium |✔️|
 |Q980 |[Unique Paths III](https://leetcode.com/problems/unique-paths-iii/)|[C](./LeetCode/LeetCode/algorithms/q0980.c)  |Hard |✔️|
+|Q983 |[Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets/)|[Python3](./LeetcodePython3/q0983.py)  |Medium |✔️|
 |Q986 |[Interval List Intersections](https://leetcode.com/problems/interval-list-intersections/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0986.swift)  |Medium |✔️|
 |Q987|[Vertical Order Traversal of a Binary Tree](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/)|[Python3](./LeetcodePython3/q0987.py) |Medium |✔️|
 |Q993 |[Cousins in Binary Tree](https://leetcode.com/problems/cousins-in-binary-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0993.swift)  |Easy |✔️|
 |Q994 |[Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)|[Python3](./LeetcodePython3/q0994.py) |Medium |✔️|
 |Q997 |[Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0997.swift)  |Easy |✔️|
 |Q1008 |[Construct Binary Search Tree from Preorder Traversal](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1008.swift)  |Medium |✔️|
+|Q1011 |[Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/)|[Python3](./LeetcodePython3/q1011.py)  |Medium |✔️|
 |Q1029 |[Two City Scheduling](https://leetcode.com/problems/two-city-scheduling/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1029.swift)  |Easy |✔️|
 |Q1035 |[Uncrossed Lines](https://leetcode.com/problems/uncrossed-lines/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1035.swift)  |Medium |✔️|
 |Q1044 |[Longest Duplicate Substring](https://leetcode.com/problems/longest-duplicate-substring/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1044.swift)  |Hard |✔️|
@@ -299,6 +302,7 @@
 |Q1344 |[Angle Between Hands of a Clock](https://leetcode.com/problems/angle-between-hands-of-a-clock/)|[Python3](./LeetcodePython3/q1344.py)  |Medium |✔️|
 |Q1390 |[Four Divisors](https://leetcode.com/problems/four-divisors/)|[Python3](./LeetcodePython3/q1390.py)  |Medium |✔️|
 |Q1480 |[Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1480.swift)  |Easy |✔️|
+|Q1482 |[Minimum Number of Days to Make m Bouquets](https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/)|[Python3](./LeetcodePython3/q1482.py) |Medium |✔️|
 |Q1486 |[XOR Operation in an Array](https://leetcode.com/problems/xor-operation-in-an-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1486.swift)  |Easy |✔️|
 |Q1487 |[Making File Names Unique](https://leetcode.com/problems/making-file-names-unique/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1487.swift)  |Medium |✔️|
 |Q1488 |[Avoid Flood in The City](https://leetcode.com/problems/avoid-flood-in-the-city/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1488.swift)  |Medium |✔️|
