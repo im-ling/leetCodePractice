@@ -214,8 +214,10 @@
 |Q387 |[First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0387.swift)  |Easy |✔️|
 |Q392 |[Is Subsequence](https://leetcode.com/problems/is-subsequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0392.swift)  |Easy |✔️|
 |Q402|[Remove K Digits](https://leetcode.com/problems/remove-k-digits/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0402.swift)|Medium |✔️|
+|Q404|[Sum of Left Leaves](https://leetcode.com/problems/sum-of-left-leaves/)|[Python3](./LeetcodePython3/q0404.py) |Easy |✔️|
 |Q406|[Queue Reconstruction by Height](https://leetcode.com/problems/queue-reconstruction-by-height/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0406.swift)|Medium |✔️|
 |Q409 |[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)|[Python3](./LeetcodePython3/q0409.py)  |Easy |✔️|
+|Q410|[Split Array Largest Sum](https://leetcode.com/problems/split-array-largest-sum/)|[Python3](./LeetcodePython3/q0410.py) |Hard |✔️|
 |Q416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0416.swift)|Medium |✔️|
 |Q424|[Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)|[C](./LeetCode/LeetCode/algorithms/q0424.c)  |Medium |✔️|
 |Q430 |[Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|[Python3](./LeetcodePython3/q0430.py)  |Medium |✔️|
@@ -263,6 +265,7 @@
 |Q844 |[Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)|[C](./LeetCode/LeetCode/algorithms/q0844.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0844.swift)  |Easy |✔️|
 |Q852|[Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)|[Python3](./LeetcodePython3/q0852.py) |Easy |✔️|
 |Q869|[Reordered Power of 2](https://leetcode.com/problems/reordered-power-of-2/)|[Python3](./LeetcodePython3/q0869.py) |Medium |✔️|
+|Q875|[Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)|[Python3](./LeetcodePython3/q0875.py) |Medium |✔️|
 |Q876 |[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0876.swift)  |Easy |✔️|
 |Q901 |[Online Stock Span](https://leetcode.com/problems/online-stock-span/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0901.swift)  |Medium |✔️|
 |Q905|[Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity/)|[Python3](./LeetcodePython3/q0905.py) |Easy |✔️|
@@ -334,4 +337,11 @@
 |Q1546 |[Maximum Number of Non-Overlapping Subarrays With Sum Equals Target](https://leetcode.com/problems/maximum-number-of-non-overlapping-subarrays-with-sum-equals-target/)|[Python3](./LeetcodePython3/q1546.py)  |Medium |✔️|
 |Q1550 |[Three Consecutive Odds](https://leetcode.com/problems/three-consecutive-odds/)|[Python3](./LeetcodePython3/q1550.py)  |Easy |✔️|
 |Q1551 |[Minimum Operations to Make Array Equal](https://leetcode.com/problems/minimum-operations-to-make-array-equal/)|[Python3](./LeetcodePython3/q1551.py)  |Medium |✔️|
-|Q1543 |[Minimum Number of Days to Eat N Oranges](https://leetcode.com/problems/minimum-number-of-days-to-eat-n-oranges/)|[Python3](./LeetcodePython3/q1553.py)  |Hard |✔️|
+|Q1552 |[Magnetic Force Between Two Balls](https://leetcode.com/problems/magnetic-force-between-two-balls/)|[Python3](./LeetcodePython3/q1552.py)  |Medium |✔️|
+|Q1553 |[Minimum Number of Days to Eat N Oranges](https://leetcode.com/problems/minimum-number-of-days-to-eat-n-oranges/)|[Python3](./LeetcodePython3/q1553.py)  |Hard |✔️|
+|Q1556 |[Thousand Separator](https://leetcode.com/problems/thousand-separator/)|[Python3](./LeetcodePython3/q1556.py)  |Easy |✔️|
+|Q1557 |[Minimum Number of Vertices to Reach All Nodes](https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/)|[Python3](./LeetcodePython3/q1557.py)  |Medium |✔️|
+|Q1558 |[Minimum Numbers of Function Calls to Make Target Array](https://leetcode.com/problems/minimum-numbers-of-function-calls-to-make-target-array/)|[Python3](./LeetcodePython3/q1558.py)  |Medium |✔️|
+|Q1559 |[Detect Cycles in 2D Grid](https://leetcode.com/problems/detect-cycles-in-2d-grid/)|[Python3](./LeetcodePython3/q1559.py)  |Hard |✔️|
+|Q1560 |[Most Visited Sector in a Circular Track](https://leetcode.com/problems/most-visited-sector-in-a-circular-track/)|[Python3](./LeetcodePython3/q1560.py)  |Easy |✔️|
+|Q1561 |[Maximum Number of Coins You Can Get](https://leetcode.com/problems/maximum-number-of-coins-you-can-get/)|[Python3](./LeetcodePython3/q1561.py)  |Medium |✔️|
