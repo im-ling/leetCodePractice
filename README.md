@@ -302,6 +302,8 @@
 |Q1286 |[Iterator for Combination](https://leetcode.com/problems/iterator-for-combination/)|[Python3](./LeetcodePython3/q1286.py)  |Medium |✔️|
 |Q1344 |[Angle Between Hands of a Clock](https://leetcode.com/problems/angle-between-hands-of-a-clock/)|[Python3](./LeetcodePython3/q1344.py)  |Medium |✔️|
 |Q1390 |[Four Divisors](https://leetcode.com/problems/four-divisors/)|[Python3](./LeetcodePython3/q1390.py)  |Medium |✔️|
+|Q1431 |[Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1431.hpp)  |Easy |✔️|
+|Q1470 |[Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1470.hpp)  |Easy |✔️|
 |Q1480 |[Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1480.swift)  |Easy |✔️|
 |Q1482 |[Minimum Number of Days to Make m Bouquets](https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/)|[Python3](./LeetcodePython3/q1482.py) |Medium |✔️|
 |Q1486 |[XOR Operation in an Array](https://leetcode.com/problems/xor-operation-in-an-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1486.swift)  |Easy |✔️|
