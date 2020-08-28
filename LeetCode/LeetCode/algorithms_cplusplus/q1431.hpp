@@ -21,35 +21,35 @@
 #include <string>
 
 using namespace std;
-
-class q1431Solution {
-public:
-    vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
-        vector<bool> result;
-        int maxVal = candies[0];
-        for (int i = 0; i < candies.size(); i++) {
-            if (maxVal < candies[i]){
-                maxVal = candies[i];
-            }
-        }
-        maxVal -= extraCandies;
-        for (int i = 0; i < candies.size(); i++) {
-            if (candies[i] >= maxVal) {
-                result.push_back(true);
-            }else{
-                result.push_back(false);
-            }
-        }
-        return result;
-    }
-};
-
 void question1431(){
+    class Solution {
+    public:
+        vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
+            vector<bool> result;
+            int maxVal = candies[0];
+            for (int i = 0; i < candies.size(); i++) {
+                if (maxVal < candies[i]){
+                    maxVal = candies[i];
+                }
+            }
+            maxVal -= extraCandies;
+            for (int i = 0; i < candies.size(); i++) {
+                if (candies[i] >= maxVal) {
+                    result.push_back(true);
+                }else{
+                    result.push_back(false);
+                }
+            }
+            return result;
+        }
+    };
+    
     vector<int> candies = {2,3,5,1,3};
     int extraCandies = 3;
-    vector<bool> result = q1431Solution().kidsWithCandies(candies, extraCandies);
+    vector<bool> result = Solution().kidsWithCandies(candies, extraCandies);
     for (int i = 0; i < result.size(); i++) {
         cout << result[i] << ' ';
     }
+    cout << endl;
 }
 #endif /* q1431_hpp */

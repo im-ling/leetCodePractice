@@ -22,23 +22,28 @@
 
 using namespace std;
 
-class q1470Solution {
-public:
-    vector<int> shuffle(vector<int>& nums, int n) {
-        vector<int> result(nums.size());
-        for (int i = 0; i < n; i ++) {
-            result[i * 2] = nums[i];
-            result[i * 2 + 1] = nums[i + n];
-        }
-        return result;
-    }
-};
 
 void question1470(){
+    
+    class Solution {
+    public:
+        vector<int> shuffle(vector<int>& nums, int n) {
+            vector<int> result(nums.size());
+            for (int i = 0; i < n; i ++) {
+                result[i * 2] = nums[i];
+                result[i * 2 + 1] = nums[i + n];
+            }
+            return result;
+        }
+    };
+
+    
+    
     vector<int> nums = {1,2,3,4,4,3,2,1};
-    vector<int> result = q1470Solution().shuffle(nums, (int)nums.size() / 2);
+    vector<int> result = Solution().shuffle(nums, (int)nums.size() / 2);
     for (int i = 0; i < nums.size(); i++) {
         cout << result[i] << ' ';
     }
+    cout << endl;
 }
 #endif /* q1470_hpp */

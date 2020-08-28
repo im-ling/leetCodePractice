@@ -28,9 +28,12 @@ int main(int argc, const char * argv[]) {
 }
 void cplusplusSolutions(){
     cout << "Hello, cplusplus!" << endl;
-    question1431();
+//    question0470();
+//    question1108();
+//    question1342();
+//    question1431();
 //    question1470();
-    cout << endl;
+//    question1476();
 }
 
 void cSolutions(){

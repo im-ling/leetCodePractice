@@ -235,6 +235,7 @@
 |Q461|[Hamming Distance](https://leetcode.com/problems/hamming-distance/)|[Python3](./LeetcodePython3/q0461.py) |Easy |✔️|
 |Q463|[Island Perimeter](https://leetcode.com/problems/island-perimeter/)|[Python3](./LeetcodePython3/q0463.py) |Easy |✔️|
 |Q468|[Validate IP Address](https://leetcode.com/problems/validate-ip-address/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0468.swift)|Medium |✔️|
+|Q470 |[Implement Rand10() Using Rand7()](https://leetcode.com/problems/implement-rand10-using-rand7/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0470.hpp)  |Medium |✔️|
 |Q476|[Number Complement](https://leetcode.com/problems/number-complement/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0476.swift)|Easy |✔️|
 |Q477|[Total Hamming Distance](https://leetcode.com/problems/total-hamming-distance/)|[Python3](./LeetcodePython3/q0477.py) |Medium |✔️|
 |Q497|[Random Point in Non-overlapping Rectangles](https://leetcode.com/problems/random-point-in-non-overlapping-rectangles/)|[Python3](./LeetcodePython3/q0497.py) |Medium |✔️|
@@ -292,6 +293,7 @@
 |Q1046 |[Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1046.swift)  |Easy |✔️|
 |Q1081 |[Smallest Subsequence of Distinct Characters](https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/)|[C](./LeetCode/LeetCode/algorithms/q1081.c)|Medium|✔️|
 |Q1103 |[Distribute Candies to People](https://leetcode.com/problems/distribute-candies-to-people/)|[Python3](./LeetcodePython3/q1103.py)  |Easy |✔️|
+|Q1108 |[Defanging an IP Address](https://leetcode.com/problems/defanging-an-ip-address/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1108.hpp)  |Easy |✔️|
 |Q1143 |[Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1143.swift)  |Medium |✔️|
 |Q1155|[Number of Dice Rolls With Target Sum](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/)|[C](./LeetCode/LeetCode/algorithms/q0004.c)|Medium|✔️|
 |Q1171 |[Remove Zero Sum Consecutive Nodes from Linked List](https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/)|[Python3](./LeetcodePython3/q1171.py)  |Medium |✔️|
@@ -300,10 +302,12 @@
 |Q1275 |[Find Winner on a Tic Tac Toe Game](https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/)|[Python3](./LeetcodePython3/q1275.py)  |Easy |✔️|
 |Q1277 |[Count Square Submatrices with All Ones](https://leetcode.com/problems/count-square-submatrices-with-all-ones/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1277.swift)  |Medium |✔️|
 |Q1286 |[Iterator for Combination](https://leetcode.com/problems/iterator-for-combination/)|[Python3](./LeetcodePython3/q1286.py)  |Medium |✔️|
+|Q1342 |[Number of Steps to Reduce a Number to Zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1342.hpp)  |Easy |✔️|
 |Q1344 |[Angle Between Hands of a Clock](https://leetcode.com/problems/angle-between-hands-of-a-clock/)|[Python3](./LeetcodePython3/q1344.py)  |Medium |✔️|
 |Q1390 |[Four Divisors](https://leetcode.com/problems/four-divisors/)|[Python3](./LeetcodePython3/q1390.py)  |Medium |✔️|
 |Q1431 |[Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1431.hpp)  |Easy |✔️|
 |Q1470 |[Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1470.hpp)  |Easy |✔️|
+|Q1476 |[Subrectangle Queries](https://leetcode.com/problems/subrectangle-queries/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1476.hpp)  |Medium |✔️|
 |Q1480 |[Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1480.swift)  |Easy |✔️|
 |Q1482 |[Minimum Number of Days to Make m Bouquets](https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/)|[Python3](./LeetcodePython3/q1482.py) |Medium |✔️|
 |Q1486 |[XOR Operation in an Array](https://leetcode.com/problems/xor-operation-in-an-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1486.swift)  |Easy |✔️|
