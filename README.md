@@ -277,6 +277,7 @@
 |Q922|[Sort Array By Parity II](https://leetcode.com/problems/sort-array-by-parity-ii/)|[Python3](./LeetcodePython3/q0922.py) |Easy |✔️|
 |Q923|[3Sum With Multiplicity](https://leetcode.com/problems/3sum-with-multiplicity/)|[Python3](./LeetcodePython3/q0923.py) |Medium |✔️|
 |Q937 |[K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0937.swift)  |Medium |✔️|
+|Q952|[Largest Component Size by Common Factor](https://leetcode.com/problems/largest-component-size-by-common-factor/)|[Python3](./LeetcodePython3/q0952.py) |Hard |✔️|
 |Q957|[Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/)|[Python3](./LeetcodePython3/q0957.py) |Medium |✔️|
 |Q967|[Numbers With Same Consecutive Differences](https://leetcode.com/problems/numbers-with-same-consecutive-differences/)|[Python3](./LeetcodePython3/q0967.py) |Medium |✔️|
 |Q969 |[Pancake Sorting](https://leetcode.com/problems/pancake-sorting/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0969.hpp)  |Medium |✔️|
@@ -358,3 +359,4 @@
 |Q1559 |[Detect Cycles in 2D Grid](https://leetcode.com/problems/detect-cycles-in-2d-grid/)|[Python3](./LeetcodePython3/q1559.py)  |Hard |✔️|
 |Q1560 |[Most Visited Sector in a Circular Track](https://leetcode.com/problems/most-visited-sector-in-a-circular-track/)|[Python3](./LeetcodePython3/q1560.py)  |Easy |✔️|
 |Q1561 |[Maximum Number of Coins You Can Get](https://leetcode.com/problems/maximum-number-of-coins-you-can-get/)|[Python3](./LeetcodePython3/q1561.py)  |Medium |✔️|
+|Q1562 |[Find Latest Group of Size M](https://leetcode.com/problems/find-latest-group-of-size-m/)|[Python3](./LeetcodePython3/q1562.py)  |Medium |✔️|

@@ -28,6 +28,13 @@ void question0470(){
     class Solution {
     public:
         int rand10() {
+            int randow_number = (rand7() * 7 + rand7()) * 7 + rand7();
+            while (randow_number < 60) {
+                randow_number = (rand7() * 7 + rand7()) * 7 + rand7();
+            }
+            return randow_number % 10 + 1;
+        }
+        int rand10_2() {
             int randow_number = rand7();
             int result = 0;
             while (randow_number == 4) {
