@@ -9,6 +9,8 @@
 #ifndef algorithms_cplusplus_h
 #define algorithms_cplusplus_h
 #include "q0470.hpp"
+#include "q0912.hpp"
+#include "q0969.hpp"
 #include "q1108.hpp"
 #include "q1342.hpp"
 #include "q1431.hpp"

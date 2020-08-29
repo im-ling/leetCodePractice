@@ -29,6 +29,8 @@ int main(int argc, const char * argv[]) {
 void cplusplusSolutions(){
     cout << "Hello, cplusplus!" << endl;
 //    question0470();
+//    question0912();
+//    question0969();
 //    question1108();
 //    question1342();
 //    question1431();

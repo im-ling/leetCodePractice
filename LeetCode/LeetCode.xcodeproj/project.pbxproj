@@ -139,6 +139,8 @@
 		9419AAA724F8D85F0086DDD7 /* q1108.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q1108.hpp; sourceTree = "<group>"; };
 		9419AAAA24F8DD620086DDD7 /* q1342.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q1342.hpp; sourceTree = "<group>"; };
 		9419AAAD24F8E7760086DDD7 /* q0470.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q0470.hpp; sourceTree = "<group>"; };
+		942AD2D824FA3CC900F9BC9A /* q0969.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q0969.hpp; sourceTree = "<group>"; };
+		942AD2DB24FA47D200F9BC9A /* q0912.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q0912.hpp; sourceTree = "<group>"; };
 		943D2FF52374BF30003B85EA /* q0203.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0203.h; sourceTree = "<group>"; };
 		943D2FF62374BF30003B85EA /* q0203.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0203.c; sourceTree = "<group>"; };
 		943D2FF82374C53B003B85EA /* q0205.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0205.h; sourceTree = "<group>"; };
@@ -414,6 +416,8 @@
 			isa = PBXGroup;
 			children = (
 				9419AAAD24F8E7760086DDD7 /* q0470.hpp */,
+				942AD2DB24FA47D200F9BC9A /* q0912.hpp */,
+				942AD2D824FA3CC900F9BC9A /* q0969.hpp */,
 				9419AAA724F8D85F0086DDD7 /* q1108.hpp */,
 				9419AAAA24F8DD620086DDD7 /* q1342.hpp */,
 				946A1BAC24F821EF0090D157 /* q1431.hpp */,
