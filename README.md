@@ -228,6 +228,7 @@
 |Q438|[Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift), [C](./LeetCode/LeetCode/algorithms/q0438.c)|Medium |✔️|
 |Q441|[Arranging Coins](https://leetcode.com/problems/arranging-coins/)|[Python3](./LeetcodePython3/q0441.py) |Easy |✔️|
 |Q442|[Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/)|[Python3](./LeetcodePython3/q0442.py) |Medium |✔️|
+|Q450 |[Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0450.hpp)  |Medium |✔️|
 |Q451|[Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0451.swift)|Medium |✔️|
 |Q452|[Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/)|[Python3](./LeetcodePython3/q0452.py) |Medium |✔️|
 |Q456|[132 Pattern](https://leetcode.com/problems/132-pattern/)|[C](./LeetCode/LeetCode/algorithms/q0456.c)|Medium |✔️|
@@ -360,3 +361,6 @@
 |Q1560 |[Most Visited Sector in a Circular Track](https://leetcode.com/problems/most-visited-sector-in-a-circular-track/)|[Python3](./LeetcodePython3/q1560.py)  |Easy |✔️|
 |Q1561 |[Maximum Number of Coins You Can Get](https://leetcode.com/problems/maximum-number-of-coins-you-can-get/)|[Python3](./LeetcodePython3/q1561.py)  |Medium |✔️|
 |Q1562 |[Find Latest Group of Size M](https://leetcode.com/problems/find-latest-group-of-size-m/)|[Python3](./LeetcodePython3/q1562.py)  |Medium |✔️|
+|Q1566 |[Detect Pattern of Length M Repeated K or More Times](https://leetcode.com/problems/detect-pattern-of-length-m-repeated-k-or-more-times/)|[Python3](./LeetcodePython3/q1566.py)  |Easy |✔️|
+|Q1567 |[Maximum Length of Subarray With Positive Product](https://leetcode.com/problems/maximum-length-of-subarray-with-positive-product/)|[Python3](./LeetcodePython3/q1567.py)  |Medium |✔️|
+|Q1568 |[Minimum Number of Days to Disconnect Island](https://leetcode.com/problems/minimum-number-of-days-to-disconnect-island/)|[Python3](./LeetcodePython3/q1568.py)  |Medium |✔️|
