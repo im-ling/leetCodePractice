@@ -177,6 +177,8 @@
 |Q211 |[Add and Search Word - Data structure design](https://leetcode.com/problems/add-and-search-word-data-structure-design/)|[Python3](./LeetcodePython3/q0211.py)  |Medium |✔️|
 |Q212 |[Word Search II](https://leetcode.com/problems/word-search-ii/)|[Python3](./LeetcodePython3/q0212.py)  |Hard |✔️|
 |Q217|[Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)|[C](./LeetCode/LeetCode/algorithms/q0217.c)  |Easy |✔️|
+|Q219 |[Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0219.hpp)  |Medium |✔️|
+|Q220 |[Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0220.hpp)  |Medium |✔️|
 |Q221 |[Maximal Square](https://leetcode.com/problems/maximal-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0221.swift)  |Medium |✔️|
 |Q222 |[Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0222.swift)  |Medium |✔️|
 |Q226|[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0226.c)  |Easy |✔️|

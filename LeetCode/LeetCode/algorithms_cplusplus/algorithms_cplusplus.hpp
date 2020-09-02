@@ -8,6 +8,8 @@
 
 #ifndef algorithms_cplusplus_h
 #define algorithms_cplusplus_h
+#include "q0219.hpp"
+#include "q0220.hpp"
 #include "q0450.hpp"
 #include "q0470.hpp"
 #include "q0912.hpp"
