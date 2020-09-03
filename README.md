@@ -235,6 +235,7 @@
 |Q452|[Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/)|[Python3](./LeetcodePython3/q0452.py) |Medium |✔️|
 |Q456|[132 Pattern](https://leetcode.com/problems/132-pattern/)|[C](./LeetCode/LeetCode/algorithms/q0456.c)|Medium |✔️|
 |Q457|[Circular Array Loop](https://leetcode.com/problems/circular-array-loop/)|[C](./LeetCode/LeetCode/algorithms/q0457.c)  |Medium |✔️|
+|Q459 |[Repeated Substring Pattern](https://leetcode.com/problems/repeated-substring-pattern/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0459.hpp)  |Easy |✔️|
 |Q461|[Hamming Distance](https://leetcode.com/problems/hamming-distance/)|[Python3](./LeetcodePython3/q0461.py) |Easy |✔️|
 |Q463|[Island Perimeter](https://leetcode.com/problems/island-perimeter/)|[Python3](./LeetcodePython3/q0463.py) |Easy |✔️|
 |Q468|[Validate IP Address](https://leetcode.com/problems/validate-ip-address/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0468.swift)|Medium |✔️|
