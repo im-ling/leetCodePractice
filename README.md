@@ -265,6 +265,7 @@
 |Q704|[Binary Search](https://leetcode.com/problems/binary-search/)|[C](./LeetCode/LeetCode/algorithms/q0704.c)  |Easy |✔️|
 |Q705|[Design HashSet](https://leetcode.com/problems/design-hashset/)|[Python3](./LeetcodePython3/q0705.py) |Easy |✔️|
 |Q733 |[Flood Fill](https://leetcode.com/problems/flood-fill/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0733.swift)  |Easy |✔️|
+|Q763 |[Partition Labels](https://leetcode.com/problems/partition-labels/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0763.hpp) , [Python3](./LeetcodePython3/q0763.py) |Medium |✔️|
 |Q771|[Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0771.swift)  |Easy |✔️|
 |Q787|[Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0787.swift)  |Medium |✔️|
 |Q797|[All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target/)|[Python3](./LeetcodePython3/q0797.py) |Medium |✔️|
