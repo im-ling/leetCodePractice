@@ -64,7 +64,7 @@
 |60 |[Permutation Sequence](https://leetcode.com/problems/permutation-sequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0060.swift)  |Medium |✔️|
 |61 |[Rotate List](https://leetcode.com/problems/rotate-list/)|[C](./LeetCode/LeetCode/algorithms/q0061.c)  |Medium |✔️|
 |62 |[Unique Paths](https://leetcode.com/problems/unique-paths/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0062.swift)  |Medium |✔️|
-|63 |[Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0063.swift)  |Medium |✔️|
+|63 |[Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0063.swift), [Python3](./LeetcodePython3/q0290.py)|Medium |✔️|
 |64 |[Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0064.swift)  |Medium |✔️|
 |65 |[Valid Number](https://leetcode.com/problems/valid-number/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0065.swift)  |Medium |✔️|
 |66|[Plus One](https://leetcode.com/problems/plus-one/)|[C](./LeetCode/LeetCode/algorithms/q0066.c), [Python3](./LeetcodePython3/q0066.py) |Easy |✔️|
@@ -197,6 +197,7 @@
 |Q279 |[Perfect Squares](https://leetcode.com/problems/perfect-squares/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0279.swift)  |Medium |✔️|
 |Q283|[Move Zeroes](https://leetcode.com/problems/move-zeroes/)|[C](./LeetCode/LeetCode/algorithms/q0283.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0283.swift)  |Easy |✔️|
 |Q287|[Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)|[C](./LeetCode/LeetCode/algorithms/q0287.c)  |Medium |✔️|
+|Q290 |[Word Pattern](https://leetcode.com/problems/word-pattern/)|[Python3](./LeetcodePython3/q0290.py) |Medium |✔️|
 |Q309 |[Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)|[Python3](./LeetcodePython3/q0309.py) |Medium |✔️|
 |Q322 |[Coin Change](https://leetcode.com/problems/coin-change/)|[Python3](./LeetcodePython3/q0322.py) |Medium |✔️|
 |Q326|[Power of Three](https://leetcode.com/problems/power-of-three/)|[Python3](./LeetcodePython3/q0326.py) |Easy |✔️|

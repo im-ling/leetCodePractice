@@ -51,56 +51,27 @@ import Foundation
 
 class q0063Solution {
     func uniquePathsWithObstacles(_ obstacleGrid: [[Int]]) -> Int {
-        if obstacleGrid.count <= 1 || obstacleGrid[0].count <= 1 {
-            for i in 0..<obstacleGrid.count {
-                for j in 0..<obstacleGrid[i].count {
-                    if obstacleGrid[i][j] == 1 {
-                        return 0
+        let m = obstacleGrid.count
+        let n = obstacleGrid[0].count
+        var dp = [[Int]].init(repeating: [Int].init(repeating: 0, count: n), count: m)
+        for i in 0..<m {
+            for j in 0..<n {
+                if obstacleGrid[i][j] == 1 {
+                    dp[i][j] = 0
+                }else{
+                    if i == 0 && j == 0 {
+                        dp[i][j] = 1
+                    }else if i == 0 {
+                        dp[i][j] = dp[i][j - 1]
+                    }else if j == 0 {
+                        dp[i][j] = dp[i - 1][j]
+                    }else{
+                        dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
                     }
                 }
             }
-            return 1
         }
-        let m = obstacleGrid[0].count
-        let n = obstacleGrid.count
-        var dp = obstacleGrid
-        
-        if dp[n - 1][m - 1] == 0 {
-            dp[n - 1][m - 1] = 1
-        }else{
-            dp[n - 1][m - 1] = 0
-        }
-        
-        for i in (0..<m - 1).reversed() {
-            if dp[n - 1][i] == 0 {
-                dp[n - 1][i] = dp[n - 1][i + 1]
-            }else{
-                dp[n - 1][i] = 0
-            }
-        }
-        for i in (0..<n - 1).reversed(){
-            if dp[i][m - 1] == 0 {
-                dp[i][m - 1] = dp[i + 1][m - 1]
-            }else{
-                dp[i][m - 1] = 0
-            }
-        }
-                
-        var i = n - 2
-        while i >= 0 {
-            var j = m - 2
-            while j >= 0 {
-                if dp[i][j] == 0 {
-                    dp[i][j] = dp[i + 1][j] + dp[i][j + 1]
-                }else{
-                    dp[i][j] = 0
-                }
-                j -= 1
-            }
-            i -= 1
-        }
-        
-        return dp[0][0]
+        return dp[m - 1][n - 1]
     }
 }
 
