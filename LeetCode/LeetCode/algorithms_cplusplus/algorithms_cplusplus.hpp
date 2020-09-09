@@ -16,6 +16,7 @@
 #include "q0763.hpp"
 #include "q0912.hpp"
 #include "q0969.hpp"
+#include "q1022.hpp"
 #include "q1108.hpp"
 #include "q1305.hpp"
 #include "q1342.hpp"

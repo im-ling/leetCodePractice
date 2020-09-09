@@ -146,13 +146,14 @@
 |Q141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)|[C](./LeetCode/LeetCode/algorithms/q0141.c)  |Easy |✔️|
 |Q142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|[C](./LeetCode/LeetCode/algorithms/q0142.c)  |Medium |✔️|
 |Q143|[Reorder List](https://leetcode.com/problems/reorder-list/)|[Python3](./LeetcodePython3/q0143.py) |Medium |✔️|
-|Q146|[LRU Cache](https://leetcode.com/problems/lru-cache/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0146.swift)  |Medium |✔️|
+|Q146|[LRU Cache](https://leetcode.com/problems/lru-cache/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0146.swift), [Python3](./LeetcodePython3/q0146.py)|Medium |✔️|
 |Q147|[Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)|[Python3](./LeetcodePython3/q0147.py) |Medium |✔️|
 |Q151 |[Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)|[Python3](./LeetcodePython3/q0151.py)  |Medium |✔️|
 |Q153 |[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|[Python3](./LeetcodePython3/q0153.py)  |Medium |✔️|
 |Q154 |[Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)|[Python3](./LeetcodePython3/q0154.py)  |Hard |✔️|
 |Q155 |[Min Stack](https://leetcode.com/problems/min-stack/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0155.swift)  |Easy |✔️|
 |Q160|[Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)|[C](./LeetCode/LeetCode/algorithms/q0160.c)  |Easy |✔️|
+|Q165|[Compare Version Numbers](https://leetcode.com/problems/compare-version-numbers/)|[Python3](./LeetcodePython3/q0165.py) |Medium |✔️|
 |Q167|[Two Sum II](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|[C](./LeetCode/LeetCode/algorithms/q0167.c)  |Easy |✔️|
 |Q168 |[Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title/)|[Python3](./LeetcodePython3/q0168.py)  |Easy |✔️|
 |Q169|[Majority Element](https://leetcode.com/problems/majority-element/)|[C](./LeetCode/LeetCode/algorithms/q0169.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0169.swift) |Easy |✔️|
@@ -254,7 +255,7 @@
 |Q543|[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0543.swift)|Easy |✔️|
 |Q557 |[Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/)|[Python3](./LeetcodePython3/q0557.py)  |Easy |✔️|
 |Q560|[Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0560.swift)|Medium |✔️|
-|Q567|[Permutation in String](https://leetcode.com/problems/permutation-in-string/)|[C](./LeetCode/LeetCode/algorithms/q0567.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1143.swift) |Medium |✔️|
+|Q567|[Permutation in String](https://leetcode.com/problems/permutation-in-string/)|[C](./LeetCode/LeetCode/algorithms/q0567.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0567.swift) |Medium |✔️|
 |Q611|[Valid Triangle Number](https://leetcode.com/problems/valid-triangle-number/)|[Python3](./LeetcodePython3/q0611.py) |Medium |✔️|
 |Q621|[Task Scheduler](https://leetcode.com/problems/task-scheduler/)|[Python3](./LeetcodePython3/q0621.py) |Medium |✔️|
 |Q662|[Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/)|[Python3](./LeetcodePython3/q0662.py) |Medium |✔️|
@@ -297,6 +298,7 @@
 |Q997 |[Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0997.swift)  |Easy |✔️|
 |Q1008 |[Construct Binary Search Tree from Preorder Traversal](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1008.swift)  |Medium |✔️|
 |Q1011 |[Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/)|[Python3](./LeetcodePython3/q1011.py)  |Medium |✔️|
+|Q1022 |[Sum of Root To Leaf Binary Numbers](https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1022.hpp)  |Easy |✔️|
 |Q1029 |[Two City Scheduling](https://leetcode.com/problems/two-city-scheduling/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1029.swift)  |Easy |✔️|
 |Q1035 |[Uncrossed Lines](https://leetcode.com/problems/uncrossed-lines/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1035.swift)  |Medium |✔️|
 |Q1044 |[Longest Duplicate Substring](https://leetcode.com/problems/longest-duplicate-substring/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1044.swift)  |Hard |✔️|
