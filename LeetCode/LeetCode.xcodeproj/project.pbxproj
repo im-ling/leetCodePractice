@@ -329,6 +329,8 @@
 		94A095952365CD11006AC152 /* q0457.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0457.c; sourceTree = "<group>"; };
 		94AB9BE6236BC9BB000DFB8C /* q0189.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0189.h; sourceTree = "<group>"; };
 		94AB9BE7236BC9BB000DFB8C /* q0189.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0189.c; sourceTree = "<group>"; };
+		94B2CA1E2510F3B200FF4345 /* q0213.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q0213.hpp; sourceTree = "<group>"; };
+		94B2CA212510FB0700FF4345 /* q0337.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q0337.hpp; sourceTree = "<group>"; };
 		94B559732509259E00227784 /* q1022.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q1022.hpp; sourceTree = "<group>"; };
 		94C6CC88240E5DD700D7A0EF /* q0044.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0044.h; sourceTree = "<group>"; };
 		94C6CC89240E5DD700D7A0EF /* q0044.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0044.c; sourceTree = "<group>"; };
@@ -422,8 +424,10 @@
 		946A1BA524F819900090D157 /* algorithms_cplusplus */ = {
 			isa = PBXGroup;
 			children = (
+				94B2CA1E2510F3B200FF4345 /* q0213.hpp */,
 				94C94A0924FFC79D00EFCE3A /* q0219.hpp */,
 				94C94A0C24FFCE5F00EFCE3A /* q0220.hpp */,
+				94B2CA212510FB0700FF4345 /* q0337.hpp */,
 				94E1111624FD225A003AA6A6 /* q0450.hpp */,
 				94C94A192500F8B400EFCE3A /* q0459.hpp */,
 				9419AAAD24F8E7760086DDD7 /* q0470.hpp */,
