@@ -156,6 +156,7 @@
 		943D300C2374DEF1003B85EA /* q0160.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = q0160.h; sourceTree = "<group>"; };
 		943D300D2374DEF1003B85EA /* q0160.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = q0160.c; sourceTree = "<group>"; };
 		9453F49224F8D3B4004BFB48 /* q1476.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q1476.hpp; sourceTree = "<group>"; };
+		945CD722251F5D0700FDF039 /* q0499.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q0499.hpp; sourceTree = "<group>"; };
 		9465F0B323687C79005F8BD0 /* q0058.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0058.h; sourceTree = "<group>"; };
 		9465F0B423687C79005F8BD0 /* q0058.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0058.c; sourceTree = "<group>"; };
 		9465F0B623687FF2005F8BD0 /* q0066.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0066.h; sourceTree = "<group>"; };
@@ -431,6 +432,7 @@
 				94E1111624FD225A003AA6A6 /* q0450.hpp */,
 				94C94A192500F8B400EFCE3A /* q0459.hpp */,
 				9419AAAD24F8E7760086DDD7 /* q0470.hpp */,
+				945CD722251F5D0700FDF039 /* q0499.hpp */,
 				94C94A1D2503493100EFCE3A /* q0763.hpp */,
 				942AD2DB24FA47D200F9BC9A /* q0912.hpp */,
 				942AD2D824FA3CC900F9BC9A /* q0969.hpp */,
