@@ -8,10 +8,13 @@
 
 #ifndef algorithms_cplusplus_h
 #define algorithms_cplusplus_h
+#include "q0041.hpp"
+#include "q0152.hpp"
 #include "q0213.hpp"
 #include "q0219.hpp"
 #include "q0220.hpp"
 #include "q0337.hpp"
+#include "q0421.hpp"
 #include "q0450.hpp"
 #include "q0459.hpp"
 #include "q0470.hpp"
@@ -26,6 +29,8 @@
 #include "q1108.hpp"
 #include "q1305.hpp"
 #include "q1342.hpp"
+#include "q1041.hpp"
+#include "q1291.hpp"
 #include "q1431.hpp"
 #include "q1470.hpp"
 #include "q1476.hpp"

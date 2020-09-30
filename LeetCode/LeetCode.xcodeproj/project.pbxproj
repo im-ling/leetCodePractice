@@ -375,6 +375,11 @@
 		94ED2C45236794A600CB335A /* q0567.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0567.c; sourceTree = "<group>"; };
 		94F4080A24727877009106FE /* q0438.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0438.h; sourceTree = "<group>"; };
 		94F4080B24727877009106FE /* q0438.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0438.c; sourceTree = "<group>"; };
+		FE3F9AA52524735F005CF0FC /* q0041.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q0041.hpp; sourceTree = "<group>"; };
+		FECF2A9B25302EC300FAD4A4 /* q0152.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q0152.hpp; sourceTree = "<group>"; };
+		FECF2AA125306DCE00FAD4A4 /* q0421.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q0421.hpp; sourceTree = "<group>"; };
+		FECF2AA4253076F300FAD4A4 /* q1041.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q1041.hpp; sourceTree = "<group>"; };
+		FECF2AA72530841700FAD4A4 /* q1291.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q1291.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -428,10 +433,13 @@
 		946A1BA524F819900090D157 /* algorithms_cplusplus */ = {
 			isa = PBXGroup;
 			children = (
+				FE3F9AA52524735F005CF0FC /* q0041.hpp */,
+				FECF2A9B25302EC300FAD4A4 /* q0152.hpp */,
 				94B2CA1E2510F3B200FF4345 /* q0213.hpp */,
 				94C94A0924FFC79D00EFCE3A /* q0219.hpp */,
 				94C94A0C24FFCE5F00EFCE3A /* q0220.hpp */,
 				94B2CA212510FB0700FF4345 /* q0337.hpp */,
+				FECF2AA125306DCE00FAD4A4 /* q0421.hpp */,
 				94E1111624FD225A003AA6A6 /* q0450.hpp */,
 				94C94A192500F8B400EFCE3A /* q0459.hpp */,
 				9419AAAD24F8E7760086DDD7 /* q0470.hpp */,
@@ -444,6 +452,8 @@
 				94A9355E252EC6A300E28DCA /* q1009.hpp */,
 				94B559732509259E00227784 /* q1022.hpp */,
 				9419AAA724F8D85F0086DDD7 /* q1108.hpp */,
+				FECF2AA4253076F300FAD4A4 /* q1041.hpp */,
+				FECF2AA72530841700FAD4A4 /* q1291.hpp */,
 				9478F0D22503CE8900C16044 /* q1305.hpp */,
 				9419AAAA24F8DD620086DDD7 /* q1342.hpp */,
 				946A1BAC24F821EF0090D157 /* q1431.hpp */,

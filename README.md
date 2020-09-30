@@ -42,7 +42,7 @@
 |38 |[Count and Say](https://leetcode.com/problems/count-and-say)|[C](./LeetCode/LeetCode/algorithms/q0038.c)  |Easy |✔️|
 |39 |[Combination Sum](https://leetcode.com/problems/combination-sum)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0039.swift)  |Medium |✔️|
 |40 |[Combination Sum II](https://leetcode.com/problems/combination-sum-ii)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0040.swift)  |Medium |✔️|
-|41 |[First Missing Positive](https://leetcode.com/problems/first-missing-positive)|[C](./LeetCode/LeetCode/algorithms/q0041.c)  |Hard |✔️|
+|41 |[First Missing Positive](https://leetcode.com/problems/first-missing-positive)|[C](./LeetCode/LeetCode/algorithms/q0041.c),[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0041.hpp) |Hard |✔️|
 |42 |[Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water)|[C](./LeetCode/LeetCode/algorithms/q0042.c)  |Hard |✔️|
 |43 |[Multiply Strings](https://leetcode.com/problems/multiply-strings)|[C](./LeetCode/LeetCode/algorithms/q0043.c)  |Medium |✔️|
 |44 |[Wildcard Matching](https://leetcode.com/problems/wildcard-matching)|[C](./LeetCode/LeetCode/algorithms/q0044.c) |Hard |✔️|
@@ -149,6 +149,7 @@
 |Q146|[LRU Cache](https://leetcode.com/problems/lru-cache/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0146.swift), [Python3](./LeetcodePython3/q0146.py)|Medium |✔️|
 |Q147|[Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)|[Python3](./LeetcodePython3/q0147.py) |Medium |✔️|
 |Q151 |[Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)|[Python3](./LeetcodePython3/q0151.py)  |Medium |✔️|
+|Q152 |[Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0152.hpp)  |Medium |✔️|
 |Q153 |[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|[Python3](./LeetcodePython3/q0153.py)  |Medium |✔️|
 |Q154 |[Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)|[Python3](./LeetcodePython3/q0154.py)  |Hard |✔️|
 |Q155 |[Min Stack](https://leetcode.com/problems/min-stack/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0155.swift)  |Easy |✔️|
@@ -228,6 +229,7 @@
 |Q410|[Split Array Largest Sum](https://leetcode.com/problems/split-array-largest-sum/)|[Python3](./LeetcodePython3/q0410.py) |Hard |✔️|
 |Q412|[Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)|[Python3](./LeetcodePython3/q0412.py) |Easy |✔️|
 |Q416|[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0416.swift)|Medium |✔️|
+|Q421|[Maximum XOR of Two Numbers in an Array](https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0421.hpp)  |Medium |✔️|
 |Q424|[Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)|[C](./LeetCode/LeetCode/algorithms/q0424.c)  |Medium |✔️|
 |Q430 |[Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|[Python3](./LeetcodePython3/q0430.py)  |Medium |✔️|
 |Q435|[Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)|[Python3](./LeetcodePython3/q0435.py) |Medium |✔️|
@@ -236,6 +238,7 @@
 |Q438|[Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0437.swift), [C](./LeetCode/LeetCode/algorithms/q0438.c)|Medium |✔️|
 |Q441|[Arranging Coins](https://leetcode.com/problems/arranging-coins/)|[Python3](./LeetcodePython3/q0441.py) |Easy |✔️|
 |Q442|[Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/)|[Python3](./LeetcodePython3/q0442.py) |Medium |✔️|
+|Q449|[Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst/)|[Python3](./LeetcodePython3/q0449.py) |Medium |✔️|
 |Q450 |[Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0450.hpp)  |Medium |✔️|
 |Q451|[Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0451.swift)|Medium |✔️|
 |Q452|[Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/)|[Python3](./LeetcodePython3/q0452.py) |Medium |✔️|
@@ -309,6 +312,7 @@
 |Q1022 |[Sum of Root To Leaf Binary Numbers](https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1022.hpp)  |Easy |✔️|
 |Q1029 |[Two City Scheduling](https://leetcode.com/problems/two-city-scheduling/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1029.swift)  |Easy |✔️|
 |Q1035 |[Uncrossed Lines](https://leetcode.com/problems/uncrossed-lines/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1035.swift)  |Medium |✔️|
+|Q1041 |[Robot Bounded In Circle](https://leetcode.com/problems/robot-bounded-in-circle/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1041.hpp)  |Medium |✔️|
 |Q1044 |[Longest Duplicate Substring](https://leetcode.com/problems/longest-duplicate-substring/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1044.swift)  |Hard |✔️|
 |Q1046 |[Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1046.swift)  |Easy |✔️|
 |Q1081 |[Smallest Subsequence of Distinct Characters](https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/)|[C](./LeetCode/LeetCode/algorithms/q1081.c)|Medium|✔️|
@@ -324,6 +328,7 @@
 |Q1277 |[Count Square Submatrices with All Ones](https://leetcode.com/problems/count-square-submatrices-with-all-ones/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1277.swift)  |Medium |✔️|
 |Q1286 |[Iterator for Combination](https://leetcode.com/problems/iterator-for-combination/)|[Python3](./LeetcodePython3/q1286.py)  |Medium |✔️|
 |Q1288 |[Remove Covered Intervals](https://leetcode.com/problems/remove-covered-intervals/)|[Python3](./LeetcodePython3/q1288.py)  |Medium |✔️|
+|Q1291 |[Sequential Digits](https://leetcode.com/problems/sequential-digits/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1291.hpp)  |Medium |✔️|
 |Q1305 |[All Elements in Two Binary Search Trees](https://leetcode.com/problems/all-elements-in-two-binary-search-trees/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1476.hpp), [Python3](./LeetcodePython3/q1305.py)  |Medium |✔️|
 |Q1342 |[Number of Steps to Reduce a Number to Zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1342.hpp)  |Easy |✔️|
 |Q1344 |[Angle Between Hands of a Clock](https://leetcode.com/problems/angle-between-hands-of-a-clock/)|[Python3](./LeetcodePython3/q1344.py)  |Medium |✔️|
