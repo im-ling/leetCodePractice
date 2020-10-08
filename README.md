@@ -269,6 +269,7 @@
 |Q687|[Longest Univalue Path](https://leetcode.com/problems/longest-univalue-path/)|[Python3](./LeetcodePython3/q0687.py) |Easy |✔️|
 |Q696|[Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/)|[C](./LeetCode/LeetCode/algorithms/q0696.c)  |Easy |✔️|
 |Q700|[Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0700.swift)  |Easy |✔️|
+|Q701 |[Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0701.hpp)  |Medium |✔️|
 |Q704|[Binary Search](https://leetcode.com/problems/binary-search/)|[C](./LeetCode/LeetCode/algorithms/q0704.c)  |Easy |✔️|
 |Q705|[Design HashSet](https://leetcode.com/problems/design-hashset/)|[Python3](./LeetcodePython3/q0705.py) |Easy |✔️|
 |Q733 |[Flood Fill](https://leetcode.com/problems/flood-fill/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0733.swift)  |Easy |✔️|
@@ -289,6 +290,7 @@
 |Q918 |[Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0918.swift)  |Medium |✔️|
 |Q922|[Sort Array By Parity II](https://leetcode.com/problems/sort-array-by-parity-ii/)|[Python3](./LeetcodePython3/q0922.py) |Easy |✔️|
 |Q923|[3Sum With Multiplicity](https://leetcode.com/problems/3sum-with-multiplicity/)|[Python3](./LeetcodePython3/q0923.py) |Medium |✔️|
+|Q933 |[Number of Recent Calls](https://leetcode.com/problems/number-of-recent-calls/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0933.hpp)  |Easy |✔️|
 |Q937 |[K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0937.swift)  |Medium |✔️|
 |Q952|[Largest Component Size by Common Factor](https://leetcode.com/problems/largest-component-size-by-common-factor/)|[Python3](./LeetcodePython3/q0952.py) |Hard |✔️|
 |Q957|[Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/)|[Python3](./LeetcodePython3/q0957.py) |Medium |✔️|
@@ -302,6 +304,7 @@
 |Q994 |[Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)|[Python3](./LeetcodePython3/q0994.py) |Medium |✔️|
 |Q997 |[Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0997.swift)  |Easy |✔️|
 |Q1008 |[Construct Binary Search Tree from Preorder Traversal](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1008.swift)  |Medium |✔️|
+|Q1009 |[Complement of Base 10 Integer](https://leetcode.com/problems/complement-of-base-10-integer/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1009.hpp)  |Easy |✔️|
 |Q1011 |[Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/)|[Python3](./LeetcodePython3/q1011.py)  |Medium |✔️|
 |Q1022 |[Sum of Root To Leaf Binary Numbers](https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1022.hpp)  |Easy |✔️|
 |Q1029 |[Two City Scheduling](https://leetcode.com/problems/two-city-scheduling/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1029.swift)  |Easy |✔️|
@@ -320,6 +323,7 @@
 |Q1275 |[Find Winner on a Tic Tac Toe Game](https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/)|[Python3](./LeetcodePython3/q1275.py)  |Easy |✔️|
 |Q1277 |[Count Square Submatrices with All Ones](https://leetcode.com/problems/count-square-submatrices-with-all-ones/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1277.swift)  |Medium |✔️|
 |Q1286 |[Iterator for Combination](https://leetcode.com/problems/iterator-for-combination/)|[Python3](./LeetcodePython3/q1286.py)  |Medium |✔️|
+|Q1288 |[Remove Covered Intervals](https://leetcode.com/problems/remove-covered-intervals/)|[Python3](./LeetcodePython3/q1288.py)  |Medium |✔️|
 |Q1305 |[All Elements in Two Binary Search Trees](https://leetcode.com/problems/all-elements-in-two-binary-search-trees/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1476.hpp), [Python3](./LeetcodePython3/q1305.py)  |Medium |✔️|
 |Q1342 |[Number of Steps to Reduce a Number to Zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1342.hpp)  |Easy |✔️|
 |Q1344 |[Angle Between Hands of a Clock](https://leetcode.com/problems/angle-between-hands-of-a-clock/)|[Python3](./LeetcodePython3/q1344.py)  |Medium |✔️|
