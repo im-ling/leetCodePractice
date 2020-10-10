@@ -161,6 +161,7 @@
 |Q171 |[Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number/)|[Python3](./LeetcodePython3/q0171.py)  |Easy |✔️|
 |Q172|[Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/)|[C](./LeetCode/LeetCode/algorithms/q0172.c)  |Easy |✔️|
 |Q174 |[Dungeon Game](https://leetcode.com/problems/dungeon-game/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0174.swift)  |Hard |✔️|
+|Q179 |[Largest Number](https://leetcode.com/problems/largest-number/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0179.hpp)  |Medium |✔️|
 |Q189|[Rotate Array](https://leetcode.com/problems/rotate-array/)|[C](./LeetCode/LeetCode/algorithms/q0189.c)  |Easy |✔️|
 |Q190|[Reverse Bits](https://leetcode.com/problems/reverse-bits/)|[C](./LeetCode/LeetCode/algorithms/q0190.c), [Python3](./LeetcodePython3/q0190.py) |Easy |✔️|
 |Q191|[Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)|[C](./LeetCode/LeetCode/algorithms/q0191.c)  |Easy |✔️|
@@ -186,6 +187,7 @@
 |Q221 |[Maximal Square](https://leetcode.com/problems/maximal-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0221.swift)  |Medium |✔️|
 |Q222 |[Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0222.swift)  |Medium |✔️|
 |Q226|[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0226.c)  |Easy |✔️|
+|Q229 |[Majority Element II](https://leetcode.com/problems/majority-element-ii/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0229.hpp)  |Medium |✔️|
 |Q230 |[Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0230.swift)  |Medium |✔️|
 |Q231|[Power of Two](https://leetcode.com/problems/power-of-two/)|[C](./LeetCode/LeetCode/algorithms/q0231.c)  |Easy |✔️|
 |Q234|[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)|[C](./LeetCode/LeetCode/algorithms/q0234.c)  |Easy |✔️|
@@ -204,6 +206,7 @@
 |Q290 |[Word Pattern](https://leetcode.com/problems/word-pattern/)|[Python3](./LeetcodePython3/q0290.py) |Medium |✔️|
 |Q299 |[Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/)|[Python3](./LeetcodePython3/q0299.py) |Easy |✔️|
 |Q309 |[Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)|[Python3](./LeetcodePython3/q0309.py) |Medium |✔️|
+|Q316 |[Remove Duplicate Letters](https://leetcode.com/problems/remove-duplicate-letters/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0316.hpp)  |Medium |✔️|
 |Q322 |[Coin Change](https://leetcode.com/problems/coin-change/)|[Python3](./LeetcodePython3/q0322.py) |Medium |✔️|
 |Q326|[Power of Three](https://leetcode.com/problems/power-of-three/)|[Python3](./LeetcodePython3/q0326.py) |Easy |✔️|
 |Q328 |[Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0328.swift)  |Medium |✔️|
@@ -221,6 +224,7 @@
 |Q380 |[Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0380.swift)  |Medium |✔️|
 |Q383 |[Ransom Note](https://leetcode.com/problems/ransom-note/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0383.swift)  |Easy |✔️|
 |Q387 |[First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0387.swift)  |Easy |✔️|
+|Q389 |[Find the Difference](https://leetcode.com/problems/find-the-difference/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0389.hpp)  |Medium |✔️|
 |Q392 |[Is Subsequence](https://leetcode.com/problems/is-subsequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0392.swift)  |Easy |✔️|
 |Q402|[Remove K Digits](https://leetcode.com/problems/remove-k-digits/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0402.swift)|Medium |✔️|
 |Q404|[Sum of Left Leaves](https://leetcode.com/problems/sum-of-left-leaves/)|[Python3](./LeetcodePython3/q0404.py) |Easy |✔️|
@@ -284,6 +288,7 @@
 |Q835|[Image Overlap](https://leetcode.com/problems/image-overlap/)|[Python3](./LeetcodePython3/q0835.py) |Medium |✔️|
 |Q844 |[Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)|[C](./LeetCode/LeetCode/algorithms/q0844.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0844.swift)  |Easy |✔️|
 |Q852|[Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)|[Python3](./LeetcodePython3/q0852.py) |Easy |✔️|
+|Q859 |[Buddy Strings](https://leetcode.com/problems/buddy-strings/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0859.hpp)  |Easy |✔️|
 |Q869|[Reordered Power of 2](https://leetcode.com/problems/reordered-power-of-2/)|[Python3](./LeetcodePython3/q0869.py) |Medium |✔️|
 |Q875|[Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)|[Python3](./LeetcodePython3/q0875.py) |Medium |✔️|
 |Q876 |[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0876.swift)  |Easy |✔️|
