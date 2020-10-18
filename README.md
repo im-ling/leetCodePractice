@@ -162,6 +162,7 @@
 |Q172|[Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/)|[C](./LeetCode/LeetCode/algorithms/q0172.c)  |Easy |✔️|
 |Q174 |[Dungeon Game](https://leetcode.com/problems/dungeon-game/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0174.swift)  |Hard |✔️|
 |Q179 |[Largest Number](https://leetcode.com/problems/largest-number/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0179.hpp)  |Medium |✔️|
+|Q187 |[Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0187.hpp)  |Medium |✔️|
 |Q189|[Rotate Array](https://leetcode.com/problems/rotate-array/)|[C](./LeetCode/LeetCode/algorithms/q0189.c)  |Easy |✔️|
 |Q190|[Reverse Bits](https://leetcode.com/problems/reverse-bits/)|[C](./LeetCode/LeetCode/algorithms/q0190.c), [Python3](./LeetcodePython3/q0190.py) |Easy |✔️|
 |Q191|[Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)|[C](./LeetCode/LeetCode/algorithms/q0191.c)  |Easy |✔️|
@@ -311,6 +312,7 @@
 |Q993 |[Cousins in Binary Tree](https://leetcode.com/problems/cousins-in-binary-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0993.swift)  |Easy |✔️|
 |Q994 |[Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)|[Python3](./LeetcodePython3/q0994.py) |Medium |✔️|
 |Q997 |[Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0997.swift)  |Easy |✔️|
+|Q1007 |[Minimum Domino Rotations For Equal Row](https://leetcode.com/problems/minimum-domino-rotations-for-equal-row/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1007.hpp)  |Medium |✔️|
 |Q1008 |[Construct Binary Search Tree from Preorder Traversal](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1008.swift)  |Medium |✔️|
 |Q1009 |[Complement of Base 10 Integer](https://leetcode.com/problems/complement-of-base-10-integer/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1009.hpp)  |Easy |✔️|
 |Q1011 |[Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/)|[Python3](./LeetcodePython3/q1011.py)  |Medium |✔️|
