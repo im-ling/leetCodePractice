@@ -130,7 +130,7 @@ void InitEntry(int i, int j, int val)
 void PrintArray(char **board)
 {
      int i, j, valbit, val, Square;
-     char ch;
+     char ch = '\0';
 
      Square = 0;
 
@@ -153,7 +153,7 @@ void PrintArray(char **board)
 
 int NextSeq(int S)
 {
-    int S2, Square, Possibles, BitCount;
+    int S2 = 0, Square, Possibles, BitCount;
     int T, MinBitCount = 100;
 
     for (T = S; T < 81; T++) {
