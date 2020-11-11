@@ -268,6 +268,7 @@
 |Q543|[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0543.swift)|Easy |✔️|
 |Q557 |[Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/)|[Python3](./LeetcodePython3/q0557.py)  |Easy |✔️|
 |Q560|[Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0560.swift)|Medium |✔️|
+|Q563 |[Binary Tree Tilt](https://leetcode.com/problems/binary-tree-tilt/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0563.hpp)  |Easy |✔️|
 |Q567|[Permutation in String](https://leetcode.com/problems/permutation-in-string/)|[C](./LeetCode/LeetCode/algorithms/q0567.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0567.swift) |Medium |✔️|
 |Q611|[Valid Triangle Number](https://leetcode.com/problems/valid-triangle-number/)|[Python3](./LeetcodePython3/q0611.py) |Medium |✔️|
 |Q621|[Task Scheduler](https://leetcode.com/problems/task-scheduler/)|[Python3](./LeetcodePython3/q0621.py) |Medium |✔️|
@@ -286,6 +287,7 @@
 |Q787|[Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0787.swift)  |Medium |✔️|
 |Q797|[All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target/)|[Python3](./LeetcodePython3/q0797.py) |Medium |✔️|
 |Q824|[Goat Latin](https://leetcode.com/problems/goat-latin/)|[Python3](./LeetcodePython3/q0824.py) |Easy |✔️|
+|Q832 |[Flipping an Image](https://leetcode.com/problems/flipping-an-image/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0832.hpp)  |Easy |✔️|
 |Q835|[Image Overlap](https://leetcode.com/problems/image-overlap/)|[Python3](./LeetcodePython3/q0835.py) |Medium |✔️|
 |Q844 |[Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)|[C](./LeetCode/LeetCode/algorithms/q0844.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0844.swift)  |Easy |✔️|
 |Q852|[Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)|[Python3](./LeetcodePython3/q0852.py) |Easy |✔️|
@@ -317,6 +319,7 @@
 |Q1009 |[Complement of Base 10 Integer](https://leetcode.com/problems/complement-of-base-10-integer/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1009.hpp)  |Easy |✔️|
 |Q1011 |[Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/)|[Python3](./LeetcodePython3/q1011.py)  |Medium |✔️|
 |Q1022 |[Sum of Root To Leaf Binary Numbers](https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1022.hpp)  |Easy |✔️|
+|Q1026 |[Maximum Difference Between Node and Ancestor](https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1026.hpp)  |Medium |✔️|
 |Q1029 |[Two City Scheduling](https://leetcode.com/problems/two-city-scheduling/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1029.swift)  |Easy |✔️|
 |Q1035 |[Uncrossed Lines](https://leetcode.com/problems/uncrossed-lines/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1035.swift)  |Medium |✔️|
 |Q1041 |[Robot Bounded In Circle](https://leetcode.com/problems/robot-bounded-in-circle/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1041.hpp)  |Medium |✔️|
