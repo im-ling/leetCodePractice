@@ -187,6 +187,7 @@
 		9471643F23F7C99600163DE8 /* q0456.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0456.h; sourceTree = "<group>"; };
 		9471644023F7C99600163DE8 /* q0456.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0456.c; sourceTree = "<group>"; };
 		9478F0D22503CE8900C16044 /* q1305.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q1305.hpp; sourceTree = "<group>"; };
+		9488867525DD6FAF00C2BA93 /* q0011.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q0011.hpp; sourceTree = "<group>"; };
 		94896614236ABA5B008C50E6 /* q0169.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0169.h; sourceTree = "<group>"; };
 		94896615236ABA5B008C50E6 /* q0169.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0169.c; sourceTree = "<group>"; };
 		94896617236ABD4A008C50E6 /* q0172.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0172.h; sourceTree = "<group>"; };
@@ -443,6 +444,7 @@
 		946A1BA524F819900090D157 /* algorithms_cplusplus */ = {
 			isa = PBXGroup;
 			children = (
+				9488867525DD6FAF00C2BA93 /* q0011.hpp */,
 				FE3F9AA52524735F005CF0FC /* q0041.hpp */,
 				FECF2A9B25302EC300FAD4A4 /* q0152.hpp */,
 				FE52CEC72531855A00197DD9 /* q0179.hpp */,
