@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		68004A9921BBB9D400C66CE9 /* Extra.c in Sources */ = {isa = PBXBuildFile; fileRef = 68004A9821BBB9D400C66CE9 /* Extra.c */; };
 		683B86D121A637890003AAA9 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 683B86D021A637890003AAA9 /* main.mm */; };
+		941DF3C826438FA600087BA4 /* q0045.c in Sources */ = {isa = PBXBuildFile; fileRef = 941DF3C726438FA600087BA4 /* q0045.c */; };
 		943D2FF72374BF30003B85EA /* q0203.c in Sources */ = {isa = PBXBuildFile; fileRef = 943D2FF62374BF30003B85EA /* q0203.c */; };
 		943D2FFA2374C53B003B85EA /* q0205.c in Sources */ = {isa = PBXBuildFile; fileRef = 943D2FF92374C53B003B85EA /* q0205.c */; };
 		943D2FFD2374CA21003B85EA /* q0206.c in Sources */ = {isa = PBXBuildFile; fileRef = 943D2FFC2374CA21003B85EA /* q0206.c */; };
@@ -139,6 +140,8 @@
 		9419AAA724F8D85F0086DDD7 /* q1108.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q1108.hpp; sourceTree = "<group>"; };
 		9419AAAA24F8DD620086DDD7 /* q1342.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q1342.hpp; sourceTree = "<group>"; };
 		9419AAAD24F8E7760086DDD7 /* q0470.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q0470.hpp; sourceTree = "<group>"; };
+		941DF3C626438FA600087BA4 /* q0045.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0045.h; sourceTree = "<group>"; };
+		941DF3C726438FA600087BA4 /* q0045.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = q0045.c; sourceTree = "<group>"; };
 		942AD2D824FA3CC900F9BC9A /* q0969.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q0969.hpp; sourceTree = "<group>"; };
 		942AD2DB24FA47D200F9BC9A /* q0912.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = q0912.hpp; sourceTree = "<group>"; };
 		943D2FF52374BF30003B85EA /* q0203.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = q0203.h; sourceTree = "<group>"; };
