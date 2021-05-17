@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from typing import List
+
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
         len_col = len(word1) + 1
