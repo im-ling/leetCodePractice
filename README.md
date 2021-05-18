@@ -12,7 +12,7 @@
 |8 |[String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi)|[C](./LeetCode/LeetCode/algorithms/q0008.c)  |Medium |✔️|
 |9 |[Palindrome Number](https://leetcode.com/problems/palindrome-number)|[C](./LeetCode/LeetCode/algorithms/q0009.c)  |Easy |✔️|
 |10 |[Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching)|[C](./LeetCode/LeetCode/algorithms/q0010.c)  |Hard |✔️|
-|11 |[Container With Most Water](https://leetcode.com/problems/container-with-most-water)|[C](./LeetCode/LeetCode/algorithms/q0011.c)  |Medium |✔️|
+|11 |[Container With Most Water](https://leetcode.com/problems/container-with-most-water)|[C](./LeetCode/LeetCode/algorithms/q0011.c) , [CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0011.hpp) |Medium |✔️|
 |12 |[Integer to Roman](https://leetcode.com/problems/integer-to-roman)|[C](./LeetCode/LeetCode/algorithms/q0012.c)  |Medium |✔️|
 |13 |[Roman to Integer](https://leetcode.com/problems/roman-to-integer)|[C](./LeetCode/LeetCode/algorithms/q0013.c)  |Easy |✔️|
 |14 |[Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix)|[C](./LeetCode/LeetCode/algorithms/q0014.c)  |Easy |✔️|
@@ -46,7 +46,7 @@
 |42 |[Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water)|[C](./LeetCode/LeetCode/algorithms/q0042.c)  |Hard |✔️|
 |43 |[Multiply Strings](https://leetcode.com/problems/multiply-strings)|[C](./LeetCode/LeetCode/algorithms/q0043.c)  |Medium |✔️|
 |44 |[Wildcard Matching](https://leetcode.com/problems/wildcard-matching)|[C](./LeetCode/LeetCode/algorithms/q0044.c) |Hard |✔️|
-|45 |[Jump Game II](https://leetcode.com/problems/jump-game-ii)| [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0045.swift)   |Hard |✔️|
+|45 |[Jump Game II](https://leetcode.com/problems/jump-game-ii)| [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0045.swift) , [C](./LeetCode/LeetCode/algorithms/q0045.c)|Hard |✔️|
 |46 |[Permutations](https://leetcode.com/problems/permutations)|[C](./LeetCode/LeetCode/algorithms/q0046.c),[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0046.swift) |Medium |✔️|
 |47 |[Permutations II](https://leetcode.com/problems/permutations-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0047.swift)  |Medium |✔️|
 |48 |[Rotate Image](https://leetcode.com/problems/rotate-image/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0048.swift)  |Medium |✔️|
@@ -54,7 +54,7 @@
 |50 |[Pow(x, n)](https://leetcode.com/problems/powx-n/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0050.swift), [Python3](./LeetcodePython3/q0050.py)  |Medium |✔️|
 |51 |[N-Queens](https://leetcode.com/problems/n-queens/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0051.swift)  |Hard |✔️|
 |52 |[N-Queens II](https://leetcode.com/problems/n-queens-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0052.swift)  |Hard |✔️|
-|53 |[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0053.swift)  |Easy |✔️|
+|53 |[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0053.swift), [Python3](./LeetcodePython3/q0053.py)|Easy |✔️|
 |54 |[Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0054.swift)  |Medium |✔️|
 |55 |[Jump Game](https://leetcode.com/problems/jump-game/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0055.swift)  |Medium |✔️|
 |56 |[Merge Intervals](https://leetcode.com/problems/merge-intervals/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0056.swift), [Python3](./LeetcodePython3/q0056.py)|Medium |✔️|
@@ -73,7 +73,7 @@
 |69|[Sqrt(x)](https://leetcode.com/problems/sqrtx/)|[C](./LeetCode/LeetCode/algorithms/q0069.c)  |Easy |✔️|
 |70 |[Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0070.swift)  |Easy |✔️|
 |71 |[Simplify Path](https://leetcode.com/problems/simplify-path/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0071.swift)  |Medium |✔️|
-|72 |[Edit Distance](https://leetcode.com/problems/edit-distance/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0072.swift)  |Hard |✔️|
+|72 |[Edit Distance](https://leetcode.com/problems/edit-distance/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0072.swift) ,[Python3](./LeetcodePython3/q0072.py) |Hard |✔️|
 |73 |[Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0073.swift)  |Medium |✔️|
 |74 |[Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0074.swift)  |Medium |✔️|
 |75|[Sort Colors](https://leetcode.com/problems/sort-colors/)|[C](./LeetCode/LeetCode/algorithms/q0075.c)  |Medium |✔️|
@@ -295,6 +295,7 @@
 |Q869|[Reordered Power of 2](https://leetcode.com/problems/reordered-power-of-2/)|[Python3](./LeetcodePython3/q0869.py) |Medium |✔️|
 |Q875|[Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)|[Python3](./LeetcodePython3/q0875.py) |Medium |✔️|
 |Q876 |[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0876.swift)  |Easy |✔️|
+|Q887|[Super Egg Drop](https://leetcode.com/problems/super-egg-drop/)|[Python3](./LeetcodePython3/q0887.py) |Hard |✔️|
 |Q901 |[Online Stock Span](https://leetcode.com/problems/online-stock-span/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0901.swift)  |Medium |✔️|
 |Q905|[Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity/)|[Python3](./LeetcodePython3/q0905.py) |Easy |✔️|
 |Q912 |[Sort an Array](https://leetcode.com/problems/sort-an-array/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0912.hpp)  |Medium |✔️|
