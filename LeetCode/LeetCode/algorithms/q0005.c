@@ -69,7 +69,7 @@ int checkIsEvenPalindrome(char *s, char *first, char *last, int *maxLength,char 
     return result;
 }
 
-char* longestPalindrome(char* s) {
+char* longestPalindrome2(char* s) {
     char *target = s;
     char *p = s;
     char *last = s + strlen(s);
@@ -100,6 +100,37 @@ char* longestPalindrome(char* s) {
     memset(result, 0, sizeof(char) * (maxLength + 1));
     memcpy(result, target, maxLength);
     result[maxLength] = '\0';
+    return result;
+}
+
+char* longestPalindrome(char* s){
+    size_t length = strlen(s);
+    bool dp[length + 1][length + 1];
+    // initialize
+    for (int i = 0; i < length; i++) {
+        for (int j = 0; j < length; j++) {
+            dp[i][j] = (i == j);
+        }
+    }
+    
+    size_t end_pos = 0;
+    size_t max = 0;
+    for (size_t end = 1; end < length; end++) {
+        // printf("\nend %d\n", end);
+        for (int start = (int)end - 1; start >= 0; start--) {
+            // printf("%d ", start);
+            if (s[start] == s[end] && (end - start == 1 || dp[start + 1][end - 1])) {
+                dp[start][end] = true;
+                if (end - start > max) {
+                    end_pos = end;
+                    max = end - start;
+                }
+            }
+        }
+    }
+
+    char *result = calloc(max + 2, sizeof(char));
+    memcpy(result, s + end_pos - max, max + 1);
     return result;
 }
 int question5(){
