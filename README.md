@@ -136,6 +136,7 @@
 |Q125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[C](./LeetCode/LeetCode/algorithms/q0125.c), [Python3](./LeetcodePython3/q0125.py) |Easy |✔️|
 |Q129|[Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0129.swift) |Medium |✔️|
 |Q130|[Surrounded Regions](https://leetcode.com/problems/surrounded-regions/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0130.swift) |Medium |✔️|
+|Q131 |[Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/)|[Python3](./LeetcodePython3/q0131.py) |Medium |✔️|
 |Q133|[Clone Graph](https://leetcode.com/problems/clone-graph/)|[Python3](./LeetcodePython3/q0133.py) |Medium |✔️|
 |Q134|[Gas Station](https://leetcode.com/problems/gas-station/)|[Python3](./LeetcodePython3/q0134.py) |Medium |✔️|
 |Q136|[Single Number](https://leetcode.com/problems/single-number/)|[C](./LeetCode/LeetCode/algorithms/q0136.c)  |Easy |✔️|
