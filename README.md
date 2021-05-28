@@ -256,7 +256,7 @@
 |Q468|[Validate IP Address](https://leetcode.com/problems/validate-ip-address/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0468.swift)|Medium |✔️|
 |Q470 |[Implement Rand10() Using Rand7()](https://leetcode.com/problems/implement-rand10-using-rand7/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0470.hpp)  |Medium |✔️|
 |Q476|[Number Complement](https://leetcode.com/problems/number-complement/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0476.swift)|Easy |✔️|
-|Q477|[Total Hamming Distance](https://leetcode.com/problems/total-hamming-distance/)|[Python3](./LeetcodePython3/q0477.py) |Medium |✔️|
+|Q477|[Total Hamming Distance](https://leetcode.com/problems/total-hamming-distance/), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0476.swift)|[Python3](./LeetcodePython3/q0477.py) |Medium |✔️|
 |Q497|[Random Point in Non-overlapping Rectangles](https://leetcode.com/problems/random-point-in-non-overlapping-rectangles/)|[Python3](./LeetcodePython3/q0497.py) |Medium |✔️|
 |Q495 |[Teemo Attacking](https://leetcode.com/problems/teemo-attacking/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0499.hpp)  |Medium |✔️|
 |Q518|[Coin Change 2](https://leetcode.com/problems/coin-change-2/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0518.swift)|Medium |✔️|
