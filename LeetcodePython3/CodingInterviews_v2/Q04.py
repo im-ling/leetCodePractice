@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 from typing import List
 
-
 # https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/
 
 class Solution:
