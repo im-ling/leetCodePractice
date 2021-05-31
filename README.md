@@ -134,6 +134,7 @@
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
 |Q125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[C](./LeetCode/LeetCode/algorithms/q0125.c), [Python3](./LeetcodePython3/q0125.py) |Easy |✔️|
+|Q128 |[Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)|[Python3](./LeetcodePython3/q0128.py) |Medium |✔️|
 |Q129|[Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0129.swift) |Medium |✔️|
 |Q130|[Surrounded Regions](https://leetcode.com/problems/surrounded-regions/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0130.swift) |Medium |✔️|
 |Q131 |[Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/)|[Python3](./LeetcodePython3/q0131.py) |Medium |✔️|
@@ -147,6 +148,8 @@
 |Q141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)|[C](./LeetCode/LeetCode/algorithms/q0141.c)  |Easy |✔️|
 |Q142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|[C](./LeetCode/LeetCode/algorithms/q0142.c)  |Medium |✔️|
 |Q143|[Reorder List](https://leetcode.com/problems/reorder-list/)|[Python3](./LeetcodePython3/q0143.py) |Medium |✔️|
+|Q144|[Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)|[Python3](./LeetcodePython3/q0144.py) |Easy |✔️|
+|Q145|[Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)|[Python3](./LeetcodePython3/q0145.py) |Easy |✔️|
 |Q146|[LRU Cache](https://leetcode.com/problems/lru-cache/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0146.swift), [Python3](./LeetcodePython3/q0146.py)|Medium |✔️|
 |Q147|[Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)|[Python3](./LeetcodePython3/q0147.py) |Medium |✔️|
 |Q151 |[Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)|[Python3](./LeetcodePython3/q0151.py)  |Medium |✔️|
