@@ -404,3 +404,4 @@
 |Q1566 |[Detect Pattern of Length M Repeated K or More Times](https://leetcode.com/problems/detect-pattern-of-length-m-repeated-k-or-more-times/)|[Python3](./LeetcodePython3/q1566.py)  |Easy |✔️|
 |Q1567 |[Maximum Length of Subarray With Positive Product](https://leetcode.com/problems/maximum-length-of-subarray-with-positive-product/)|[Python3](./LeetcodePython3/q1567.py)  |Medium |✔️|
 |Q1568 |[Minimum Number of Days to Disconnect Island](https://leetcode.com/problems/minimum-number-of-days-to-disconnect-island/)|[Python3](./LeetcodePython3/q1568.py)  |Medium |✔️|
+|Q1744 |[Can You Eat Your Favorite Candy on Your Favorite Day](https://leetcode.com/problems/can-you-eat-your-favorite-candy-on-your-favorite-day/)|[Python3](./LeetcodePython3/q1744.py)  |Medium |✔️|
