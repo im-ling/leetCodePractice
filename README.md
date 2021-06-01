@@ -152,6 +152,7 @@
 |Q145|[Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)|[Python3](./LeetcodePython3/q0145.py) |Easy |✔️|
 |Q146|[LRU Cache](https://leetcode.com/problems/lru-cache/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0146.swift), [Python3](./LeetcodePython3/q0146.py)|Medium |✔️|
 |Q147|[Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)|[Python3](./LeetcodePython3/q0147.py) |Medium |✔️|
+|Q150 |[Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)|[Python3](./LeetcodePython3/q0150.py)  |Medium |✔️|
 |Q151 |[Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)|[Python3](./LeetcodePython3/q0151.py)  |Medium |✔️|
 |Q152 |[Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0152.hpp)  |Medium |✔️|
 |Q153 |[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|[Python3](./LeetcodePython3/q0153.py)  |Medium |✔️|
