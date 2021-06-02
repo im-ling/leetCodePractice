@@ -166,6 +166,7 @@
 |Q169|[Majority Element](https://leetcode.com/problems/majority-element/)|[C](./LeetCode/LeetCode/algorithms/q0169.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0169.swift) |Easy |✔️|
 |Q171 |[Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number/)|[Python3](./LeetcodePython3/q0171.py)  |Easy |✔️|
 |Q172|[Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/)|[C](./LeetCode/LeetCode/algorithms/q0172.c)  |Easy |✔️|
+|Q173 |[Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/)|[Python3](./LeetcodePython3/q0173.py)  |Medium |✔️|
 |Q174 |[Dungeon Game](https://leetcode.com/problems/dungeon-game/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0174.swift)  |Hard |✔️|
 |Q179 |[Largest Number](https://leetcode.com/problems/largest-number/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0179.hpp)  |Medium |✔️|
 |Q187 |[Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0187.hpp)  |Medium |✔️|
