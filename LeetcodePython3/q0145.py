@@ -20,3 +20,23 @@ class Solution:
                 stack.append(p.left)
                 stack.append(p.right)
         return reversed(result)
+
+    def postorderTraversal2(self, root: TreeNode) -> List[int]:
+        result = list()
+        if not root:
+            return result
+
+        stack = [root]
+        pre = root
+        while len(stack) != 0:
+            p = stack[-1]
+            if (p.left == None and p.right == None) or p.left == pre or p.right == pre:
+                pre = p
+                stack.pop()
+                result.append(p.val)
+            else:
+                if p.right:
+                    stack.append(p.right)
+                if p.left:
+                    stack.append(p.left)
+        return result
