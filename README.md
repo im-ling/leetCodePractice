@@ -271,7 +271,7 @@
 |Q520|[Detect Capital](https://leetcode.com/problems/detect-capital/)|[Python3](./LeetcodePython3/q0520.py) |Easy |✔️|
 |Q523|[Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/)|[Python3](./LeetcodePython3/q0523.py) |Medium |✔️|
 |Q524|[Longest Word in Dictionary through Deleting](https://leetcode.com/problems/longest-word-in-dictionary-through-deleting/)|[C](./LeetCode/LeetCode/algorithms/q0524.c)  |Medium |✔️|
-|Q525|[Contiguous Array](https://leetcode.com/problems/contiguous-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0525.swift)|Medium |✔️|
+|Q525|[Contiguous Array](https://leetcode.com/problems/contiguous-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0525.swift), [Python3](./LeetcodePython3/q0525.py) |Medium |✔️|
 |Q528|[Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0528.swift)|Medium |✔️|
 |Q532|[K-diff Pairs in an Array](https://leetcode.com/problems/k-diff-pairs-in-an-array/)|[C](./LeetCode/LeetCode/algorithms/q0532.c)  |Easy |✔️|
 |Q540|[Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0540.swift)|Medium |✔️|
