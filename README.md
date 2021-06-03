@@ -126,20 +126,19 @@
 |122|[Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)|[C](./LeetCode/LeetCode/algorithms/q0122.c)  |Easy |✔️|
 |123|[Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0123.swift)  |Hard |✔️|
 |124|[Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0124.swift)|Hard |✔️|
-
+|125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[C](./LeetCode/LeetCode/algorithms/q0125.c), [Python3](./LeetcodePython3/q0125.py) |Easy |✔️|
+|126 |[Word Ladder II](https://leetcode.com/problems/word-ladder-ii/)|[Python3](./LeetcodePython3/q0126.py) |Hard |✔️|
+|127 |[Word Ladder](https://leetcode.com/problems/word-ladder/)|[Python3](./LeetcodePython3/q0127.py) |Hard |✔️|
+|128 |[Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)|[Python3](./LeetcodePython3/q0128.py) |Medium |✔️|
+|129|[Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0129.swift) |Medium |✔️|
+|130|[Surrounded Regions](https://leetcode.com/problems/surrounded-regions/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0130.swift) |Medium |✔️|
+|131 |[Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/)|[Python3](./LeetcodePython3/q0131.py) |Medium |✔️|
 
 
 ### Problem not in Order:
 #### Random
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|Q125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[C](./LeetCode/LeetCode/algorithms/q0125.c), [Python3](./LeetcodePython3/q0125.py) |Easy |✔️|
-|Q126 |[Word Ladder II](https://leetcode.com/problems/word-ladder-ii/)|[Python3](./LeetcodePython3/q0126.py) |Hard |✔️|
-|Q127 |[Word Ladder](https://leetcode.com/problems/word-ladder/)|[Python3](./LeetcodePython3/q0127.py) |Hard |✔️|
-|Q128 |[Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)|[Python3](./LeetcodePython3/q0128.py) |Medium |✔️|
-|Q129|[Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0129.swift) |Medium |✔️|
-|Q130|[Surrounded Regions](https://leetcode.com/problems/surrounded-regions/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0130.swift) |Medium |✔️|
-|Q131 |[Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/)|[Python3](./LeetcodePython3/q0131.py) |Medium |✔️|
 |Q133|[Clone Graph](https://leetcode.com/problems/clone-graph/)|[Python3](./LeetcodePython3/q0133.py) |Medium |✔️|
 |Q134|[Gas Station](https://leetcode.com/problems/gas-station/)|[Python3](./LeetcodePython3/q0134.py), [CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0134.hpp) |Medium |✔️|
 |Q136|[Single Number](https://leetcode.com/problems/single-number/)|[C](./LeetCode/LeetCode/algorithms/q0136.c)  |Easy |✔️|
