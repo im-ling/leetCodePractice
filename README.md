@@ -134,6 +134,8 @@
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
 |Q125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[C](./LeetCode/LeetCode/algorithms/q0125.c), [Python3](./LeetcodePython3/q0125.py) |Easy |✔️|
+|Q126 |[Word Ladder II](https://leetcode.com/problems/word-ladder-ii/)|[Python3](./LeetcodePython3/q0126.py) |Hard |✔️|
+|Q127 |[Word Ladder](https://leetcode.com/problems/word-ladder/)|[Python3](./LeetcodePython3/q0127.py) |Hard |✔️|
 |Q128 |[Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)|[Python3](./LeetcodePython3/q0128.py) |Medium |✔️|
 |Q129|[Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0129.swift) |Medium |✔️|
 |Q130|[Surrounded Regions](https://leetcode.com/problems/surrounded-regions/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0130.swift) |Medium |✔️|
