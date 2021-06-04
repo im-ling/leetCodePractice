@@ -75,36 +75,26 @@
 struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *headB) {
     int len_head_a = 0;
     int len_head_b = 0;
+    bool flag_a = true;
+    bool flag_b = true;
     struct ListNode *pA = headA;
     struct ListNode *pB = headB;
-    while (pA) {
-        pA = pA->next;
-        len_head_a++;
-    }
-    while (pB) {
-        pB = pB->next;
-        len_head_b++;
-    }
-    pA = headA;
-    pB = headB;
-    if (len_head_a < len_head_b) {
-        // make sure the length of pA >= pB
-        len_head_a = len_head_b + len_head_a;
-        len_head_b = len_head_a - len_head_b;
-        len_head_a = len_head_a - len_head_b;
-        pA = headB;
-        pB = headA;
-    }
-    int diff = len_head_a - len_head_b;
-    for (int i = 0; i < diff; i++) {
-        pA = pA->next;
-    }
-
-    while (pA && pA != pB) {
+    while (pA || pB){
+        if (!pA && flag_a){
+            flag_a = false;
+            pA = headB;
+        }
+        if (!pB && flag_b){
+            flag_b = false;
+            pB = headA;
+        }
+        if (pA == pB){
+            return pA;
+        }
         pA = pA->next;
         pB = pB->next;
     }
-    return pA;
+    return NULL;
 }
 int question160(){
     return 0;
