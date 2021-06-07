@@ -6,7 +6,7 @@
 |2 |[Add Two Numbers](https://leetcode.com/problems/add-two-numbers)|[C](./LeetCode/LeetCode/algorithms/q0002.c)  |Medium |✔️|
 |3 |[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)|[C](./LeetCode/LeetCode/algorithms/q0003.c)  |Medium |✔️|
 |4 |[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)|[C](./LeetCode/LeetCode/algorithms/q0004.c)  |Hard |✔️|
-|5 |[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring)|[C](./LeetCode/LeetCode/algorithms/q0005.c)  |Medium |✔️|
+|5 |[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring)|[C](./LeetCode/LeetCode/algorithms/q0005.c), [Python3](./LeetcodePython3/q0005.py) |Medium |✔️|
 |6 |[ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion)|[C](./LeetCode/LeetCode/algorithms/q0006.c)  |Medium |✔️|
 |7 |[Reverse Integer](https://leetcode.com/problems/reverse-integer)|[C](./LeetCode/LeetCode/algorithms/q0007.c)  |Easy |✔️|
 |8 |[String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi)|[C](./LeetCode/LeetCode/algorithms/q0008.c)  |Medium |✔️|
