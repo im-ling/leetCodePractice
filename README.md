@@ -267,8 +267,9 @@
 |Q474|[Ones and Zeroes](https://leetcode.com/problems/ones-and-zeroes/|[Python3](./LeetcodePython3/q0474.py) |Medium |✔️|
 |Q476|[Number Complement](https://leetcode.com/problems/number-complement/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0476.swift)|Easy |✔️|
 |Q477|[Total Hamming Distance](https://leetcode.com/problems/total-hamming-distance/), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0476.swift)|[Python3](./LeetcodePython3/q0477.py) |Medium |✔️|
-|Q497|[Random Point in Non-overlapping Rectangles](https://leetcode.com/problems/random-point-in-non-overlapping-rectangles/)|[Python3](./LeetcodePython3/q0497.py) |Medium |✔️|
+|Q494|[Target Sum](https://leetcode.com/problems/target-sum/)|[Python3](./LeetcodePython3/q0494.py) |Medium |✔️|
 |Q495 |[Teemo Attacking](https://leetcode.com/problems/teemo-attacking/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0499.hpp)  |Medium |✔️|
+|Q497|[Random Point in Non-overlapping Rectangles](https://leetcode.com/problems/random-point-in-non-overlapping-rectangles/)|[Python3](./LeetcodePython3/q0497.py) |Medium |✔️|
 |Q518|[Coin Change 2](https://leetcode.com/problems/coin-change-2/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0518.swift)|Medium |✔️|
 |Q520|[Detect Capital](https://leetcode.com/problems/detect-capital/)|[Python3](./LeetcodePython3/q0520.py) |Easy |✔️|
 |Q523|[Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/)|[Python3](./LeetcodePython3/q0523.py) |Medium |✔️|
