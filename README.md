@@ -264,6 +264,7 @@
 |Q463|[Island Perimeter](https://leetcode.com/problems/island-perimeter/)|[Python3](./LeetcodePython3/q0463.py) |Easy |✔️|
 |Q468|[Validate IP Address](https://leetcode.com/problems/validate-ip-address/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0468.swift)|Medium |✔️|
 |Q470 |[Implement Rand10() Using Rand7()](https://leetcode.com/problems/implement-rand10-using-rand7/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0470.hpp)  |Medium |✔️|
+|Q474|[Ones and Zeroes](https://leetcode.com/problems/ones-and-zeroes/|[Python3](./LeetcodePython3/q0474.py) |Medium |✔️|
 |Q476|[Number Complement](https://leetcode.com/problems/number-complement/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0476.swift)|Easy |✔️|
 |Q477|[Total Hamming Distance](https://leetcode.com/problems/total-hamming-distance/), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0476.swift)|[Python3](./LeetcodePython3/q0477.py) |Medium |✔️|
 |Q497|[Random Point in Non-overlapping Rectangles](https://leetcode.com/problems/random-point-in-non-overlapping-rectangles/)|[Python3](./LeetcodePython3/q0497.py) |Medium |✔️|
