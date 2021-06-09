@@ -137,24 +137,24 @@
 |133|[Clone Graph](https://leetcode.com/problems/clone-graph/)|[Python3](./LeetcodePython3/q0133.py) |Medium |✔️|
 |134|[Gas Station](https://leetcode.com/problems/gas-station/)|[Python3](./LeetcodePython3/q0134.py), [CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0134.hpp) |Medium |✔️|
 |135 |[Candy](https://leetcode.com/problems/candy/)|[Python3](./LeetcodePython3/q0135.py) |Hard |✔️|
+|136|[Single Number](https://leetcode.com/problems/single-number/)|[C](./LeetCode/LeetCode/algorithms/q0136.c)  |Easy |✔️|
+|137|[Single Number II](https://leetcode.com/problems/single-number-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0137.swift) |Medium |✔️|
+|138|[Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)|[Python3](./LeetcodePython3/q0138.py) |Medium |✔️|
+|139|[Word Break](https://leetcode.com/problems/word-break/)|[Python3](./LeetcodePython3/q0139.py) |Medium |✔️|
+|140|[Word Break II](https://leetcode.com/problems/word-break-ii/)|[Python3](./LeetcodePython3/q0140.py) |Hard |✔️|
+|141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)|[C](./LeetCode/LeetCode/algorithms/q0141.c)  |Easy |✔️|
+|142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|[C](./LeetCode/LeetCode/algorithms/q0142.c)  |Medium |✔️|
+|143|[Reorder List](https://leetcode.com/problems/reorder-list/)|[Python3](./LeetcodePython3/q0143.py) |Medium |✔️|
+|144|[Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)|[Python3](./LeetcodePython3/q0144.py) |Easy |✔️|
+|145|[Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)|[Python3](./LeetcodePython3/q0145.py) |Easy |✔️|
+|146|[LRU Cache](https://leetcode.com/problems/lru-cache/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0146.swift), [Python3](./LeetcodePython3/q0146.py)|Medium |✔️|
+|147|[Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)|[Python3](./LeetcodePython3/q0147.py) |Medium |✔️|
 
 
 ### Problem not in Order:
 #### Random
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|Q136|[Single Number](https://leetcode.com/problems/single-number/)|[C](./LeetCode/LeetCode/algorithms/q0136.c)  |Easy |✔️|
-|Q137|[Single Number II](https://leetcode.com/problems/single-number-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0137.swift) |Medium |✔️|
-|Q138|[Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)|[Python3](./LeetcodePython3/q0138.py) |Medium |✔️|
-|Q139|[Word Break](https://leetcode.com/problems/word-break/)|[Python3](./LeetcodePython3/q0139.py) |Medium |✔️|
-|Q140|[Word Break II](https://leetcode.com/problems/word-break-ii/)|[Python3](./LeetcodePython3/q0140.py) |Hard |✔️|
-|Q141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)|[C](./LeetCode/LeetCode/algorithms/q0141.c)  |Easy |✔️|
-|Q142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|[C](./LeetCode/LeetCode/algorithms/q0142.c)  |Medium |✔️|
-|Q143|[Reorder List](https://leetcode.com/problems/reorder-list/)|[Python3](./LeetcodePython3/q0143.py) |Medium |✔️|
-|Q144|[Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)|[Python3](./LeetcodePython3/q0144.py) |Easy |✔️|
-|Q145|[Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)|[Python3](./LeetcodePython3/q0145.py) |Easy |✔️|
-|Q146|[LRU Cache](https://leetcode.com/problems/lru-cache/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0146.swift), [Python3](./LeetcodePython3/q0146.py)|Medium |✔️|
-|Q147|[Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)|[Python3](./LeetcodePython3/q0147.py) |Medium |✔️|
 |Q150 |[Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)|[Python3](./LeetcodePython3/q0150.py)  |Medium |✔️|
 |Q151 |[Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)|[Python3](./LeetcodePython3/q0151.py)  |Medium |✔️|
 |Q152 |[Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0152.hpp)  |Medium |✔️|
