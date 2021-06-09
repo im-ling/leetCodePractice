@@ -133,6 +133,7 @@
 |129|[Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0129.swift) |Medium |✔️|
 |130|[Surrounded Regions](https://leetcode.com/problems/surrounded-regions/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0130.swift) |Medium |✔️|
 |131 |[Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/)|[Python3](./LeetcodePython3/q0131.py) |Medium |✔️|
+|132 |[Palindrome Partitioning II](https://leetcode.com/problems/palindrome-partitioning-ii/)|[Python3](./LeetcodePython3/q0132.py) |Hard |✔️|
 
 
 ### Problem not in Order:
