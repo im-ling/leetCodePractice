@@ -134,14 +134,14 @@
 |130|[Surrounded Regions](https://leetcode.com/problems/surrounded-regions/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0130.swift) |Medium |✔️|
 |131 |[Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/)|[Python3](./LeetcodePython3/q0131.py) |Medium |✔️|
 |132 |[Palindrome Partitioning II](https://leetcode.com/problems/palindrome-partitioning-ii/)|[Python3](./LeetcodePython3/q0132.py) |Hard |✔️|
+|133|[Clone Graph](https://leetcode.com/problems/clone-graph/)|[Python3](./LeetcodePython3/q0133.py) |Medium |✔️|
+|134|[Gas Station](https://leetcode.com/problems/gas-station/)|[Python3](./LeetcodePython3/q0134.py), [CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0134.hpp) |Medium |✔️|
 
 
 ### Problem not in Order:
 #### Random
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|Q133|[Clone Graph](https://leetcode.com/problems/clone-graph/)|[Python3](./LeetcodePython3/q0133.py) |Medium |✔️|
-|Q134|[Gas Station](https://leetcode.com/problems/gas-station/)|[Python3](./LeetcodePython3/q0134.py), [CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0134.hpp) |Medium |✔️|
 |Q136|[Single Number](https://leetcode.com/problems/single-number/)|[C](./LeetCode/LeetCode/algorithms/q0136.c)  |Easy |✔️|
 |Q137|[Single Number II](https://leetcode.com/problems/single-number-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0137.swift) |Medium |✔️|
 |Q138|[Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)|[Python3](./LeetcodePython3/q0138.py) |Medium |✔️|
