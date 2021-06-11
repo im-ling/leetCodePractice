@@ -150,19 +150,19 @@
 |146|[LRU Cache](https://leetcode.com/problems/lru-cache/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0146.swift), [Python3](./LeetcodePython3/q0146.py)|Medium |✔️|
 |147|[Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)|[Python3](./LeetcodePython3/q0147.py) |Medium |✔️|
 |148|[Sort List](https://leetcode.com/problems/sort-list/)|[Python3](./LeetcodePython3/q0148.py) |Medium |✔️|
+|149 |[Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/)|[Python3](./LeetcodePython3/q0149.py)  |Hard |✔️|
+|150 |[Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)|[Python3](./LeetcodePython3/q0150.py)  |Medium |✔️|
+|151 |[Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)|[Python3](./LeetcodePython3/q0151.py)  |Medium |✔️|
+|152 |[Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0152.hpp)  |Medium |✔️|
+|153 |[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|[Python3](./LeetcodePython3/q0153.py)  |Medium |✔️|
+|154 |[Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)|[Python3](./LeetcodePython3/q0154.py)  |Hard |✔️|
+|155 |[Min Stack](https://leetcode.com/problems/min-stack/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0155.swift)  |Easy |✔️|
 
 
 ### Problem not in Order:
 #### Random
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|Q149 |[Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/)|[Python3](./LeetcodePython3/q0149.py)  |Hard |✔️|
-|Q150 |[Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)|[Python3](./LeetcodePython3/q0150.py)  |Medium |✔️|
-|Q151 |[Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)|[Python3](./LeetcodePython3/q0151.py)  |Medium |✔️|
-|Q152 |[Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0152.hpp)  |Medium |✔️|
-|Q153 |[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|[Python3](./LeetcodePython3/q0153.py)  |Medium |✔️|
-|Q154 |[Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)|[Python3](./LeetcodePython3/q0154.py)  |Hard |✔️|
-|Q155 |[Min Stack](https://leetcode.com/problems/min-stack/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0155.swift)  |Easy |✔️|
 |Q160|[Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)|[C](./LeetCode/LeetCode/algorithms/q0160.c)  |Easy |✔️|
 |Q162|[Find Peak Element](https://leetcode.com/problems/find-peak-element/)|[Python3](./LeetcodePython3/q0162.py) |Medium |✔️|
 |Q165|[Compare Version Numbers](https://leetcode.com/problems/compare-version-numbers/)|[Python3](./LeetcodePython3/q0165.py) |Medium |✔️|
