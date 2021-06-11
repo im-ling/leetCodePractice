@@ -157,14 +157,19 @@
 |153 |[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|[Python3](./LeetcodePython3/q0153.py)  |Medium |✔️|
 |154 |[Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)|[Python3](./LeetcodePython3/q0154.py)  |Hard |✔️|
 |155 |[Min Stack](https://leetcode.com/problems/min-stack/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0155.swift)  |Easy |✔️|
-
+|156 |[Binary Tree Upside Down](https://leetcode.com/problems/binary-tree-upside-down/)||Medium |🔒|
+|157 |[Read N Characters Given Read4](https://leetcode.com/problems/read-n-characters-given-read4/)||Easy |🔒|
+|158 |[Read N Characters Given Read4 II - Call multiple times](https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times/)||Hard |🔒|
+|159 |[Longest Substring with At Most Two Distinct Characters](https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/)||Medium |🔒|
+|160|[Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)|[C](./LeetCode/LeetCode/algorithms/q0160.c)  |Easy |✔️|
+|161|[One Edit Distance](https://leetcode.com/problems/one-edit-distance/)||Medium |🔒|
+|162|[Find Peak Element](https://leetcode.com/problems/find-peak-element/)|[Python3](./LeetcodePython3/q0162.py) |Medium |✔️|
+|163|[Missing Ranges](https://leetcode.com/problems/missing-ranges/)||Easy |🔒|
 
 ### Problem not in Order:
 #### Random
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
-|Q160|[Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)|[C](./LeetCode/LeetCode/algorithms/q0160.c)  |Easy |✔️|
-|Q162|[Find Peak Element](https://leetcode.com/problems/find-peak-element/)|[Python3](./LeetcodePython3/q0162.py) |Medium |✔️|
 |Q165|[Compare Version Numbers](https://leetcode.com/problems/compare-version-numbers/)|[Python3](./LeetcodePython3/q0165.py) |Medium |✔️|
 |Q167|[Two Sum II](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|[C](./LeetCode/LeetCode/algorithms/q0167.c)  |Easy |✔️|
 |Q168 |[Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title/)|[Python3](./LeetcodePython3/q0168.py)  |Easy |✔️|
