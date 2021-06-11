@@ -149,6 +149,7 @@
 |145|[Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)|[Python3](./LeetcodePython3/q0145.py) |Easy |✔️|
 |146|[LRU Cache](https://leetcode.com/problems/lru-cache/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0146.swift), [Python3](./LeetcodePython3/q0146.py)|Medium |✔️|
 |147|[Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)|[Python3](./LeetcodePython3/q0147.py) |Medium |✔️|
+|148|[Sort List](https://leetcode.com/problems/sort-list/)|[Python3](./LeetcodePython3/q0148.py) |Medium |✔️|
 
 
 ### Problem not in Order:
