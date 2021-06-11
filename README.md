@@ -172,7 +172,7 @@
 |Q173 |[Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/)|[Python3](./LeetcodePython3/q0173.py)  |Medium |✔️|
 |Q174 |[Dungeon Game](https://leetcode.com/problems/dungeon-game/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0174.swift)  |Hard |✔️|
 |Q179 |[Largest Number](https://leetcode.com/problems/largest-number/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0179.hpp)  |Medium |✔️|
-|Q187 |[Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0187.hpp)  |Medium |✔️|
+|Q187 |[Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0187.hpp), [Python3](./LeetcodePython3/q0187.py) |Medium |✔️|
 |Q189|[Rotate Array](https://leetcode.com/problems/rotate-array/)|[C](./LeetCode/LeetCode/algorithms/q0189.c)  |Easy |✔️|
 |Q190|[Reverse Bits](https://leetcode.com/problems/reverse-bits/)|[C](./LeetCode/LeetCode/algorithms/q0190.c), [Python3](./LeetcodePython3/q0190.py) |Easy |✔️|
 |Q191|[Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)|[C](./LeetCode/LeetCode/algorithms/q0191.c)  |Easy |✔️|
