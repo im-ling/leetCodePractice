@@ -155,6 +155,7 @@
 #### Random
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
+|Q149 |[Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/)|[Python3](./LeetcodePython3/q0149.py)  |Hard |✔️|
 |Q150 |[Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)|[Python3](./LeetcodePython3/q0150.py)  |Medium |✔️|
 |Q151 |[Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)|[Python3](./LeetcodePython3/q0151.py)  |Medium |✔️|
 |Q152 |[Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0152.hpp)  |Medium |✔️|
