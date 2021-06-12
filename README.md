@@ -172,6 +172,7 @@
 |No.|Question|Solution|Difficulty|Finished|
 |-|-|-|-|-|
 |Q165|[Compare Version Numbers](https://leetcode.com/problems/compare-version-numbers/)|[Python3](./LeetcodePython3/q0165.py) |Medium |✔️|
+|Q166|[Fraction to Recurring Decimal](https://leetcode.com/problems/fraction-to-recurring-decimal/)|[Python3](./LeetcodePython3/q0166.py) |Medium |✔️|
 |Q167|[Two Sum II](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)|[C](./LeetCode/LeetCode/algorithms/q0167.c)  |Easy |✔️|
 |Q168 |[Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title/)|[Python3](./LeetcodePython3/q0168.py)  |Easy |✔️|
 |Q169|[Majority Element](https://leetcode.com/problems/majority-element/)|[C](./LeetCode/LeetCode/algorithms/q0169.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0169.swift) |Easy |✔️|
