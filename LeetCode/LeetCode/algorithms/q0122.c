@@ -50,11 +50,12 @@
 
 int q122maxProfit(int* prices, int pricesSize){
     int result = 0;
+    int buy = prices[0];
     for (int i = 1; i < pricesSize; i++) {
-        int try = prices[i] - prices[i - 1];
-        if (try > 0) {
-            result += try;
+        if (prices[i] > buy){
+            result += prices[i] - buy;
         }
+        buy = prices[i];
     }
     return result;
 }
