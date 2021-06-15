@@ -221,6 +221,7 @@
 |Q283|[Move Zeroes](https://leetcode.com/problems/move-zeroes/)|[C](./LeetCode/LeetCode/algorithms/q0283.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0283.swift)  |Easy |✔️|
 |Q287|[Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)|[C](./LeetCode/LeetCode/algorithms/q0287.c)  |Medium |✔️|
 |Q290 |[Word Pattern](https://leetcode.com/problems/word-pattern/)|[Python3](./LeetcodePython3/q0290.py) |Medium |✔️|
+|Q295 |[Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)|[Python3](./LeetcodePython3/q0295.py) |Hard |✔️|
 |Q297 |[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|[Python3](./LeetcodePython3/q0297.py) |Hard |✔️|
 |Q299 |[Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/)|[Python3](./LeetcodePython3/q0299.py) |Easy |✔️|
 |Q300 |[Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)|[Python3](./LeetcodePython3/q0300.py) |Medium |✔️|
