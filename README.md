@@ -220,6 +220,7 @@
 |Q279 |[Perfect Squares](https://leetcode.com/problems/perfect-squares/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0279.swift)  |Medium |✔️|
 |Q283|[Move Zeroes](https://leetcode.com/problems/move-zeroes/)|[C](./LeetCode/LeetCode/algorithms/q0283.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0283.swift)  |Easy |✔️|
 |Q287|[Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)|[C](./LeetCode/LeetCode/algorithms/q0287.c)  |Medium |✔️|
+|Q289 |[Game of Life](https://leetcode.com/problems/game-of-life/)|[Python3](./LeetcodePython3/q0289.py) |Medium |✔️|
 |Q290 |[Word Pattern](https://leetcode.com/problems/word-pattern/)|[Python3](./LeetcodePython3/q0290.py) |Medium |✔️|
 |Q292 |[Nim Game](https://leetcode.com/problems/nim-game/)|[Python3](./LeetcodePython3/q0292.py) |Hard |✔️|
 |Q295 |[Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)|[Python3](./LeetcodePython3/q0295.py) |Hard |✔️|
