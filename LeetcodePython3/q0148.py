@@ -10,6 +10,40 @@ class ListNode:
 
 class Solution:
     def sortList(self, head: ListNode) -> ListNode:
+        def merge_list(node1: ListNode, node2: ListNode) -> ListNode:
+            pre = ListNode(0)
+            p = pre
+            while node1 and node2:
+                if node1.val <= node2.val:
+                    p.next = node1
+                    node1 = node1.next
+                else:
+                    p.next = node2
+                    node2 = node2.next
+                p = p.next
+            if node1:
+                p.next = node1
+            if node2:
+                p.next = node2
+            return pre.next
+
+        def sort_helper(node: ListNode) -> ListNode:
+            if node is None or node.next is None:
+                return node
+            slow = node
+            fast = node.next
+            while fast and fast.next:
+                fast = fast.next.next
+                slow = slow.next
+            new_node = slow.next
+            slow.next = None
+            head1 = sort_helper(node)
+            head2 = sort_helper(new_node)
+            return merge_list(head1, head2)
+
+        return sort_helper(head)
+
+    def sortList2(self, head: ListNode) -> ListNode:
         if not head:
             return head
         p = head
