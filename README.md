@@ -200,6 +200,7 @@
 |Q215 |[Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)|[Python3](./LeetcodePython3/q0215.py)   |Medium |✔️|
 |Q216 |[Combination Sum III](https://leetcode.com/problems/combination-sum-iii/)|[Python3](./LeetcodePython3/q0216.py)   |Medium |✔️|
 |Q217 |[Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)|[C](./LeetCode/LeetCode/algorithms/q0217.c)  |Easy |✔️|
+|Q218 |[The Skyline Problem](https://leetcode.com/problems/the-skyline-problem/)|[Python3](./LeetcodePython3/q0218.py)   |Hard |✔️|
 |Q219 |[Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0219.hpp)  |Medium |✔️|
 |Q220 |[Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0220.hpp)  |Medium |✔️|
 |Q221 |[Maximal Square](https://leetcode.com/problems/maximal-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0221.swift)  |Medium |✔️|
