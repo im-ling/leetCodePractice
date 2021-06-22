@@ -215,6 +215,7 @@
 |Q230 |[Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0230.swift)  |Medium |✔️|
 |Q231|[Power of Two](https://leetcode.com/problems/power-of-two/)|[C](./LeetCode/LeetCode/algorithms/q0231.c)  |Easy |✔️|
 |Q232|[Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)|[Python3](./LeetcodePython3/q0232.py) |Easy |✔️|
+|Q233|[Number of Digit One](https://leetcode.com/problems/number-of-digit-one/)|[Python3](./LeetcodePython3/q0233.py) |Hard |✔️|
 |Q234|[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)|[C](./LeetCode/LeetCode/algorithms/q0234.c)  |Easy |✔️|
 |Q237 |[Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0237.swift)  |Easy |✔️|
 |Q238 |[Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0238.swift)  |Medium |✔️|
