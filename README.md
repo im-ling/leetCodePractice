@@ -209,6 +209,8 @@
 |Q224 |[Basic Calculator](https://leetcode.com/problems/basic-calculator/)|[Python3](./LeetcodePython3/q0224.py)  |Hard |✔️|
 |Q225 |[Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)|[Python3](./LeetcodePython3/q0225.py)  |Easy |✔️|
 |Q226|[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0226.c)  |Easy |✔️|
+|Q227 |[Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/)|[Python3](./LeetcodePython3/q0227.py)  |Medium |✔️|
+|Q228 |[Summary Ranges](https://leetcode.com/problems/summary-ranges/)|[Python3](./LeetcodePython3/q0228.py)  |Easy |✔️|
 |Q229 |[Majority Element II](https://leetcode.com/problems/majority-element-ii/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0229.hpp)  |Medium |✔️|
 |Q230 |[Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0230.swift)  |Medium |✔️|
 |Q231|[Power of Two](https://leetcode.com/problems/power-of-two/)|[C](./LeetCode/LeetCode/algorithms/q0231.c)  |Easy |✔️|
