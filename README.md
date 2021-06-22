@@ -224,6 +224,8 @@
 |Q239|[Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)|[Python3](./LeetcodePython3/q0239.py)  |Hard |✔️|
 |Q240 |[Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/)|[Python3](./LeetcodePython3/q0240.py)  |Medium |✔️|
 |Q241 |[Different Ways to Add Parentheses](https://leetcode.com/problems/different-ways-to-add-parentheses/)|[Python3](./LeetcodePython3/q0241.py)  |Medium |✔️|
+|Q242 |[Valid Anagram](https://leetcode.com/problems/valid-anagram/)|[Python3](./LeetcodePython3/q0242.py)  |Easy |✔️|
+|Q257 |[Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/)|[Python3](./LeetcodePython3/q0257.py)   |Easy |✔️|
 |Q258 |[Add Digits](https://leetcode.com/problems/add-digits/)|[Python3](./LeetcodePython3/q0258.py)   |Easy |✔️|
 |Q260 |[Single Number III](https://leetcode.com/problems/single-number-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0260.swift)  |Medium |✔️|
 |Q263 |[Ugly Number](https://leetcode.com/problems/ugly-number/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0263.swift)  |Easy |✔️|
