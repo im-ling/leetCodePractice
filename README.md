@@ -206,6 +206,7 @@
 |Q221 |[Maximal Square](https://leetcode.com/problems/maximal-square/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0221.swift)  |Medium |✔️|
 |Q222 |[Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0222.swift)  |Medium |✔️|
 |Q223 |[Rectangle Area](https://leetcode.com/problems/rectangle-area/)|[Python3](./LeetcodePython3/q0223.py)  |Medium |✔️|
+|Q224 |[Basic Calculator](https://leetcode.com/problems/basic-calculator/)|[Python3](./LeetcodePython3/q0224.py)  |Hard |✔️|
 |Q225 |[Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)|[Python3](./LeetcodePython3/q0225.py)  |Easy |✔️|
 |Q226|[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0226.c)  |Easy |✔️|
 |Q229 |[Majority Element II](https://leetcode.com/problems/majority-element-ii/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0229.hpp)  |Medium |✔️|
