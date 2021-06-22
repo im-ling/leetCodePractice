@@ -217,6 +217,8 @@
 |Q232|[Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)|[Python3](./LeetcodePython3/q0232.py) |Easy |✔️|
 |Q233|[Number of Digit One](https://leetcode.com/problems/number-of-digit-one/)|[Python3](./LeetcodePython3/q0233.py) |Hard |✔️|
 |Q234|[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)|[C](./LeetCode/LeetCode/algorithms/q0234.c)  |Easy |✔️|
+|Q235|[Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)|[Python3](./LeetcodePython3/q0235.py)  |Easy |✔️|
+|Q236|[Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)|[Python3](./LeetcodePython3/q0236.py)  |Medium |✔️|
 |Q237 |[Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0237.swift)  |Easy |✔️|
 |Q238 |[Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0238.swift)  |Medium |✔️|
 |Q240 |[Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/)|[Python3](./LeetcodePython3/q0240.py)  |Medium |✔️|
