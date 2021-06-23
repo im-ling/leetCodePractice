@@ -236,6 +236,7 @@
 |Q275 |[H-Index II](https://leetcode.com/problems/h-index-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0275.swift)  |Medium |✔️|
 |Q278|[First Bad Version](https://leetcode.com/problems/first-bad-version/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0278.swift)  |Easy |✔️|
 |Q279 |[Perfect Squares](https://leetcode.com/problems/perfect-squares/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0279.swift)  |Medium |✔️|
+|Q282 |[Expression Add Operators](https://leetcode.com/problems/expression-add-operators/)|[Python3](./LeetcodePython3/q0282.py) |Hard |✔️|
 |Q283|[Move Zeroes](https://leetcode.com/problems/move-zeroes/)|[C](./LeetCode/LeetCode/algorithms/q0283.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0283.swift)  |Easy |✔️|
 |Q284 |[Peeking Iterator](https://leetcode.com/problems/peeking-iterator/)|[Python3](./LeetcodePython3/q0284.py) |Medium |✔️|
 |Q287|[Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)|[C](./LeetCode/LeetCode/algorithms/q0287.c)  |Medium |✔️|
