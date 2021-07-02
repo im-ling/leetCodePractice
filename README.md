@@ -286,7 +286,7 @@
 |Q442|[Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/)|[Python3](./LeetcodePython3/q0442.py) |Medium |✔️|
 |Q449|[Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst/)|[Python3](./LeetcodePython3/q0449.py) |Medium |✔️|
 |Q450 |[Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0450.hpp)  |Medium |✔️|
-|Q451|[Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0451.swift)|Medium |✔️|
+|Q451|[Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0451.swift), [Python3](./LeetcodePython3/q0451.py)|Medium |✔️|
 |Q452|[Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/)|[Python3](./LeetcodePython3/q0452.py) |Medium |✔️|
 |Q456|[132 Pattern](https://leetcode.com/problems/132-pattern/)|[C](./LeetCode/LeetCode/algorithms/q0456.c)|Medium |✔️|
 |Q457|[Circular Array Loop](https://leetcode.com/problems/circular-array-loop/)|[C](./LeetCode/LeetCode/algorithms/q0457.c)  |Medium |✔️|
