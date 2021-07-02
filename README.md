@@ -446,3 +446,4 @@
 |Q1567 |[Maximum Length of Subarray With Positive Product](https://leetcode.com/problems/maximum-length-of-subarray-with-positive-product/)|[Python3](./LeetcodePython3/q1567.py)  |Medium |✔️|
 |Q1568 |[Minimum Number of Days to Disconnect Island](https://leetcode.com/problems/minimum-number-of-days-to-disconnect-island/)|[Python3](./LeetcodePython3/q1568.py)  |Medium |✔️|
 |Q1744 |[Can You Eat Your Favorite Candy on Your Favorite Day](https://leetcode.com/problems/can-you-eat-your-favorite-candy-on-your-favorite-day/)|[Python3](./LeetcodePython3/q1744.py)  |Medium |✔️|
+|Q1915 |[Number of Wonderful Substrings](https://leetcode.com/problems/number-of-wonderful-substrings/)|[Python3](./LeetcodePython3/q1915.py)  |Medium |✔️|
