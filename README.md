@@ -4,7 +4,7 @@
 |-|-|-|-|-|
 |1 |[Two Sum](https://leetcode.com/problems/two-sum)|[C](./LeetCode/LeetCode/algorithms/q0001.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0001.swift) |Easy | ✔️ |
 |2 |[Add Two Numbers](https://leetcode.com/problems/add-two-numbers)|[C](./LeetCode/LeetCode/algorithms/q0002.c)  |Medium |✔️|
-|3 |[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)|[C](./LeetCode/LeetCode/algorithms/q0003.c)  |Medium |✔️|
+|3 |[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)|[C](./LeetCode/LeetCode/algorithms/q0003.c), [Python3](./LeetcodePython3/q0003.py) |Medium |✔️|
 |4 |[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)|[C](./LeetCode/LeetCode/algorithms/q0004.c)  |Hard |✔️|
 |5 |[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring)|[C](./LeetCode/LeetCode/algorithms/q0005.c), [Python3](./LeetcodePython3/q0005.py) |Medium |✔️|
 |6 |[ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion)|[C](./LeetCode/LeetCode/algorithms/q0006.c)  |Medium |✔️|
@@ -111,7 +111,7 @@
 |107 |[Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0107.swift), [Python3](./LeetcodePython3/q0107.py) |Easy |✔️|
 |108 |[ Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)|[C](./LeetCode/LeetCode/algorithms/q0108.c)  |Easy |✔️|
 |109 |[Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0109.swift)  |Medium |✔️|
-|110|[Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0110.c)  |Easy |✔️|
+|110|[Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0110.c), [Python3](./LeetcodePython3/q0110.py)  |Easy |✔️|
 |111|[Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)|[C](./LeetCode/LeetCode/algorithms/q0111.c)  |Easy |✔️|
 |112|[Path Sum](https://leetcode.com/problems/path-sum/)|[C](./LeetCode/LeetCode/algorithms/q0112.c)  |Easy |✔️|
 |113|[Path Sum II](https://leetcode.com/problems/path-sum-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0113.swift)  |Medium |✔️|
@@ -125,7 +125,7 @@
 |121|[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)|[C](./LeetCode/LeetCode/algorithms/q0121.c)  |Easy |✔️|
 |122|[Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)|[C](./LeetCode/LeetCode/algorithms/q0122.c)  |Easy |✔️|
 |123|[Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0123.swift), [Python3](./LeetcodePython3/q0123.py) |Hard |✔️|
-|124|[Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0124.swift)|Hard |✔️|
+|124|[Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0124.swift), [Python3](./LeetcodePython3/q0124.py)|Hard |✔️|
 |125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[C](./LeetCode/LeetCode/algorithms/q0125.c), [Python3](./LeetcodePython3/q0125.py) |Easy |✔️|
 |126 |[Word Ladder II](https://leetcode.com/problems/word-ladder-ii/)|[Python3](./LeetcodePython3/q0126.py) |Hard |✔️|
 |127 |[Word Ladder](https://leetcode.com/problems/word-ladder/)|[Python3](./LeetcodePython3/q0127.py) |Hard |✔️|
@@ -233,7 +233,7 @@
 |Q268 |[Missing Number](https://leetcode.com/problems/missing-number/)|[Python3](./LeetcodePython3/q0268.py)   |Easy |✔️|
 |Q273 |[Integer to English Words](https://leetcode.com/problems/integer-to-english-words/)|[Python3](./LeetcodePython3/q0273.py)  |Hard |✔️|
 |Q274 |[H-Index](https://leetcode.com/problems/h-index/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0274.swift)  |Medium |✔️|
-|Q275 |[H-Index II](https://leetcode.com/problems/h-index-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0275.swift)  |Medium |✔️|
+|Q275 |[H-Index II](https://leetcode.com/problems/h-index-ii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0275.swift), [Python3](./LeetcodePython3/q0275.py)  |Medium |✔️|
 |Q278|[First Bad Version](https://leetcode.com/problems/first-bad-version/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0278.swift)  |Easy |✔️|
 |Q279 |[Perfect Squares](https://leetcode.com/problems/perfect-squares/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0279.swift)  |Medium |✔️|
 |Q282 |[Expression Add Operators](https://leetcode.com/problems/expression-add-operators/)|[Python3](./LeetcodePython3/q0282.py) |Hard |✔️|
@@ -317,6 +317,7 @@
 |Q611|[Valid Triangle Number](https://leetcode.com/problems/valid-triangle-number/)|[Python3](./LeetcodePython3/q0611.py) |Medium |✔️|
 |Q617|[Merge Two Binary Trees](hhttps://leetcode.com/problems/merge-two-binary-trees/)|[Python3](./LeetcodePython3/q0617.py) |Medium |✔️|
 |Q621|[Task Scheduler](https://leetcode.com/problems/task-scheduler/)|[Python3](./LeetcodePython3/q0621.py) |Medium |✔️|
+|Q645|[Set Mismatch](https://leetcode.com/problems/set-mismatch/)|[Python3](./LeetcodePython3/q0645.py) |Easy |✔️|
 |Q658|[Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)|[Python3](./LeetcodePython3/q0658.py) |Medium |✔️|
 |Q662|[Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/)|[Python3](./LeetcodePython3/q0662.py) |Medium |✔️|
 |Q678|[Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/)|[C](./LeetCode/LeetCode/algorithms/q0678.c), [Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0678.swift)|Medium |✔️|
@@ -355,6 +356,7 @@
 |Q967|[Numbers With Same Consecutive Differences](https://leetcode.com/problems/numbers-with-same-consecutive-differences/)|[Python3](./LeetcodePython3/q0967.py) |Medium |✔️|
 |Q969 |[Pancake Sorting](https://leetcode.com/problems/pancake-sorting/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q0969.hpp)  |Medium |✔️|
 |Q980 |[Unique Paths III](https://leetcode.com/problems/unique-paths-iii/)|[C](./LeetCode/LeetCode/algorithms/q0980.c)  |Hard |✔️|
+|Q981 |[Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/)|[Python3](./LeetcodePython3/q0981.py)  |Medium |✔️|
 |Q983 |[Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets/)|[Python3](./LeetcodePython3/q0983.py)  |Medium |✔️|
 |Q986 |[Interval List Intersections](https://leetcode.com/problems/interval-list-intersections/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q0986.swift)  |Medium |✔️|
 |Q987|[Vertical Order Traversal of a Binary Tree](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/)|[Python3](./LeetcodePython3/q0987.py) |Medium |✔️|
@@ -377,7 +379,7 @@
 |Q1094 |[Car Pooling](https://leetcode.com/problems/car-pooling/)|[Python3](./LeetcodePython3/q1094.py)  |Medium |✔️|
 |Q1103 |[Distribute Candies to People](https://leetcode.com/problems/distribute-candies-to-people/)|[Python3](./LeetcodePython3/q1103.py)  |Easy |✔️|
 |Q1108 |[Defanging an IP Address](https://leetcode.com/problems/defanging-an-ip-address/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1108.hpp)  |Easy |✔️|
-|Q1143 |[Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1143.swift)  |Medium |✔️|
+|Q1143 |[Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1143.swift),[Python3](./LeetcodePython3/q1143.py)  |Medium |✔️|
 |Q1155|[Number of Dice Rolls With Target Sum](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/)|[C](./LeetCode/LeetCode/algorithms/q0004.c)|Medium|✔️|
 |Q1171 |[Remove Zero Sum Consecutive Nodes from Linked List](https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/)|[Python3](./LeetcodePython3/q1171.py)  |Medium |✔️|
 |Q1201 |[Ugly Number III](https://leetcode.com/problems/ugly-number-iii/)|[Swift](./LeetcodeSwift/LeetcodeSwift/algorithms/q1201.swift)  |Medium |✔️|
@@ -391,6 +393,7 @@
 |Q1342 |[Number of Steps to Reduce a Number to Zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1342.hpp)  |Easy |✔️|
 |Q1344 |[Angle Between Hands of a Clock](https://leetcode.com/problems/angle-between-hands-of-a-clock/)|[Python3](./LeetcodePython3/q1344.py)  |Medium |✔️|
 |Q1390 |[Four Divisors](https://leetcode.com/problems/four-divisors/)|[Python3](./LeetcodePython3/q1390.py)  |Medium |✔️|
+|Q1418 |[Display Table of Food Orders in a Restaurant](https://leetcode.com/problems/display-table-of-food-orders-in-a-restaurant/)|[Python3](./LeetcodePython3/q1418.py)  |Medium |✔️|
 |Q1431 |[Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1431.hpp)  |Easy |✔️|
 |Q1470 |[Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1470.hpp)  |Easy |✔️|
 |Q1476 |[Subrectangle Queries](https://leetcode.com/problems/subrectangle-queries/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1476.hpp)  |Medium |✔️|

@@ -26,44 +26,6 @@
 //Explanation: The answer is "wke", with the length of 3.
 //Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
 
-
-// my
-//int findMaxString(char *s, int *max){
-//    int charlist[128] = {0};
-//    printf("sizeof charlist %lu",sizeof(charlist));
-//    memset(charlist, 0, sizeof(charlist));
-//    int result = 0;
-//    char *p = s;
-//    int continueFlag = 1;
-//    while (*p != '\0' && continueFlag) {
-//        if (charlist[*p] == 0) {
-////            printf("can enter?");
-//            result++;
-//            charlist[*p] = result;
-//        }else{
-//            continueFlag = false;
-//            break;
-//        }
-//        p++;
-//    }
-//    if(result > *max)
-//        *max = result;
-//    if (charlist[*p] == 0) {
-//        return 1;
-//    }
-//    return charlist[*p];
-//}
-//
-//int lengthOfLongestSubstring(char* s) {
-//    char *p = s;
-//    int max = 0;
-//    while (NULL != p && *p != '\0') {
-////        printf("\n max(%d) string(%s) %p",max,p,p);
-//        p += findMaxString(p, &max);
-//    }
-//    return max;
-//}
-
 // one of the best answer
 //思想：i为当前报数，j为之前重复的index的最大；i-j+1为当前值的无重复个数
 int lengthOfLongestSubstring(char* s)
