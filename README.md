@@ -449,8 +449,11 @@
 |Q1566 |[Detect Pattern of Length M Repeated K or More Times](https://leetcode.com/problems/detect-pattern-of-length-m-repeated-k-or-more-times/)|[Python3](./LeetcodePython3/q1566.py)  |Easy |✔️|
 |Q1567 |[Maximum Length of Subarray With Positive Product](https://leetcode.com/problems/maximum-length-of-subarray-with-positive-product/)|[Python3](./LeetcodePython3/q1567.py)  |Medium |✔️|
 |Q1568 |[Minimum Number of Days to Disconnect Island](https://leetcode.com/problems/minimum-number-of-days-to-disconnect-island/)|[Python3](./LeetcodePython3/q1568.py)  |Medium |✔️|
+|Q1736 |[Latest Time by Replacing Hidden Digits](https://leetcode.com/problems/latest-time-by-replacing-hidden-digits/)|[Python3](./LeetcodePython3/q1736.py)  |Easy |✔️|
 |Q1744 |[Can You Eat Your Favorite Candy on Your Favorite Day](https://leetcode.com/problems/can-you-eat-your-favorite-candy-on-your-favorite-day/)|[Python3](./LeetcodePython3/q1744.py)  |Medium |✔️|
 |Q1818 |[Minimum Absolute Sum Difference](https://leetcode.com/problems/minimum-absolute-sum-difference/)|[Python3](./LeetcodePython3/q1818.py)  |Medium |✔️|
 |Q1846 |[Maximum Element After Decreasing and Rearranging](https://leetcode.com/problems/maximum-element-after-decreasing-and-rearranging/)|[Python3](./LeetcodePython3/q1846.py)  |Medium |✔️|
 |Q1833 |[Maximum Ice Cream Bars](https://leetcode.com/problems/maximum-ice-cream-bars/)|[Python3](./LeetcodePython3/q1833.py)  |Medium |✔️|
+|Q1838 |[Frequency of the Most Frequent Element](https://leetcode.com/problems/frequency-of-the-most-frequent-element/)|[Python3](./LeetcodePython3/q1838.py)  |Medium |✔️|
+|Q1893 |[Check if All the Integers in a Range Are Covered](https://leetcode.com/problems/check-if-all-the-integers-in-a-range-are-covered/)|[Python3](./LeetcodePython3/q1893.py)  |Easy |✔️|
 |Q1915 |[Number of Wonderful Substrings](https://leetcode.com/problems/number-of-wonderful-substrings/)|[Python3](./LeetcodePython3/q1915.py)  |Medium |✔️|
