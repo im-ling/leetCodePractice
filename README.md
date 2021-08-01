@@ -390,6 +390,7 @@
 |Q1288 |[Remove Covered Intervals](https://leetcode.com/problems/remove-covered-intervals/)|[Python3](./LeetcodePython3/q1288.py)  |Medium |✔️|
 |Q1291 |[Sequential Digits](https://leetcode.com/problems/sequential-digits/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1291.hpp)  |Medium |✔️|
 |Q1305 |[All Elements in Two Binary Search Trees](https://leetcode.com/problems/all-elements-in-two-binary-search-trees/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1476.hpp), [Python3](./LeetcodePython3/q1305.py)  |Medium |✔️|
+|Q1337 |[The K Weakest Rows in a Matrix](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/)|[Python3](./LeetcodePython3/q1337.py)  |Easy |✔️|
 |Q1342 |[Number of Steps to Reduce a Number to Zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/)|[CPP](./LeetCode/LeetCode/algorithms_cplusplus/q1342.hpp)  |Easy |✔️|
 |Q1344 |[Angle Between Hands of a Clock](https://leetcode.com/problems/angle-between-hands-of-a-clock/)|[Python3](./LeetcodePython3/q1344.py)  |Medium |✔️|
 |Q1390 |[Four Divisors](https://leetcode.com/problems/four-divisors/)|[Python3](./LeetcodePython3/q1390.py)  |Medium |✔️|
