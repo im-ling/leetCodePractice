@@ -1,0 +1,43 @@
+int A[100005];
+
+void add(int a, int x, int n) {
+    for (int i = a; i <= n; i += (i & -i)) {
+        A[i] = max(A[i], x);
+    }
+}
+
+int ask(int a) {
+    int ret = 0;
+    for (int i = a; i > 0; i -= (i & -i)) {
+        ret = max(A[i], ret);
+    }
+    return ret;
+}
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        vector <pair <int, int> > v;
+        for (int i = 0; i < a.size(); i++) {
+            v.push_back(make_pair(a[i], i));
+        }
+        sort(v.begin(), v.end());
+        int now = 0;
+        for (int i = 0; i < v.size(); i++) {
+            if (i == 0 || v[i].first != v[i - 1].first) {
+                now++;
+            }
+            a[v[i].second] = now;
+        }
+        for (int i = 0; i <= now; i++) {
+            A[i] = 0;
+        }
+        vector <int> ans;
+        for (int i = 0; i < a.size(); i++) {
+            int x = ask(a[i]) + 1;
+            ans.push_back(x);
+            add(a[i], x, now);
+        }
+        return ans;
+    }
+};

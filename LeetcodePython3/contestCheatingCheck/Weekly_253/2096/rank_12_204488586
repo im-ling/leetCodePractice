@@ -1,0 +1,15 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        const int n = obs.size();
+        vector<int> ans;
+        vector<int> rec(n + 5, 2e9);
+        rec[0] = 0;
+        for (auto x : obs) {
+            int idx = upper_bound(rec.begin(), rec.end(), x) - rec.begin();
+            ans.push_back(idx);
+            rec[idx] = min(rec[idx], x);
+        }
+        return ans;
+    }
+};

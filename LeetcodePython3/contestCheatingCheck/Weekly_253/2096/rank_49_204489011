@@ -1,0 +1,29 @@
+class Solution {
+public:
+    
+    int lengthOfLIS(vector<int>& n) {
+        if(n.empty()) {
+            return 0;
+        }
+        vector<int> h(n.size(), INT_MAX);
+        int res = 0;
+        for(auto &i : n) {
+            int t = lower_bound(h.begin(), h.end(), i) - h.begin();
+            res = max(res, t);
+            h[t] = i;
+        }
+        return res + 1;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& n) {
+        vector<int> h(n.size(), INT_MAX);
+        vector<int> res(n);
+        int l = 0;
+        for(auto &i : n) {
+            int t = upper_bound(h.begin(), h.end(), i) - h.begin();
+            res[l++] = t + 1;
+            h[t] = i;
+        }
+        return res;
+    }
+};

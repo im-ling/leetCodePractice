@@ -1,0 +1,68 @@
+class Solution {
+    class ST{
+        int start;
+        int end;
+        int num;
+        ST left;
+        ST right;
+        
+        public ST(int start,int end){
+            this.start=start;
+            this.end=end;
+            this.num=0;
+        }
+        public void insert(int pos,int val){
+            if (start==end){
+                num=val;
+            } else {
+                int mid=(start+end)/2;
+                if (left==null){
+                    left=new ST(start,mid);
+                    right=new ST(mid+1,end);
+                }
+                if (mid>=pos){
+                    left.insert(pos,val);
+                } else {
+                    right.insert(pos,val);
+                }
+                num=max(left.num,right.num);
+            }
+        }
+        
+        int max(int a,int b){
+            return a>b?a:b;
+        }
+        
+        public int getMax(int s,int e){
+            if (num==0){
+                return 0;
+            }
+            if (s>e){
+                return 0;
+            }
+            if (start>=s&&end<=e){
+                return num;
+            }
+            int mid=(start+end)/2;
+            int ret=0;
+            if (mid>=s){
+                ret=max(ret,left.getMax(s,e));
+            }
+            if (mid<e){
+                ret=max(ret,right.getMax(s,e));
+            }
+            return ret;
+        }
+    }
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n=obstacles.length;
+        int[] ans=new int[n];
+        ST st=new ST(0,10000001);
+        for (int i=0;i<n;i++){
+            int ret=st.getMax(0,obstacles[i]);
+            ans[i]=ret+1;
+            st.insert(obstacles[i],ret+1);
+        }
+        return ans;
+    }
+}

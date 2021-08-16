@@ -1,0 +1,19 @@
+
+#define ALL(x) (x).begin(), (x).end()
+
+class Solution {
+public:
+  vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+    vector<int> ans, b;
+    for (int x: a) {
+      int i = upper_bound(ALL(b), x) - b.begin();
+      if (i == b.size())
+        b.push_back(x);
+      else
+        b[i] = x;
+      ans.push_back(i+1);
+    }
+    return ans;
+  }
+};
+

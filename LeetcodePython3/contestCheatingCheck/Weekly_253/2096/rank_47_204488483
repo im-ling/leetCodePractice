@@ -1,0 +1,39 @@
+const int N = 100000 + 10;
+int bit[N];
+int lowbit(int x){
+    return x & -x;
+}
+int sum(int x){
+    int ans = 0;
+    while(x){
+        ans = max(ans,bit[x]);
+        x -= lowbit(x);
+    }
+    return ans;
+}
+void add(int x,int y){
+    while(x<N){
+        bit[x] = max(bit[x],y);
+        x += lowbit(x);
+    }
+}
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        memset(bit,0,sizeof(bit));
+        int n = obstacles.size();
+        vector<int> ans(n);
+        vector<int> v = obstacles;
+        sort(v.begin(),v.end());
+        v.erase(unique(v.begin(),v.end()),v.end());
+        auto id = [&](int x){
+            return lower_bound(v.begin(),v.end(),x) - v.begin() + 1;
+        };
+        for(int i=0;i<n;i++){
+            int t = id(obstacles[i]);
+            ans[i] = sum(t)+1;
+            add(t,ans[i]);
+        }
+        return ans;
+    }
+};

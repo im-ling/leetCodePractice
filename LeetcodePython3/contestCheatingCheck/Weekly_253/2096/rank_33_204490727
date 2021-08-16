@@ -1,0 +1,42 @@
+# include <bits/stdc++.h>
+# define mem(a,b) memset(a,b,sizeof(a))
+# define lb(x) ((x) & -(x))
+# define pi pair<int,int>
+# define X first
+# define Y second
+# ifdef LOCAL
+# include "leetcode.h"
+# endif // LOCAL
+using namespace std;
+typedef long long ll;
+
+
+class Solution {
+public:
+    int s[100004],m=0;
+    void add(int p,int x){
+        for(int i=p;i<=m;i+=lb(i))
+            s[i]=max(s[i],x);
+    }
+    int que(int p){
+        int a=0;
+        for(int i=p;i;i-=lb(i))
+            a=max(a,s[i]);
+        return a;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n=a.size();
+        vector<int>ans(n);
+        map<int,int>mp;
+        for(int i=0;i<n;i++)
+            mp[a[i]]=0;
+        for(auto it=mp.begin();it!=mp.end();it++)
+            it->Y=++m;
+        for(int i=0;i<n;i++){
+            a[i]=mp[a[i]];
+            ans[i]=que(a[i])+1;
+            add(a[i],ans[i]);
+        }
+        return ans;
+    }
+};

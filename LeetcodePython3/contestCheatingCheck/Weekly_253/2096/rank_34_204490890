@@ -1,0 +1,16 @@
+MAXINT = sys.maxsize
+
+def longest_increasing_subsequence(nums):
+    # leetcode.com/problems/longest-increasing-subsequence/discuss/667975/
+    dp = [MAXINT] * (len(nums) + 1)
+    res = []
+    for elem in nums:
+        idx = bisect.bisect_right(dp, elem)
+        dp[idx] = elem  
+        res.append(idx+1)
+    return res
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        res = longest_increasing_subsequence(obstacles)
+        return res

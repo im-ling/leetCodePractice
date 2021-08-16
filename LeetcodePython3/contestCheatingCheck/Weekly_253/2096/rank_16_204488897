@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int f[100005], tot;
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        f[0]=-2e9; vector<int> ans;
+        for (int x: a){
+            if(x>=f[tot])f[++tot]=x, ans.push_back(tot);
+            else{
+                int p=upper_bound(f+1,f+1+tot,x)-f;
+                ans.push_back(p);
+                f[p]=x;
+            }
+            
+        }
+        return ans;
+    }
+};

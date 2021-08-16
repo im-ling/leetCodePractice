@@ -1,0 +1,41 @@
+#define ALL(v) v.begin(), v.end()
+#define ALLR(v) v.rbegin(), v.rend()
+#define REP(i, n) for (LL i = 0; i < n; ++i)
+#define REPR(i, n) for (LL i = n; i >= 0; --i)
+#define FOR(i, m, n) for (LL i = m; i < n; ++i)
+#define FORR(i, m, n) for (LL i = m; i >= n; --i)
+#define PI (acos(-1))
+#define EPS (1E-8)
+#define MOD 1000000007LL
+
+using LL = long long;
+using PII = pair<int, int>;
+
+int __FAST_IO__ = []() {
+    std::ios::sync_with_stdio(0);
+    std::cin.tie(0);
+    std::cout.tie(0);
+    return 0;
+}();
+
+const int N = 2E5 + 15;
+int lr[N], len[100'001];
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> lis, res;
+        int n = obstacles.size();
+        for (int k : obstacles) {
+            auto idx = upper_bound(ALL(lis), k);
+            if (idx == lis.end()) {
+                lis.push_back(k);
+                res.push_back(lis.size());
+            }
+            else {
+                *idx = k; res.push_back((idx - lis.begin()) + 1);
+            }
+        }
+        return res;
+    }
+};

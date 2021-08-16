@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int b[100002],tp;
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        tp=0;
+        vector<int> r;
+        int i,n=a.size(),x,y;
+        for (i=0;i<n;i++)
+        {
+            x=a[i];
+            if (!tp||x>=b[tp])
+            {
+                b[++tp]=x;
+                r.push_back(tp);
+            }
+            else
+            {
+                y=upper_bound(b+1,b+tp+1,x)-b;
+                r.push_back(y);
+                b[y]=x;
+            }
+        }
+    return r;
+    }
+};

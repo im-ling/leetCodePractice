@@ -1,0 +1,40 @@
+const int N = 1e5 + 10;
+int c[N];
+
+int m;
+void add(int x, int y) {
+    for (; x <= m; x += x & -x) {
+        c[x] = max(c[x], y);
+    }
+}
+int query(int x) {
+    int ret = 0;
+    for (; x; x -= x & -x) {
+        ret = max(ret, c[x]);
+    }
+    return ret;
+}
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n = a.size();
+        vector<int> A;
+        for (auto& x : a) A.push_back(x);
+        sort(A.begin(), A.end());
+        A.erase(unique(A.begin(), A.end()), A.end());
+        for (auto& x : a) {
+            x = lower_bound(A.begin(), A.end(), x) - A.begin() + 1;
+        }
+        m = A.size();
+        for (int i = 0; i <= m; ++i) c[i] = 0;
+        vector<int> dp(n);
+        for (int i = 0; i < n; ++i) {
+            int cur = query(a[i]);
+            dp[i] = cur + 1;
+            add(a[i], dp[i]);
+        }
+        return dp;
+
+    }
+};

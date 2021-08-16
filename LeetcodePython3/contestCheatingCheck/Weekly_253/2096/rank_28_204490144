@@ -1,0 +1,91 @@
+class SegmentTree
+{
+    vector<int> tree;
+    int n;
+    int INVALID_VAL = 0;
+public:
+    SegmentTree(int sz)
+    {
+        n = sz;
+        tree = vector<int>(4 * n);
+        build(1, 0, n - 1);
+    }
+
+    int query(int queryLeft, int queryRight)
+    {
+        return query(1, 0, n - 1, queryLeft, queryRight);
+    }
+
+    void update(int pos, int val)
+    {
+        update(1, 0, n - 1, pos, val);
+    }
+
+private:
+    int combine(int left, int right)
+    {
+        //return left + right;
+        return max(left, right);
+    }
+
+    void build(int treeIdx, int left, int right)
+    {
+        if(left == right)
+            tree[treeIdx] = 0;
+        else
+        {
+            int mid = (left + right) / 2;
+            build(treeIdx * 2, left, mid);
+            build(treeIdx * 2 + 1, mid + 1, right);
+            tree[treeIdx] = combine(tree[treeIdx * 2], tree[treeIdx * 2 + 1]);
+        }
+    }
+
+    int query(int treeIdx, int left, int right, int queryLeft, int queryRight)
+    {
+        if(queryLeft > queryRight)
+            return INVALID_VAL;  // Invalid value
+        if(queryLeft == left && queryRight == right)
+            return tree[treeIdx];
+        int mid = (left + right) / 2;
+        int retLeft = query(treeIdx * 2, left, mid, queryLeft, min(queryRight, mid));
+        int retRight = query(treeIdx * 2 + 1, mid + 1, right, max(queryLeft, mid + 1), queryRight);
+        return combine(retLeft, retRight);
+    }
+
+    void update(int treeIdx, int left, int right, int pos, int val)
+    {
+        if(left == right)
+            tree[treeIdx] = val;
+        else
+        {
+            int mid = (left + right) / 2;
+            if(pos <= mid)
+                update(treeIdx * 2, left, mid, pos, val);
+            else
+                update(treeIdx * 2 + 1, mid + 1, right, pos, val);
+            tree[treeIdx] = combine(tree[treeIdx * 2], tree[treeIdx * 2 + 1]); // Combine
+        }
+    }
+};
+
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& v)
+    {
+        int n = v.size();
+        vector<int> ret(n);
+        
+        int mx = *max_element(v.begin(), v.end());
+        
+        SegmentTree st(mx + 1);
+        for(int i = 0; i < n; i++)
+        {
+            int val = st.query(0, v[i]) + 1;
+            ret[i] = val;
+            st.update(v[i], val);
+        }
+        return ret;
+    }
+};

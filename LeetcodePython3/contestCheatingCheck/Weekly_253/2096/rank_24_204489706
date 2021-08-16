@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& zo) {
+        int n = zo.size();
+        vector<int> zr(n);
+        vector<int> z;
+        z.push_back(0);
+        for (int i=0; i<n; ++i) {
+            int x = zo[i];
+            if (x >=z.back()) {
+                z.push_back(x);
+                zr[i] = z.size() - 1;
+                continue;
+            }
+            auto pi = upper_bound(z.begin(), z.end(), x);
+            int p = pi - z.begin();
+            zr[i] = p;
+            z[p] = x;
+        }
+        return zr;
+    }
+};

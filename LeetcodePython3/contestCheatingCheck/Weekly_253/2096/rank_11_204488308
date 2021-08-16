@@ -1,0 +1,19 @@
+const int maxn=1e5+5;
+int f[maxn];
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& g) {
+        int n=g.size();
+        int idx=0;
+        vector<int>ret(n);
+        for(int i=0;i<n;i++){
+            int pos=upper_bound(f,f+idx,g[i])-f;
+            ret[i]=pos+1;
+            f[pos]=g[i];
+            if(pos==idx){
+                idx++;
+            }
+        }
+        return ret;
+    }
+};

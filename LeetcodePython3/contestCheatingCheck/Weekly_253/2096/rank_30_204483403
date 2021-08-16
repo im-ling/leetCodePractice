@@ -1,0 +1,35 @@
+class Solution {
+public:
+    
+    int a[10000010];
+    
+    int lowbit(int x) {
+        return x & (-x);
+    }
+    
+    void update(int x, int y) {
+        for(int i = x; i <= 10000000;  i += lowbit(i)) {
+            a[i] = max(a[i], y);
+        }
+    }
+    
+    int Get(int x){
+        int res = 0;
+        while(x > 0) {
+            res = max(res, a[x]);
+            x -= lowbit(x);
+        }
+        return res;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int>  res;
+        for(int i = 0; i < obstacles.size(); i ++){
+            int p =Get(obstacles[i]);
+            res.push_back(p+1);
+            update(obstacles[i], p+1);
+        }
+        
+        return res;
+    }
+};
