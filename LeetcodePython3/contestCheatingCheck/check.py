@@ -169,14 +169,17 @@ def cheating_check_compute_similar(question_ids, weekly_folder_name, threshold):
             local_result = []
             one_line_len = len(one_line)
             computer_len = 10
+
             for key in oneline_dic.keys():
                 target_one_line = oneline_dic[key]
                 all_count = 0
                 similar_count = 0
-                for i in range(one_line_len - computer_len):
-                    if one_line[i: i + computer_len] in target_one_line:
+                index = 0
+                while index < one_line_len - computer_len:
+                    if one_line[index: index + computer_len] in target_one_line:
                         similar_count += 1
                     all_count += 1
+                    index += computer_len
                 local_result.append([similar_count / all_count, file, key])
             return local_result
 
