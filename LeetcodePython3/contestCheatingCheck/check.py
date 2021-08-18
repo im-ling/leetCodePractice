@@ -196,14 +196,14 @@ def cheating_check_compute_similar(question_ids, weekly_folder_name, threshold):
                 one_line += cur
             if count >= 0:
                 similars = compute_similars(oneline_dic, one_line, file)
-                similars.sort(key=lambda x: x[0])
+                similars.sort(key=lambda x: x[0], reverse=True)
                 for i in range(len(similars)):
                     status = similars[i]
                     if status[0] >= threshold:
                         result.append(status)
                         if status[0] > 0.999:
                             break
-            if similars and similars[-1][0] > 0.999:
+            if similars and similars[0][0] > 0.999:
                 pass
             else:
                 oneline_dic[file] = one_line
