@@ -52,3 +52,9 @@ Weekly_253/2096/cpp
 `1.0000 rank_00819_204532002 rank_00777_204531116`
 rank819 的 `204532002` 提交与 rank777 的 `204531116` 相似度为 100%
 
+## 相似度计算：
+1.将target代码和src代码读成字符串target_str和src_str
+2.删除target_str和src_str换行和空格
+3.利用滑动窗口取target_str每10个字符组成target_substr
+4.如果target_substr在src_str中， similar_count += 1
+5. similar = similar_count / all_count
