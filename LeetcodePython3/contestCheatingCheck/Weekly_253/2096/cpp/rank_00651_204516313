@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> res(obstacles.size());
+        vector<int> v;//单调递增栈
+        for(int i=0;i<obstacles.size();i++){
+            if(v.empty()||obstacles[i]>=v.back()){
+                v.push_back(obstacles[i]);
+                res[i]=v.size();
+            }
+            else{
+                //找到地一个大于当前的数
+                int index=upper_bound(v.begin(),v.end(),obstacles[i])-v.begin();
+                v[index]=obstacles[i];
+                res[i]=index+1;
+            }
+            
+        }
+        return res;
+    }
+};

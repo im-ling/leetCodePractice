@@ -1,0 +1,18 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> LIS;
+        vector<int> longestRecord;
+        for (int i = 0; i < obstacles.size(); i++) {
+            auto it = upper_bound(LIS.begin(), LIS.end(), obstacles[i]);
+            if (it == LIS.end()) {
+                LIS.push_back(obstacles[i]);
+                longestRecord.push_back(LIS.size());
+            } else {
+                LIS[it-LIS.begin()] = obstacles[i];
+                longestRecord.push_back(it-LIS.begin() + 1);
+            }
+        }
+        return longestRecord;
+    }
+};

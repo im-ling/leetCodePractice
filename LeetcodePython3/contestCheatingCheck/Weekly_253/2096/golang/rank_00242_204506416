@@ -1,0 +1,29 @@
+func longestObstacleCourseAtEachPosition(obstacles []int) []int {
+	arr := make([]int, len(obstacles))
+    arr[0]=obstacles[0]
+	length:=0
+	ans:= make([]int, len(obstacles))
+	ans[0]=1
+	for i := 1; i < len(ans); i++ {
+		if obstacles[i] >= arr[length]{
+			length++
+			arr[length]=obstacles[i]
+			ans[i] = length+1
+            // fmt.Println(length,arr)
+			continue
+		}
+		l,h:=0,length+1
+		for l < h {
+			m:= (l+h)/2
+			if arr[m] > obstacles[i]{
+				h = m
+            }else{
+                l = m+1
+            }
+		}
+        arr[l] = obstacles[i]
+       // fmt.Println(l,arr)
+		ans[i] = l+1
+	}
+	return ans
+}

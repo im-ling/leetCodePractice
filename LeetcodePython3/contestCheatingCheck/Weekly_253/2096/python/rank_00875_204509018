@@ -1,0 +1,21 @@
+class Solution(object):
+    def longestObstacleCourseAtEachPosition(self, obstacles):
+        """
+        :type obstacles: List[int]
+        :rtype: List[int]
+        """
+        ## 最长上升子序列
+        ## n log n
+        g = [0]
+        dp = [0 for _ in obstacles]
+        # for i, e in obstacles:
+        lo = obstacles
+        # dp[0] = obstacles[0]
+        for i in range(len(obstacles)):
+            tar = bisect.bisect_right(g, obstacles[i])
+            dp[i] = tar
+            if tar == len(g):
+                g.append(obstacles[i])
+            else:
+                g[tar] = min(obstacles[i], g[tar])
+        return dp

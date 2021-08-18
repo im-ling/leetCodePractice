@@ -1,0 +1,39 @@
+class Solution {
+	public:
+		int cnt, f[200005];
+		int b[200005], a[200005];
+		void add(int x, int d) {
+			for (int i = x; i <= cnt; i += (i & -i)) 
+				f[i] = max(f[i], d);
+		}
+		int query(int x) {
+			int mx = 0;
+			for (int i = x; i; i -= (i & -i)) 
+				mx = max(mx, f[i]);
+			return mx;
+		}
+		vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+			map<int, int> mp;
+            mp.clear();
+            int n = (int )obstacles.size(); cnt = 0;
+			for (int i = 0; i < n; i ++) 
+				a[i + 1] = obstacles[i], b[i + 1] = a[i + 1];
+            sort(b  + 1, b + 1 + n);
+			for (int i = 1; i <= n; i ++) {
+				int tmp = i;
+				while (tmp <= n && b[i] == b[tmp]) ++ tmp;
+				mp[b[i]] = ++ cnt;
+				-- tmp;
+				i = tmp;
+			}
+			for (int i = 1; i <= n; i ++) a[i] = mp[a[i]];
+			for (int i = 1; i <= cnt; i ++) f[i] = 0;
+			vector<int> ans;
+			for (int i = 1; i <= n; i ++) {
+				ans.push_back(query(a[i]) + 1);
+				int tmp = query(a[i]) + 1;
+                add(a[i], tmp);
+			}
+			return ans;
+		}
+};

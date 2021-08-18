@@ -1,0 +1,39 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        LinkedList<Integer> f = new LinkedList<>();
+        int[] ans = new int[obstacles.length];
+        int ansIndex = 0;
+        for (int x : obstacles) {
+            if (f.size() == 0 || x >= f.getLast()) {
+                f.add(x);
+                ans[ansIndex] = f.size();
+            }
+            else {
+                Integer[] array = f.toArray(new Integer[0]);
+                // for (int y : array)
+                //     System.out.print(y);
+                // System.out.println();
+                int l = 0, r = f.size() - 1;
+//                 find l
+                while (l < r) {
+                    int mid = l + (r - l >> 1);
+                    if (array[mid] > x)
+                        r = mid;
+                    else 
+                        l = mid + 1;
+                }
+                if (x == array[l]) {
+                    f.add(l + 1, x);
+                    ans[ansIndex] = l + 2;
+                }
+                else {
+                    f.set(l, x);
+                    ans[ansIndex] = l + 1;
+                }
+                    
+            }
+            ansIndex++;
+        }
+        return ans;
+    }
+}

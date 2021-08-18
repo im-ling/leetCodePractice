@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+#define MAX_N 100005
+using namespace std;
+
+class Solution {
+public:
+    int mx, w[MAX_N];
+    vector<int> v;
+
+public:
+    Solution() : mx(0) {
+        memset(w, 0, sizeof(w));
+    }
+    int getid(int x) {
+        return lower_bound(v.begin(), v.end(), x) - v.begin() + 1;
+    }
+    int ask(int k) {
+        int ans = 0;
+        for (int i = k; i >= 1; i -= i & -i) {
+            ans = max(ans, w[i]);
+        }
+        return ans;
+    }
+    void upd(int k, int x) {
+        for (int i = k; i <= mx; i += i & -i) {
+            w[i] = max(w[i], x);
+        }
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        for (int x : obs) {
+            v.push_back(x);
+        }
+        sort(v.begin(), v.end());
+        v.erase(unique(v.begin(), v.end()), v.end());
+        for (int& x : obs) {
+            x = getid(x);
+            mx = max(mx, x);
+        }
+        vector<int> va;
+        for (int x : obs) {
+            int ans = ask(x) + 1;
+            upd(x, ans);
+            va.push_back(ans);
+        }
+        return va;
+    }
+};

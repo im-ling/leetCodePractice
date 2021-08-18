@@ -1,0 +1,36 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& nums) {
+        auto dp = vector<int> {};
+        auto h = vector <int> {};
+        for (auto num : nums) {
+            auto it = upper_bound(begin(h), end(h), num);
+            auto len = dp.emplace_back(it - begin(h) + 1);
+            if (h.size() == len - 1) {
+                h.emplace_back(num);
+            } else 
+                h[len - 1] = min(h[len - 1], num);
+        
+        }
+        return dp;
+    }
+};
+
+/*
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        vector<int> res;
+        for(auto n : nums) {
+            auto lb = lower_bound(res.begin(), res.end(), n);
+            if(lb == res.end()) {
+                res.push_back(n);
+            }
+            else {
+                res[lb - res.begin()] = n;
+            }
+        }
+        return res.size();
+    }
+};
+*/

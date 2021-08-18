@@ -1,0 +1,28 @@
+int t[100005];
+void up(int x,int y){
+    for(;x<=100000;x+=x&-x)t[x]=max(t[x],y);
+}
+int get(int x){
+    int y=0;
+    for(;x;x-=x&-x)y=max(y,t[x]);
+    return y;
+}
+
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int>ans;memset(t,0,sizeof t);
+        vector<int>a=obstacles;
+        sort(a.begin(),a.end());
+        a.erase(unique(a.begin(),a.end()),a.end());
+        
+        for(auto &k:obstacles){
+            k=lower_bound(a.begin(),a.end(),k)-a.begin()+1;
+            int now=max(1,get(k)+1);
+            up(k,now);
+            ans.push_back(now);
+        }
+        return ans;
+    }
+};

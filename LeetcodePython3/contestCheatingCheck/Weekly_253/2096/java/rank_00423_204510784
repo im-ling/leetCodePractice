@@ -1,0 +1,26 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        //二分查找
+        int n=obstacles.length,i=0;
+        int[] res=new int[n];
+        res[0]=1;
+        for(int j=1;j<n;j++){
+            int left=0,right=i;
+            int target=obstacles[j];
+            while(left<=right){
+                int mid=left+((right-left)>>1);
+                if(target>=obstacles[mid]){
+                    left=mid+1;
+                }else{
+                    right=mid-1;
+                }
+            }
+            res[j]=left+1;
+            obstacles[left]=target;
+            if(left>i){
+                i++;
+            }
+        }
+        return res;
+    }
+}

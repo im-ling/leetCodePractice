@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        typedef pair<int, int> PII;
+        const int INF = 0x3f3f3f3f;
+        int n = obstacles.size();
+        vector<PII> dp(n+1, PII(INF, INF));
+        
+        vector<int> ans(n, 0);
+        for(int i = 0; i < n; i ++ ) {
+            int & x = obstacles[i];
+            PII now = PII(x, i);
+            auto it = lower_bound(dp.begin() + 1, dp.end(), PII(x, i));
+            *it = PII(x, i);
+            // auto it = lower_bound(dp.begin() + 1, dp.end(), now);
+            // cout << i << it - dp.begin() << endl;
+            ans[i] = it - dp.begin();
+        }
+        /*
+        for(int i = 1; i <= n; i ++ ) {
+            cout << i << ":" << dp[i].first << ":" << dp[i].second << endl;
+        }
+        */
+        /*
+        for(int i = 0; i < n; i ++ ) {
+            int & x = obstacles[i];
+
+        }*/
+        return ans;
+    }
+};

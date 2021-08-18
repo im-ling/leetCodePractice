@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        vector<int> ret({1});
+        vector<int> dp({ob[0]});
+        for (int i = 1; i < ob.size(); ++i) {
+            if (ob[i] >= dp.back()) {
+                dp.emplace_back(ob[i]);
+                ret.emplace_back(dp.size());                
+            } else {
+                int idx = upper_bound(dp.begin(), dp.end(), ob[i]) - dp.begin();
+                // cout << i << ' ' << idx << endl;
+                ret.emplace_back(idx + 1);                
+                dp[idx] = ob[i];
+            }
+        }
+        return ret;
+    }
+};

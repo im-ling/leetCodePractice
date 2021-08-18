@@ -1,0 +1,26 @@
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        map<int, int> h2c; // height to count
+        int n = obstacles.size();
+        vector<int> c2lowest(n + 1, INT_MAX);
+        h2c[0] = 0;
+        c2lowest[0] = 0;
+        vector<int> ans;
+        for (auto now : obstacles) {
+            auto ite = h2c.upper_bound(now);
+            --ite;
+            int nowCount = ite->second + 1;
+            if (c2lowest[nowCount] > now) {
+                if (h2c[c2lowest[nowCount]] <= nowCount) {
+                    h2c.erase(c2lowest[nowCount]);
+                }
+                c2lowest[nowCount] = now;
+            }
+            h2c[now] = nowCount;
+            ans.push_back(nowCount);
+        }
+        return ans;
+    }
+};

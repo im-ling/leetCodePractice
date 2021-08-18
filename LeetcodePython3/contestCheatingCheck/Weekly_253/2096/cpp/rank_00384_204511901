@@ -1,0 +1,57 @@
+typedef long long LL;
+const int N = 100010;
+int n;
+int w[N];
+LL tr[N];
+vector<int> xs;
+LL f[N];
+
+int get(int x)
+{
+    return lower_bound(xs.begin(), xs.end(), x) - xs.begin() + 1;
+}
+
+int lowbit(int x)
+{
+    return x & -x;
+}
+
+void add(int x, LL v)
+{
+    for (int i = x; i <= n; i += lowbit(i))
+        tr[i] = max(tr[i], v);
+}
+
+LL query(int x)
+{
+    LL res = 0;
+    for (int i = x; i; i -= lowbit(i))
+        res = max(res, tr[i]);
+    return res;
+}
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& tmp) {
+        n = tmp.size();
+        xs.clear();
+        memset(f, 0, sizeof f);
+        memset(tr, 0, sizeof tr);
+        for (int i = 0; i < n; i++) {
+            w[i] = tmp[i];
+            xs.push_back(w[i]);
+        }
+        sort(xs.begin(), xs.end());
+        xs.erase(unique(xs.begin(), xs.end()), xs.end());
+        LL res = 0;
+        vector<int> ans;
+        for (int i = 0; i < n; i++)
+        {
+            int k = get(w[i]);
+            f[i] = query(k) + 1;
+            ans.push_back(f[i]);
+            add(k, f[i]);
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,13 @@
+# longest incresing subseq including the last one
+from sortedcontainers import SortedList
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        sl = SortedList()
+        res = []
+        for obs in obstacles:
+            idx = sl.bisect_right(obs)
+            if idx < len(sl):
+                sl.pop(idx)
+            sl.add(obs)
+            res.append(sl.bisect_right(obs))
+        return res

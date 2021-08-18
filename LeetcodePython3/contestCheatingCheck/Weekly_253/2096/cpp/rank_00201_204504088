@@ -1,0 +1,38 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int len = obstacles.size();
+        vector<int> ans(len);
+        //维护一个递增序列
+        vector<int> dic;
+        dic.emplace_back(obstacles[0]);
+        ans[0] = 1;
+        for (int i = 1; i < len; i++)
+        {
+            if (obstacles[i] >= dic[dic.size() - 1])
+            {
+                dic.emplace_back(obstacles[i]);
+                ans[i] = dic.size();
+            }
+            else {
+                int left = 0;
+                int right = dic.size() - 1;
+                while (left < right)
+                {
+                    //找第一个大于它的
+                    int mid = (left + right) >> 1;
+                    if (dic[mid] > obstacles[i])
+                    {
+                        right = mid;
+                    }
+                    else {
+                        left = mid + 1;
+                    }
+                }
+                dic[left] = obstacles[i];
+                ans[i] = left + 1;
+            }
+        }
+        return ans;
+    }
+};

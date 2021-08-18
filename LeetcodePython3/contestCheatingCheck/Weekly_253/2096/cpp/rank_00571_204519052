@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        if(obstacles.size() == 1){
+            return {1};
+        }
+        vector<int> last_v;
+        vector<int> ret;
+        // last_v.push_back(obstacles.front());
+        for (int i = 0; i < obstacles.size();++i){
+            // cout << i << endl;
+            auto find = upper_bound(last_v.begin(), last_v.end(), obstacles[i]);
+            if(find == last_v.end()){
+                last_v.push_back(obstacles[i]);
+                ret.push_back(last_v.size());
+            }
+            else{
+                *find = obstacles[i];
+                ret.push_back(find - last_v.begin() + 1);
+            }
+        }
+        return ret;
+    }
+    int main(){
+        vector<int> inputs{3, 1, 5, 6, 4, 2};
+        auto res = longestObstacleCourseAtEachPosition(inputs);
+        // dbg(res);
+        return 0;
+    }
+};

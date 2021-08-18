@@ -1,0 +1,27 @@
+const int N = 1e7 + 5;
+int dp[N];
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        memset(dp, 0x3f, sizeof(dp));
+        int n = obs.size();
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            int l = 1, r = i + 1, mid, t;
+            while (l <= r) {
+                mid = (l + r) / 2;
+                if (dp[mid] > obs[i]) {
+                    t = mid;
+                    r = mid - 1;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            
+            dp[t] = obs[i];
+            ans[i] = t;
+        }
+        return ans;
+    }
+};

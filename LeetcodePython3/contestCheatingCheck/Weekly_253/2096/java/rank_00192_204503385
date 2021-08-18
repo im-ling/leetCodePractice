@@ -1,0 +1,52 @@
+class Solution {
+	
+	int f[];
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+    	f = new int[obstacles.length + 2];
+    	for (int i = 0 ; i < f.length ; i++)
+    		f[i] = Integer.MAX_VALUE;
+    	f[0] = 0;
+    	
+    	int ans[] = new int[obstacles.length];
+    	
+    	for (int i = 0 ; i < obstacles.length ; i++) {
+    		int l = findPos(obstacles[i]);
+    		ans[i] = l + 1;
+    		if (f[l + 1] > obstacles[i])
+    			f[l + 1] = obstacles[i];
+    	}
+    	
+    	
+    	return ans;
+    }
+    
+	private int findPos(int num) {
+		int head = 0;
+		int tail = f.length - 1;
+		int result = -1;
+		int mid;
+		
+		while (head <= tail)
+		{
+			mid = (head + tail) / 2;
+			if (f[mid] > num)
+			{
+				tail  = mid - 1;
+			}
+			else
+			{
+				head = mid + 1;
+				result = mid;
+			}
+		}
+		
+		return result;
+
+		
+//		int p = 0;
+//		while (f[p] <= num) {
+//			p++;
+//		}
+//		return p;
+	}
+}

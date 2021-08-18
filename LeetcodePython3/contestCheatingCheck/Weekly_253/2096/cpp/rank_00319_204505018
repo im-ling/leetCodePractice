@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int st[100005];
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int top = 0;
+        vector<int>ans;
+        for(auto v : obstacles){
+            if(!top) st[++top] = v;
+            else if(v >= st[top]){
+                st[++ top] = v;
+            }
+            else{
+                int pos = lower_bound(st + 1,st + 1 + top,v + 1) - st;
+                st[pos] = v;
+                ans.push_back(pos);
+                continue;
+            }
+            ans.push_back(top);
+        }
+        return ans;
+    }
+};

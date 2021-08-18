@@ -1,0 +1,55 @@
+
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+
+int getl(int *pr, int l, int r, int v)
+{
+    int mid;
+    while (l<r)
+    {
+        mid = (l+r)/2;
+        if (pr[mid] > v)
+        {
+            r = mid;
+        }
+        else
+        {
+            l = mid+1;
+        }
+    }
+    
+    return l;
+}
+
+int* longestObstacleCourseAtEachPosition(int* obstacles, int obstaclesSize, int* returnSize){
+    int *pr;
+    int *pdp;
+    int cnt;
+    int i;
+    int ll;
+    int j;
+    
+    pr = malloc(sizeof(int)*obstaclesSize);
+    pdp = malloc(sizeof(int)*obstaclesSize);    
+    
+    pr[0] = 1;
+    pdp[0] = obstacles[0];
+    cnt = 1;
+    
+    for (i=1; i<obstaclesSize; i++)
+    {
+        ll = getl(pdp,0,cnt,obstacles[i]);
+        pdp[ll] = obstacles[i];
+        pr[i] = ll+1;
+        if (ll == cnt)
+        {
+           cnt++;
+        }
+    }
+    
+    *returnSize = obstaclesSize;
+    return pr;
+
+}

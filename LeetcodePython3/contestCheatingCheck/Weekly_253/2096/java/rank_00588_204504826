@@ -1,0 +1,33 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] dp = new int[n];
+        int[] ans = new int[n];
+        int len = 0, idx = 0;
+        
+        for (var x : obstacles) {
+            int i = upperBound(dp, 0, len, x);
+            dp[i] = x;
+            ans[idx++] = i + 1;
+            if (i == len) {
+                len++;
+            }
+        }
+        
+        
+        return ans;
+    }
+    
+    private int upperBound(int[] arr, int left, int right, int t) {
+        while (left < right) {
+            int mid = (right - left) / 2 + left;
+            if (arr[mid] > t) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        
+        return left;
+    }
+}

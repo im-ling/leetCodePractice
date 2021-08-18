@@ -1,0 +1,64 @@
+#include<bits/stdc++.h>
+#define fi first
+#define se second
+#define pb push_back
+#define ve vector
+#define all(x) (x).begin(),(x).end()
+#define sz(x) (int)(x).size()
+#define FOR(i, x, y) for (decay<decltype(y)>::type i = (x), _##i = (y); i < _##i; ++i)
+#define FORD(i, x, y) for (decay<decltype(x)>::type i = (x), _##i = (y); i > _##i; --i)
+
+using namespace std;
+
+typedef long long LL;
+typedef unsigned long long ULL;     
+typedef pair<int,int> PII;
+typedef pair<LL,LL> PLL;
+typedef double LD;
+
+template <typename T> bool chkmax(T &x,T y){return x < y ? x = y,true : false;}
+template <typename T> bool chkmin(T &x,T y){return x > y ? x = y,true : false;}
+
+const LD PI = 3.14159265358979323846;
+const LD eps = 1e-10;
+const int N = 1e5 + 10,M = 1e7 + 10;
+
+class Solution {
+public:
+    int n,m = M - 1,a[N],c[M],f[N];
+    
+    void update(int i,int x) {
+        while(i <= m) {
+            c[i] = max(c[i],x);
+            i += i & -i;
+        }
+    }
+    
+    int query(int i) {
+        int res = 0;
+        while(i > 0) {
+            res = max(res,c[i]);
+            i -= i & -i;
+        }
+        return res;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        int n = sz(obs);
+        ve<int> ans(n);
+        
+        for(int i = 1;i <= n;i++) a[i] = obs[i - 1];
+        
+        f[1] = 1;
+        update(a[1],f[1]);
+        
+        for(int i = 2;i <= n;i++) {
+            f[i] = query(a[i]) + 1;
+            update(a[i],f[i]);
+        }
+        
+        for(int i = 0;i < n;i++) ans[i] = f[i + 1];
+        
+        return ans;
+    }
+};

@@ -1,0 +1,31 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        //长度为i + 1的末尾的数最小值
+        int[] dp = new int[obstacles.length + 1];
+        int[] ret = new int[obstacles.length];
+        int e = 0;
+        for (int i = 0; i < obstacles.length; ++i) {
+            int o = obstacles[i];
+            if (o >= dp[e]) {
+                dp[++e] = o;
+                ret[i] = e;
+            } else {
+                int l = 0;
+                int r = e;
+                while (l < r) {
+                    int mid = (r - l) / 2 + l;
+                    if (dp[mid] > o) {
+                        r = mid;
+                    } else {
+                        l = mid + 1;
+                    }
+                }
+                dp[l] = o;
+                ret[i] = l;
+            }
+            
+        }
+        return ret;
+
+    }
+}

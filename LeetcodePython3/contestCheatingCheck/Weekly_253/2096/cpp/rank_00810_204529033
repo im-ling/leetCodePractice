@@ -1,0 +1,21 @@
+const int N=1e5+10;
+int f[N];
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        int n=ob.size();
+        memset(f,0,sizeof f);
+        vector<int>res(n);
+        int len=0;
+        for(int i=0;i<n;i++){
+            int x=ob[i];
+            int t=upper_bound(f,f+len,x)-f;
+            if(t==len) f[len++]=x;
+            else f[t]=x;
+            if(t==len)
+                res[i]=len;
+            else res[i]=t+1;
+        }
+        return res;
+    }
+};

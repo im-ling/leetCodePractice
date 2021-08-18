@@ -1,0 +1,51 @@
+class Solution {
+public:
+    const static int N=1e5+5;
+
+    int n,b[N];
+
+    struct Node{
+        int p,v;
+        bool operator<(const Node& e)const{
+            if(v==e.v) return p<e.p;
+            return v<e.v;
+        }
+    };
+
+    void update(int x,int y){
+        while(x<=n){
+            b[x]=max(b[x],y);
+            x+=x&-x;
+        }
+    }
+
+    int query(int x){
+        int res=0;
+        while(x){
+            res=max(res,b[x]);
+            x-=x&-x;
+        }
+        return res;
+    }
+
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        n=obs.size();
+        vector<int> cpy=obs;
+        sort(cpy.begin(),cpy.end());
+        cpy.erase(unique(cpy.begin(),cpy.end()),cpy.end());
+        for(int i=0;i<n;++i){
+            obs[i]=lower_bound(cpy.begin(),cpy.end(),obs[i])-cpy.begin()+1;
+        }
+        vector<int> ans(n);
+
+        vector<Node> v;
+        for(int i=0;i<n;++i) v.push_back({i+1,obs[i]});
+        sort(v.begin(),v.end());
+        for(Node e:v){
+            int res=query(e.p)+1;
+            update(e.p,res);
+            ans[e.p-1]=res;
+        }
+        return ans;
+    }
+};

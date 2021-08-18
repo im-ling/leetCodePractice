@@ -1,0 +1,29 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] ans = new int[n];
+        List<Integer> up = new ArrayList<>();
+        up.add(obstacles[0]);
+        ans[0] = 1;
+        for(int i=1;i<n;i++) {
+            int temp = obstacles[i];
+            int l=0,r=up.size();
+            while(l<r) {
+                int m = l+(r-l)/2;
+                if(up.get(m)>temp) {
+                    r = m;
+                }else{
+                    l = m+1;
+                }
+            }
+            if(l==up.size()) {
+                up.add(temp);
+                ans[i] = up.size();
+            }else {
+                up.set(l,temp);    
+                ans[i] = l+1;
+            }
+        }    
+        return ans;
+    }
+}

@@ -1,0 +1,70 @@
+class Solution {
+public:
+	//vector<int> stack;
+    void preWork(vector<int>& a){
+		std::map<int,int> ids;
+		int tot = 0;
+		vector<int> b = a;
+		std::sort(b.begin(), b.end());
+		for(int& u: b){
+			if(!ids.count(u)){
+				ids[u] = ++tot;
+			}
+		}
+		for(int i = 0; i < (int)a.size(); i++) a[i] = ids[a[i]];
+	}
+	
+	struct SegmentT{
+		int l,r;
+		int d;
+	};
+	SegmentT t[400005];
+	
+	void build(int p,int l,int r){
+		t[p].l = l, t[p].r = r;
+		if(l==r) t[p].d = 0;
+		else{
+			int m = (l+r)/2;
+			build(2*p,l,m);
+			build(2*p+1,m+1,r);
+			t[p].d = max(t[2*p].d, t[2*p+1].d);
+		}
+	}
+	
+	int max(int a,int b){ return a>b?a:b; }
+	
+	void change(int p,int x,int v){
+		if(t[p].l==t[p].r) t[p].d = max(t[p].d, v);
+		else{
+			int m = (t[p].l+t[p].r)/2;
+			if(x<=m) change(2*p,x,v);
+			else change(2*p+1,x,v);
+			t[p].d = max(t[2*p].d, t[2*p+1].d);
+		}
+	}
+	
+	int ask(int p,int l,int r){
+		if(l<=t[p].l && r>=t[p].r) return t[p].d;
+		else{
+			int res = 0;
+			int m = (t[p].l+t[p].r)/2;
+			if(l<=m) res = max(res,ask(2*p,l,r));
+			if(r>=m+1) res = max(res,ask(2*p+1,l,r));
+			return res;
+		}
+	}
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+		int n = a.size();
+		preWork(a);
+		vector<int> ans;
+		build(1,1,n);
+		for(int i = 0; i < n; i++){
+			int u = a[i];
+			int offer = ask(1,1,u) + 1;
+			ans.push_back(offer);
+			change(1,u,offer);
+		}
+		return ans;
+    }
+};

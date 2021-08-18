@@ -1,0 +1,19 @@
+class Solution:
+    # 最长递增子序列
+    def longestObstacleCourseAtEachPosition(self, obstacles):
+        n = len(obstacles)
+        ans = [0]*n
+        res = [] # res[i]
+        import bisect
+        for i in range(n):
+            item = obstacles[i]
+            if not res or res[-1] <= item:
+                res.append(item)
+                ans[i] = len(res)
+            else:
+                idx = bisect.bisect_right(res, item)
+                ans[i] = idx+1
+                res[idx] = item
+
+            
+        return ans

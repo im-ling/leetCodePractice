@@ -1,0 +1,36 @@
+class Solution
+{
+public:
+    vector<int> longestObstacleCourseAtEachPosition(const vector<int> &obstacles)
+    {
+        vector<int> stack;
+        vector<int> results;
+        for (auto i : obstacles)
+            if (stack.empty())
+            {
+                stack.push_back(i);
+                results.push_back(1);
+            }
+            else if (stack.back() <= i)
+            {
+                stack.push_back(i);
+                results.push_back(stack.size());
+            }
+            else
+            {
+                for (size_t j = stack.size() - 1; j; --j)
+                    if (stack[j] > i && stack[j - 1] <= i)
+                    {
+                        stack[j] = i;
+                        results.push_back(j + 1);
+                    }
+                if (stack.front() > i)
+                {
+                    stack.front() = i;
+                    results.push_back(1);
+                }
+            }
+
+        return results;
+    }
+};

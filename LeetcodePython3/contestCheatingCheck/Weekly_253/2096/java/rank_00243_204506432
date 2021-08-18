@@ -1,0 +1,35 @@
+class Solution {
+   public int[] lengthOfLIS(int[] x) {
+	        int[] res=new int[x.length];  
+	 	    ArrayList<Integer> data=new ArrayList<>();
+			data.add(x[0]);
+			res[0]=1;
+			for (int i = 1; i < x.length; i++) {
+				if(x[i]>=data.get(data.size()-1)) {
+					data.add(x[i]);
+					res[i]=data.size();
+				}else {
+					int low=0;
+					int high=data.size()-1;
+					int index=0;
+					while(low<=high) {
+						int mid=(low+high)/2;
+						if(data.get(mid)<=x[i]) {
+							low=mid+1;
+						}else {
+							index=mid;
+							high=mid-1;
+						}
+					}
+					data.set(index,x[i]);
+				    res[i]=index+1;
+				}
+			}
+			return res;
+	    }
+	 public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+            int n=obstacles.length; 
+		    int[] dp=lengthOfLIS(obstacles);
+		    return dp;
+	    }
+}

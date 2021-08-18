@@ -1,0 +1,46 @@
+const int maxn = 1e7 + 5;
+int bit[maxn];
+int max_val;
+
+int lowbit(int x) {
+    return x & -x;
+}
+
+void add(int val, int len) {
+    while(val <= max_val) {
+        bit[val] = max(bit[val], len);
+        val += lowbit(val);
+    }
+}
+
+int get(int val) {
+    int len = 0;
+    while(val > 0) {
+        len = max(bit[val], len);
+        val -= lowbit(val);
+    }
+    return len;
+}
+
+class Solution {
+    
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        
+        max_val = 0;
+        for(auto val : obstacles) {
+            max_val = max(max_val, val);
+        }
+        fill(bit, bit+max_val+2, 0);
+        
+        vector<int> dp(n, 0);
+        for(int i = 0; i < n; i++) {
+            int len = get(obstacles[i]);
+            dp[i] = len + 1;
+            add(obstacles[i], dp[i]);
+        }
+        
+        return dp;
+    }
+};

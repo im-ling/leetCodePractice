@@ -1,0 +1,37 @@
+typedef int Rank;
+class Solution {
+protected:
+    Rank BinSearch(vector<int>& sorted, int& target){
+        Rank lo = 0, hi = sorted.size();
+        while(lo < hi){
+            Rank mi = (lo + hi) >> 1;
+            (target < sorted[mi]) ? hi = mi : lo = mi + 1;
+        }
+        return --lo;
+    }
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> ans(n, -1);
+        vector<int> min_step;
+        ans[0] = 1;
+        min_step.push_back(obstacles[0]);
+        int _top = min_step[0];
+        for(int i = 1; i < n; i++){
+            Rank order = BinSearch(min_step, obstacles[i]), _size = min_step.size();
+            if(order == -1){ //小于最小值，那么只需要更新最小的一个
+                ans[i] = 1;
+                min_step[0] = obstacles[i];
+            }
+            else if(order == _size - 1){ //大于等于最大值，加入到min_step之中
+                min_step.push_back(obstacles[i]);
+                ans[i] = min_step.size();
+            }
+            else{ //居中位置，不是最大，也不是最小
+                min_step[order + 1] = obstacles[i];
+                ans[i] = order + 2;
+            }
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,45 @@
+class Solution {
+public:
+    int dp[100007];
+    int tree[100007 * 40], ls[100000 * 40], rs[100000 * 40];
+    int top = 1;
+    
+    void update(int v, int pos, int l, int r, int &node) {
+        if (!node) node = top++;
+        if (l == r) {
+            tree[node] = max(tree[node], v);
+            return;
+        }
+        int mid = (l + r) / 2;
+        if (pos <= mid) update(v, pos, l, mid, ls[node]);
+        else update(v, pos, mid + 1, r, rs[node]);
+        tree[node] = max(tree[ls[node]], tree[rs[node]]);
+    }
+    
+    int query(int ql, int qr, int l, int r, int node) {
+        if (ql <= l && qr >= r) {
+            return tree[node];
+        }
+        int mid = (l + r) / 2;
+        int ans = 0;
+        if (ql <= mid) ans = max(ans, query(ql, qr, l, mid, ls[node]));
+        if (qr > mid) ans = max(ans, query(ql, qr, mid + 1, r, rs[node]));
+        return ans;
+    }
+    
+
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int rt = 0;
+        vector<int> res;
+        for (int i = 0; i < obstacles.size(); i++) {
+            int va = obstacles[i];
+            int ans = query(1, va, 1, 10000007, rt);
+            dp[i] = ans + 1;
+            res.push_back(dp[i]);
+            update(dp[i], va, 1, 10000007, rt);
+        }    
+        return res;
+    
+    }
+};

@@ -1,0 +1,56 @@
+class Solution {
+public:
+    int BinarySearch(vector<int>& dp, int len, int n)
+{
+	int left = 1;
+	int right = len;
+	while (left < right)
+	{
+		int mid = (left + right) / 2;
+		if (dp[mid] >= n)
+		{
+			right = mid;
+		}
+		else
+		{
+			left = mid+1;
+		}
+	}
+	return right;
+}
+
+int getResult1(int n)
+{
+	 dp[1] = arr[0];
+	 int index = 1;
+     res[0]=1;
+	 for (int i = 1; i < n; i++)
+	 {
+	 	if (arr[i] >= dp[index])
+	 	{
+	 		dp[++index] = arr[i];
+            res[i]=index;
+		 }
+		 else
+		 {
+		 	//int tempIndex = BinarySearch(dp, index, arr[i]);
+            int tempIndex = upper_bound( dp.begin(), dp.begin()+index, arr[i]) - dp.begin();
+		 	dp[tempIndex] = arr[i];
+             res[i]=tempIndex;
+		 }
+         
+	 }
+	 return index;
+} 
+    vector<int> dp;
+    vector<int> res;
+    vector<int> arr;
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n=obstacles.size();
+        arr=obstacles;
+        dp.resize(n+1);
+        res.resize(n);
+        getResult1(n);
+        return res;
+    }
+};

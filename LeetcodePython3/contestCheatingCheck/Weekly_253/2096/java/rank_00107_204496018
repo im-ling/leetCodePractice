@@ -1,0 +1,18 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
+        long[] dp = new long[n];
+        int R = 0;
+        int idx = 0;
+        for (int num: nums) {
+            long f = (long) num * 1000000 + idx;
+            int i = Arrays.binarySearch(dp, 0, R, f);
+            if (i < 0) i = - (i + 1);
+            dp[i] = f;
+            if (i == R) R++;
+            ans[idx++] = i + 1;
+        }
+        return ans;
+    }
+}

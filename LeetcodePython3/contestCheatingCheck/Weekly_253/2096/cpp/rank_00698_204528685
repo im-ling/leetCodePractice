@@ -1,0 +1,21 @@
+class Solution {
+public:
+    // dp[i]表示以i结尾的最长上升子序列的长度
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> dp(n, 1);
+        vector<int> nums;
+        nums.push_back(obstacles[0]);
+        for (int i = 1; i < n; i++) {
+            int pos = upper_bound(nums.begin(), nums.end(), obstacles[i]) - nums.begin();
+            dp[i] = max(dp[i], pos + 1);
+            if (pos == nums.size()) {
+                nums.push_back(obstacles[i]);
+            } else {
+                nums[pos] = obstacles[i];
+            }
+            
+        }
+        return dp;
+    }
+};

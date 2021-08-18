@@ -1,0 +1,48 @@
+#define lb(x) ((x)&(-(x)))
+
+const int maxn=100010;
+
+int y[maxn],x[maxn],m;
+
+void modify(int p,int v)
+{
+	for (;p<=m;p+=lb(p))
+		y[p]=max(y[p],v);
+}
+
+int query(int p)
+{
+	int ans=0;
+	for (;p;p-=lb(p))
+		ans=max(ans,y[p]);
+	return ans;
+}
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& z) {
+		vector<int> f;
+		int n=z.size();
+		for (int a=0;a<n;a++)
+			f.push_back(1);
+		for (int a=0;a<n;a++)
+			x[a+1]=z[a];
+		sort(x+1,x+n+1);
+		m=unique(x+1,x+n+1)-x-1;
+		map<int,int> ma;
+		for (int a=1;a<=m;a++)
+			ma[x[a]] = a;
+		for (int a=0;a<n;a++)
+			x[a+1]=ma[z[a]];
+		for (int a=1;a<=m;a++)
+			y[a]=0;
+		for (int a=1;a<=n;a++)
+		{
+			int v=query(x[a])+1;
+			f[a-1]=v;
+			modify(x[a],v);
+		}
+
+		return f;
+    }
+};

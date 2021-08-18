@@ -1,0 +1,72 @@
+const int N = 100010;
+class Solution {
+public:
+    int n;
+    int a[N], f[N];
+    vector<int> alls;
+
+    struct Node{
+        int l, r;
+        int v;
+    }tr[N * 4];
+
+    void pushup(int u){
+        tr[u].v = max(tr[u << 1].v, tr[u << 1 | 1].v);
+    }
+
+    void build(int u, int l, int r){
+        tr[u].l = l, tr[u].r = r;
+        if(l == r) return;
+
+        int mid = l + r >> 1;
+        build(u << 1, l, mid), build(u << 1 | 1, mid + 1, r);
+    }
+
+    int query(int u, int l, int r){
+        if(tr[u].l >= l && tr[u].r <= r) return tr[u].v;
+
+        int v = 0;
+        int mid = tr[u].l + tr[u].r >> 1;
+        if(l <= mid) v = query(u << 1, l, r);
+        if(r > mid) v = max(v, query(u << 1 | 1, l, r));
+        return v;
+    }
+
+    void modify(int u, int x, int v){
+        if(tr[u].l == x && tr[u].r == x) tr[u].v = v;
+        else{
+            int mid = tr[u].l + tr[u].r >> 1;
+            if(x <= mid) modify(u << 1, x, v);
+            else modify(u << 1 | 1, x, v);
+            pushup(u);
+        }
+    }
+
+    int find(int x){
+        int l = 0, r = alls.size() - 1;
+        while(l < r){
+            int mid = l + r >> 1;
+            if(alls[mid] >= x) r = mid;
+            else l = mid + 1;
+        }
+        return l + 2;
+    }
+
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        vector<int> ans;
+        n = a.size();
+        for(int i = 0; i < n; i++) alls.push_back(a[i]);
+        sort(alls.begin(), alls.end());
+        alls.erase(unique(alls.begin(), alls.end()), alls.end());
+
+        build(1, 1, n + 10);
+        for(int i = 0; i < n; i++){
+            int x = find(a[i]);
+            int t = query(1, 1, x);
+            modify(1, x, 1 + t);
+            ans.push_back(1 + t);
+        }
+
+        return ans;
+    }
+};

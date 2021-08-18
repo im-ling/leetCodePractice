@@ -1,0 +1,47 @@
+class Solution {
+public:
+    int binary_search(int num, vector<int> &st) {
+        int low = 0, high = st.size(), mid;
+        while(low <= high) {
+            mid = low + (high - low) / 2;
+            if(st[mid] == num) {
+                while(mid < st.size() && st[mid] == num) {
+                    mid++;
+                }
+                return mid;
+            }
+            else if (st[mid] > num) {
+                high = mid - 1;
+            }
+            else if (st[mid] < num) {
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> st;
+        vector<int> dp;
+        if(obstacles.size() == 0) {
+            return dp;
+        }
+        dp.push_back(1);
+        st.push_back(obstacles[0]);
+        for(int i = 1; i < obstacles.size(); i++) {
+            if(obstacles[i] >= st.back()) {
+                st.push_back(obstacles[i]);
+                dp.push_back(st.size());
+                // cout<<obstacles[i]<<"   "<<st.size()<<endl;
+                
+            } else {
+                // int pos = upper_bound(st.begin(), st.end(), obstacles[i]) - st.begin();
+                int pos = binary_search(obstacles[i], st);
+                // cout<<obstacles[i]<<"   "<<pos<<endl;
+                st[pos] = obstacles[i];
+                dp.push_back(pos + 1);
+            }
+        }
+        // cout<<endl;
+        return dp;
+    }
+};

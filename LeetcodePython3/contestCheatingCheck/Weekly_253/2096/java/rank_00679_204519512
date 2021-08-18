@@ -1,0 +1,21 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
+        int[] f=new int[n+1];        
+        ans[0]=1;
+        f[1]= nums[0];
+        int idf = 1;
+        for(int i=1; i<n; i++){
+            int tt = idf;
+            while(tt>0&&f[tt]>nums[i]){
+                tt--;
+            }
+            f[tt+1]=nums[i];
+            ans[i]= tt+1;
+            if(tt+1>idf) idf=tt+1;  
+            //System.out.print(idf+"   ");
+        }
+        return ans;
+    }
+}

@@ -1,0 +1,23 @@
+/**
+ * @param {number[]} obstacles
+ * @return {number[]}
+ */
+var longestObstacleCourseAtEachPosition = function(obstacles) {
+  const ss = [];
+  const ans = [];
+  ss.push(Infinity);
+
+  for (const num of obstacles) {
+    if (ss[ss.length - 1] < num) {
+      ss.push(num);
+      ans.push(ss.length);
+    } else {
+      let i = ss.length;
+      while (i > 0 && ss[i - 1] > num) i--;
+      ss[i] = num;
+      ans.push(i + 1);
+    }
+  }
+
+  return ans;
+};

@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int tr[100010],n,m;
+    void add(int x,int t) {
+        for(int i = x; i <= m; i += (i&(-i)))
+            tr[i] = max(tr[i], t);
+    } 
+    int qry(int x) {
+        int ret = 0;
+        for(int i = x; i >= 1; i -= (i&(-i)))
+            ret = max(ret, tr[i]);
+        return ret;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        n = obstacles.size();
+        vector<int>b;
+        for(int i = 0; i < n; ++i)b.push_back(obstacles[i]);
+        sort(b.begin(),b.end());
+        m = unique(b.begin(),b.end()) - b.begin();
+        vector<int>ans;
+        for(int i = 0; i < n; ++i) {
+            int p = lower_bound(b.begin(), b.begin() + m, obstacles[i]) - b.begin() + 1;
+            int tmp = qry(p) + 1;
+            add(p,tmp);
+            ans.push_back(tmp);
+        }
+        return ans;
+    }
+};

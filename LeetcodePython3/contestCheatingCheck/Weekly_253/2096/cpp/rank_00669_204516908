@@ -1,0 +1,37 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> res;
+        int n = obstacles.size();
+        res.push_back(1);
+        vector<int> tmp{obstacles[0]};
+        for(int i = 1; i < n; i++){
+            if(obstacles[i] >= tmp.back()){
+                tmp.push_back(obstacles[i]);
+                res.push_back(tmp.size());
+            }else{
+                int a = bins(tmp, obstacles[i]);
+                res.push_back(a+1);
+            }
+        }
+        return res;
+    }
+    int bins(vector<int> &ivec, int t){
+        if(ivec[0] > t){
+            ivec[0] = t;
+            return 0;
+        }
+        int l = 0;
+        int r = ivec.size()-1;
+        while(l < r){
+            int mid = l+(r-l)/2;
+            if(ivec[mid] <= t){
+                l = mid+1;
+            }else{
+                r = mid;
+            }
+        }
+        ivec[r] = t;
+        return r;
+    }
+};

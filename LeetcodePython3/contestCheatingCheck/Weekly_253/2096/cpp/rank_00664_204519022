@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int stk[100005];
+    int ptr = 0;
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> res;
+        for (int i = 0; i < n; i++)
+        {
+            auto cur = obstacles[i];
+            if (!ptr || cur >= stk[ptr]) {
+                stk[++ptr] = cur;
+                res.emplace_back(ptr);
+            } else {
+                int l = 1, r = ptr;
+                while (l < r) {
+                    int md = l +((r-l)>>1);
+                    if (stk[md] <= cur) {
+                        l = md+1;
+                    } else {
+                        r = md;
+                    }
+                }
+                stk[r] = cur;
+                res.emplace_back(r);
+            }
+        }
+        return res;
+    }
+};

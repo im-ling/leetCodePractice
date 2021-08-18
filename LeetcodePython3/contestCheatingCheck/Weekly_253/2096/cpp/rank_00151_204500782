@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& nums) {
+        if(nums.empty())    return {};
+        
+        int n = nums.size();
+        vector<int> ans(n);
+        // 用一个数组dp[i]保存最长上升子序列长度为i+1时，末尾的那个数
+        vector<int> dp(1,0);
+        dp[0] = nums[0];
+        ans[0] = 1;
+        for(int i=1; i<nums.size(); i++){
+            int idx = upper_bound(dp.begin(), dp.end(), nums[i])-dp.begin();
+            //cout << idx << endl;
+            if(idx >= dp.size()) {
+                dp.push_back(nums[i]);
+                ans[i] = dp.size();
+            }else{
+                dp[idx] = nums[i];
+                ans[i] = idx+1;
+            }
+        }
+        return ans;
+    }
+};

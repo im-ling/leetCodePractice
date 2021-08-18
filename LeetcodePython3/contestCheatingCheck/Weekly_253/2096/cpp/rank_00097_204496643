@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int d[(int)1e5 + 10];
+    vector<int> ans;
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int len = obstacles.size();
+        d[1] = obstacles[0];
+        ans.push_back(1);
+        int maxn = 1;
+        for (int i = 1; i < len; i++) {
+            int pos = upper_bound(d + 1, d + maxn + 1, obstacles[i]) - d;
+            ans.push_back(pos);
+            d[pos] = obstacles[i];
+            maxn = max(maxn, pos);
+        }
+        return ans;
+    }
+};

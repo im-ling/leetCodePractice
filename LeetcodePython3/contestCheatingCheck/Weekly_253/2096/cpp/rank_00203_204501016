@@ -1,0 +1,46 @@
+class T {
+    public:
+        T(int n_) : n(n_) {
+            c.resize(n);
+        }
+    
+        int lowbit(int x) {
+            return x & (-x);
+        }
+    
+        void update(int x, int v) {
+            while (x < n) {
+                c[x] = max(c[x], v);
+                x += lowbit(x);
+            }
+        }
+    
+        int query(int x) {
+            int ret = 0;
+            while (x) {
+                ret = max(ret, c[x]);
+                x -= lowbit(x);
+            }
+            return ret;
+        }
+    
+        vector<int> c;
+        int n;
+};
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int ma = *max_element(obstacles.begin(), obstacles.end());
+        int n = obstacles.size();
+        vector<int> ans(n);
+        T t(ma + 5);
+        for (int i = 0; i < n; ++i) {
+            int r = t.query(obstacles[i]);
+            ans[i] = r + 1;
+            t.update(obstacles[i], ans[i]);
+        }
+        return ans;
+
+    }
+};

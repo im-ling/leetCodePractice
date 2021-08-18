@@ -1,0 +1,35 @@
+using ll = long long;
+#define deg(x) cout<< #x"=" << (x) << endl;
+#define degg(x,y) cout<< #x"="<< (x) <<","<< #y"="<< (y) <<endl;
+#define deggg(x,y,z) cout<<#x"="<<(x)<<","<<#y"="<<(y)<<","<<#z"="<<(z)<<endl;
+#define PB push_back
+#define MP make_pair
+#define ALL(X) (X).begin(), (X).end()
+#define space(x) cout<<(x)<<" "
+#define newLine cout<<endl
+
+//typedef priority_queue<int,vector<int>,greater<int> > xqueue;
+//typedef priority_queue<int> dqueue;
+
+const ll INF=9e18;
+const int inf=2147483647;
+const int mod=1e9+7;
+
+const int N=1e5+5;
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n=a.size();
+        vector<int> ans;
+        vector<int> g(n);
+        for(int i=0;i<n;i++) g[i]=inf;
+        int mx = 0;
+        for(int &x:a) {
+            int u = upper_bound(ALL(g), x) - g.begin();
+            g[u] = x;
+            ans.push_back(u + 1);
+        }
+        return ans;
+    }
+};

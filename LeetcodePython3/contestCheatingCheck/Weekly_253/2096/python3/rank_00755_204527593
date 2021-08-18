@@ -1,0 +1,26 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        res = [1] * n 
+        dp = []
+        for i in range(len(nums)):
+            num = nums[i]
+            # print(num, dp)
+            if not dp or dp[-1]<=num:
+                dp.append(num)
+                res[i] = len(dp)
+            else:
+                t = bisect_right(dp, num)
+                dp[t] = num
+                res[i] = t+1
+            # print(i, res)
+        return res
+    
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        dp = []
+        for num in nums:
+            if not dp or dp[-1]<num:
+                dp.append(num)
+            else:
+                dp[bisect_left(dp, num)] = num
+        return len(dp)

@@ -1,0 +1,27 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        def find(lists, num):
+            i, j = 0, len(lists) - 1
+            while i <= j:
+                mid = (i + j) // 2
+                if lists[mid] > num:
+                    j = mid - 1
+                else:
+                    i = mid + 1
+            return i
+                
+                
+                
+        stack = []
+        n = len(obstacles)
+        rst = [0] * n
+        for i, num in enumerate(obstacles):
+            if not stack or num >= stack[-1]:
+                stack.append(num)
+                rst[i] = len(stack)
+            else:
+                # 第一个比num大的元素的位置
+                p = find(stack, num)
+                stack[p] = num
+                rst[i] = p + 1
+        return rst

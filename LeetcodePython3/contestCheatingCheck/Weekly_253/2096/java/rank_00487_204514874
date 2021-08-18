@@ -1,0 +1,39 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        // 找出包含obstacles[i]的非严格递增子序列
+        
+        // 贪心 + 二分查找
+        // b[i]存储长度为i的非严格递增子序列末尾元素的最小值
+        // b[i]也是非严格单调递增的（可证明）
+        int n = obstacles.length;
+        int[] ans = new int[n];
+        int len = 1;
+        int[] b = new int[n+1];
+        b[len] = obstacles[0];
+        ans[0] = 1;
+        for (int i = 1; i < n; i++) {
+            int num = obstacles[i];
+            if (num >= b[len]) { // 如果当前元素大于等于最长长度的非严格递增子序列末尾元素
+                b[++len] = num;
+                ans[i] = len;
+            } else { // 二分查找
+                // b[i]非严格单调递增，找到第一个比num大的位置
+                int l = 1, r = len;
+                while (l < r) {
+                    int m = (l + r) / 2;
+                    if (num >= b[m]) {
+                        l = m + 1;
+                    } else {
+                        r = m;
+                    }
+                }
+                b[l] = num;
+                ans[i] = l;
+            }
+            
+            
+        }
+        return ans;
+        
+    }
+}

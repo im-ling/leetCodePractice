@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n = a.size();
+        vector<int> dp(n),ans(n);
+        dp[0]=a[0];
+        ans[0]=1;
+        int cnt = 1;
+        for(int i=1;i<n;++i)
+        {
+            if(a[i]>=dp[cnt-1])
+            {
+                dp[cnt++]=a[i];
+                ans[i]=cnt;
+            }
+            else
+            {
+                vector<int>::iterator it = upper_bound(dp.begin(),dp.begin()+cnt,a[i]);
+                // cout<<*it<<endl;
+                *it = a[i];
+                ans[i]=it-dp.begin()+1;
+            }
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,29 @@
+class Solution {
+    // 求以i结尾的最长递增子数列
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int[] result = new int[obstacles.length];
+        int[] tail = new int[obstacles.length];
+        tail[0] = obstacles[0];
+        result[0] = 1;
+        int end = 0;
+        for (int i = 1; i < obstacles.length; i++) {
+            if (obstacles[i] >= tail[end]) {
+                tail[++end] = obstacles[i];
+                result[i] = end + 1;
+            } else {
+                int left = 0, right = end, mid;
+                while (left < right) {
+                    mid = left + ((right - left) >> 1);
+                    if (tail[mid] <= obstacles[i]) {
+                        left = mid + 1;
+                    } else {
+                        right = mid;
+                    }
+                }
+                tail[left] = obstacles[i];
+                result[i] = left + 1;
+            }
+        }
+        return result;
+    }
+}

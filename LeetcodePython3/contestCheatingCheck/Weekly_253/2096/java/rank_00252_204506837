@@ -1,0 +1,51 @@
+class Solution {
+    
+    // O(N * LogN)
+    public int[] longestObstacleCourseAtEachPosition1F(int[] obstacles) {
+        int n = obstacles.length;
+        int[] ans = new int[n];
+        Stack<Integer> st = new Stack<>();
+        for (int i = 0; i < n; i ++) {
+            while (!st.isEmpty() && st.peek() > obstacles[i]) {
+                st.pop();
+            }
+            st.add(obstacles[i]);
+            ans[i] = st.size();
+        }
+        return ans;
+    }
+    
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] ans = new int[n];
+        
+        ans[0] = 1;
+        List<Integer> list = new ArrayList<>() {{ add(obstacles[0]); }};
+        
+        for (int i = 1; i < n; i ++) {
+            int val = obstacles[i];
+            if (list.get(list.size() - 1) <= val) {
+                list.add(val);
+                ans[i] = list.size();
+            } else {
+                int index = upperBound(list, val);
+                list.set(index, val);
+                ans[i] = index + 1;
+            }
+        }
+        return ans;
+    }    
+    
+    int upperBound(List<Integer> list, int val) {
+        int lo = 0, hi = list.size();
+        while (lo < hi) {
+            int mid = (lo + hi) / 2;
+            if (list.get(mid) <= val) {
+                lo = mid + 1;
+            } else {
+                hi = mid;
+            }
+        }
+        return lo;
+    }
+}

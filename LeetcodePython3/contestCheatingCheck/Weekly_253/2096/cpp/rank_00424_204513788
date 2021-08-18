@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int s = obstacles.size();
+        vector<int> res;
+        vector<int> minVal(s + 1, INT_MAX); //构建i长度的最小末位值为minVal
+        minVal[0] = INT_MIN;
+        
+        for (int i = 0; i < s; ++i){
+            //二分
+            int l = 0, r = i + 1;
+            while (l < r){
+                int medium = l + (r - l) / 2;
+                if (obstacles[i] < minVal[medium]) r = medium;
+                else l = medium + 1;
+            }
+            
+            res.emplace_back(l); //这是越界的， + 1长度
+            minVal[l] = min(minVal[l], obstacles[i]);
+        }
+        
+        return res;
+    }
+};

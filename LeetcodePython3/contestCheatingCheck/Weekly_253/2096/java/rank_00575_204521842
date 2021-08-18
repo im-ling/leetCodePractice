@@ -1,0 +1,40 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        BinaryIndexedTree bit = new BinaryIndexedTree(10000001);
+        int[] ans = new int[n];
+        for (int i = 0; i < n; i++) {
+            int max = bit.query(obstacles[i]);
+            ans[i] = max + 1;
+            bit.update(obstacles[i], max + 1);
+        }
+        return ans;
+    }
+    
+    class BinaryIndexedTree {
+        int[] a;
+        BinaryIndexedTree(int n) {
+            a = new int[n + 1];
+        }
+        
+        int lowbit(int x) {
+            return x & -x;
+        }
+        
+        void update(int x, int val) {
+            while (x < a.length) {
+                a[x] = Math.max(a[x], val);
+                x += lowbit(x);
+            }
+        }
+        
+        int query(int x) {
+            int ans = 0;
+            while (x > 0) {
+                ans = Math.max(a[x], ans);
+                x -= lowbit(x);
+            }
+            return ans;
+        }
+    }
+}

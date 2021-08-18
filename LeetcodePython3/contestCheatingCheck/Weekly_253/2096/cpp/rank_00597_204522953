@@ -1,0 +1,25 @@
+class Solution {
+public:
+
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        // {minv, len}
+        set<pair<int, int>> st;
+        st.insert({0x3f3f3f3f, 100005});
+        st.insert({0, 0});
+        vector<int> res;
+        for (int i: obstacles) {
+            auto v=st.lower_bound({i, 0x3f3f3f3f});
+            if (v==st.end()||v->first>i) v=prev(v);
+            int x=v->second+1;
+            res.push_back(x);
+            v=next(v);
+            while (v->second<x) {
+                auto tmp=v;
+                v=next(v);
+                st.erase(tmp);
+            }
+            st.insert({i, res[res.size()-1]});
+        }
+        return res;
+    }
+};

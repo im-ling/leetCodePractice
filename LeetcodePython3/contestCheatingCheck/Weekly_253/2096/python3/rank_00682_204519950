@@ -1,0 +1,77 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        from collections import deque
+        from functools import lru_cache
+        tmp = []
+        
+        Map = {}
+        cnt = 0
+        for o in sorted(obstacles):
+            if o not in Map:
+                Map[o]=cnt
+                cnt+=1
+        
+        n = cnt
+        st = [0 for _ in range(0, 2 ** (math.ceil(math.log2(n))) * 2)]
+
+
+        def put(i, l, r, idx, val): #idx [0,n-1]
+            if l <= idx <= r:
+                st[i]  = max(st[i],val)
+            if l == r:
+                return
+            mid = (l + r) // 2
+            if idx <= mid:
+                put(2 * i + 1, l, mid, idx, val)
+            if idx > mid:
+                put(2 * i + 2, mid + 1, r, idx, val)
+
+
+        def Max(i, l, r, sl, sr): #sl sr [0,n-1]
+            if sl <= l <= r <= sr:
+                return st[i]
+            if l == r:
+                return 0
+            mid = (l + r) // 2
+            tmp = 0
+            if sl <= mid:
+                tmp  = max(Max(2 * i + 1, l, mid, sl, sr),tmp)
+            if sr >= mid + 1:
+                tmp  = max(Max(2 * i + 2, mid + 1, r, sl, sr),tmp)
+            return tmp
+        
+        res = []
+        
+        for o in obstacles:
+            tmp = Max(0,0,n-1,0,Map[o])+1
+            res.append(tmp)
+            put(0,0,n-1,Map[o],tmp)
+            
+        return res
+                
+                
+        
+        
+        
+        
+#         res = []
+        
+#         for idx,o in enumerate(obstacles):
+#             while tmp and obstacles[tmp[-1]]>o:
+#                 tmp.pop()
+#             if tmp:
+#                 res.append(tmp[-1])
+#             else:
+#                 res.append(idx)
+#             tmp.append(idx)
+        
+#         @lru_cache(None)
+#         def recur(i):
+#             if i==0:
+#                 return 1
+#             tmp = 1
+#             if res[i]!=i:
+#                 tmp+=recur(res[i])
+#             return tmp
+            
+#         return [recur(i) for i in range(0,len(obstacles))]

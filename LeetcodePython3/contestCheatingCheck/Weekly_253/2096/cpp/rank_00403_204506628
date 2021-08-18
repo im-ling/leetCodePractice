@@ -1,0 +1,72 @@
+class Solution {
+public:
+    int a[100005],b[100005],n;
+    struct SegTree{
+        int l,r;
+        int mx;
+    };
+    SegTree tr[100005*4];
+    void pushup(int p){
+        tr[p].mx=max(tr[p<<1].mx,tr[p<<1|1].mx);
+    }
+    void build(int p,int l,int r){
+        tr[p].l=l,tr[p].r=r;
+        if(l==r){
+            tr[p].mx=0;
+            return ;
+        }
+        int mid=(l+r)>>1;
+        build(p<<1,l,mid);
+        build(p<<1|1,mid+1,r);
+        pushup(p);
+    }
+    void modify(int p,int x,int val){
+        if(tr[p].l==tr[p].r){
+            tr[p].mx=val;
+            return ;
+        }
+        int mid=(tr[p].l+tr[p].r)>>1;
+        if(x<=mid){
+            modify(p<<1,x,val);
+        }
+        else{
+            modify(p<<1|1,x,val);
+        }
+        pushup(p);
+    }
+    int query(int p,int l,int r){
+        if(l<=tr[p].l && tr[p].r<=r){
+            return tr[p].mx;
+        }
+        int res=0;
+        int mid=(tr[p].l+tr[p].r)>>1;
+        if(l<=mid){
+            res=max(res,query(p<<1,l,r));
+        }
+        if(r>mid){
+            res=max(res,query(p<<1|1,l,r));
+        }
+        return res;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        n=obstacles.size();
+        vector<int> ans;
+        for(int i=0;i<n;i++){
+            a[i+1]=obstacles[i];
+            b[i+1]=a[i+1];
+        }
+        sort(b+1,b+n+1);
+        int len=unique(b+1,b+n+1)-b-1;
+        for(int i=1;i<=n;i++){
+            a[i]=lower_bound(b+1,b+len+1,a[i])-b;
+        }
+        build(1,1,n);
+        for(int i=1;i<=n;i++){
+            int pol=query(1,1,a[i]);
+            pol++;
+            ans.push_back(pol);
+            modify(1,a[i],pol);
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,86 @@
+#define M 100010
+class Solution {
+public:
+    int dp[100010];
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& o) {
+        map<int,int>mp;mp.clear();
+        int n=o.size();
+        vector<int> oo;
+        for(int i=0;i<n;i++)oo.push_back(o[i]);
+        sort(oo.begin(),oo.end());
+        int l = unique(oo.begin(), oo.end())-oo.begin();
+        for(int i=0;i<l;i++) {
+            mp[oo[i]]=i+1;
+        }
+        
+        memset(dp,0,sizeof(dp));
+        make(1,n,1);
+        dp[0]=1;
+        updata(mp[o[0]],1,1);
+        for(int i=1;i<n;i++) {
+            ans=0;
+            query(1,mp[o[i]],1);
+            dp[i]=ans+1;
+            updata(mp[o[i]],dp[i],1);
+        }
+        vector<int> ans;
+        for(int i=0;i<n;i++) {
+            ans.push_back(dp[i]);
+        }
+        return ans;
+    }
+    
+    struct node
+    {
+        int l,r;
+        int maxi;
+    }tree[4*M];
+    int a[M],ans;
+    void make(int l,int r,int k)
+    {
+        tree[k].l=l;
+        tree[k].r=r;
+        if(l==r)
+        {
+            tree[k].maxi=a[l];
+            return;
+        }
+        int mid=(l+r)/2;
+        make(l,mid,k*2);
+        make(mid+1,r,k*2+1);
+        tree[k].maxi=max(tree[k*2].maxi,tree[k*2+1].maxi);
+    }
+    void updata(int p,int q,int k)
+    {
+        if(tree[k].l==p&&tree[k].r==p)
+        {
+            tree[k].maxi=q;
+            return ;
+        }
+        int mid=(tree[k].l+tree[k].r)/2;
+        if(p<=mid)
+            updata(p,q,k*2);
+        else
+            updata(p,q,k*2+1);
+        tree[k].maxi=max(tree[k*2].maxi,tree[k*2+1].maxi);
+    }
+    void query(int l,int r,int k)
+    {
+        if(tree[k].l==l&&tree[k].r==r)
+        {
+            ans=max(ans,tree[k].maxi);
+            return ;
+        }
+        int mid=(tree[k].l+tree[k].r)/2;
+        if(r<=mid)
+            query(l,r,k*2);
+        else if(l>mid)
+            query(l,r,k*2+1);
+        else
+        {
+            query(l,mid,k*2);
+            query(mid+1,r,k*2+1);
+        }
+    }
+
+};

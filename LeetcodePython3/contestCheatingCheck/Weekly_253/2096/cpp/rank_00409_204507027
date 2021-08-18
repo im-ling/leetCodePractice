@@ -1,0 +1,35 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        vector<int> b = ob;
+        int n = ob.size();
+        sort(b.begin(), b.end());
+        b.erase(unique(b.begin(), b.end()), b.end());
+        for(int& v : ob) v = lower_bound(b.begin(), b.end(), v) - b.begin() + 1;
+        int N = b.size() + 10;
+        vector<int> lst(N, -1);
+        auto add = [&](int x, int v){
+            while(x < N){
+                lst[x] = max(lst[x], v);
+                x += (x & (-x));
+            }
+        };
+        auto query = [&](int x){
+            int res = -1;
+            while(x){
+                res = max(res, lst[x]);
+                x &= (x - 1);
+            }
+            return res;
+        };
+        vector<int> ans(n);
+        for(int i = 0; i < n; i ++){
+            int x = ob[i];
+            int y = query(x);
+            if(y == -1) ans[i] = 1;
+            else ans[i] = y + 1;
+            add(x, ans[i]);
+        }
+        return ans;
+    }
+};

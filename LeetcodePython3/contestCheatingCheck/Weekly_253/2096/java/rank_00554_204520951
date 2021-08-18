@@ -1,0 +1,44 @@
+class Solution {
+    int[] tr;
+    private int lowerbit(int x) {
+        return x & (-x);
+    }
+
+    private void update(int idx, int cnt) {
+        for(int i = idx; i < tr.length; i = i + lowerbit(i)) {
+            tr[i] = Math.max(tr[i], cnt);
+        }
+    }
+
+    private int query(int idx) {
+        int ans = 0;
+        for(int i = idx; i != 0; i = i - lowerbit(i)) {
+            ans = Math.max(ans, tr[i]);
+        }
+
+        return ans;
+    }
+
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        Set<Integer> all = new HashSet<>();
+        for(int o: obstacles)   all.add(o);
+        List<Integer> all_list = new ArrayList<>();
+        all_list.addAll(all);
+        Collections.sort(all_list);
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i < all_list.size(); i++) {
+            map.put(all_list.get(i), i+1);
+        }
+
+        tr = new int[map.size() + 10];
+        int[] ans = new int[n];
+        for(int i = 0; i < obstacles.length; i++) {
+            int ob = obstacles[i], idx = map.get(ob);
+            int max = query(idx);
+            ans[i] = max + 1;
+            update(idx, ans[i]);
+        }
+        return ans;
+    }
+}

@@ -1,0 +1,32 @@
+class Solution:
+
+        
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        mapo = {o: i for i, o in enumerate(sorted(list(set(obstacles))))}
+        obs = [mapo[o] for o in obstacles]
+        tree = [0] * (len(obs) + 1)
+        
+        def lb(n):
+            return n & -n;
+
+        def query(n):
+            n += 1
+            ans = 0
+            while n:
+                ans = max(ans, tree[n])
+                n -= lb(n)
+            return ans
+        
+        def update(n, o):
+            n += 1
+            while n < len(tree):
+                tree[n] = max(tree[n], o)
+                n += lb(n)
+            
+        ans = []
+        for i, o in enumerate(obs):
+            ma = query(o)
+            # print(i, o, ma)
+            update(o, ma + 1)
+            ans.append(ma + 1)
+        return ans

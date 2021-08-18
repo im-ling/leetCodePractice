@@ -1,0 +1,34 @@
+class Solution {
+    int n;
+    int[] a;
+    int lowbit(int x) {
+        return x & -x;
+    }
+    void update(int pos, int val) {
+        while (pos <= n) {
+            a[pos] = Math.max(a[pos], val);
+            pos += lowbit(pos);
+        }
+    }
+    int find(int pos) {
+        int r = 0;
+        while (pos > 0) {
+            r = Math.max(r, a[pos]);
+            pos -= lowbit(pos);
+        }
+        return r;
+    }
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        n = (int)(1e7);
+        a = new int[(int)(1e7) + 1];
+        int len = obstacles.length;
+        int[] res = new int[len], vis = new int[len];
+        res[0] = 1;
+        update(obstacles[0],1);
+        for (int i = 1; i < len; i++) {
+            res[i] = 1 + find(obstacles[i]);
+            update(obstacles[i], res[i]);
+        }
+        return res;
+    }
+}

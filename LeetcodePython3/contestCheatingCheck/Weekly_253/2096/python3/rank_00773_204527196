@@ -1,0 +1,46 @@
+class SegTree:
+    def __init__(self, a, b):
+        self.L = None
+        self.R = None
+        self.a = a
+        self.b = b
+        self.max = 0
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        def find(st, x):
+            if st is None: return 0
+            elif st.b <= x: return st.max
+            
+            m = (st.a + st.b) // 2
+            if x <= m:
+                return find(st.L, x)
+            else:
+                return max(find(st.L, x), find(st.R, x))
+        def insert(st, x, ans):
+            st.max = max(st.max, ans)
+            if st.a == st.b: return
+            
+            m = (st.a + st.b) // 2
+            if x <= m:
+                if st.L is None: st.L = SegTree(st.a, m)
+                insert(st.L, x, ans)
+            else:
+                if st.R is None: st.R = SegTree(m+1, st.b)
+                insert(st.R, x, ans)
+        
+        tmp = [x for x in obstacles]
+        tmp.sort()
+        sid = {}
+        id = 1
+        for i in range(len(tmp)):
+            if i == 0 or tmp[i] != tmp[i-1]:
+                sid[tmp[i]] = id
+                id += 1
+                
+        st = SegTree(1, id + 1)
+        ans = []
+        for y in obstacles:
+            x = sid[y]
+            ans.append(find(st, x) + 1)
+            insert(st, x, ans[-1])
+        return ans

@@ -1,0 +1,41 @@
+typedef pair<int, int> PII;
+#define x first
+#define y second
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& nums) {
+        vector<int> arr, ans(nums.size());
+
+        arr.push_back(nums[0]);
+        ans[0] = 1;
+        for(int i = 1; i < nums.size(); i ++){
+            if(nums[i] >= arr.back())
+                arr.push_back(nums[i]);
+            else{
+                int le = 0, ri = arr.size() - 1, mid;
+                while(le < ri){
+                    int mid = le + ri >> 1;
+                    if(nums[i] < arr[mid]){
+                        ri = mid;
+                    }else
+                        le = mid + 1;
+                }
+                arr[ri] = nums[i];
+            }
+            
+            auto p = upper_bound(arr.begin(), arr.end(), nums[i]);
+            if(p == arr.begin())
+                ans[i] = 1;
+            else if(p == arr.end())
+                ans[i] = arr.size();
+            else
+                ans[i] = distance(arr.begin(), p);
+            
+            // for(int i : arr)
+            //     cout << i << " ";
+            // cout << endl;
+        }
+        return ans;
+    }
+};

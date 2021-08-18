@@ -1,0 +1,46 @@
+class Solution {
+public:
+    int b[100010];
+    int c[400040];
+    void amend(int rt, int l, int r, int x, int y) {
+        if (r - 1 == l) {
+            c[rt] = max(c[rt], y);
+            return ;
+        }
+        int mid = (l + r) / 2;
+        if (x < mid) {
+            amend(rt * 2, l, mid, x, y);
+        } else {
+            amend(rt * 2 + 1, mid, r, x, y);
+        }
+        c[rt] = max(c[rt * 2], c[rt * 2 + 1]);
+    }
+    int query(int rt, int l, int r, int x) {
+        if (r - 1 <= x) {
+        // cout << l << ' ' << r << ' ' << x << ' ' << c[rt] << endl;
+            return c[rt];
+        }
+        int mid = (l + r) / 2;
+        int ans = query(rt * 2, l, mid, x);
+        if (mid <= x) {
+            ans = max(ans, query(rt * 2 + 1, mid, r, x));
+        }
+        return ans;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n = a.size();
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            b[i] = a[i];
+        }
+        sort(b, b + n);
+        int m = unique(b, b + n) - b;
+        for (int i = 0; i < n; ++i) {
+            a[i] = lower_bound(b, b + m, a[i]) - b + 1;
+            int p = query(1, 1, m + 1, a[i]) + 1;
+            ans[i] = p;
+            amend(1, 1, m + 1, a[i], p);
+        }
+        return ans;
+    }
+};

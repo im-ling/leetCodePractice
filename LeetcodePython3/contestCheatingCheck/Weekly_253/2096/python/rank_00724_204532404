@@ -1,0 +1,17 @@
+class Solution(object):
+    def longestObstacleCourseAtEachPosition(self, obstacles):
+        """
+        :type obstacles: List[int]
+        :rtype: List[int]
+        """
+        arr = []
+        ret = []
+        for n in obstacles:
+            idx = bisect_right(arr, n)
+            if idx == len(arr):
+                arr.append(n)
+                ret.append(len(arr))
+            else:
+                arr[idx] = n
+                ret.append(idx+1)
+        return ret

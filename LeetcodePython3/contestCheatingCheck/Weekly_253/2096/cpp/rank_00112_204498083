@@ -1,0 +1,37 @@
+int biSearchLeft(vector<int>& nums, int target)
+{
+	int len = nums.size(), beg = 0, end = len - 1, mid;
+	while (beg <= end)
+	{
+		mid = (beg + end) / 2;
+		if (nums[mid] <= target)
+			beg = mid + 1;
+		else
+			end = mid - 1;
+	}
+
+	return end;
+}
+
+class Solution {
+public:
+vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+	int len = obstacles.size();
+	vector<int> dp, res(len, 0);
+	dp.emplace_back(obstacles[0]);
+	res[0] = 1;
+	for (int i = 1; i < len; i++) {
+		if (obstacles[i] >= dp[dp.size() - 1]) {
+			dp.emplace_back(obstacles[i]);
+			res[i] = dp.size();
+		}
+		else {
+			int temp = biSearchLeft(dp, obstacles[i]);
+			res[i] = temp + 2;
+			dp[temp + 1] = obstacles[i];
+		}
+	}
+
+	return res;
+}
+};

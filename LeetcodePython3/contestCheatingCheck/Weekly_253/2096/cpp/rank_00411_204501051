@@ -1,0 +1,158 @@
+
+// 表示区间[left,right)，在递归时将知道结点对应的left, right值，不保存在结点中以节省空间
+struct Node {
+	Node() = default;
+	Node(int _v) : v(_v), delta(0) {}
+	int v;      // 区间的某属性，比如和，最大/最小值
+	int delta;  // 非0时，表示区间各元素+delta，而后代结点还没有进行更新来反映该变化
+	void clearMark() {
+		delta = 0;
+	}
+	void addMark(int val) {
+		delta += val;  // 注意是+=，不是=
+	}
+};
+
+// 自顶而下
+struct SegmentTree {
+	vector<Node> nodes;  // 最多4n-1个结点，resize(4*n)
+	vector<int> a;       // 原始数据 a0, a1, ...
+	int sz;
+	SegmentTree(int sz) : sz(sz) {
+		a.resize(sz);
+		nodes.resize(4 * sz);
+	}
+	void build() {
+		build_node(1, 0, a.size());
+	}
+	// 单点更新，更新 a[pos] 为 val
+	void update(int pos, int val) {
+		update_node(1, 0, sz, pos, val);
+	}
+
+	// 更新区间[ul, ur)，各元素分别+val
+	void update(int ul, int ur, int val) {
+		update_node(1, 0, a.size(), ul, ur, val);
+	}
+	// 确保[nl,nr)包括了pos
+	void update_node(int i, int nl, int nr, int pos, int val) {
+		if (nl + 1 == nr) {
+			nodes[i].v = val;
+		}
+		else {
+			int mid = (nl + nr) / 2;
+			if (pos < mid) {
+				update_node(2 * i, nl, mid, pos, val);
+			}
+			else {
+				update_node(2 * i + 1, mid, nr, pos, val);
+			}
+			nodes[i].v = merge(nodes[2 * i].v, nodes[2 * i + 1].v);
+		}
+	}
+
+	// 查询区间[ql,qr)的属性
+	int query(int ql, int qr) {
+		return query_node(1, 0, sz, ql, qr);
+	}
+
+	// 合并两子区间的属性，得到父区间的属性
+	int merge(int v1, int v2) {
+		// 对于求和，直接相加
+		// return v1 + v2;
+		// 最大值
+		return max(v1, v2);
+	}
+	// 创建对应[l,r)的结点，放在nodes[i]，返回其v
+	int build_node(int i, int l, int r) {
+		int cur_v;
+		if (l + 1 == r) {  // 叶结点
+			cur_v = a[l];
+		}
+		else {
+			int mid = l + (r - l) / 2;
+			cur_v = merge(build_node(2 * i, l, mid), build_node(2 * i + 1, mid, r));
+		}
+		nodes[i] = { cur_v };
+		return cur_v;
+	}
+
+	// 如果i被标记，则将更新实施到子结点上，并清除自身标记
+	void pushdown(int i) {
+		int delta = nodes[i].delta;
+		if (delta) {
+			nodes[2 * i].v += delta;  // 对于最大值，子区间的值增加delta
+			nodes[2 * i].addMark(delta);
+			nodes[2 * i + 1].v += delta;
+			nodes[2 * i + 1].addMark(delta);
+			nodes[i].clearMark();
+		}
+	}
+
+	// node[i] [nl, nr)
+	void update_node(int i, int nl, int nr, int ul, int ur, int val) {
+		if (nr <= ul || ur <= nl) {
+			// nodes[i]和待更新区间不相交
+			return;
+		}
+		else if (nl >= ul && nr <= ur) {
+			// nodes[i]被待更新区间包围
+			nodes[i].v += val;  // 最大值+val
+			nodes[i].addMark(val);
+			return;
+		}
+		else {
+			int mid = (nl + nr) / 2;
+			pushdown(i);
+			update_node(2 * i, nl, mid, ul, ur, val);
+			update_node(2 * i + 1, mid, nr, ul, ur, val);
+			nodes[i].v = merge(nodes[2 * i].v, nodes[2 * i + 1].v);
+		}
+	}
+
+	// nodes[i]与查询范围重合的区间属性
+	int query_node(int i, int nl, int nr, int ql, int qr) {
+		if (nr <= ql || qr <= nl) {
+			// nodes[i]和查询范围不相交，对结果没有贡献，这里以求和为例，所以返回0
+			return 0;
+			// 求最大值，返回一个极小值
+			// return -inf;
+		}
+		else if (nl >= ql && nr <= qr) {
+			// nodes[i]被查询范围包围，
+			return nodes[i].v;
+		}
+		else {
+			// 如果i是叶结点，那它要么不相交，要么被包含，不会到pushdown()这一步
+			pushdown(i);
+			int mid = (nl + nr) / 2;
+			return merge(query_node(2 * i, nl, mid, ql, qr), query_node(2 * i + 1, mid, nr, ql, qr));
+		}
+	}
+};
+// 最长上升子序列 线段树
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        map<int, int> v2i; // 值到编号的映射
+        for(int x : obstacles) v2i[x] = 1;
+        int idx = 0;
+        for(auto& pr : v2i) {
+            pr.second = idx++;
+        }
+        vector<int> ans(n);
+        ans[0] = 1;
+        // a[x] 由 x 结尾的最大长度
+        auto st = new SegmentTree(n);
+
+        st->update(v2i[obstacles[0]], 1);
+        for(int i = 1; i < n; i++) {
+            int label = v2i[obstacles[i]];
+            ans[i] = 1 + st->query(0, label+1);
+            st->update(label, ans[i]);
+        }
+
+        return ans;
+    }
+};

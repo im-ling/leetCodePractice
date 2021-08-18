@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& nums) {
+        //找到每个下标前面的最长递增子序列
+        int n = nums.size();
+        vector<int> ans(n, 0); //记录每个值的最长递增子序列
+        vector<int> res(n, 0);
+        int maxl = 0;
+        for(int i = 0; i < nums.size(); i++){
+            int num = nums[i];
+            int l = 0, r = maxl;
+            while(l < r){
+                int mid = (l + r) / 2;
+                if(ans[mid] <= num){
+                    l = mid + 1;
+                }else
+                    r = mid;
+            }
+            ans[l] = num;
+            res[i] = l + 1;
+            if(l == maxl) ++maxl;
+        }
+        return res;
+    }
+};

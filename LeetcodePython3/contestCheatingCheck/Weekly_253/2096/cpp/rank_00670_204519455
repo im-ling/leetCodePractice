@@ -1,0 +1,50 @@
+class Solution {
+public:
+    /*
+   void fun1(){
+        int n = obstacles.size();
+        vector<int> dp(n,0);
+        for(int i = 0;i<n;i++){
+            dp[i] = 1;
+            for(int j = 0;j<i;j++){
+                if(obstacles[i] >= obstacles[j]){
+                    dp[i] = max(dp[i],dp[j]+1);
+                }
+            }
+        }
+        return dp;
+
+   
+   }
+    */
+    
+    int binary_serach(vector<int> &v, int val){
+        int l = 0;
+        int r = v.size()-1;
+        while(l<=r){
+            int mid = l + (r-l)/2;
+            if(val< v[mid]){
+                r = mid-1;
+            }else{
+                l = mid+1;
+            }
+        }
+        return l;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> v;
+        vector<int> ans;
+        for(int i = 0;i<n;i++){
+            int idx = binary_serach(v,obstacles[i]);
+            if(idx == v.size()){
+                v.push_back(obstacles[i]);
+            }else{
+                v[idx] = obstacles[i];
+            }
+            ans.push_back(idx+1);
+        }
+        return ans;
+    }
+};

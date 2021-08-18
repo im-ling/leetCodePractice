@@ -1,0 +1,39 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        n = len(obstacles)
+        obs = []
+        
+        #for i in range(n):
+        #  bisect.insort_right(obs,[obstacles[i],i])
+        lenDict = {1:obstacles[0]}
+        lenList = [1]
+        m = 1
+        ans = [1 for _ in range(n)]
+        for i in range(1,n):
+            '''
+            for j in range(i-1,-1,-1):
+                if obstacles[i]>=obstacles[j]:
+                    ans[i] = max(ans[i],ans[j]+1)
+                    if ans[j]==j+1:
+                        break
+            '''
+            ob = obstacles[i]
+            add = False
+            for j in range(m):
+                l = lenList[j]
+                if ob>=lenDict[l]:
+                    ans[i] = l+1
+                    if j==0:
+                        add = True
+                        m += 1
+                        lenDict[l+1] = ob
+                    else:
+                        lenDict[l+1] = min(ob,lenDict[l+1])
+                    break
+                elif j==m-1:
+                    lenDict[1] = min(ob,lenDict[1])
+            if add:
+                lenList.insert(0,m)
+            
+        return ans
+        

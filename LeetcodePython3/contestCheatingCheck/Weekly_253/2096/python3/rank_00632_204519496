@@ -1,0 +1,28 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        stack = [obstacles[0]]
+        high = [1]
+        ans = [1]
+        
+        for i in range(1, len(obstacles)):
+            
+            idx = bisect.bisect_right(stack, obstacles[i])
+            # print("b", idx, stack, high)
+            removed = 0
+            if idx == len(stack):
+                stack.append(obstacles[i])
+                new_high = high[-1] + 1
+                high.append(new_high)
+                ans.append(new_high)
+            else:
+                if idx == 0: new_high = 1
+                else: new_high = high[idx - 1] + 1
+                while idx + removed < len(high) and high[idx + removed] <= new_high:
+                    removed += 1
+                stack = stack[:idx] + [obstacles[i]] + stack[idx + removed:]
+                high = high[:idx] + [new_high] + high[idx + removed:]
+                ans.append(new_high)
+            
+            # print("a", idx, stack, high)
+        
+        return ans

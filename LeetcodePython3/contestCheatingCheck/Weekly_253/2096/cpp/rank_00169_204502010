@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<int> gao(vector<int>& a){
+        int n = a.size();
+        vector<int> dp;
+        vector<int> ans(n);
+        dp.push_back(a[0]);
+        ans[0] = 1;
+        for(int i = 1; i < n; i++) {
+            if(a[i] >= dp[dp.size() - 1]){
+                dp.push_back(a[i]);
+                ans[i] = dp.size();
+                continue;
+            }
+            int t = upper_bound(dp.begin(),dp.end(),a[i]) - dp.begin();
+            if(t >= 0 && t < dp.size()) {
+                dp[t] = a[i];
+                ans[i] = t + 1;
+            } else {
+                ans[i] = dp.size();
+            }
+        }
+        return ans;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        return gao(obstacles);
+    }
+};

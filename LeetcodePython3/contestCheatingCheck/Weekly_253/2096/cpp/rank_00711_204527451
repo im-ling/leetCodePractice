@@ -1,0 +1,42 @@
+const int N = 1e7 + 10;
+int a[N], f[N];
+int cnt;
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        memset(a, 0, sizeof(a));
+        memset(f, 0, sizeof(f));
+        cnt = 0;
+        int n = obs.size();
+        for(int i = 1; i <= n; i ++) a[i] = obs[i - 1];
+        f[++cnt] = a[1];
+        vector<int> ans;
+        ans.push_back(1);
+        for(int i = 2; i <= n; i ++)  {
+            int d = 0;
+            if(a[i] >= f[cnt]) {
+                f[ ++ cnt] = a[i];
+                d = cnt;
+            }
+            else {
+                int tmp = find(a[i]);
+                f[tmp] = a[i]; 
+                d = tmp;
+            }     
+            ans.push_back(d);
+        }
+        return ans;
+    }
+private:
+    inline int find(int x) {
+    int l = 1, r = cnt; 
+    while(l < r) {
+        int mid = l + r >> 1;
+        if(f[mid] > x) r = mid;
+        else l = mid + 1;
+    }
+
+    return l;
+    }
+};

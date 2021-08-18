@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> nonDecreaseSeq;
+    vector<int> ans;
+
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        for (auto item : obstacles) {
+            auto iter = upper_bound(nonDecreaseSeq.begin(), nonDecreaseSeq.end(), item);
+            if (iter == nonDecreaseSeq.end()) {
+                ans.push_back(nonDecreaseSeq.size() + 1);
+                nonDecreaseSeq.push_back(item);
+            }
+            else {
+                ans.push_back(iter - nonDecreaseSeq.begin() + 1);
+                //替换同位置元素，保证NDS正确性
+                *iter = item;
+            }
+        }
+        return ans;
+    }
+};

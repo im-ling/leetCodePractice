@@ -1,0 +1,156 @@
+using ll = long long;
+using ull = unsigned long long;
+using db = double; using str = string;
+using pi = pair<int,int>;
+using vi = vector<int>; using vs = vector<str>;
+using vl = vector<ll>; using vd = vector<double>;
+using vvi = vector<vector<int>>;
+using vvs = vector<vector<string>>;
+using vvl = vector<vector<ll>>;
+using vvd = vector<vector<double>>;
+using pqi = priority_queue<int>;
+using rpqi = priority_queue<int, vi, greater<int>>;
+using umi = unordered_map<int, int>;
+using usi = unordered_set<int>;
+
+#define PB push_back
+#define PF push_front
+#define PK pop_back()
+#define PT pop_front()
+#define EB emplace_back
+#define LB lower_bound
+#define UB upper_bound
+#define UM unordered_map
+#define US unordered_set
+#define PQ priority_queue
+#define VT vector
+#define se second
+#define fi first
+#define rt return
+#define ln "\n"
+#define ctu continue
+#define F1(e) for(int i=0;i<(e);++i)
+#define F2(i,e) for(int i=0;i<(e);++i)
+#define F3(i,b,e) for(int i=(b);i<(e);++i)
+#define F4(i,b,e,s) for(int i=(b); (s)>0?i<(e):i>(e); i+=(s))
+#define Sum(a) accumulate((a).begin(), (a).end() , 0ll);
+#define Min(a) *std::min_element((a).begin(), (a).end())
+#define Max(a) *std::max_element((a).begin(), (a).end())
+#define Sort(c) sort((c).begin(), (c).end())
+#define IOS ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
+#define each(x,a) for(auto& x : a)
+#define all(c) (c).begin(), (c).end()
+#define rall(a) rbegin(a),rend(a)
+#define mst(a,x) memset(a, x, sizeof(a))
+#define to_unique(a) a.erase(unique(begin(a), end(a)), end(a))
+#define bct(x) (__builtin_popcountll(x))
+#define in(x, a) a.find((x)) != a.end()
+#define sz(x) ((int)(x).size())
+#define sort_unique(c) (sort(c.begin(),c.end()), c.resize(distance(c.begin(),unique(c.begin(),c.end()))))
+#define isok(x, y) (x >= 0 && x < n && y >= 0 && y < m && !vis[x][y])
+
+const ll mod = 1e9 + 7;
+const double PI=acos(-1.0);
+const int fx[4] = {1, 0, -1, 0}, fy[4] = {0, 1, 0, -1};
+const int dx[8]={-1, -1, 0, 1, 1, 1, 0, -1}, dy[8]={0, 1, 1, 1, 0, -1, -1, -1};
+
+ll MOD(ll a, ll m) {
+    a %= m;
+    return a >= 0 ? a : a + m;
+}
+
+ll inverse(ll a, ll m) {
+    a = MOD(a, m);
+    if (a <= 1) return a;
+    return MOD((1 - inverse(m, a) * m) / a, m);
+}
+
+ll gcd(ll a, ll b) {
+    a = abs(a), b = abs(b);
+    while (b != 0) {
+        a %= b;
+        swap (a, b);
+    }
+    return a;
+}
+//扩展欧几里得，求x,y 使得 ax+by=gcd(a,b)
+int exgcd(ll a, ll b, ll &x, ll &y) {
+    if (!b){
+        x = 1; y = 0;
+        return a;
+    }
+    int d = exgcd(b, a % b, y, x);
+    y -= (a/b) * x;
+    return d;
+}
+
+ll fast (ll a, ll b, ll mod) {
+    a %= mod;
+    if (b < 0)a = inverse (a, mod), b = -b;
+    ll ans = 1;
+    while (b) {
+        if (b & 1)ans = ans * a % mod;
+        a = a * a % mod;
+        b /= 2;
+    }
+    return ans % mod;
+}
+
+const ll maxn = 50;
+ll fac[maxn], facinv[maxn], inv[maxn];
+void init() {
+    fac[0] = 1;
+    for (int i = 1; i < maxn; ++i)
+        fac[i] = i * (fac[i - 1]) % mod;
+    facinv[maxn - 1] = inverse(fac[maxn - 1], mod);
+    for (int i = maxn - 2; i >= 0; --i){
+        facinv[i] = facinv[i + 1] * (i + 1) % mod;
+    }
+    inv[1] = 1;
+    for (int i = 2; i < maxn; i++)
+        inv[i] = (mod - (ll) mod / i * inv[mod % i] % mod);
+}
+//求组合数 c[n,m]，调用之前需要先调用init().
+ll comb(int n, int m) {
+    if (n < 0 || m < 0 || n < m)return 0;
+    return fac[n] * facinv[m] % mod * facinv[n - m] % mod;
+}
+
+template<class A> void wte(A x) {cout << x;}
+template<class H, class... T> void wte(const H& h, const T&... t) {
+    wte(h); cout<<' '; wte(t...);
+}
+template<class A> void wte(VT<A>& x) {
+    bool f=1;
+    each(a, x){
+        if(f==1) {
+            wte(a); f=0;
+        } else wte(' '),wte(a);
+    }
+}
+
+int cmp(int a,int b){
+    rt b>=a;
+}
+void lis(vector<int>& nums, vector<int>& dp) {
+    int n = nums.size();
+    vector<int> res;
+    for (int i = 0; i < n; ++i) {
+        auto it = lower_bound(res.begin(), res.end(), nums[i],cmp);
+        dp[i] = it - res.begin();
+        if (it == res.end()) res.push_back(nums[i]);
+        else *it = nums[i];
+    }
+    F1(n) dp[i]++;
+}
+
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n=sz(a);
+        vi ans(n);
+        lis(a,ans);
+        rt ans;
+    }
+};

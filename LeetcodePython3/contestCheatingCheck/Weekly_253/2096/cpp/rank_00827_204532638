@@ -1,0 +1,52 @@
+class Solution {
+public:
+    int lowbit(int x)
+    {
+        return x & (-x);
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        set<int> st;
+        for (int ob : obs) {
+            st.insert(ob);
+        }
+
+        unordered_map<int, int> mp;
+        int index = 0;
+        for (int ob : st) {
+            mp[ob] = ++index;
+        }
+
+        int n = obs.size(), maxVal = index;
+        for (int i = 0; i < n; ++i) {
+            obs[i] = mp[obs[i]];
+        }
+
+        vector<int> maxV(maxVal * 2);
+        
+        auto query = [&](int x) {
+            int res = 0;
+            while (x > 0) {
+                res = max(res, maxV[x]);
+                x -= lowbit(x);
+            }
+            return res;
+        };
+        
+        auto update = [&](int x, int val) {
+            while (x <= maxVal) {
+                maxV[x] = max(maxV[x], val);
+                x += lowbit(x);
+            }
+        };
+        
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            int val = query(obs[i]) + 1;
+            ans[i] = val;
+            update(obs[i], val);
+        }
+ 
+        return ans;
+    }
+};

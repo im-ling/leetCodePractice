@@ -1,0 +1,68 @@
+int dp[100010];
+int tree[400020];
+map<int,int>mp;
+int cnt;
+void init(int pos,int l,int r)
+{
+    tree[pos] = 0;
+    if(l==r)
+        return;
+    int mid = l+r>>1;
+    init(pos<<1,l,mid);
+    init(pos<<1|1,mid+1,r);
+    
+}
+void update(int pos,int l,int r,int d,int x)
+{
+    if(l==r)
+    {
+        tree[pos] = max(tree[pos],x);
+        return;
+    }
+    int mid = (l+r)>>1;
+    if(d<=mid)
+        update(pos<<1,l,mid,d,x);
+    else update(pos<<1|1,mid+1,r,d,x);
+    tree[pos] = max(tree[pos],max(tree[pos<<1],tree[pos<<1|1]));
+}
+int get(int pos,int l,int r,int L,int R)
+{
+    //cout<<pos<<" "<<l<<" "<<r<<" "<<L<<" "<<R<<endl;
+    int mx = 0;
+    if(L<=l && r<=R)
+        return tree[pos];
+    int mid = (l+r)>>1;
+    if(L<=mid)
+        mx = max(mx,get(pos<<1,l,mid,L,R));
+    if(mid<R)
+        mx = max(mx,get(pos<<1|1,mid+1,r,L,R));
+    return mx;
+        
+}
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        cnt = 0;
+        mp.clear();
+        vector<int> c;
+        for(auto i:obstacles)
+            c.push_back(i);
+        sort(c.begin(),c.end());
+        for(auto i:c)
+        {
+            if(mp[i]==0)
+                mp[i]=++cnt;
+        }
+        init(1,1,cnt);
+        vector<int>ans;
+        for(auto &i:obstacles)
+        {
+            i = mp[i];
+            int d = get(1,1,cnt,1,i);
+            //cout<<i<<" "<<d<<endl;
+            ans.push_back(d+1);
+            update(1,1,cnt,i,d+1);
+        }
+        return ans;
+    }
+};

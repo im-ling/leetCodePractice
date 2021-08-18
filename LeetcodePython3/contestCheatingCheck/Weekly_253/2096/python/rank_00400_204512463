@@ -1,0 +1,21 @@
+from bisect import bisect_right
+class Solution(object):
+    def longestObstacleCourseAtEachPosition(self, obstacles):
+        """
+        :type obstacles: List[int]
+        :rtype: List[int]
+        """
+        ans = []
+        data = []
+        for num in obstacles:
+            if len(data) == 0 or num > data[-1]:
+                data.append(num)
+                ans.append(len(data))
+            else:
+                pos = bisect_right(data, num)
+                if pos < len(data):
+                    data[pos] = num
+                else:
+                    data.append(num)
+                ans.append(pos + 1)
+        return ans

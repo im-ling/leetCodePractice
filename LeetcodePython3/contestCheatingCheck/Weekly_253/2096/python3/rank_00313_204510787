@@ -1,0 +1,43 @@
+from typing import List
+from functools import lru_cache
+import sys
+sys.setrecursionlimit(999999)
+
+
+def get_lis_arr(arr):
+    n = len(arr)
+
+    # x[len]表示当前已经找到的长度是len的严格上升子序列的最小结尾数值
+    x = [0x7fffffff] * (n+1)
+
+    # dp[i]表示以i位置结尾的最长严格上升子序列的长度
+    dp = [1] * (n)
+
+
+
+    cur_len = 1     # 当前已经找到的最长上升子序列最长长度
+    ans = 1
+    x[1] = arr[0]
+
+    for i in range(1, n):
+        l, r = 1, cur_len
+        while l <= r:
+            mid = (l + r) // 2
+            if x[mid] <= arr[i]:
+                dp[i] = mid + 1
+                l = mid + 1
+            else:
+                r = mid - 1
+
+        x[dp[i]] = min(x[dp[i]], arr[i])
+        if dp[i] == cur_len+1:
+            cur_len += 1
+
+    ans = max(ans, dp[i])
+    return dp
+
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        dp1 = get_lis_arr(obstacles)
+        return dp1

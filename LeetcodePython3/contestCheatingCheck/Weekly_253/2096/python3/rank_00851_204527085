@@ -1,0 +1,22 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        from collections import defaultdict
+        cxt = defaultdict(int)
+        maxs = [-1, 0]
+        res = [0]*len(obstacles)
+        res[0] = 1
+        cxt[1] = obstacles[0]
+        cxt[0] = 0
+        for i in range(1, len(obstacles)):
+            for j in maxs:
+                if obstacles[i]>=cxt[-j]:
+                    res[i] = -j+1
+                    if cxt[-j+1]==0:
+                        cxt[-j+1] = obstacles[i]
+                    else:
+                        cxt[-j+1] = min(cxt[-j+1], obstacles[i])
+                    idx = bisect.bisect_left(maxs, j-1)
+                    if idx < len(maxs) and maxs[idx]!=j-1:
+                        bisect.insort_left(maxs, j-1)
+                    break
+        return res

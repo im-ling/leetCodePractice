@@ -1,0 +1,39 @@
+/**
+ * @param {number[]} obstacles
+ * @return {number[]}
+ */
+var longestObstacleCourseAtEachPosition = function(obstacles) {
+    let stack = [], res = [];
+    for(let o of obstacles) {
+        if(stack.length === 0) {
+            stack.push(o);
+            res.push(stack.length);
+        } else if(o >= stack[stack.length - 1]) {
+            stack.push(o);
+            res.push(stack.length);
+        } else {
+            let pos = bs(stack, o);
+            res.push(pos + 1);
+            stack[pos] = o;
+        }
+       
+    }
+    return res;
+};
+
+var bs = (arr, target) => {
+    // console.log(arr, target)
+    let left = 0, right = arr.length;
+    while(left < right) {
+        let mid = Math.floor((left + right)/2);
+        if(arr[mid] < target) {
+            left = mid + 1;
+        } else if(arr[mid] > target) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    // console.log(left)
+    return left
+}

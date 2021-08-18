@@ -1,0 +1,23 @@
+/**
+ * @param {number[]} obstacles
+ * @return {number[]}
+ */
+var longestObstacleCourseAtEachPosition = function(obstacles) {
+    let n = obstacles.length;
+    let dp = [0], ans = Array(n).fill(1);
+    for (let i=0; i<n; ++i){
+        if (obstacles[i] >= dp[dp.length-1]){
+            ans[i] = dp.length;
+            dp.push(obstacles[i]);
+        }
+        else{
+            let pos = dp.length-1;
+            while (dp[pos-1] > obstacles[i]){
+                pos--;
+            }
+            ans[i] = pos;
+            dp[pos] = Math.min(dp[pos], obstacles[i]);
+        }
+    }
+    return ans;
+};

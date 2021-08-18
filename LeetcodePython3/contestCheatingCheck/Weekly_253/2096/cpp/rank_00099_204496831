@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int m;
+    vector<int> mx;
+    int lowbit(int x) {
+        return x & (-x);
+    }
+    
+    void insert(int x, int v) {
+        for (int i = x; i <= m; i += lowbit(i)) {
+            mx[i] = max(mx[i], v);
+        } 
+    }
+    
+    int getmax(int x) {
+        int ret = 0;
+        for (int i = x; i; i -= lowbit(i)) {
+            ret = max(ret, mx[i]);
+        }
+        return ret;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> number(obstacles);
+        sort(number.begin(), number.end());
+        number.erase(unique(number.begin(), number.end()), number.end());
+        map<int, int> mp;
+        m = number.size();
+        mx.resize(m + 1);
+        for (int i = 0; i < number.size(); ++i) mp[number[i]] = i + 1;
+        int n = obstacles.size();
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            ans[i] = getmax(mp[obstacles[i]]) + 1;
+            insert(mp[obstacles[i]], ans[i]);
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,26 @@
+typedef pair<int, int> PII;
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& h) {
+        int n = h.size();
+        vector<int> ans;
+        vector<int> q(n + 1, 0x3f3f3f3f);
+        
+        int len = 0;
+        for (int i = 0; i < n; i++)
+        {
+            int l = 0, r = len;
+            while (l < r)
+            {
+                int mid = l + r + 1 >> 1;
+                if (q[mid] <= h[i]) l = mid;
+                else r = mid - 1;
+            }
+            len = max(len, l +  1);
+            q[l + 1] = h[i];
+            ans.push_back(l + 1);
+        }
+        
+        return ans;
+    }
+};

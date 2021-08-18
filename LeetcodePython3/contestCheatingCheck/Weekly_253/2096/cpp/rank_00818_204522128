@@ -1,0 +1,23 @@
+// 动态规划来维护
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> res(obstacles.size(), 1);
+        map<int, int, greater<> > mapMaxRes;
+        mapMaxRes[1] = obstacles[0];
+        for (int i = 1; i < obstacles.size(); i++) {
+            for (auto it = mapMaxRes.begin();it!=mapMaxRes.end();it++) {
+                if (it->second <= obstacles[i]) {
+                    res[i] = it->first + 1;
+                    break;
+                }
+            }
+            if (mapMaxRes.count(res[i])) {
+                mapMaxRes[res[i]] = min(obstacles[i], mapMaxRes[res[i]]);
+            } else {
+                mapMaxRes[res[i]] = obstacles[i];
+            }
+        }
+        return  res;
+    }
+};

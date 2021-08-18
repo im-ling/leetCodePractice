@@ -1,0 +1,27 @@
+const int N=1e5+10;
+class Solution {
+public:
+    int dp[N]={0},cnt;
+    int find(int x){
+        int l=0,h=cnt-1;
+        while(l<=h){
+            int m=l+h>>1;
+            if(dp[m]>x) h=m-1;
+            else l=m+1;
+        }
+        return l;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& os) {
+        vector<int> ans(os.size());
+        ans[0]=1;
+        dp[cnt++]=os[0];
+        for(int i=1;i<os.size();i++){
+            if(os[i]>=dp[cnt-1]) dp[cnt++]=os[i],ans[i]=cnt;
+            else{
+                int pos=find(os[i]);
+                dp[pos]=os[i],ans[i]=pos+1;
+            }
+        }
+        return ans;
+    }
+};

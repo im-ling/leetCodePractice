@@ -1,0 +1,17 @@
+function longestObstacleCourseAtEachPosition(obstacles: number[]): number[] {
+    const lengths = [obstacles[0]]
+    const result = [1]
+    for (let i = 1; i < obstacles.length; i++) {
+        const obstacle = obstacles[i]
+        let max = 1
+        for (let j = lengths.length - 1; j >= 0; j--) {
+            if (lengths[j] <= obstacle) {
+                max = Math.max(max, j + 1 + 1)
+                break
+            }
+        }
+        lengths[max - 1] = Math.min(obstacle, lengths[max - 1] || obstacle)
+        result.push(max)
+    }
+    return result
+};

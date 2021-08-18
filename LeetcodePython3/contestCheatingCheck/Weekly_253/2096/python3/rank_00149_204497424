@@ -1,0 +1,23 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        listt = [[-1, 0]]
+        to_ret = []
+        
+        for i, t in enumerate(obstacles) :
+            pt = bisect.bisect(listt, [t+.1, -1]) - 1
+            vt = listt[pt][1]+1
+            to_ret.append(vt)
+            # print(listt, pt)
+            if listt[pt][0] == t :
+                listt[pt][1] = vt
+            else :
+                pt = pt+1
+                listt.insert(pt, [t, vt])
+                
+            # print(listt, pt)
+            while pt+1 < len(listt) and listt[pt+1][1] <= listt[pt][1] :
+                listt.pop(pt+1)
+            # print(listt)
+        return to_ret
+            
+        

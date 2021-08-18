@@ -1,0 +1,52 @@
+#define inf 0x3f3f3f3f
+#define Inf 0x3FFFFFFFFFFFFFFFLL
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define Rep(i, n) for (int i = 1; i <= (n); ++i)
+#define clr(x, a) memset(x, (a), sizeof x)
+int const N = 100100;
+typedef long long ll;
+
+struct FenwickTree {
+  ll a[N];
+  inline void init() { clr(a, 0); }
+  inline int lowbit(int x) { return x & -x; }
+  void update(ll p, ll c) {
+    while (p < N) {
+      a[p] = max(a[p], c);
+      p += lowbit(p);
+    }
+  }
+  ll query(ll p) {
+    ll ret = 0;
+    while (p > 0) {
+      ret = max(ret, a[p]);
+      p -= lowbit(p);
+    }
+    return ret;
+  }
+} bit;
+map<int, int> mp; int idx;
+int getIdx(int x) {
+    if (mp.count(x)) return mp[x];
+    return mp[x] = ++idx;
+}
+int arr[N], st[N];
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        mp.clear(); idx = 0;
+        int n = obstacles.size();
+        rep(i, n) arr[i] = st[i] = obstacles[i];
+        sort(st, st + n);
+        rep(i, n) getIdx(st[i]);
+        rep(i, n) arr[i] = mp[arr[i]];
+        bit.init();
+        vector<int> ans;
+        rep(i, n) {
+            int t = bit.query(arr[i]);
+            bit.update(arr[i], t + 1);
+            ans.push_back(t + 1);
+        }
+        return ans;
+    }
+};

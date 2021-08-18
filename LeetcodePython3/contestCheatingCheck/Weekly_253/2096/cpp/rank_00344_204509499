@@ -1,0 +1,43 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        map<int,int> mHeighNum;
+        int N=obstacles.size();
+        vector<int> vAns;
+        for(auto h:obstacles){
+            auto it = mHeighNum.upper_bound(h);
+            int num=1;
+            if(it==mHeighNum.end()){
+                if(mHeighNum.empty()){
+                    mHeighNum[h] = 1;
+                }else{
+                    it--;
+                    num=it->second+1;
+                    mHeighNum[h] = it->second+1;
+                    
+                }
+            }else{
+                if(it==mHeighNum.begin()){
+                    mHeighNum[h] = 1;
+                }else{
+                    it--;
+                    num=it->second+1;
+                    mHeighNum[h] = it->second+1;                    
+                }
+            }
+            it = mHeighNum.upper_bound(h);
+            for(;it!=mHeighNum.end();){
+                if(it->second<num){
+                    it = mHeighNum.erase(it);
+                }else{
+                    break;
+                }
+            }
+            vAns.push_back(num);
+        }
+        
+        
+        
+        return vAns;
+    }
+};

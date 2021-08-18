@@ -1,0 +1,33 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<priority_queue<int,vector<int>,greater<int>>> v;
+        vector<int> ans;
+        priority_queue<int,vector<int>,greater<int>> q;
+        v.push_back(q);
+        v.push_back(q);
+        int mx=1;
+        int d;
+        for(int i=0;i<obstacles.size();i++){
+            for(int j=mx;j>=0;j--){
+                d=j;
+                if(v[j].empty()){
+                    v[1].push(obstacles[i]);
+                    ans.push_back(1);
+                    break;
+                }else{
+                    if(v[j].top()<=obstacles[i]){
+                        if(j==mx){
+                            mx++;
+                            v.push_back(q);
+                        }
+                        v[d+1].push(obstacles[i]);
+                        ans.push_back(d+1);
+                        break;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};

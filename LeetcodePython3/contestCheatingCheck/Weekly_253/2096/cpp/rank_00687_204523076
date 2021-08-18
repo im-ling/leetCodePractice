@@ -1,0 +1,37 @@
+#define vt vector
+#define pb push_back
+#define iipair pair<int, int>
+#define cipair pair<char, int>
+#define icpair pair<int, char>
+#define ispair pair<int, string>
+#define sipair pair<string, int>
+#define MOD 1e9+7
+#define iMat vector<vector<int>>
+#define cMat vector<vector<char>>
+#define ll long long
+#define mp make_pair
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        vector<int> lis;
+        vector<int> dp(ob.size());
+        vt<int> res;
+        for(int i = 0; i<ob.size(); ++i){
+            int idx = lis.size();
+            if(lis.size()==0){
+                lis.pb(ob[i]);
+            }
+            else{
+                idx = (int)(upper_bound(lis.begin(), lis.end(), ob[i])-lis.begin());
+                if(idx==lis.size()){
+                    lis.pb(ob[i]);
+                }
+                else{
+                    lis[idx] = ob[i];
+                }
+            }
+            res.pb(idx+1);
+        }
+        return res;
+    }
+};

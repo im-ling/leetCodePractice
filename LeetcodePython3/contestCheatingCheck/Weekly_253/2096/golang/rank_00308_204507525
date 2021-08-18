@@ -1,0 +1,15 @@
+func longestObstacleCourseAtEachPosition(obstacles []int) []int {
+	n := len(obstacles)
+	var queue []int
+	res := make([]int, n)
+	for i, o := range obstacles {
+		index := sort.SearchInts(queue, o+1)
+		res[i] = index + 1
+		if len(queue) == 0 || index == len(queue) {
+			queue = append(queue, o)
+		} else {
+			queue[index] = o
+		}
+	}
+	return res
+}

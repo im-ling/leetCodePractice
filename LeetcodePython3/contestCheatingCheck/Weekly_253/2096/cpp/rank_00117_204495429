@@ -1,0 +1,36 @@
+int f[120000];
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        memset(f, 0, sizeof(f));
+        int N = obstacles.size();
+        int Length = 0;
+        
+        vector<int> Ans;
+        for (int i = 0; i < N; ++i) {
+            int L = 0, R = Length, x = 0;
+            
+            while (L <= R) {
+                int M = (L+R) >> 1;
+                if (obstacles[i] >= f[M]) {
+                    L = M+1;
+                    x = M;
+                }
+                else
+                    R = M-1;
+            }
+            
+            Ans.push_back(x+1);
+            
+            if (x == Length) {
+                Length += 1;
+                f[Length] = obstacles[i];
+            }
+            else
+                f[Ans[i]] = min(f[Ans[i]], obstacles[i]);
+        }
+        
+        return Ans;
+    }
+};

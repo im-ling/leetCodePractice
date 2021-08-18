@@ -1,0 +1,28 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        #longest monotonicaly increasing subsequence
+        h = [obstacles[0]]
+        res = [1]
+        
+        def find_idx_larger_than_target(h, n):
+            left = 0
+            right = len(h)-1
+            while left <= right:
+                mid = (left+right)//2
+                if h[mid] <= n:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+            return left
+                    
+            
+        for n in obstacles[1:]:
+            if n >= h[-1]:
+                h.append(n)
+                res.append(len(h))
+            else:
+                index = find_idx_larger_than_target(h, n)
+                h[index] = n
+                res.append(index+1)
+        return res
+            

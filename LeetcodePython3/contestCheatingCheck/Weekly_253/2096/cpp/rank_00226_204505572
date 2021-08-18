@@ -1,0 +1,31 @@
+class Solution {
+public:
+    //int vis[10000005];
+    const int INF=2147483647,N=1e5+5;
+    int n,F[100005],L[100005],a[100005];
+    int binary(int l,int r,int x){
+        int mid;
+        l=0;r=n;
+        while(l<r){
+            mid=(l+r)>>1;
+            if(L[mid+1]>x)r=mid;
+            else l=mid+1;
+        }
+        return l;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        for(int i=0;i<obstacles.size();i++){
+            a[i+1]=obstacles[i];
+        n=obstacles.size();
+        }for(int i=1;i<=n;i++)L[i]=INF;L[0]=-INF-1;
+        for(int i=1;i<=n;i++){
+            F[i]=binary(1,n,a[i])+1;
+            if(a[i]<L[F[i]])L[F[i]]=a[i];
+        }
+        vector<int>ans;
+        for(int i=1;i<=n;i++){
+            ans.emplace_back(F[i]);
+        }
+        return ans;
+    }
+};

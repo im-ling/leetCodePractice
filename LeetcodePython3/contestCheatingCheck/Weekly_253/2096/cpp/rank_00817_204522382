@@ -1,0 +1,39 @@
+class Solution {
+public:
+    // 对于每一个数x要找到小于等于x的最大答案dp[x] => st表?
+    static const int N = (int) 1e7 + 10;
+    int t[N],a[N];
+    int n;
+    void update(int i,int x)//将位置i的值修改为x
+    {
+        while(i<=n) t[i]=max(t[i],x),i+=i&(-i);
+    }
+    int query(int i)//查询区间[1,i]的最大值
+    {
+        int res=0;
+        while(i) res=max(res,t[i]),i-=i&(-i);
+        return res;
+    }
+    void build()
+    {
+        for(int i=1;i<=n;i++) update(i,a[i]);//树状数组的建立相当于依次修改
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        vector<int> ans;
+        memset(t, 0, sizeof t); memset(a, 0, sizeof a);
+        vector<int> diff = ob;
+        sort(diff.begin(), diff.end());
+        int sz = unique(diff.begin(), diff.end()) - diff.begin();
+        // for (auto i : diff) cout << i << ' ';
+        n = sz + 1;
+        build();
+        for (auto& i : ob) {
+            int x = lower_bound(diff.begin(), diff.begin() + sz, i) - diff.begin() + 1;
+            // cout << x << endl;
+            int y = query(x) + 1;
+            ans.push_back(y);
+            update(x, y);
+        }
+        return ans;
+    }
+};

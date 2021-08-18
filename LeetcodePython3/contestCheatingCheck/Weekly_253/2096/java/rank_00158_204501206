@@ -1,0 +1,28 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int[] dp = new int[obstacles.length];
+        int[] ans = new int[obstacles.length];
+        dp[0] = obstacles[0];
+        ans[0] = 1;
+        int dpIndex = 1, left, right, mid;
+        for (int i = 1; i < obstacles.length; ++i) {
+            //二分查找左边界
+            left = 0;
+            right = dpIndex;
+            while (left < right) {
+                mid = (left + right) >> 1;
+                if (dp[mid] <= obstacles[i]) {
+                    left = mid + 1;
+                } else {
+                    right = mid;
+                }
+            }
+            dp[left] = obstacles[i];
+            if (left == dpIndex) {
+                ++dpIndex;
+            }
+            ans[i] = left + 1;
+        }
+        return ans;
+    }
+}

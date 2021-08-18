@@ -1,0 +1,19 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        ans = []
+        incrArr = []
+        for obs in obstacles:
+            if not incrArr or obs >= incrArr[-1]:
+                incrArr.append(obs)
+                ans.append(len(incrArr))
+            else:
+                left, right = 0, len(incrArr)-1
+                while left <= right:
+                    mid = (left+right) >> 1
+                    if incrArr[mid] > obs:
+                        right = mid - 1
+                    else:
+                        left = mid + 1
+                incrArr[right + 1] = obs
+                ans.append(right + 2)
+        return ans

@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int find_pos(int* g, int sz, int tgt) {
+        int lo = 0, hi = sz;
+        while (lo < hi) {
+            int mid = lo + (hi - lo) / 2;
+            if (g[mid] <= tgt) lo = mid + 1;
+            else hi = mid;
+        }
+        return lo;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n = a.size();
+        int g[n + 1], sz;
+        memset(g, 0, sizeof g);
+        sz = 0;
+        
+        vector<int> res;
+        for (int i = 0; i < n; i++) {
+            int pos = find_pos(g, sz, a[i]);
+            if (pos == sz) g[sz++] = a[i];
+            else g[pos] = a[i];
+            res.push_back(pos + 1);
+        }
+        
+        return res;
+    }
+};

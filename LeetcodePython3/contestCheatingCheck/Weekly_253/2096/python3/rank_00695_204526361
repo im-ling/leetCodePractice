@@ -1,0 +1,19 @@
+import bisect
+from typing import List
+
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+
+        min_end_num_with_length = []
+        ans = []
+
+        for num in obstacles:
+            insert_idx = bisect.bisect(min_end_num_with_length, num)
+            ans.append(insert_idx + 1)
+            if insert_idx == len(min_end_num_with_length):
+                min_end_num_with_length.append(num)
+            else:
+                min_end_num_with_length[insert_idx] = num
+
+        return ans

@@ -1,0 +1,35 @@
+const int M = 1e7 + 5;
+class Solution {
+public:
+    int n;
+    // struct Tree {
+    //     int l, r, v;
+    // } tr[N];
+    // int idx = 1;
+    // void qry(int qx, int l = 1, int r = 1e7, int x = 1) {
+    //     if (!x) return 0;
+    //     if ()
+    // }
+    inline bool cmax(int& a, const int b) {
+        return a < b ? a = b, true : false;
+    }
+    int fw[M];
+    void mdf(int x, int c) {
+        for (; x < M; x += x & -x) cmax(fw[x], c);
+    }
+    int qry(int x) {
+        int res = 0;
+        for (; x; x &= x - 1) cmax(res, fw[x]);
+        return res;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        n = a.size();
+        memset(fw, 0, sizeof fw);
+        vector<int> res(n);
+        for (int i = 0; i < n; ++i) {
+            res[i] = qry(a[i]) + 1;
+            mdf(a[i], res[i]);
+        }
+        return res;
+    }
+};

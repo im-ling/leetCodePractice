@@ -1,0 +1,24 @@
+class Solution:
+    def find(self, nums, target):
+        n = len(nums)
+        l, r = 0, n - 1
+        while(l < r):
+            mid = (l + r) >> 1
+            if (nums[mid] > target):
+                r = mid
+            else:
+                l = mid + 1
+        return l 
+    
+    def longestObstacleCourseAtEachPosition(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        f = [0x3f3f3f3f] * n
+        res = [0] * n
+        
+        for i in range(n):
+            j = self.find(f, nums[i])
+            f[j] = nums[i]
+            res[i] = j + 1
+            
+        return res
+        

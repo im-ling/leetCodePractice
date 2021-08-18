@@ -1,0 +1,40 @@
+func longestObstacleCourseAtEachPosition(obstacles []int) []int {
+	// // inc stask，error
+	// n := len(obstacles)
+	// stk := make([]int, 0)
+	// ret := make([]int, 0, n)
+	// for _, v := range obstacles {
+	// 	for len(stk) > 0 && stk[len(stk)-1] > v {
+	// 		stk = stk[0 : len(stk)-1]
+	// 	}
+	// 	stk = append(stk, v)
+	// 	ret = append(ret, len(stk))
+	// }
+
+	// LIS
+	n := len(obstacles)
+	if n == 0 {
+		return []int{}
+	}
+	ret := make([]int, 0, n)
+	ret = append(ret, 1)
+	f := []int{obstacles[0]}
+
+	//println()
+
+	for i := 1; i < n; i++ {
+		if obstacles[i] >= f[len(f)-1] {
+			f = append(f, obstacles[i])
+			ret = append(ret, len(f))
+		} else {
+			idx := sort.Search(len(f), func(mid int) bool {
+				return f[mid] > obstacles[i]
+			})
+			ret = append(ret, idx+1)
+			f[idx] = obstacles[i]
+		}
+		//fmt.Printf("%+v\n", f)
+	}
+
+	return ret
+}

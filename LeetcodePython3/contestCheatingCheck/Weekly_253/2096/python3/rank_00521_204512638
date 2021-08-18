@@ -1,0 +1,31 @@
+class treeArray:
+    def __init__(self, n):
+        self.arr = [0] * (n + 1)
+        self.n = n
+
+    def lowbit(self, x: int) -> int:
+        return x & -x
+
+    def update(self, index: int, val: int) -> None:
+        while (index <= self.n):
+            self.arr[index] = max(self.arr[index], val)
+            index += self.lowbit(index)
+
+    def query(self, index: int) -> int:
+        ans = 0
+        while index > 0:
+            ans = max(ans, self.arr[index])
+            index -= self.lowbit(index)
+        return ans
+
+    
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        max_t = treeArray(10 ** 7)
+        ans = []
+        for i in obstacles:
+            t = max_t.query(i)
+            max_t.update(i, t + 1)
+            ans.append(t + 1)
+        return ans
+        

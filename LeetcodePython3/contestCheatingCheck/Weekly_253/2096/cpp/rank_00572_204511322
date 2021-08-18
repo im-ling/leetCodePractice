@@ -1,0 +1,41 @@
+class BIT
+{
+public:
+    vector<int> T;
+    BIT(int n) { T.resize(n + 1); }
+    void update(int i, int x)
+    { 
+      for (; i < T.size(); i += i & -i)
+        T[i] = max(T[i], x);
+    }
+    int query(int i) {
+      int ans = 0;
+      for (; i; i -= i & -i)
+        ans = max(ans, T[i]);
+      return ans;
+    }
+};
+class Solution
+{
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles)
+    {
+        int n = obstacles.size();
+        BIT bit(n);
+        vector<int> a(n);
+        vector<int> tmp(obstacles.begin(), obstacles.end());
+        sort(tmp.begin(), tmp.end());
+        auto back = unique(tmp.begin(), tmp.end());
+        for (int i = 0; i < n; i++)
+        {
+            a[i] = lower_bound(tmp.begin(), back, obstacles[i]) - tmp.begin() + 1;
+        }
+        vector<int> ans(n, 0);
+        for (int i = 0; i < n; i++)
+        {
+            ans[i] = bit.query(a[i]) + 1;
+            bit.update(a[i], ans[i]);
+        }
+        return ans;
+    }
+};

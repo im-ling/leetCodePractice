@@ -1,0 +1,30 @@
+class Solution:
+    def bSearch(self, nums, n, key):
+        left, right, res = 0, n - 1, -1
+        while left <= right:
+            mid = left + (right - left) // 2
+            if nums[mid] <= key:
+                left = mid + 1
+            else:
+                res = mid
+                right = mid - 1
+        return res
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        n = len(nums)
+        cur = 0
+        dp, res = [], []
+        for i in range(n):
+            if not dp or nums[i] >= dp[-1]:
+                dp.append(nums[i]); cur += 1
+                res.append(cur)
+            else:
+                pos = self.bSearch(dp, cur, nums[i])
+                dp[pos] = nums[i]
+                res.append(pos + 1)
+        return res
+
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        res = self.lengthOfLIS(obstacles)
+        return res

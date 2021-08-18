@@ -1,0 +1,33 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        //最长递增子序列
+        int n=ob.size();
+        vector<int> num;
+        vector<int> ans(n);
+        ans[0]=1;
+        for(int i=0;i<n;i++){
+            if(num.empty()){
+                num.push_back(ob[i]);
+            }else{
+                int l=0;
+                int r=num.size()-1;
+                for(;l<=r;){
+                    int m=(l+r)/2;
+                    if(num[m]>ob[i]){
+                        r=m-1;
+                    }else{
+                        l=m+1;
+                    }
+                }
+                if(l>=num.size()){
+                    num.push_back(ob[i]);
+                }else{
+                    num[l]=ob[i];
+                }
+                ans[i]=l+1;
+            }
+        }
+        return ans;
+    }
+};

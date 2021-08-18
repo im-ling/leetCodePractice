@@ -1,0 +1,34 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+		int len = obstacles.length;
+		int[] ans = new int[len];
+		int[] stack = new int[len];
+		int size = 0;
+		for (int i = 0; i < len; i ++) {
+			int num = obstacles[i];
+			if (size == 0 || num >= stack[size - 1]) {
+				stack[size ++] = num;
+				ans[i] = size;
+				continue;
+			}
+			int index = findIndex(stack, 0, size - 1, num);
+			stack[index] = num;
+			ans[i] = index + 1;
+		}
+		return ans;
+    }
+	
+	private int findIndex(int[] stack, int l, int r, int target) {
+		int ans = r;
+		while (l <= r) {
+			int m = (r - l >> 1) + l;
+			if (stack[m] > target) {
+				ans = m;
+				r = m - 1;
+			}else {
+				l = m + 1;
+			}
+		}
+		return ans;
+	}
+}

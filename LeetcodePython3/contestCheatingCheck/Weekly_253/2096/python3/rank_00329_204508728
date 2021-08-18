@@ -1,0 +1,25 @@
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        inf = float("inf")
+        n = len(obstacles)
+        minlast = [inf for _ in range(n + 1)]
+        minlast[0] = float("-inf")
+
+        def searchI(k):
+            l, r = 0, len(minlast) - 1
+            while l <= r:
+                mid = (l + r) // 2
+                if minlast[mid] > k:
+                    r = mid - 1
+                else:
+                    l = mid + 1
+            return l
+
+        res = [-1 for _ in range(n)]
+        for i in range(n):
+            index = searchI(obstacles[i])
+            print(i, index)
+            minlast[index] = obstacles[i]
+            res[i] = index
+        return res

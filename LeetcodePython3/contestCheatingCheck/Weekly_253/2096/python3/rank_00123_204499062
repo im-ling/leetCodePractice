@@ -1,0 +1,19 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, A: List[int]) -> List[int]:
+        
+        
+        n = len(A)
+        pool = []
+        res = []
+        for a in A:
+            if not pool or pool[-1] <= a:
+                pool.append(a)
+                res.append(len(pool))
+            else:
+                index = bisect.bisect_right(pool, a)
+                res.append(index + 1)
+                pool[index] = a
+        return res
+        
+        
+        

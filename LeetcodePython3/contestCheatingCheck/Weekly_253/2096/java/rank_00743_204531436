@@ -1,0 +1,35 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        //找以当前位置为结束的最长递增子序列
+        int l = obstacles.length;
+        int[] res = new int[l];
+        int[] dp = new int[l + 1];
+        int idx = 0;
+        dp[++idx] = obstacles[0];
+        res[0] = 1;
+        for(int i = 1; i < l; i++){
+            int temp = obstacles[i];
+            if(temp >= dp[idx]){
+                dp[++idx] = temp;
+                res[i] = idx;
+                continue;
+            } 
+            int left = 1;
+            int right = idx;
+            while(left < right){
+                int mid = (right - left) / 2 + left;
+                if(dp[mid] > temp){
+                    right = mid;
+                }
+                else{
+                    left = mid + 1;
+                }
+            }
+
+            
+            dp[left] = temp;
+            res[i] = left;
+        }
+        return res;
+    }
+}

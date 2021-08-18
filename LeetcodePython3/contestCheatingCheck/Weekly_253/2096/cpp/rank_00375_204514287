@@ -1,0 +1,30 @@
+const int N = 1e7+10;
+int tr[N];
+class Solution {
+public:
+    int lowbit(int x){
+        return x&-x;
+    }
+    void update(int x,int v){
+        for(int i=x;i<N;i+=lowbit(i)){
+            tr[i] =max(tr[i],v) ;
+        }
+    }
+    int query(int x){
+        int res = 0;
+        for(int i=x;i>0;i-=lowbit(i)){
+            res=max(res,tr[i]);
+        }
+        return res;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        memset(tr,0,sizeof tr);
+        vector<int> res(ob.size());
+        for(int i=0;i<ob.size();i++){
+            res[i] = query(ob[i])+1;
+            update(ob[i],res[i]);
+        }
+        return res;
+        
+    }
+};

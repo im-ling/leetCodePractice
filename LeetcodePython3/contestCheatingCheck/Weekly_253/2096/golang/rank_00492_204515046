@@ -1,0 +1,27 @@
+func longestObstacleCourseAtEachPosition(obstacles []int) []int {
+    var(
+        noDown []int
+        ans = make([]int, 0, len(obstacles))
+    )
+    
+    for _,v := range obstacles{
+        if len(noDown) == 0 || v >= noDown[len(noDown)-1]{
+            noDown = append(noDown, v)
+            ans = append(ans, len(noDown))
+        }else{
+            left, right := 0, len(noDown)-1
+            for left < right{
+                mid := (left+right)/2
+                if noDown[mid] > v{
+                    right = mid
+                }else{
+                    left = mid+1
+                }
+            }
+            noDown[right] = v
+            ans = append(ans, right+1)
+        }
+    }
+    
+    return ans
+}

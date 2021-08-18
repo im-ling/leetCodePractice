@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int A[100005];
+    map<int,int> mp;
+    void add(int x,int y){
+        for(x;x <= 100000; x += (x&-x)){
+            A[x] = max(A[x],y);
+        }
+    }
+    int ask(int x){
+        int ans = 0;
+        for(x; x > 0; x -= (x&-x)){
+            ans = max(A[x],ans);
+        }
+        return ans;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& o) {
+        vector<int>ans;
+        mp.clear();
+        memset(A,0,sizeof(A));
+        //ans.push_back(1);
+        vector<int> v;
+        for(auto x: o){
+            v.push_back(x);
+        }
+        sort(v.begin(),v.end());
+        auto len = unique(v.begin(),v.end()) - v.begin();
+        for(int i = 0; i < len; i++){
+            mp[v[i]] = i+1;
+        }
+        for(auto i=0; i < o.size(); i++){
+            auto z = (ask(mp[o[i]]) + 1);
+            ans.push_back(z);
+            add(mp[o[i]],z);
+        }
+        return ans;
+
+    }
+};

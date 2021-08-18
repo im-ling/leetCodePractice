@@ -1,0 +1,37 @@
+class Solution {
+public:
+    int a[10000005];
+    int lowbit(int x){
+        return x & -x;
+    }
+    void setMax(int x,int v,int n){
+        while(x <= n){
+            a[x] = max(a[x],v);
+            x += lowbit(x);
+        }
+    }
+    int getMax(int x){
+        int ans = 0;
+        while(x >= 1){
+            ans = max(ans,a[x]);
+            x -= lowbit(x);
+        }
+        return ans;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int left = 0;
+        memset(a,0,sizeof(a));
+        int n = 0;
+        vector<int> ans;
+        for(int i = 0;i < obstacles.size();i++){
+            n = max(n,obstacles[i]);
+        }
+        for(int i = 0;i < obstacles.size();i++){
+            int x = obstacles[i];
+            int v = getMax(x);
+            ans.push_back(v+1);
+            setMax(x,v+1,n);
+        }
+        return ans;
+    }
+};

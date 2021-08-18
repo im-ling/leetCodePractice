@@ -1,0 +1,94 @@
+#include<bits/stdc++.h>
+#define mp make_pair
+#define pb push_back
+#define SZ(x) (int)(x.size())
+#define all(x) x.begin(),x.end()
+using namespace std;
+typedef long long ll;
+typedef pair<int,int>pii;
+const int  inf = 0x3f3f3f3f;
+const int mod = 1e9 +7;
+const int N = 2e3 + 3;
+const int maxn = 1e6 + 5;
+int dp[maxn],a[maxn];
+int l[maxn],n;
+const int MAX_LEN=maxn;
+int arr[MAX_LEN + 20];
+int seg_tree[MAX_LEN << 2];
+int lazy[MAX_LEN << 2]; 
+void push_up(int root) {
+    seg_tree[root] = max(seg_tree[root << 1 ] , seg_tree[root << 1 | 1]);
+}
+void push_down(int root, int L, int R) {
+    if(lazy[root]) {
+        int mid = (L + R) >> 1;
+        lazy[root << 1] += lazy[root];
+        lazy[root << 1 | 1] += lazy[root];
+        
+        seg_tree[root << 1] += lazy[root] * (mid - L + 1); //左子树上的和加上lazy值
+        seg_tree[root << 1 | 1] += lazy[root] * (R - mid);  //右子树上的和+上lazy值 
+        lazy[root] = 0; 
+    }
+} 
+void build (int root, int L, int R) {
+    if (L == R) {
+        seg_tree[root] = arr[L];
+        return ; 
+    } 
+    int mid = (L + R) / 2;
+    // [ L, mid] 左子树， [mid + 1, r]右子树 
+    build(root << 1, L, mid);
+    build(root << 1 | 1, mid + 1, R);
+    push_up(root);
+    //对与当前的根节点，把当前的根节点的左右子树都算出来后，再更新它的值
+    // 沿路回溯， 回溯到点root 时， 都是被 [ L, R] 或者其子区间影响到的点，边回溯边更新 
+}
+ 
+//点修改 
+void update (int root, int L, int R, int pos, int val) {
+    if(L == R) {
+        seg_tree[root] = val;
+        return ;
+    }
+    int mid = (L + R) / 2;
+    // 左区间 
+    if (pos <= mid) update (root << 1, L, mid, pos, val);
+    //右区间 
+    else update (root << 1 | 1, mid + 1, R, pos, val);  
+    push_up(root);
+} 
+//区间查旬
+int query (int root, int L, int R,int LL ,int RR) {
+    if( L >= LL && R <= RR) {
+        return seg_tree[root];
+    }
+    push_down(root, L, R);  //每次访问都去检查Lazy标记 
+    int Ans = 0;
+    int mid = (L + R) >> 1;
+    if(LL <= mid) Ans = max(Ans, query(root << 1, L, mid, LL, RR));
+    if(RR > mid) Ans = max(Ans, query(root << 1|1, mid + 1, R, LL, RR));
+    return Ans;
+}
+int b[maxn];
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        n=obstacles.size();
+        for(int i=1;i<=n;i++)a[i]=obstacles[i-1],b[i]=obstacles[i-1];
+        sort(b+1,b+n+1);
+        int res=unique(b+1,b+n+1)-b-1;
+        for(int i=1;i<=n;i++)a[i]=lower_bound(b+1,b+res+1,a[i])-b;
+        build(1,1,res);
+        vector<int>ans;
+        for(int i=1;i<=n;i++){
+            dp[i]=query(1,1,res,1,a[i])+1;
+            update(1,1,res,a[i],dp[i]);
+            ans.push_back(dp[i]);
+            //cout<<i<<" "<<a[i]<<endl;
+        }
+        return ans;
+
+    }
+};
+

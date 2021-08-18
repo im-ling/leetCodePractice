@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        int n = ob.size();
+        vector<int> f, res(n);
+        
+        for(int i = 0; i < ob.size(); i++) {
+            if(f.empty() || ob[i] >= f.back()) {
+                f.push_back(ob[i]);
+                res[i] = f.size();
+            }
+            else {
+                //找到有序数组中最后一个大于ob[i]的位置
+                int l = 0, r = f.size() - 1;
+                
+                while(l < r) {
+                    int mid = l + r >> 1;
+                    if(f[mid] > ob[i]) r = mid;
+                    else l = mid + 1;
+                }
+                
+                res[i] = l + 1;
+                f[l] = ob[i];
+            }
+        }
+        return res;
+    }
+};

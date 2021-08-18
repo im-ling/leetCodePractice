@@ -1,0 +1,56 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& v) {
+        vector<int> dp(v.size(), 0);
+        get_result(v.size(), dp, v);
+        return dp;
+    }
+    
+    void get_result(int length, vector<int>& dp, vector<int> arr)
+    {
+        vector<int> ends(length + 1, 0);
+        ends[0] = arr[0];
+        dp[0] =1;
+        int right = 0;
+        int l =0;
+        int r = 0;
+        int m =0;
+        for(int i=1;i<length;i++){
+            l=0;
+            r=right;
+            while(l<=r){
+                m = l + (r-l)/2;
+                if(arr[i]>=ends[m]) {
+                    l=m+1;
+                }else{
+                    r=m-1;
+                }
+            }
+            right = max(l,right);
+            ends[l] = arr[i];
+            dp[i] = l+1;
+        }
+    }
+    int getResult(int n, vector<int>& dp, vector<int> arr)
+    {
+        dp[0] = 1;
+        for (int i = 1; i < n; i++)
+        {
+            int cnt = 1;
+            for (int j = i - 1; j >= 0; j--)
+            {
+                if (arr[i] >= arr[j])
+                {  // 保证递增 
+                    cnt = max(cnt, dp[j] + 1);
+                }
+            }
+            dp[i] = cnt;
+        }
+        int ans = 0;
+        for (int i = 0; i < n; i++)
+        {
+            ans = max(ans, dp[i]);
+        }
+        return ans;
+    }
+};

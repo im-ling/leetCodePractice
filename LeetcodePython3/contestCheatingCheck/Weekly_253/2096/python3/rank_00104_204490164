@@ -1,0 +1,21 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, o: List[int]) -> List[int]:
+        d = [0]
+        res = [0] * len(o)
+        for i,h in enumerate(o) :
+            if d and h >= d[-1] :
+                res[i] = len(d)
+                d.append(h)
+            else :
+                x, y = 0, len(d) - 1
+                pos = 0
+                while x <= y :
+                    z = (x + y) >> 1
+                    if d[z] <= h :
+                        pos = z
+                        x = z + 1
+                    else :
+                        y = z - 1
+                res[i] = pos + 1
+                d[pos+1] = min(d[pos+1], h)
+        return res

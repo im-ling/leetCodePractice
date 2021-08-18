@@ -1,0 +1,20 @@
+const int MAXN = 1e5 + 50;
+int stk[MAXN], top;
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& O) {
+        int n = O.size();
+        top = 0;
+        
+        vector<int> ans;
+        for (int v: O){
+            int p = upper_bound(stk + 1, stk + top + 1, v) - stk;
+            // printf("> %d\n", p);
+            ans.push_back(p);
+            stk[p] = v;
+            top = max(top, p);
+        }
+        
+        return ans;
+    }
+};

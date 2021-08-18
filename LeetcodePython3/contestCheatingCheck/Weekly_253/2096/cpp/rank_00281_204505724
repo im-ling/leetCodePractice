@@ -1,0 +1,40 @@
+class Solution {
+public:
+    int nums[100002],top;
+    
+    int a[100002],c[100004];
+   
+    void add_max(int k,int num,int lim)  //a[k]的值->num
+    {
+        for(;k<=lim;k+=k&-k)
+            if(c[k]<num)
+                c[k]=num;
+    }
+
+    int Qmax(int k)
+    {
+        int ans=0;
+        for(;k;k-=k&-k)
+            if(ans<c[k])
+                ans=c[k];
+        return ans;
+    }
+
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        top=obstacles.size();
+        for(int i=0;i<obstacles.size();i++)
+            nums[i]=obstacles[i];
+        sort(nums,nums+top);
+        top=unique(nums,nums+top)-nums;
+        
+        vector<int> result;
+        for(int i=0;i<obstacles.size();i++)
+        {
+            int k = lower_bound(nums,nums+top,obstacles[i])-nums+1;
+            int res=Qmax(k)+1;
+            add_max(k,res,top);
+            result.push_back(res);
+        }
+        return result;
+    }
+};

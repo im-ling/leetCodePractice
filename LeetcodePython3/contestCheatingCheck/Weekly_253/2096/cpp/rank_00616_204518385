@@ -1,0 +1,41 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        // 单调栈? 最长非递减子序列，贪心
+        int len = obstacles.size();
+        vector<int> ans(len, 1);
+        vector<int> inc;
+        inc.push_back(obstacles[0]);
+        for (int i=1;i<len;i++) {
+            
+            if (obstacles[i] >= inc.back()) {
+                inc.push_back(obstacles[i]);
+                ans[i] = inc.size();
+                continue;
+            }
+            
+            int left = 0, right = inc.size()-1;
+            int mid = 0;
+            while (left < right) {
+                mid = left + (right-left)/2;
+                if (inc[mid] > obstacles[i]) right = mid;
+                else left = mid + 1;
+            }
+            ans[i] = left+1;
+            inc[left] = obstacles[i];
+            
+            // if (s.top() <= obstacles[i]) {
+            //     s.push(obstacles[i]);
+            //     ans[i] = s.size();
+            // }
+            // else {
+            //     while (!s.empty() && s.top() > obstacles[i]) {
+            //         s.pop();
+            //     }
+            //     s.push(obstacles[i]);
+            //     ans[i] = s.size();
+            // }
+        }
+        return ans;
+    }
+};

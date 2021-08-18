@@ -1,0 +1,9 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        sub = []
+        ans = []
+        for a in obstacles:
+            idx = bisect.bisect(sub, a)
+            sub[idx: idx + 1] = [a]
+            ans.append(idx + 1)
+        return ans

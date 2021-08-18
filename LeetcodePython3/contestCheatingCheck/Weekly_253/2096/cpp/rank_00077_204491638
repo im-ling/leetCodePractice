@@ -1,0 +1,34 @@
+class Solution {
+public:
+    #define maxn 100010
+    int f[maxn];
+    vector<int>b;
+    int tot;
+    int len;
+    int find(int x) {
+        return lower_bound(b.begin(),b.begin()+tot,x)-b.begin();
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        vector<int>res;
+        int n=a.size();
+        res.resize(n);
+        b=a;
+        sort(b.begin(),b.end());
+        tot=unique(b.begin(),b.end())-b.begin();
+        f[1]=find(a[0]);
+        len=1;
+        res[0]=1;
+        for(int i=1;i<n;++i) {
+            int cur=find(a[i]);
+            if(cur>=f[len]) {
+                f[++len]=cur;
+                res[i]=len;
+            } else {
+                int k=upper_bound(f+1,f+len+1,cur)-f;
+                res[i]=k;
+                f[k]=cur;
+            }
+        }
+        return res;
+    }
+};

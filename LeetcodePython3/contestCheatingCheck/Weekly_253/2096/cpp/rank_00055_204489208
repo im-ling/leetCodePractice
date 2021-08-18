@@ -1,0 +1,19 @@
+class Solution {
+    int rec[100005];
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = 0, m = 0;
+        vector<int> ans;
+        for (const auto& o: obstacles) {
+            while (n > 0 && rec[n-1] > o) --n;
+            while (n < m && rec[n] <= o) ++n;
+            if (n == m) {
+                ++m;
+            }
+            rec[n] = o;
+            ++n;
+            ans.push_back(n);
+        }
+        return ans;
+    }
+};

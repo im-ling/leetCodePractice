@@ -1,0 +1,32 @@
+class Solution {
+
+    public int[] longestObstacleCourseAtEachPosition(int[] nums) {
+        int[] res = new int[nums.length];
+        res[0] = 1;
+        int len = 0, n = nums.length;
+        int[] d = new int[n + 1];
+        d[len++] = nums[0];
+        for (int i = 1; i < n; ++i) {
+            if(nums[i] >= d[len - 1]) {
+                d[len++] = nums[i];
+                res[i] = len;
+            } else {
+                //在[0,len-1]范围内 找第一个大于nums[i]的数 ，替换成nums[i]
+                int left = 0;
+                int right = len;
+                while (left < right) {
+                    int mid = left + (right - left) / 2;
+                    if(d[mid] <= nums[i]) {
+                        left = mid + 1;
+                    } else {
+                        right = mid;
+                    }
+                }
+                d[left] = nums[i];
+                res[i] = left + 1;
+            }
+
+        }
+        return res;
+    }
+}

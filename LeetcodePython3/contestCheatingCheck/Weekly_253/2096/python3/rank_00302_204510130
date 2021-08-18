@@ -1,0 +1,24 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        tail = []
+        ans = []
+        
+        for obstacle in obstacles:
+            if len(tail) == 0 or obstacle >= tail[-1]:
+                tail.append(obstacle)
+                ans.append(len(tail))
+                # print(tail)
+                continue
+            ans.append(self.update_tail(obstacle, tail))
+        return ans
+            
+    def update_tail(self, obstacle, tail):
+        left, right = 0, len(tail) - 1
+        while left < right:
+            mid = (left + right) // 2
+            if tail[mid] <= obstacle:
+                left = mid + 1
+            else:
+                right = mid
+        tail[left] = obstacle
+        return left + 1

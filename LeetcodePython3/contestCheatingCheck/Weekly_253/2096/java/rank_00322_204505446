@@ -1,0 +1,32 @@
+class Solution {
+   int find(int arr[], int val, int len) {
+        int l = 0;
+        int r = len - 1;
+        int ret = len;
+        while (l <= r) {
+            int m = (l + r) / 2;
+            if (arr[m] > val) {
+                ret = m;
+                r = m - 1;
+            } else {
+                l = m + 1;
+            }
+        }
+        return ret;
+    }
+
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int arr[] = new int[obstacles.length];
+        int ans[] = new int[obstacles.length];
+        int len = 0;
+
+        for (int i = 0; i < obstacles.length; i++) {
+            int x = obstacles[i];
+            int pos = find(arr, x, len);
+            arr[pos] = x;
+            ans[i] = pos + 1;
+            if (pos == len) len++;
+        }
+        return ans;
+    }
+}

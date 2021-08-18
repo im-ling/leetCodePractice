@@ -1,0 +1,27 @@
+func longestObstacleCourseAtEachPosition(obstacles []int) []int {
+	dp := make([]int,len(obstacles)+1)
+	dp[1] = obstacles[0]
+	res := make([]int,len(obstacles))
+	res[0] = 1
+
+	if len(obstacles) == 1 {return []int{1}}
+
+	max := 1
+	for i:=1; i<len(obstacles);i++ {
+		if obstacles[i] >= dp[max]{
+			dp[max+1] = obstacles[i]
+			res[i] = max + 1
+			max++
+		}else{
+			for j:=1;j<=max;j++{
+				if dp[j]>obstacles[i] {
+					dp[j] = obstacles[i]
+					res[i] = j
+					break
+				}
+			}
+		}
+		if res[i] == 0 {res[i] = 1}
+	}
+	return res
+}

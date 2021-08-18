@@ -1,0 +1,32 @@
+class Solution {
+    int n, L, a[100010], T[100010];
+    #define FOR(i,a,b) for(int i=(a);i<=(b);++i)
+void update(int i, int x) { 
+  for (; i <= L; i += i & -i)
+    T[i] = max(T[i], x);
+}
+int query(int i) {
+  int ans = 0;
+  for (; i; i -= i & -i)
+    ans = max(ans, T[i]);
+  return ans;
+}
+    
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        
+        n=obstacles.size();
+        vector<int> ans(n);
+        FOR(i, 0, n - 1)  a[i] = obstacles[i];
+        sort(a, a + n);
+        L = unique(a, a + n) - a;
+        int t;
+          FOR(i, 0, n - 1) {
+            int p = lower_bound(a, a + L, obstacles[i]) - a + 1;
+            t = query(p ) + 1;
+            ans[i] =max(1,t);
+            update(p, t);
+          }
+        return ans;
+    }
+};

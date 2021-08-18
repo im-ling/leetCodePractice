@@ -1,0 +1,30 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n=obstacles.length;
+        List<PriorityQueue<Integer>> list=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            PriorityQueue queue=new PriorityQueue<>();
+            queue.add(Integer.MAX_VALUE);
+            list.add(queue);
+            //System.out.println(queue);
+        }
+        //PriorityQueue queue=queues[0];
+        //System.out.println(queue);
+        int[] ans=new int[n];
+        for(int i=0;i<obstacles.length;i++){
+            int l=0;
+            int r=n-1;
+            while (l<r){
+                int mid=l+(r-l)/2;
+                if(obstacles[i]>=list.get(mid).peek()){
+                    l=mid+1;
+                }else {
+                    r=mid;
+                }
+            }
+            list.get(l).add(obstacles[i]);
+            ans[i]=l+1;
+        }
+        return ans;
+    }
+}

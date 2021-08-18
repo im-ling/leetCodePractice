@@ -1,0 +1,49 @@
+class Solution {
+public:
+    
+    int BinarySearch(vector<int>& dp, int len, int n)
+    {
+	    int left = 1;
+	    int right = len;
+	    while(left < right)
+	    {
+		    int mid = (left + right) / 2;
+		    if (dp[mid] > n)
+		    {
+			    right = mid;
+		    }
+		    else
+		    {
+			    left = mid+1;
+		    }
+	    }
+	    return right;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> ans;
+        int n = obstacles.size();
+        vector<int> dp(n+1);
+        dp[1] = obstacles[0];
+        ans.push_back(1);
+	    int index = 1;
+	    for (int i = 1; i < n; i++)
+	    {
+	 	    if (obstacles[i] >= dp[index])
+	 	    {
+	 		    // 更新index 
+	 		    dp[++index] = obstacles[i];
+                ans.emplace_back(index);
+		    }
+		    else
+		    {
+		 	    // 把dp数组中第一个大于n的数字替换为arr[i] 
+		 	    int tempIndex = BinarySearch(dp, index, obstacles[i]);
+		 	    dp[tempIndex] = obstacles[i];
+                ans.emplace_back(tempIndex);
+		    }
+            
+	    }
+	    return ans;
+    }
+};

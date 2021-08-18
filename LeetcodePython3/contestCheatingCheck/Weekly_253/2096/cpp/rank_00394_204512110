@@ -1,0 +1,58 @@
+typedef long long LL;
+const int N = 1e5 + 5;
+LL ans = 0, mod = 1e9 + 7;
+vector<int> v;
+struct Node{
+    int l, r;
+    LL sum;
+}tr[4 * N];
+void build(int u, int l, int r) {
+    tr[u] = {l, r};
+    if(l == r) {
+        tr[u] = {l, l, 0};
+        return;
+    }
+    int mid = l + r >> 1;
+    build(u << 1, l, mid);
+    build(u << 1 | 1, mid + 1, r);
+}
+void pushup(int u) {
+    tr[u].sum = max(tr[u << 1].sum, tr[u << 1 | 1].sum);
+}
+void update(int u, int pos, LL val) {
+    if(tr[u].l == pos && tr[u].r == pos) {
+        tr[u] = {pos, pos, val};
+        return;
+    }
+    int mid = tr[u].l + tr[u].r >> 1;
+    if(pos <= mid) update(u << 1, pos, val);
+    else update(u << 1 | 1, pos, val);
+    pushup(u);
+}
+LL query(int u, int l, int r) {
+    if(tr[u].l >= l && tr[u].r <= r) return tr[u].sum;
+    int mid = tr[u].l + tr[u].r >> 1;
+    LL sum = 0;
+    if(l <= mid) sum = max(sum, query(u << 1, l, r));
+    if(r > mid) sum = max(sum, query(u << 1 | 1, l, r));
+    return sum;
+}
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> v = obstacles;
+        v.erase(unique(v.begin(), v.end()), v.end());
+        sort(v.begin(), v.end());
+        build(1, 0, v.size() - 1);
+        vector<int> ans(n);
+        ans[0] = 1;
+        for(int i = 0;i < n;i++) {
+            int pos = lower_bound(v.begin(), v.end(), obstacles[i]) - v.begin();
+            LL res = query(1, 0, pos);
+            ans[i] = res + 1;
+            update(1, pos, res + 1);
+        }
+        return ans;
+    }
+};

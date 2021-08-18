@@ -1,0 +1,40 @@
+class Solution {
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        System.out.println(s.longestObstacleCourseAtEachPosition(new int[] { 5, 3, 4, 4, 4, 2, 1, 1, 4, 1 }));
+    }
+
+    // 输入：
+    // [5,3,4,4,4,2,1,1,4,1]
+    // 输出：
+    // [1,1,2,3,3,1,1,2,3,3]
+    // 预期：
+    // [1,1,2,3,4,1,1,2,5,3]
+    public int[] longestObstacleCourseAtEachPosition(int[] ob) {
+        int len = ob.length, pos = 0;
+        int[] ans = new int[len], dp = new int[len + 2];
+        for (int i = 0; i < len; i++) {
+            if (ob[i] >= dp[pos]) {
+                pos++;
+                dp[pos] = ob[i];
+                ans[i] = pos;
+            } else {
+                int l = 0, r = pos, res = -1;
+                while (l <= r) {
+                    int mid = (l + r) / 2;
+                    if (ob[i] >= dp[mid]) {
+                        res = mid;
+                        l = mid + 1;
+                    } else {
+                        r = mid - 1;
+                    }
+                }
+                if (res != -1) {
+                    dp[res + 1] = ob[i];
+                    ans[i] = res + 1;
+                }
+            }
+        }
+        return ans;
+    }
+}

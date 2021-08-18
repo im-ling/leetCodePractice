@@ -1,0 +1,36 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int[] dp = new int[obstacles.length];
+        dp[0] = 1;
+        TreeMap<Integer, Integer> sm
+            = new TreeMap<Integer, Integer>((x, y) -> Integer.compare(y, x));
+        sm.put(dp[0], 0);
+        for (int i = 1; i < obstacles.length; i++) {
+            int max = 1;
+            // for (int j = 0; j < i; j++) {
+            //     if (obstacles[j] <= obstacles[i]) {
+            //         max = Math.max(dp[j] + 1, max);
+            //     }
+            // }
+            Set s = sm.entrySet();
+            Iterator index = s.iterator();
+  
+            // Traversing map. Note that the traversal
+            // produced sorted (by keys) output .
+            while (index.hasNext()) {
+                Map.Entry m = (Map.Entry)index.next();
+
+                int value = (Integer)m.getValue();
+
+                if (obstacles[value] <= obstacles[i]) {
+                    max = dp[value] + 1;
+                    break;
+                }
+            }
+            dp[i] = max;
+            sm.put(dp[i], i);
+        }
+        
+        return dp;
+    }
+}

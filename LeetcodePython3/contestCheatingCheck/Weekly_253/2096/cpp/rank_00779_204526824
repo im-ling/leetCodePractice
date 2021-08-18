@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int st[100005], tt = 0;
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+		vector<int> ve;
+		st[++tt] = obstacles[0];
+		ve.push_back(tt);
+		// 第1个先加入
+		int maxn = tt;
+		for(int i = 1; i < obstacles.size(); i++){
+			int tt = maxn;
+			// 这个只是针对性的试探 
+			while(tt && st[tt] > obstacles[i]){
+				tt--;
+			}
+			st[++tt] = obstacles[i];
+			maxn = max(maxn, tt);
+			ve.push_back(tt);
+		} 
+		return ve;
+    }
+};

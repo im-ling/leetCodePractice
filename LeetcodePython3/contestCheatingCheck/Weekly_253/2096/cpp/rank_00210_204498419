@@ -1,0 +1,45 @@
+int st[400001];
+
+void update(int root, int L, int R, int goal, int x) {
+    st[root] = max(st[root],x);
+    if (L == R) { return; }
+    int mid = (L+R)>>1;
+    if (goal <= mid) {
+        update(root<<1, L, mid, goal, x);
+    } else {
+        update(root<<1|1, mid+1, R, goal, x);
+    }
+}
+
+int query(int root, int L, int R, int goal) {
+    if (R == goal) {
+        return st[root];
+    }
+    int mid = (L+R)>>1;
+    if (goal <= mid) {
+        return query(root<<1, L, mid, goal);
+    }
+    return max(query(root<<1, L, mid, mid),query(root<<1|1, mid+1, R, goal));
+}
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& o) {
+        memset(st, 0, sizeof(st));
+        std::map<int, int> id;
+        for (auto d : o) {
+            id.insert(make_pair(d, 0));
+        }
+        int cnt = 0;
+        for (auto &p : id) {
+            p.second = ++cnt;
+        }
+        vector<int> anw(o.size());
+        
+        for (int i = 0; i < o.size(); i++) {
+            anw[i] = query(1, 1, cnt, id[o[i]])+1;
+            update(1, 1, cnt, id[o[i]], anw[i]);
+        }
+        return anw;
+    }
+};

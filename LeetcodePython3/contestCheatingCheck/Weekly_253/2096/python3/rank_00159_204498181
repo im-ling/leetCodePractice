@@ -1,0 +1,26 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        n = len(obstacles)
+        x = [obstacles[0]]
+        res = [1]
+        for i in range(1, n):
+            if obstacles[i] >= x[-1]:
+                x.append(obstacles[i])
+                res.append(len(x))
+            else:
+                left = 0
+                right = len(x) - 1
+                while left < right:
+                    mid = (left + right) // 2
+                    if x[mid] > obstacles[i]:
+                        right = mid
+                    else:
+                        left = mid + 1
+                if left == 0:
+                    x[0] = min(x[0], obstacles[i])
+                else:
+                    x[left] = obstacles[i]
+                res.append(left + 1)
+            # print(x)
+        return res
+        

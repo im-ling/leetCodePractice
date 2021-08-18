@@ -1,0 +1,14 @@
+func longestObstacleCourseAtEachPosition(obstacles []int) (ans []int) {      
+    d := make([]int, 0)                                                      
+    for _, num := range obstacles {                                          
+        if p := sort.SearchInts(d, num+1); p < len(d) {                      
+            d[p] = num                                                       
+        } else {                                                             
+            d = append(d, num)                                               
+        }                                                                    
+        ans = append(ans, sort.SearchInts(d, num+1))                         
+    }                                                                        
+    return                                                                   
+                                                                             
+}                                                                            
+                                                                             

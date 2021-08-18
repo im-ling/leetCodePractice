@@ -1,0 +1,95 @@
+
+interface LTNode {
+    l:number;
+    r:number;
+    max:number;
+
+    ln?:LTNode;
+    rn?:LTNode;
+}
+class LT{
+    root:LTNode;
+    constructor(max:number = 100000){
+        this.root = {
+            l:1,
+            r:max,
+            max:0,
+        };
+    }
+
+    getL(node:LTNode, add:boolean = true){
+        if(node.l == node.r){
+            return null;
+        }
+        if(!node.ln && add){
+            node.ln={
+                l: node.l,
+                r: Math.floor((node.l+node.r)/2),
+                max: 0,
+            };
+        }
+        return node.ln;
+    }
+
+    getR(node:LTNode, add:boolean = true){
+        if(node.l == node.r){
+            return null;
+        }
+        if(!node.rn && add){
+            node.rn={
+                l: Math.floor((node.l+node.r)/2) + 1,
+                r: node.r,
+                max: 0,
+            };
+        }
+        return node.rn;
+    }
+
+    setMax(index:number, max:number, node:LTNode){
+        if(null == node){
+            return;
+        }
+        if(index<node.l || node.r<index){
+            return;
+        }
+        node.max = Math.max(node.max, max);
+        if(node.l == node.r){
+            return;
+        }
+        this.setMax(index, max, this.getL(node));
+        this.setMax(index, max, this.getR(node));
+    }
+
+    getMax(l:number, r:number, node:LTNode): number{
+        if(null == node){
+            return 0;
+        }
+        if(l>node.r || r<node.l){
+            return 0;
+        }
+        if(l<=node.l && node.r<=r){
+            return node.max;
+        }
+        
+        return Math.max(
+            this.getMax(l, r, this.getL(node,false)),
+            this.getMax(l, r, this.getR(node,false))
+        );
+    }
+}
+
+
+
+function longestObstacleCourseAtEachPosition(obstacles: number[]): number[] {
+    const tree = new LT(10000000);
+    // const tree = new LT(3);
+    const rst:number[] = [];
+    for(let i=0; i<obstacles.length; i++){
+        const num = obstacles[i];
+        const v = tree.getMax(0,num, tree.root);
+        rst.push(v+1);
+        tree.setMax(num, v+1, tree.root);
+    }
+
+    return rst;
+};

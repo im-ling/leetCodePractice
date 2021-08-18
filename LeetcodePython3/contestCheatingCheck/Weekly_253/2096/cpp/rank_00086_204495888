@@ -1,0 +1,70 @@
+#include <bits/stdc++.h>
+using namespace std;using ll=long long;using vi=vector<int>;using pii=pair<int,int>;
+int dx[]={1,0,-1,0,-1,-1,1,1},dy[]={0,1,0,-1,1,-1,-1,1},inf=1061109567,mod=1000000007;
+int bits(ll s){return __builtin_popcount((s));}int bit(ll s,int i){return s>>i&1;}
+template<typename T> void mxm(T& a,T b){a=max(a,b);}template<typename T> void mnm(T& a,T b){a=min(a,b);}
+#define mst(dp, val) memset(dp, val, sizeof(dp))
+#define pb push_back
+#define X first
+#define Y second
+#define B begin()
+#define E end()
+#define L size()
+#define pqueue priority_queue
+#define umap unordered_map
+#define uset unordered_set
+#define all(x) (x).begin(), (x).end()
+#define in_mat(x, y) ((x) >= 1 && (x) <= m && (y) >= 1 && (y) <= n)
+#define print(e) cout << #e << "=" << (e) << endl
+#define rep(i, a, b) for (int i = a; i <= b; i++)
+#define rep_(i, a, b) for (int i = a; i >= b; i--)
+#define fge(a, l, r, e) (lower_bound(a + l, a + r + 1, e) - a) //first >=
+#define fg(a, l, r, e) (upper_bound(a + l, a + r + 1, e) - a) //firs >
+const int N = 1e5 + 5;
+struct ZKW {
+    int m, *tree; //树的节点，每个节点保存一个区间的信息
+
+    //单点更新
+    void update(int x, int v) { 
+        tree[x+=m] = v; //将a[x]修改为v
+        for (x>>=1; x; x>>=1) tree[x] = max(tree[x<<1], tree[x<<1|1]);
+        // tree[x+=m] += v;
+        // for (x>>=1; x; x>>=1) tree[x] = tree[x<<1] + tree[x<<1|1];
+    }
+
+    //区间查询
+    int query(int x, int y, int res = 0) { //最小值时res = inf
+        for (x=x+m-1, y=y+m+1; x^y^1; x>>=1, y>>=1) {
+            if (~x&1) res = max(res, tree[x^1]);
+            if (y&1)  res = max(res, tree[y^1]);
+            // if (~x&1) res = res + tree[x^1];
+            // if (y&1)  res = res + tree[y^1];
+        } return res;
+    }
+    
+    ZKW(int n) { 
+        tree = new int[4*n+5];
+        for (int i = 0; i < 4*n+5; i++) tree[i] = 0; //最小值时tree[i] = inf;
+        for (m = 1; m < n; m <<= 1);
+    }
+};
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& os) {
+        int n = os.L;
+        vi tmp = os;
+        sort(all(tmp)); tmp.erase(unique(all(tmp)), tmp.E);
+        rep(i, 0, n - 1) {
+            os[i] = fge(tmp.data(), 0, tmp.L - 1, os[i]) + 1;
+        }
+        vi res(n);
+        ZKW z(n+2);
+        res[0] = 1;
+        z.update(os[0], 1);
+        rep(i, 1, n - 1) {
+            res[i] = 1 + z.query(1, os[i]);
+            z.update(os[i], res[i]);
+        }
+        return res;
+    }
+};

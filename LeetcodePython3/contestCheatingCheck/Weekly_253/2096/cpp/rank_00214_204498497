@@ -1,0 +1,45 @@
+class Solution {
+public:
+    
+    int st[100005];
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        
+        int head = 0;
+        int n = obstacles.size();
+        
+        vector<int>ans(n, 0);
+        
+        int pos = 0;
+        
+        for (auto v : obstacles) {
+            
+            if (head == 0) {
+                st[++head] = v;
+                ans[pos] = head;
+            } else {
+                
+                if (st[head] <= v) {
+                    st[++head] = v;
+                    ans[pos] = head;
+                } else {
+                    
+                    int id = upper_bound(st + 1, st + 1 + head, v) - st;
+                    
+                    st[id] = v;
+                    
+                    ans[pos] = id;
+                    
+                }
+                
+            }
+            
+            
+            pos++;
+            
+        }
+        
+        return ans;
+        
+    }
+};

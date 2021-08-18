@@ -1,0 +1,30 @@
+#define lowbit(x) (x&(-x))
+class Solution {
+public:
+    const int N = 1e7+1;
+    vector<int> tree;
+    void update(int idx, int k){
+        for(int i=idx; i<N; i+=lowbit(i)){
+            tree[i] = max(tree[i],k);
+        }
+    }
+    int query(int idx){
+        int res = 0;
+        for(int i=idx; i; i-=lowbit(i)){
+            res = max(res,tree[i]);
+        }
+        return res;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        tree = vector<int>(N+1,0);
+        int n = obstacles.size();
+        vector<int> ans(n,0);
+        for(int i=0; i<n; i++){
+            int t = query(obstacles[i]);
+            ans[i] = t+1;
+            update(obstacles[i],ans[i]);
+            //cout<<query(obstacles[i])<<endl;
+        }
+        return ans;
+    }
+};

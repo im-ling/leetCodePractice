@@ -1,0 +1,33 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> res(1, 1);
+        int n = obstacles.size();
+        map<int, int> hash;
+        hash[1] = obstacles[0];
+        for(int i = 1; i < n; i ++)
+        {
+            int flag = 0;
+            auto iter = hash.end();
+            for(int j = 0; j < hash.size(); j++)
+            {
+                --iter;
+                if(iter->second <= obstacles[i]) 
+                {
+                    hash[iter->first + 1] = obstacles[i];
+                    res.push_back(iter->first + 1);
+                    flag = 1;
+                    break;
+                }
+            }
+            if(flag == 0)
+            {
+                res.push_back(1);
+                hash[1] = obstacles[i];
+            }
+            
+            
+        }
+        return res;
+    }
+};

@@ -1,0 +1,25 @@
+typedef long long LL;
+typedef pair<int, int> PII;
+const int N = 1e5 + 10;
+const int INF = 0x3f3f3f3f;
+
+class Solution {
+    int d[N],g[N];
+
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& A) {
+        vector<int> ans;
+        int n = A.size();
+        for(int i=1;i<=n;i++)g[i]=INF;
+
+        for(int i=0;i<n;i++){
+            int k=upper_bound(g+1,g+n+1,A[i])-g;
+            d[i]=k;
+            g[k]=A[i];
+        }
+
+        for(int i=0;i<n;i++)
+            ans.push_back(d[i]);
+        return ans;
+    }
+};

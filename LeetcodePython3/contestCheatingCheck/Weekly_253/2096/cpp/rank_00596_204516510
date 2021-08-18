@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+            int n=obstacles.size();
+    vector<int>dp(n+1);dp[0]=0;
+    int last=0;
+    vector<int> ans(n);
+    for(int p=0;p<n;p++){
+        int num=obstacles[p];
+        if(num>=dp[last]){
+            dp[++last]=num;
+            ans[p]=last;
+        }
+        else{
+            int l=0,r=last,mid;//找到他的左界（第一个比num大的） 由于末尾肯定》=num所以做开区间
+            while(l<r){
+                mid=(l+r)/2;
+                if(dp[mid]>num){
+                    r=mid;
+                }
+                else if(dp[mid]<=num){
+                    l=mid+1;
+                }
+            }
+            dp[l]=num;
+            ans[p]=l;
+        }
+    }
+    return ans;
+    }
+};

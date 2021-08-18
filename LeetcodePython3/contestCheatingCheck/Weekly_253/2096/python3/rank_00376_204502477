@@ -1,0 +1,23 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, nums: List[int]) -> List[int]:
+        dp = [nums[0]]
+        res = [1]
+        for i in range(1,len(nums)):
+            lo,hi = 0,len(dp)-1
+            while lo + 1 < hi:
+                mid = (lo + hi) // 2
+                if dp[mid] <= nums[i]:
+                    lo = mid
+                else:
+                    hi = mid
+            
+            if dp[lo] > nums[i]:
+                dp[lo] = nums[i]
+            elif dp[hi] > nums[i]:
+                dp[hi] = nums[i]
+            else:
+                dp.append(nums[i])
+            # print(dp)
+            res.append(bisect.bisect_right(dp,nums[i]))
+        
+        return res

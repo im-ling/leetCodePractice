@@ -1,0 +1,321 @@
+class Tools {
+    public final static int MOD = (int) (1e9 + 7);
+    public final static int INT_MAX_INF_PREVENT_OVERFLOW = (0x7fffffff >> 1) - 1;
+    public final static int[][] DIRECTIONS = new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
+    public final static class Pair<T1, T2> {
+        public final T1 first;
+        public final T2 second;
+
+        public Pair(T1 first, T2 second) {
+            this.first = first;
+            this.second = second;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) {
+                return true;
+            }
+            if (!(o instanceof Pair)) {
+                return false;
+            }
+            Pair<?, ?> pair = (Pair<?, ?>) o;
+            return first.equals(pair.first) && second.equals(pair.second);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(first, second);
+        }
+    }
+
+    public static void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+        return;
+    }
+
+    public static int[] copyIntegerArrays(int[] arrays) {
+        return Arrays.stream(arrays).toArray();
+    }
+
+    public static int min(int... args) {
+        int ret = args[0];
+        for (int i = 1; i < args.length; i++) {
+            ret = Math.min(ret, args[i]);
+        }
+        return ret;
+    }
+
+    public static int max(int... args) {
+        int ret = args[0];
+        for (int i = 1; i < args.length; i++) {
+            ret = Math.max(ret, args[i]);
+        }
+        return ret;
+    }
+
+    public static long getSum(int[] arrays) {
+        long ret = 0;
+        for (var it : arrays) {
+            ret += it;
+        }
+        return ret;
+    }
+
+    /**
+     * 顺时针旋转矩阵90度，原矩阵不变
+     *
+     * @param matrix 一个二维矩阵
+     * @return 旋转过后的矩阵
+     */
+    public static int[][] rotateTheMatrixClockwise(int[][] matrix) {
+        int m = matrix.length, n = m > 0 ? matrix[0].length : 0;
+        int[][] ret = new int[n][m];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                ret[j][m - i - 1] = matrix[i][j];
+            }
+        }
+        return ret;
+    }
+
+    public static int[] initOneDimensionalIntegerArray(int len, int defaultVal) {
+        int[] arrays = new int[len];
+        for (int i = 0; i < len; i++) {
+            arrays[i] = defaultVal;
+        }
+        return arrays;
+    }
+
+    public static int[][] initTwoDimensionalIntegerArray(int row, int col, int defaultVal) {
+        int[][] arrays = new int[row][col];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                arrays[i][j] = defaultVal;
+            }
+        }
+        return arrays;
+    }
+
+    /**
+     * 统计val二进制中1的个数，递归最大深度为int的位数
+     *
+     * @param val
+     * @return val二进制中1的个数
+     */
+    public static int bitCount(int val) {
+        return val == 0 ? 0 : 1 + bitCount(val & (val - 1));
+    }
+
+    public static long fastPower(int base, int power) {
+        return fastPower(base, power, MOD);
+    }
+
+    /**
+     * 求x, y的最大共因数
+     */
+    public static int gcd(int x, int y) {
+        return y == 0 ? x : gcd(y, x % y);
+    }
+
+    /**
+     * @param base  底数
+     * @param power 幂
+     * @param mod   模数，默认为 1e9 + 7
+     * @return 返回正确的结果，类型为long
+     */
+    public static long fastPower(int base, int power, int mod) {
+        long ret = 1;
+        while (power > 0) {
+            if ((power & 1) != 0) {
+                ret = (ret * base) % mod;
+            }
+            power >>>= 1;
+            base = (base * base) % mod;
+        }
+        return ret;
+    }
+
+    public static Integer[] switchToInteger(int[] arrays) {
+        int len = arrays.length;
+        Integer[] ret = new Integer[len];
+        for (int i = 0; i < len; i++) {
+            ret[i] = arrays[i];
+        }
+        return ret;
+    }
+
+    /**
+     * 搜索第一个大于等于Key的值坐标，数组必须升序排列
+     *
+     * @param arrays    待搜索的数组
+     * @param fromIndex 搜索的起始坐标，默认值为0
+     * @param toIndex   搜索中止坐标的后一位，搜索范围为[fromIndex, toIndex)，默认值为数组的长度
+     * @param key       搜索比较值
+     * @return 返回正确的坐标，如果没有，则返回toIndex
+     */
+    public static int ceilingIndex(int[] arrays, int fromIndex, int toIndex, int key) {
+        /*返回值的范围在[fromIndex,toIndex]中*/
+        while (fromIndex < toIndex) {
+            int mid = fromIndex + (toIndex - fromIndex) / 2;
+            if (arrays[mid] >= key) {
+                toIndex = mid;
+            } else {
+                fromIndex = mid + 1;
+            }
+        }
+        return fromIndex;
+    }
+
+    public static int ceilingIndex(int[] arrays, int key) {
+        return ceilingIndex(arrays, 0, arrays.length, key);
+    }
+
+    /**
+     * 搜索第一个大于Key的值坐标，数组必须升序排列
+     *
+     * @param arrays    待搜索的数组
+     * @param fromIndex 搜索的起始坐标，默认为0
+     * @param toIndex   搜索中止坐标的后一位，搜索范围为[fromIndex, toIndex)，默认为数组的长度
+     * @param key       搜索比较值
+     * @return 返回正确的坐标，如果没有，则返回toIndex
+     */
+    public static int higherIndex(int[] arrays, int fromIndex, int toIndex, int key) {
+        while (fromIndex < toIndex) {
+            int mid = fromIndex + (toIndex - fromIndex) / 2;
+            if (arrays[mid] > key) {
+                toIndex = mid;
+            } else {
+                fromIndex = mid + 1;
+            }
+        }
+        return fromIndex;
+    }
+
+    public static int higherIndex(int[] arrays, int key) {
+        return ceilingIndex(arrays, 0, arrays.length, key);
+    }
+
+    /**
+     * 搜索最后一个小于等于key的值坐标，数组必须升序排列
+     *
+     * @param arrays    待搜索的数组
+     * @param fromIndex 搜索的起始坐标，默认为0
+     * @param toIndex   搜索中止坐标的后一位，搜索范围为[fromIndex, toIndex)，默认为数组的长度
+     * @param key       搜索比较值
+     * @return 返回正确的坐标，如果没有，则返回toIndex
+     */
+    public static int floorIndex(int[] arrays, int fromIndex, int toIndex, int key) {
+        int index = higherIndex(arrays, fromIndex, toIndex, key);
+        return index == fromIndex ? toIndex : index - 1;
+    }
+
+    public static int floorIndex(int[] arrays, int key) {
+        return floorIndex(arrays, 0, arrays.length, key);
+    }
+
+    /**
+     * 搜索最后一个小于key的值坐标，数组必须升序排列
+     *
+     * @param arrays    待搜索的数组
+     * @param fromIndex 搜索的起始坐标，默认为0
+     * @param toIndex   搜索中止坐标的后一位，搜索范围为[fromIndex, toIndex)，默认为数组的长度
+     * @param key       搜索比较值
+     * @return 返回正确的坐标，如果没有，则返回toIndex
+     */
+    public static int lowerIndex(int[] arrays, int fromIndex, int toIndex, int key) {
+        int index = ceilingIndex(arrays, fromIndex, toIndex, key);
+        return index == fromIndex ? toIndex : index - 1;
+    }
+
+    public static int lowerIndex(int[] arrays, int key) {
+        return lowerIndex(arrays, 0, arrays.length, key);
+    }
+
+    /**
+     * 找到数组中最接近key的值，请注意数组应当升序排列，算法采用二分查找进行搜索，请保证数组非空
+     *
+     * @param arrays    待查找的数组
+     * @param fromIndex 搜索起始坐标，默认为0
+     * @param toIndex   搜索中止坐标，搜索范围为[fromIndex, toIndex)，默认为数组的长度
+     * @param key       搜索比较值
+     * @return 返回数组中最接近key的值
+     */
+    public static int findClosestVal(int[] arrays, int fromIndex, int toIndex, int key) {
+        int index = ceilingIndex(arrays, fromIndex, toIndex, key);
+        int preIndex = index == fromIndex ? fromIndex : index - 1;
+        index = index == toIndex ? toIndex - 1 : index;
+        return Math.abs(key - arrays[preIndex]) < Math.abs(key - arrays[index]) ? arrays[preIndex] : arrays[index];
+    }
+
+    public static int findClosestVal(int[] arrays, int key) {
+        return findClosestVal(arrays, 0, arrays.length, key);
+    }
+
+    /**
+     * 以匹配正则表达式内容分割字符串，处理掉可能存在的空字符
+     *
+     * @param regex 正则表达式
+     * @param input 输入字符串
+     * @return 返沪由分割字符串组成的String数组
+     */
+    public static String[] split(String regex, String input) {
+        String[] result = input.split(regex);
+        List<String> lists = new ArrayList<>();
+        for (int i = 1; i < result.length; i++) {
+            if (!"".equals(result[i])) {
+                lists.add(result[i]);
+            }
+        }
+        return lists != null ? lists.toArray(String[]::new) : result;
+    }
+
+    /**
+     * 对字符串进行排序，由于String的final属性，函数会返回一个排序好的新字符串，不会改变原本的字符串
+     *
+     * @param str 待排序的字符串
+     * @return 排序好的新字符串
+     */
+    public static String sort(String str) {
+        char[] array = str.toCharArray();
+        Arrays.sort(array);
+        return new String(array);
+    }
+}
+
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] nums) {
+        int len = 1, n = nums.length;
+        int[] ret = new int[n];
+        int[] d = new int[n + 1];
+        d[len] = nums[0];
+        ret[0] = 1;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] >= d[len]) {
+                d[++len] = nums[i];
+            } else {
+                int l = 1, r = len, pos = 0; // 如果找不到说明所有的数都比 nums[i] 大，此时要更新 d[1]，所以这里将 pos 设为 0
+                while (l <= r) {
+                    int mid = (l + r) >> 1;
+                    if (d[mid] <= nums[i]) {
+                        pos = mid;
+                        l = mid + 1;
+                    } else {
+                        r = mid - 1;
+                    }
+                }
+                d[pos + 1] = nums[i];
+            }
+            int t = Tools.floorIndex(d, 1, len + 1, nums[i]);
+            //OutputShow.showIntegerArrays(d);
+            //t = t == len ? 0 : t;
+            //System.out.print(t);
+            ret[i] = t;
+        }
+        //OutputShow.showIntegerArrays(ret);
+        return ret;
+    }
+}

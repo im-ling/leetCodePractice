@@ -1,0 +1,16 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int> &obstacles) {
+        vector<int> greedy, res(obstacles.size(), 0);
+        for (int i = 0; i < obstacles.size(); ++i) {
+            int item = obstacles[i];
+            auto it = upper_bound(greedy.begin(), greedy.end(), item);
+            res[i] = it - greedy.begin() + 1;
+            if (it == greedy.end()) { greedy.push_back(item); }
+            else {
+                *it = item;
+            }
+        }
+        return res;
+    }
+};

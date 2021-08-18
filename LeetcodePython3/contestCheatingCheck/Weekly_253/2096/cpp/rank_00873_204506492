@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        int n = ob.size();
+        vector<int> res = vector<int>(n,0);
+        vector<int> path;
+        for(int i=0; i<n; i++) {
+            if(path.empty()||ob[i]>=path.back()) {
+                path.push_back(ob[i]);
+                res[i] = path.size();
+            }
+            else {
+                // 二分插入到中间
+                int l = 0, r = path.size()-1;
+                while(l<r) {
+                    int mid = l+r>>1;
+                    if(path[mid]>ob[i]) r = mid;
+                    else l = mid+1;
+                }
+                path[l] = ob[i];
+                res[i] = l+1;
+            }
+        }
+        return res;
+    }
+};

@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int c[(int) 1e5 + 100];
+    int N, NN;
+
+    int ask(int x) {
+        int ans = 0;
+        for (; x; x -= x & -x)ans = max(ans, c[x]);
+        return ans;
+    }
+
+    void add(int x, int y) {
+        for (; x <= NN; x += x & -x)c[x] = max(c[x], y);
+    }
+
+    int cut[(int) 1e5 + 100], aaa[(int) 1e5 + 100];
+
+    vector<int> longestObstacleCourseAtEachPosition(vector<int> &obstacles) {
+        N = obstacles.size();
+        vector<int> aans(obstacles.size());
+        for (int i = 0; i < N; i++)cut[i + 1] = obstacles[i];
+        sort(cut + 1, cut + N + 1);
+        NN = unique(cut + 1, cut + N + 1) - cut - 1;
+        int pos, val;
+        for (int i = 1; i <= N; i++) {
+            pos = lower_bound(cut + 1, cut + NN + 1, obstacles[i - 1]) - cut;
+            val = ask(pos) + 1;
+            aans[i - 1] = val;
+            add(pos, val);
+        }
+        return aans;
+    }
+};

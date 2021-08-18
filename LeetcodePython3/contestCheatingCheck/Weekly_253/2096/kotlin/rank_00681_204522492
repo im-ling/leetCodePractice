@@ -1,0 +1,25 @@
+class Solution {
+    fun longestObstacleCourseAtEachPosition(obstacles: IntArray): IntArray {
+        val ts = TreeSet<Int>()
+        val map = HashMap<Int, Int>().toSortedMap()
+        val ans = ArrayList<Int>()
+        obstacles.forEach {
+            val lst = ts.floor(it)
+            var len = 1
+            if (lst != null) {
+                len = map[lst]!! + 1
+                var ceil = ts.ceiling(it)
+                while (ceil != null && map[ceil]!! < len) {
+                    ts.remove(ceil)
+                    ceil = ts.ceiling(ceil + 1)
+                }
+                map[it] = len
+            } else {
+                map[it] = 1
+            }
+            ts.add(it)
+            ans.add(len)
+        }
+        return ans.toIntArray()
+    }
+}

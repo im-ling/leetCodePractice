@@ -1,0 +1,53 @@
+const int N=100010;
+int p[N];
+bool st[N];
+int dp[N];
+class Solution {
+public:
+    int find(int l,int r,int x){
+        if(l>r) return 0;
+        if(p[l]>x) return 0;
+        if(p[r]<=x) return r;
+        int mid=l+r>>1;
+        while(true){
+            if(l+1==r) return l;
+            if(p[mid]>x){
+                r=mid;
+                mid=l+r>>1;
+                continue;
+            }
+            if(p[mid]<=x){
+                l=mid;
+                mid=l+r>>1;
+                continue;
+            }
+        }
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        memset(dp,0,sizeof(dp));
+        memset(st,0,sizeof(st));
+        int n=obstacles.size();
+            int len=0;
+        for(int i=0;i<n;i++){
+            int x=find(1,len,obstacles[i]);
+            if(x==0){
+                if(st[x+1])
+                p[x+1]=min(p[x+1],obstacles[i]);
+                else{
+                    p[x+1]=obstacles[i];
+                    st[x+1]=true;
+                }
+                dp[i]=1;
+                len=max(x+1,len);
+                continue;
+            }
+            p[x+1]=obstacles[i];
+            st[x+1]=true;
+            dp[i]=x+1;
+            len=max(x+1,len);
+        }
+        vector<int> pp;
+        for(int i=0;i<n;i++) pp.push_back(dp[i]);
+        return pp;
+    }
+};

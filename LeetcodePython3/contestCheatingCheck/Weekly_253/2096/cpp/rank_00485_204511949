@@ -1,0 +1,35 @@
+class Solution {
+public:
+    vector<int> tree;
+    void update(int id, int val) {
+        while (id < tree.size() && tree[id] < val) {
+            tree[id] = val;
+            id += lowbit(id);
+
+        }
+    }
+    int query(int id) {
+        int ans = tree[id];
+        while (id > 0) {
+            ans = max(ans, tree[id]);
+            id -= lowbit(id);
+        }
+        return ans;
+    }
+    int lowbit(int x) {
+        return x & (-x);
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int y = *max_element(obstacles.begin(), obstacles.end());
+        tree.resize(y + 1);
+        
+        vector<int> ans;
+        vector<int> st;
+        for (int i = 0; i < obstacles.size(); ++i) {
+            int y = query(obstacles[i]);
+            ans.push_back(y + 1);
+            update(obstacles[i], y + 1);
+        }
+        return ans;
+    }
+};

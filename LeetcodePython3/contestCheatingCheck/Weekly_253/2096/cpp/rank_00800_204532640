@@ -1,0 +1,22 @@
+class Solution {
+   public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> re;
+        int a[100010] = {0};
+        re.push_back(1);
+        a[0] = obstacles[0];
+        int len = 0;
+        for (int i = 1; i < obstacles.size(); i++) {
+            if (obstacles[i] >= a[len]) {
+                a[++ len] = obstacles[i];
+                re.push_back(len + 1);
+            } 
+            else {
+                int x = upper_bound(a, a + len, obstacles[i]) - a;
+                if (x < 100010) a[x] = obstacles[i] , re.push_back(x + 1);
+                else re.push_back(1);
+            }
+        }
+        return re;
+    }
+};

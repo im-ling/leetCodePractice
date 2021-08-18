@@ -1,0 +1,38 @@
+class Solution {
+public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] arr = new int[n]; 
+        int[] ans = new int[n]; 
+        int index = 0;
+        arr[index] = obstacles[0];
+        ans[0] = 1;
+        
+        for(int i=1; i<n; i++) {
+            if(obstacles[i]>=arr[index]) {
+                arr[++index] = obstacles[i];
+                ans[i] = index+1;
+            } else {
+                int k = findFirstBig(arr, obstacles[i], index);
+                while(k<i&&arr[k]==obstacles[i]) k++;
+                arr[k] = obstacles[i];
+                ans[i] = k+1;
+            }
+        }
+
+        // System.out.println(Arrays.toString(ans));
+        return ans;
+    }
+
+    public int findFirstBig(int[] arr, int target, int index) {
+        int left = 0, right = index+1;
+        while(left<right) {
+            int mid = (left+right)/2;
+            if(arr[mid]<target) {
+                left = mid+1;
+            } else {
+                right = mid;
+            }
+        }
+        return left;
+    }
+}

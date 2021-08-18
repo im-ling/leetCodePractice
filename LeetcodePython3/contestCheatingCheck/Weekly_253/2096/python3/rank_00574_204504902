@@ -1,0 +1,29 @@
+class Solution:
+    
+    def binsearch(self, minidx_maxseq, beg, end, v):
+        while beg < end:
+            mid = beg + (end - beg) // 2
+            if minidx_maxseq[mid] <= v:
+                beg = mid + 1
+            else:
+                end = mid
+        return end - 1
+        
+    
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        n = len(obstacles)
+        minidx_maxseq = [10**8] * (n+1)
+        minidx_maxseq[0] = 0
+        ans = [0] * n
+        for i in range(n):
+            beg, end = 0, i+1
+            v = self.binsearch(minidx_maxseq, beg, end, obstacles[i])
+            if obstacles[i] < minidx_maxseq[v+1]:
+                minidx_maxseq[v+1] = obstacles[i]
+            
+            ans[i] = v + 1
+            
+        return ans
+            
+            
+            

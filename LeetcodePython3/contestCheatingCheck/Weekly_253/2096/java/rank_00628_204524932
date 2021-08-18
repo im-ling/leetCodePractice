@@ -1,0 +1,24 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n=obstacles.length, k=0;
+        int[] dp = new int[n];
+        
+        int[] tails = new int[n];
+        int res=0;  // tails的有效长度
+        for(int num: obstacles){
+            int i=0, j=res;
+            while(i<j){
+                int mid=(i+j)/2;
+                if(tails[mid]<=num)
+                    i=mid+1;
+                else
+                    j=mid;
+            }
+            tails[i]=num;
+            dp[k++] = i+1;
+            if(i==res)
+                res++;
+        }
+        return dp;
+    }
+}

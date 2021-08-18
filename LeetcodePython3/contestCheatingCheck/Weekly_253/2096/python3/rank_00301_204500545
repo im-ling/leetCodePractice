@@ -1,0 +1,22 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, A: List[int]) -> List[int]:
+        inc = []
+        res = [1] * len(A)
+        for i, a in enumerate(A):
+            while inc and a < inc[-1]:
+                inc.pop()
+            inc.append(a)
+            res[i] = len(inc)
+        return res
+    
+    def longestObstacleCourseAtEachPosition(self, A: List[int]) -> List[int]:
+        inc = []
+        res = [1] * len(A)
+        for i, a in enumerate(A):
+            res[i] = bisect.bisect_right(inc, a) + 1
+            if not inc or a >= inc[-1]:
+                inc.append(a)
+            else:
+                idx = bisect.bisect_right(inc, a)
+                inc[idx] = a
+        return res

@@ -1,0 +1,55 @@
+const int N = 1e5 + 10, Maxn = 10000000;
+
+int root, ls[N << 5], rs[N << 5], maxn[N << 5], num;
+
+void init() {
+  root = num = 0;
+  memset(ls, 0, sizeof ls);
+  memset(rs, 0, sizeof rs);
+  memset(maxn, 0, sizeof maxn);
+}
+
+void update(int &rt, int l, int r, int x, int v) {
+  if (!rt) {
+    rt = ++num;
+  }
+  maxn[rt] = max(maxn[rt], v);
+  if (l == r) {
+    return ;
+  }
+  int mid = l + r >> 1;
+  if (x <= mid) {
+    update(ls[rt], l, mid, x, v);
+  }
+  else {
+    update(rs[rt], mid + 1, r, x, v);
+  }
+}
+
+int query(int rt, int l, int r, int L, int R) {
+  if (l >= L && r <= R) {
+    return maxn[rt];
+  }
+  int mid = l + r >> 1, ans = 0;
+  if (L <= mid) {
+    ans = max(ans, query(ls[rt], l, mid, L, R));
+  }
+  if (R > mid) {
+    ans = max(ans, query(rs[rt], mid + 1, r, L, R));
+  }
+  return ans;
+}
+
+class Solution {
+public:
+  vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+    vector<int> ans;
+    init();
+    for (auto it : obstacles) {
+      int res = query(root, 1, Maxn, 1, it) + 1;
+      ans.push_back(res);
+      update(root, 1, Maxn, it, res);
+    }
+    return ans;
+  }
+};

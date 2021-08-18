@@ -1,0 +1,15 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        ans = []
+        store = [] # store[i]存储长度为i的最小值
+        import bisect
+        for o in obstacles:
+            if not store or store[-1]<=o:
+                ans.append(len(store)+1)
+                store.append(o)
+            else:
+                ind = bisect.bisect_right(store, o)
+                ans.append(ind+1)
+                store[ind] = o
+        return ans
+            

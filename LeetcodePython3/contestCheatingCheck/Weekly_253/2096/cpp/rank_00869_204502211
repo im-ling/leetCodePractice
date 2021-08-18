@@ -1,0 +1,41 @@
+class Solution {
+public:
+    
+    // 第一个大于
+    int find_bin(int x, vector<int>& low) {
+        int l = 0, r = low.size();
+        int m;
+        while (l <= r) {
+            m = (l + r) / 2;
+            if (low[m] == x) {
+                while (low[m] <= x) m++;
+                return m;
+            }
+            else if (low[m] < x) l = m + 1;
+            else r = m - 1;
+        }
+        return l;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int N = obstacles.size();
+        vector<int> res(N);
+        vector<int> low;
+        low.push_back(obstacles[0]);
+        res[0] = 1;
+        for (int i = 1 ; i < N ; i++) res[i] = 1;
+        
+        for (int i = 1 ; i < N ; i++) {
+            if (obstacles[i] >= low[low.size() - 1]) {
+                low.push_back(obstacles[i]);
+                res[i] = low.size();
+            } else {
+                int id = find_bin(obstacles[i], low);
+                low[id] = obstacles[i];
+                res[i] = id + 1;
+            }
+        }
+        
+        return res;
+    }
+};

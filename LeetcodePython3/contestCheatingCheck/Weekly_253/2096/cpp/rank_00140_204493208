@@ -1,0 +1,50 @@
+const int maxn=1e5+10;
+int pos[maxn];
+struct node {
+    int Left,Right,Max;
+}NODE[maxn<<2];
+void build(int l, int r, int idx) {
+    NODE[idx]={l,r,0};
+    if (l==r) return;
+    int m=(l+r)>>1;
+    build(l,m,idx<<1),build(m+1,r,idx<<1|1);
+}
+void Updata(int pos, int val, int idx) {
+    if (NODE[idx].Left==NODE[idx].Right) {
+        NODE[idx].Max=max(NODE[idx].Max,val);
+        return;
+    }
+    int m=(NODE[idx].Left+NODE[idx].Right)>>1;
+    if (pos<=m) Updata(pos,val,idx<<1);
+    else Updata(pos,val,idx<<1|1);
+    NODE[idx].Max=max(NODE[idx<<1].Max,NODE[idx<<1|1].Max);
+}
+int query(int l, int r, int idx) {
+    if (NODE[idx].Left==l&&NODE[idx].Right==r) return NODE[idx].Max;
+    int m=(NODE[idx].Left+NODE[idx].Right)>>1;
+    if (r<=m) return query(l,r,idx<<1);
+    else if (l>m) return query(l,r,idx<<1|1);
+    else return max(query(l,m,idx<<1),query(m+1,r,idx<<1|1));
+}
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> ans;
+        stack<int> S;
+        int tot=0;
+        for (int i=0; i<obstacles.size(); i++) {
+            pos[++tot]=obstacles[i];
+        }
+        sort(pos+1,pos+tot+1);
+        build(1,tot,1);
+        tot=unique(pos+1,pos+tot+1)-pos-1;
+        for (int i=0; i<obstacles.size(); i++) {
+            int num=obstacles[i];
+            int R=lower_bound(pos+1,pos+tot+1,obstacles[i])-pos;
+            int Max=query(1,R,1)+1;
+            Updata(R,Max,1);
+            ans.push_back(Max);
+        }
+        return ans;
+    }
+};

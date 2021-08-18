@@ -1,0 +1,24 @@
+const int N = 1e5 + 7;
+class Solution {
+public:
+	int b[N];
+	vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+		int len = 0;
+		b[++len] = obstacles[0];
+		vector<int> res;
+		res.push_back(1);
+		for (int i = 1; i < obstacles.size(); ++i) {
+			int x = obstacles[i];
+			if (x >= b[len]) {
+				b[++len] = x;
+				res.push_back(len);
+			}
+			else {
+				int pos = upper_bound(b + 1, b + 1 + len, x) - b;
+				b[pos] = x;
+				res.push_back(pos);
+			}
+		}
+		return res;
+	}
+};

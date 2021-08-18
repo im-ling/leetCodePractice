@@ -1,0 +1,58 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] nums) {
+//         TreeSet<int[]> tree=new TreeSet();
+//         for(int i=0;i<obstacles.length;i++){
+            
+//         }
+        
+//         Stack<Integer> stack=new Stack();
+//         Map<Integer,Integer> map=new HashMap();
+//         int[] res=new int[obstacles.length];
+//         for(int i=0;i<obstacles.length;i++){
+//             while(!stack.isEmpty()&&stack.peek()>obstacles[i]){
+//                 stack.pop();
+//             }
+//             stack.push(obstacles[i]);
+//             res[i]=Math.max(stack.size(),map.getOrDefault(obstacles[i],0)+1);
+//             map.put(obstacles[i],res[i]);
+//         }
+//         return res;
+        int[] tails = new int[nums.length];
+            int res = 0;
+        int count=0;
+            int[] rr=new int[nums.length];
+            for(int num : nums) {
+                int i = 0, j = res;
+                while(i < j) {
+                    int m = (i + j) / 2;
+                    if(tails[m] <= num) i = m + 1;
+                    else j = m;
+                }
+                tails[i] = num;
+                // System.out.println(Arrays.toString(tails));
+                if(res == j) res++;
+                rr[count++]=i+1;
+            }
+            return rr;
+    }
+    // Dynamic programming + Dichotomy.
+    // class Solution {
+    //     public int lengthOfLIS(int[] nums) {
+    //         int[] tails = new int[nums.length];
+    //         int res = 0;
+    //         int[] rr=new int[nums.length];
+    //         for(int num : nums) {
+    //             int i = 0, j = res;
+    //             while(i < j) {
+    //                 int m = (i + j) / 2;
+    //                 if(tails[m] < num) i = m + 1;
+    //                 else j = m;
+    //             }
+    //             tails[i] = num;
+    //             if(res == j) res++;
+    //             rr[i]=res;
+    //         }
+    //         return rr;
+    //     }
+    // }
+}

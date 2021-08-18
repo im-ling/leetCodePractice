@@ -1,0 +1,24 @@
+class Solution
+{
+public:
+    int c[100005], a[100005], b[100005], f[100005], n, len;
+    int lowbit(int x) { return x & -x; }
+    void update(int x, int val) { for (int i = x; i <= n; i += lowbit(i))c[i] = max(c[i], val); }
+    int qmax(int x) { int ans = 0; for (int i = x; i; i -= lowbit(i))ans = max(ans, c[i]); return ans; }
+    vector<int>longestObstacleCourseAtEachPosition(vector<int>& obstacles)
+    {
+        n = obstacles.size();
+        vector<int>ans;
+        for (int i = 1; i <= n; ++i)a[i] = obstacles[i - 1], b[i] = a[i];
+        sort(b + 1, b + n + 1);
+        int len = unique(b + 1, b + n + 1) - b - 1;
+        for (int i = 1; i <= n; i++)
+        {
+            a[i] = lower_bound(b + 1, b + len + 1, a[i]) - b;
+            f[i] = qmax(a[i]) + 1;
+            update(a[i], f[i]);
+            ans.push_back(f[i]);
+        }
+        return ans;
+    }
+};

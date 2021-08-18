@@ -1,0 +1,72 @@
+using ll = long long;
+
+class BIT {
+public:
+	int n;
+    vector<ll> sum;
+    vector<ll> ntimessum;
+   
+public:
+    BIT(int _n): n(_n + 5), sum(_n + 10, 0), ntimessum(_n + 10, 0) {}
+    ll lowbit(ll x) {
+        return x & (-x);
+    }
+    
+    void update(int pos, ll k) { // 在 pos 位置加上 k
+        ll x = pos;
+        while(pos <= n) {
+            sum[pos] = max(sum[pos], k);
+            ntimessum[pos] += k * (x - 1);
+            pos += lowbit(pos);
+        }
+    }
+    
+    ll askis(int pos) { // 区间更新 + 单点查询 
+    	if(!pos) return 0;
+        ll ret = 0;
+        while(pos) {
+            ret = max(ret, sum[pos]);
+            pos -= lowbit(pos);
+        }
+        return ret;
+    }
+    
+    ll asksi(int l, int r) { // 单点更新 + 区间查询
+        if(l > r) {
+            //cout << "Interval invalid!\n";
+            return 0;
+        }
+        return askis(r) - askis(l - 1);
+    }
+    
+};
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        vector<int> ret;
+        int n = a.size();
+        
+        set<ll> s;
+        for(auto x : a) s.insert(x);
+        unordered_map<ll, int> mp;
+        vector<int> v;
+        int id = 0;
+        for(int x : s) {
+            if(mp.count(x)) {
+                v.push_back(mp[x]);
+            } else {
+                mp[x] = ++id;
+                v.push_back(mp[x]);
+            }
+        }
+        
+        BIT *b = new BIT(n);
+        for(int i = 0; i < n; i++) {
+            int ans = b->askis(mp[a[i]]);
+            b->update(mp[a[i]], ans + 1);
+            ret.push_back(ans + 1);
+        }
+        return ret;
+    }
+};

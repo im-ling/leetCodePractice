@@ -1,0 +1,58 @@
+/**
+  dp, 最长上升子序列
+  1. 暴力，O(n^2)，对于每一个位置，遍历之前所有的
+    这个问题是每个保存最优子性质
+  
+  2. 优化解法
+    尝试1：
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+      int n = obstacles.size();
+      if (n == 0 || n == 1)
+          return obstacles;
+      vector<pair<int, int>> helpers;
+      for (int i = 0; i < n; i++) {
+        helpers.push_back(pair<int, int>(obstacles[i], i));
+      }
+      sort(helpers.begin(), helpers.end());
+      for (int i = 0; i < n; i++) {
+        printf("%d, %d\n", helpers[i].first, helpers[i].second);
+      }
+      vector<int> res(n);
+      for (int i = 0; i < n; i++) {
+        res[helpers[i].second] = min(i + 1, helpers[i].second + 1);
+      }
+      return res;
+    }
+    
+    map<int, pair<int, int>> dp
+    dp[i] = j, 代表长度为 i 的时候，最小的那个值
+    
+    
+    
+    3. 单调栈，单调递增的栈，每个地方看一下栈的深度，不能这么做
+    
+*/
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        int len=ob.size();
+        vector<int> dp(len,1);
+        map<int,int> m;
+        m[1]=ob[0];
+        for(int i=1;i<len;++i){
+            for(auto it=m.rbegin();it!=m.rend();++it){
+                if(it->second<=ob[i]){
+                    dp[i]=it->first+1;
+                    if(m[dp[i]]!=0){
+                        m[dp[i]]=min(ob[i],m[dp[i]]);
+                    }else{
+                        m[dp[i]]=ob[i];
+                    }
+                    break;
+                }
+            }
+            m[1]=min(m[1],ob[i]);
+        }
+        return dp;
+    }
+};

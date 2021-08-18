@@ -1,0 +1,21 @@
+func longestObstacleCourseAtEachPosition(obstacles []int) []int {
+    n := len(obstacles)
+    Lis := make([]int,n)
+    lis := func(a []int) int {
+		dp := []int{}
+		for i, v := range a {
+			if p := sort.SearchInts(dp, v+1); p < len(dp) { // 改成 v+1 为非降
+				dp[p] = v
+                Lis[i] = p+1
+			} else {
+				dp = append(dp, v)
+                Lis[i] = len(dp)
+			}
+            
+		}
+		return len(dp)
+	}
+    lis(obstacles)
+    return Lis
+    
+}

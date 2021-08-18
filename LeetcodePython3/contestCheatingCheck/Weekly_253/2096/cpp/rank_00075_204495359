@@ -1,0 +1,14 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+int st[200000];int cnt=0;
+        vector<int> ans;
+        for(auto &i: a)
+        {
+            int t=upper_bound(st+1,st+1+cnt,i)-st;
+            st[t]=i;if(t>cnt)cnt++;
+            ans.push_back(t);
+        }
+        return ans;
+    }
+};

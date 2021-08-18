@@ -1,0 +1,25 @@
+/**
+ * @param {number[]} obstacles
+ * @return {number[]}
+ */
+var longestObstacleCourseAtEachPosition = function(obstacles) {
+    let stack = []
+    let ans = []
+    for (let o of obstacles) {
+        let i = bisect(stack, o)
+        if (i >= stack.length) stack.push(o)
+        else stack[i] = Math.min(stack[i], o)
+        ans.push(i + 1)
+    }
+    return ans
+    
+    function bisect(stack, target) {
+        let lo = 0, hi = stack.length - 1
+        while (lo <= hi) {
+            let mi = (lo + hi) >> 1
+            if (stack[mi] > target) hi = mi - 1
+            else lo = mi + 1
+        }
+        return lo
+    }
+};

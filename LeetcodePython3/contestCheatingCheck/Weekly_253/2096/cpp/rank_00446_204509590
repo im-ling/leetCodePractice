@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> lis(n, 1);
+        if (n == 1) {
+            return lis;
+        }
+        map<int, int> cnt2num;
+        for (int i = 1; i < n; ++i) {
+            int oi = cnt2num[-lis[i-1]];
+            if(oi == 0) {
+                cnt2num[-lis[i-1]] = obstacles[i-1];
+            }
+            else {
+                cnt2num[-lis[i-1]] = min(obstacles[i-1], oi);
+            }
+            for (auto [nc, oi]: cnt2num) {
+                if (oi <= obstacles[i]) {
+                    lis[i] = max(lis[i], -nc + 1);
+                    break;
+                }
+            }
+        }
+        return lis;
+    }
+};

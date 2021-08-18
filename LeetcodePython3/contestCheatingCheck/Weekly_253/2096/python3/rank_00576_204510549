@@ -1,0 +1,29 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        import bisect
+        n=len(obstacles)
+        tree=[0 for _ in range(n+5)]
+        obstacle=sorted(obstacles)
+        for i in range(n):
+            obstacles[i]=bisect.bisect_left(obstacle,obstacles[i])+1
+        
+        def query(k):
+            summ=0
+            while k>0:
+                summ=max(summ,tree[k])
+                k-=k&(-k)
+            return summ
+        
+        def update(k,s):
+            while k<=n:
+                tree[k]=max(tree[k],s)
+                k+=k&(-k)
+                
+        #print(obstacles)
+        ans=[]
+        for i in range(n):
+            k=query(obstacles[i])+1
+            ans.append(k)
+            update(obstacles[i],k)
+        return ans
+        

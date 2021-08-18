@@ -1,0 +1,33 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] res = new int[n];
+        int[] temp = new int[n];
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (count == 0 || obstacles[i] >= temp[count - 1]) {
+                temp[count++] = obstacles[i];
+                res[i] = count;
+            }
+            else {
+                int loca = SearchLoca(temp, count, obstacles[i]);
+                temp[loca] = obstacles[i];
+                res[i] = loca + 1;
+            }
+        }
+        return res;
+    }
+    public int SearchLoca(int[] nums, int count, int num) {
+        int left = 0, right = count - 1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] <= num) {
+                left = mid + 1;
+            }
+            else {
+                right = mid;
+            }
+        }
+        return left;
+    }
+}

@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> ans;
+        vector<int> temp;
+        priority_queue<int> que;
+        for(int i = 0; i < obstacles.size(); ++i){
+            int cur = obstacles[i];
+            int left = 0, right = temp.size() - 1;
+            if(temp.empty() || cur >= temp.back()){
+                temp.push_back(cur);
+                ans.push_back(temp.size());
+            }
+            else{
+                while(left <= right){
+                    int mid = (right + left) / 2 ;
+                    // cout<<"mid" <<mid<<endl;
+                    if(cur >= temp[mid]){
+                        left = mid + 1;
+                    }else if (cur < temp[mid]){
+                        right = mid - 1;
+                    }
+                }
+                temp[left] = cur;
+                // cout<<"left"<<left <<endl;
+                ans.push_back(left + 1);
+            }
+            
+        }
+        return ans;
+    }
+};

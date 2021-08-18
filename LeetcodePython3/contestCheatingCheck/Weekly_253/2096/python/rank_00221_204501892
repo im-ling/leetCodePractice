@@ -1,0 +1,27 @@
+class Solution(object):
+    def longestObstacleCourseAtEachPosition(self, o):
+        """
+        :type obstacles: List[int]
+        :rtype: List[int]
+        """
+        # 最长单调子序列
+        a = [o[0]]
+        ans = [1]
+        for i in o[1:]:
+            h = len(a) - 1
+            l = 0
+            while h - l > 0: # 找a中比i大的第一个数
+                m = (h + l) // 2
+                if a[m] <= i:
+                    l = m + 1
+                else:
+                    h = m
+            if a[l] <= i:
+                ans.append(l + 2)
+                a.append(i)
+            else:
+                a[l] = i
+                ans.append(l + 1)
+        return ans
+                
+            

@@ -1,0 +1,23 @@
+#define debug(x) cerr << #x << '=' << x << '\n'
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n = a.size();
+        vector<int> b, r;
+        b.push_back(a.at(0));
+        r.push_back(1);
+        for (int i = 1; i < n; i++) {
+            if (a[i] >= *b.rbegin()) {
+                b.push_back(a[i]);
+                r.push_back(b.size());
+               // debug(*r.rbegin());
+            } else {
+                int j = upper_bound(b.begin(), b.end(), a[i]) - b.begin();
+                b[j] = a[i];
+                r.push_back(j + 1);
+                //debug(*r.rbegin());
+            }
+        }
+        return r;
+    }
+};

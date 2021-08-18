@@ -1,0 +1,25 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] o) {
+        LinkedList<Integer> list = new LinkedList<>();
+        int[] ans = new int[o.length];
+        for(int i = 0;i < o.length;i++) {
+            if(list.size() == 0 || o[i] >= list.get(list.size() - 1)) {
+                list.add(o[i]);
+                ans[i] = list.size();
+            } else {
+                int l = 0,r = list.size() - 1;
+                while(l < r) {
+                    int mid = l + r >> 1;
+                    if(list.get(mid) > o[i])
+                        r = mid;
+                    else
+                        l = mid + 1;
+                }
+                ans[i] = l + 1;
+                list.set(l,o[i]);
+            }
+        }
+        return ans;
+    }
+}
+// [1,1,2,3,2,3,4,5,3,5]

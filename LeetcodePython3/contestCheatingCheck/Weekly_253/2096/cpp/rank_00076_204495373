@@ -1,0 +1,25 @@
+const int N = 1e5 + 5;
+class Solution {
+public:
+    int sta[N];
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+       vector<int> r;
+        int n = 0;
+        for(auto v : obstacles) {
+            if(n == 0) {
+                sta[n++] = v;
+                r.push_back(1);
+                continue;
+            }
+            
+            int idx = upper_bound(sta, sta + n, v) - sta;
+            if(idx >= n) {
+                n++;
+                
+            } 
+            sta[idx] = v;
+            r.push_back(idx + 1);
+        }
+        return r;
+    }
+};

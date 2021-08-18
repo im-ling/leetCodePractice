@@ -1,0 +1,50 @@
+
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        // dp
+        int dp[100005];
+        memset(dp, 0, sizeof(dp));
+        vector<int> ans;
+        // use negative
+        map<int, int> pos;
+        // effective: distance smaller or equal  but number is larger, this is not effective
+        // pair<-dis, +number>
+        set<pair<int, int>> eff;
+        int n = obs.size();
+        
+        for (int i = 0; i < n; i++) {
+            int cur = obs[i];
+            auto iter = pos.lower_bound(-cur);
+            // cout<<"i="<<i<<",cur="<<cur<<"iter->first"
+            // auto iter = lower_bound(pos.begin(), pos.end(), -cur);
+            int res = 0;
+            if (iter == pos.end()) {
+                // not find
+                res = 1;
+            } else {
+                res = 1 + dp[iter->second];
+            }
+            pair<int, int> curPair = {-res, cur};
+            auto effIter = eff.lower_bound(curPair);
+            while (effIter != eff.end()) {
+                // cout<<"i="<<i<<", cur="<<cur<<", effIter->first="<<effIter->first <<",res="<<res<<",effIter->second="<<effIter->second<<", cur="<<cur<<endl;
+                if (-effIter->first <= res && effIter->second >= cur) {
+                    // if not satisfied
+                    // cout<<"earse!!!:"<<"i="<<i<<", cur="<<cur<<", effIter->first="<<effIter->first <<",res="<<res<<",effIter->second="<<effIter->second<<", cur="<<cur<<endl;
+                    pos.erase(-effIter->second);
+                    eff.erase(effIter);
+                } else {
+                    break;
+                }
+                effIter = eff.lower_bound(curPair);
+            }
+            eff.insert(curPair);
+            pos[-cur] = i;
+            dp[i] = res;
+            ans.push_back(res);
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,54 @@
+class Solution {
+public:
+    vector<int> dp,ans;
+    int index;
+    int bsearch(int l,int r,int num){
+        int mid = l/2+r/2;
+        while(l < r-1){
+           
+            mid = (l+r)/2;
+            // cout<<l<<" "<<r<<endl;
+            if(dp[mid]>num){
+                r = mid;
+            }
+            else if(dp[mid]<=num){
+                l = mid;
+            }
+            // else{
+            //     return mid;
+            // }
+        }
+        cout<<endl;
+        return l;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        dp.push_back(0);
+        dp.push_back(obstacles[0]);
+        index = 1;
+        ans.push_back(index);
+        
+        for(int i = 1;i < n;i++){
+            if(obstacles[i]>=dp[index]){
+                index++;
+                dp.push_back(obstacles[i]);
+                ans.push_back(index);
+            }
+            else{
+                // cout<<index<<endl;
+                // for(auto j:dp){
+                //     cout<<j<<" ";
+                // }
+                // cout<<endl;
+                int cur = bsearch(0,index,obstacles[i]);
+                if(dp[cur+1]>obstacles[i]){
+                    dp[cur+1] = obstacles[i];
+                }
+                ans.push_back(cur+1);
+                
+            }
+        }
+        
+        return ans;
+    }
+};

@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int size = obstacles.size();
+        vector<int> ans(size, 1);
+        map<int, int, greater<int>> len2tail; // 最长子序列长度及其末端高度
+        int i = 0;
+        for(const int h : obstacles){
+            int len = 1;
+            for(const auto kv : len2tail){
+                if(kv.second <= h){
+                    len = kv.first + 1;
+                    break;
+                }
+            }
+            len2tail[len] = h;
+            ans[i++] = len;
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,25 @@
+const int N = 100010;
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        vector<int> ans, res;
+        for (int i = 0; i < obs.size(); i ++) {
+            if (ans.size() == 0 || ans[ans.size()-1] <= obs[i]) {
+                ans.push_back(obs[i]);
+                res.push_back(ans.size());
+            }
+            else{
+                int l = 0, r = ans.size()-1, k = obs[i] ;
+                while(l < r){
+                    int mid = l+r >> 1;
+                    if (ans[mid] > k) r = mid;
+                    else l = mid + 1;
+                }
+                ans[r] = k;
+                //cout << r + 1 << endl;
+                res.push_back(r + 1);
+            }
+        }
+        return res;
+    }
+};

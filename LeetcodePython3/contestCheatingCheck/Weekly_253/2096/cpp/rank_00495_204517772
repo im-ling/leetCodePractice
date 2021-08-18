@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        //最长递增子序列长度
+        int n = obstacles.size();
+        vector<int> dp(n), end(n);
+        int right = 1;
+        dp[0] = 1, end[0] = obstacles[0];
+        for(int i = 1; i < n; i++){
+            int cur = obstacles[i];
+            int idx = upper_bound(end.begin(), end.begin() + right, cur) - end.begin();
+            if(idx == right){
+                end[idx] = cur; right++;
+            }else end[idx] = min(end[idx], cur);
+            dp[i] = idx + 1;
+        }
+        return dp;
+    }
+};

@@ -1,0 +1,28 @@
+class Solution {
+    void Longest(const vector<int> &seq, vector<int> &ans){
+        int n=seq.size(), l=1;
+        vector<int> d(n+1);
+        d[1]=seq[0];
+        ans.push_back(1);
+        for(int i=1; i<n; ++i){
+            int k0=1, k1=l+1;
+            while(k0 < k1){
+                int k = (k0+k1)/2;
+                if(d[k] <= seq[i]){
+                    k0 = k+1;
+                } else {
+                    k1 = k;
+                }
+            }
+            d[k0] = seq[i];
+            ans.push_back(k0);
+            l=max(l, k0);
+        }
+    }
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> ans;
+        Longest(obstacles, ans);
+        return ans;
+    }
+};

@@ -1,0 +1,24 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int[] result = new int[obstacles.length];
+        List<Integer> que = new ArrayList<>();
+        result[0]=1;
+        que.add(obstacles[0]);
+        for (int i = 1; i<obstacles.length;i++){
+            if (obstacles[i]>=que.get(que.size()-1)){
+                result[i] = que.size()+1;
+                que.add(obstacles[i]);
+            }else {
+                // find the first number larger than Obstakels[i] s index
+                int index = 0;
+                while (que.get(index)<=obstacles[i]){
+                    index++;
+                }
+                result[i]= index+1;
+                que.remove(index);
+                que.add(index,obstacles[i]);
+            }
+        }
+        return result;
+    }
+}

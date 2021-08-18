@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<int> lis(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> d(n + 1, -1);
+        vector<int> ans(n, 1);
+        d[1] = 0;
+        for(int i = 1; i < n; ++i){
+            if(nums[d[1]] > nums[i]){
+                d[1] = i;
+                ans[i] = 1;
+            }else{
+                int cur = 1;
+                for(int j = 20; j >= 0; --j){
+                    if(cur + (1 << j) < n and d[cur + (1 << j)] >= 0){
+                        if(nums[d[cur + (1 << j)]] <= nums[i]){
+                            cur += (1 << j);
+                        }
+                    }
+                }
+                ans[i] = cur + 1;
+                d[cur + 1] = i;
+            }
+        }
+        return ans;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        return lis(obstacles);
+    }
+};

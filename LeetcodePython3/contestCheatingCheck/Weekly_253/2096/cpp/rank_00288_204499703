@@ -1,0 +1,59 @@
+#define mid ((l + r) / 2)
+int tree[400005];
+void c_tree(int l, int r, int p, int x, int y)
+{
+	if (l == r)
+		tree[p]=y;
+	else
+	{
+		if (x <= mid)
+			c_tree(l, mid, p * 2, x, y);
+		else
+			c_tree(mid + 1, r, p * 2 + 1, x, y);
+		tree[p] = max(tree[p * 2],tree[p * 2 + 1]);
+	}
+}
+int q_tree(int l, int r, int p, int a, int b)
+{
+	if (l == a && r == b)
+		return tree[p];
+	else
+	{
+		if (b <= mid)
+			return q_tree(l, mid, p * 2, a, b);
+		else if (a >= mid + 1)
+			return q_tree(mid + 1, r, p * 2 + 1, a, b);
+		else
+			return max(q_tree(l, mid, p * 2, a, mid),q_tree(mid + 1, r, p * 2 + 1, mid + 1, b));
+	}
+}
+struct Discretization
+{
+	vector<int> v;
+	void init() { v.clear(); }
+	void insert(int x) { v.push_back(x); }
+	void sortV() { sort(v.begin(), v.end()), v.erase(unique(v.begin(), v.end()), v.end()); }
+	int getPos(int x) { return lower_bound(v.begin(), v.end(), x) - v.begin() + 1; }
+	int getVal(int pos) { return v[pos - 1]; }
+	int getSize() { return v.size(); }
+} D;
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n=obstacles.size();
+        int pre[100005];
+        D.init();
+        for(int x:obstacles)D.insert(x);
+        D.sortV();
+        memset(tree,0,sizeof(tree));
+        for(int i=1;i<=n;i++)
+        {
+            obstacles[i-1]=D.getPos(obstacles[i-1]);
+            pre[i]=q_tree(1,100000,1,1,obstacles[i-1])+1;
+            c_tree(1,100000,1,obstacles[i-1],pre[i]);
+        }
+        vector<int>v;
+        for(int i=1;i<=n;i++)v.push_back(pre[i]);
+        return v;
+    }
+};

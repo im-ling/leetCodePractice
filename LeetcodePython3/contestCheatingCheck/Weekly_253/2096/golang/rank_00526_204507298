@@ -1,0 +1,40 @@
+func longestObstacleCourseAtEachPosition(obstacles []int) []int {
+    // fmt.Println("---------------------------")
+    ans := make([]int, 0)
+    
+    // lis
+    lis := make([]int, 0)
+    for _, v := range obstacles {
+        p := 0
+        
+        if len(lis) == 0 || lis[len(lis)-1] <= v {
+            lis = append(lis, v)
+            
+            p = len(lis)
+        } else {
+            pos := func() int {
+                l, r, mid, ans := 0, len(lis)-1, -1, 0
+                for l<=r {
+                    mid = (l+r) >> 1
+                    if lis[mid] > v {
+                        r, ans = mid-1, mid
+                    } else {
+                        l = mid+1
+                    }
+                }
+                return ans
+            }()
+
+            lis[pos] = v
+            
+            p = pos + 1
+        }
+        
+        // fmt.Println(lis)
+        
+        ans = append(ans, p)
+    }
+    
+    
+    return ans
+}

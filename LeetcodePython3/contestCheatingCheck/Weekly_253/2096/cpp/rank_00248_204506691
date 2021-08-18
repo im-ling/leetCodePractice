@@ -1,0 +1,49 @@
+class Solution {
+public:
+    void lengthOfLIS(vector<int>& nums, vector<int>& ans)
+    {
+        int piles = 0;
+        vector<int> top(nums.size(), 0);
+        
+        for (int i = 0; i < nums.size(); i++) {
+
+            int poker = nums[i] + 1;
+
+            int left = 0, right = piles;
+            
+            while (left < right) 
+            {
+                int mid = (left + right) / 2;
+                
+                if (top[mid] > poker) 
+                {
+                    right = mid;
+                } 
+                else if (top[mid] < poker) 
+                {
+                    left = mid + 1;
+                } 
+                else 
+                {
+                    right = mid;
+                }
+            }
+
+            if (left == piles) 
+            {
+                piles++;
+            }
+                
+            top[left] = nums[i];
+            ans[i] = left + 1;
+        }
+
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> ans(n, 0);
+        lengthOfLIS(obstacles, ans);
+
+        return ans;
+    }
+};

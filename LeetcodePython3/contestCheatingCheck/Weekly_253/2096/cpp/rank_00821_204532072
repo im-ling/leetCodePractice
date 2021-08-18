@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& nums) {
+        vector<int> ans;
+        vector<int> dp;
+        dp.push_back(nums[0]);
+        ans.push_back(dp.size());
+        for(int i=1;i<nums.size();i++)  //从左到右遍历
+        {
+            if(nums[i]>=dp.back()){  //说明可以组成更长的字串
+                dp.push_back(nums[i]);
+                ans.push_back(dp.size());
+            }
+            else
+            {
+                int pos=upper_bound(dp.begin(),dp.end(),nums[i])-dp.begin();
+                dp[pos]=nums[i];
+                ans.push_back(pos+1);
+            }
+        }
+        return ans;
+
+    }
+};

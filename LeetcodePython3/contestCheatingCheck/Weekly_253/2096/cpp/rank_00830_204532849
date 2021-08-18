@@ -1,0 +1,41 @@
+#include <cstdio>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+#define FOR(i, a, b) for(int i=(a);i<=(b);++i)
+#define maxN 100005
+int n, L, a[maxN], T[maxN];
+
+void update(int i, int x) {
+    for (; i <= L; i += i & -i)
+        T[i] = max(T[i], x);
+}
+
+int query(int i) {
+    int ans = 0;
+    for (; i; i -= i & -i)
+        ans = max(ans, T[i]);
+    return ans;
+}
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int> &v) {
+        n = v.size();
+        FOR(i, 0, n - 1) a[i] = v[i];
+        memset(T, 0, sizeof(T));
+        sort(a, a + n);
+        L = unique(a, a + n) - a;
+        int ans = 1, t;
+        vector<int> res;
+        FOR(i, 0, n - 1) {
+            int p = lower_bound(a, a + L, v[i]) - a + 1;
+            t = query(p)+1;
+            update(p, t);
+            res.push_back(t);
+        }
+        return res;
+    }
+};

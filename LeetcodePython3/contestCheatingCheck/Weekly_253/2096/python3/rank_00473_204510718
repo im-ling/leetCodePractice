@@ -1,0 +1,35 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        # if not obstacles:
+        #     return 0
+        # dp = [1 for _ in range(len(obstacles))]
+        # for i in range(len(obstacles)):
+        #     for j in range(i):
+        #         if obstacles[j] <= obstacles[i]:
+        #             dp[i] = max(dp[i], dp[j] + 1)
+        # return dp
+        n = len(obstacles)
+        if not obstacles:
+            return []
+        tails = [obstacles[0]]
+        dp = [1 for _ in range(n)]
+        for i in range(1, n):
+            if obstacles[i] >= tails[-1]:
+                tails.append(obstacles[i])
+                dp[i] = len(tails)
+            else:
+                # 二分法查找右边界，找到比tails中比obstacles[i]大的第一个数，并替换它。
+                left = 0
+                right = len(tails) - 1
+                while left < right:
+                    mid = left + (right - left) // 2
+                    if tails[mid] <= obstacles[i]:
+                        left = mid + 1
+                    elif tails[mid] > obstacles[i]:
+                        right = mid
+                    else:
+                        right = mid
+                tails[right] = obstacles[i]
+                # print(right, tails)
+                dp[i] = min(right + 1, len(tails))
+        return dp

@@ -1,0 +1,15 @@
+const int INF = 1e9+10;
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n=(int)a.size();
+        vector<int> dp(n,INF);
+        vector<int> ans(n);
+        for(int i=0;i<n;i++){
+            int x=upper_bound(dp.begin(),dp.end(),a[i])-dp.begin();
+            dp[x]=a[i];
+            ans[i]=lower_bound(dp.begin(),dp.end(),a[i]+1)-dp.begin();
+        }
+        return ans;
+    }
+};

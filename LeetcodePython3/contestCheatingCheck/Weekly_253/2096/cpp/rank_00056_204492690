@@ -1,0 +1,57 @@
+class Solution {
+public:
+    static const int N = 2e5 + 5;
+    int A[N], B[N];
+    int Cnt; map<int, int> mapper;
+
+    struct Node{
+        int l,r;
+        int maxv;
+        Node(){ maxv = 0; }
+        int mid(){ return (l + r) >> 1; }
+    };
+    Node segtree[N*3];
+    void build(int id, int l, int r){
+        segtree[id].l = l;
+        segtree[id].r = r;
+        if(l==r) return;
+        int mid = segtree[id].mid();
+        build(id*2+0,l,mid);
+        build(id*2+1,mid+1,r);
+    }
+    void update(int id, int pos, int val){
+        segtree[id].maxv = std::max(segtree[id].maxv, val);
+        if(segtree[id].l==segtree[id].r) return;
+        int mid=segtree[id].mid();
+        if(pos<=mid)
+            update(id*2+0,pos,val);
+        else update(id*2+1,pos,val);
+    }
+    int query(int id,int l,int r){
+        if(segtree[id].l==l&&segtree[id].r==r)
+            return segtree[id].maxv;
+        int mid = segtree[id].mid();
+        if(l>mid) return query(id*2+1,l,r);
+        if(r<=mid) return query(id*2+0,l,r);
+        return std::max(query(id*2,l,mid),query(id*2+1,mid+1,r));
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = (int)obstacles.size();
+        for (int i = 0; i < (int)obstacles.size(); i++) {
+            A[i] = obstacles[i];
+        }
+        memcpy(B,A,sizeof(int)*n);
+        std::sort(B,B+n);
+        Cnt = std::unique(B,B+n)-B;
+        for(int i=0;i<Cnt;i++) mapper[B[i]]=i+2;
+        for(int i=0;i<n;i++) A[i]=mapper[A[i]];
+        build(1,1,Cnt+2);
+        vector<int> v;
+        for(int i=0;i<n;i++){
+            int tmp = query(1,1,A[i])+1;
+            v.emplace_back(tmp);
+            update(1,A[i],tmp);
+        }
+        return v;
+    }
+};

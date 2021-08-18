@@ -1,0 +1,33 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> used;
+        for(int i = 0; i<obstacles.size();i++){
+            if(used.size()==0 || obstacles[i]>= used[used.size()-1]){
+                used.push_back(obstacles[i]);
+                obstacles[i] = used.size();
+            }
+            else{
+                obstacles[i] = insert_num(used,obstacles[i]);
+            }
+        }
+        return obstacles;
+
+    }
+    
+    int insert_num(vector<int>& used, int target){
+        if (target <  used[0]) {
+            used[0] = target;
+            return 1;
+        }
+        int l = 0 , r = used.size()-1;
+        while(l<r){
+            int temp = (l+r)/2;
+            if(used[temp]<=target) l = temp;
+            else r = temp;
+            if(l+1==r) break;
+        }
+        used[r] = target;
+        return r+1;
+    }
+};

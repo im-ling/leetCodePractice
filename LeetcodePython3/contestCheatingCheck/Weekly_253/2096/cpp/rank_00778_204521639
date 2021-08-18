@@ -1,0 +1,33 @@
+const int N = 100010;
+
+class Solution {
+public:
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> ans;
+        vector<int> q;
+        for (int i = 0; i < n; i++) {
+            int k = find(obstacles, q, obstacles[i]);
+            ans.push_back(k + 1);
+            if (k == q.size()) q.push_back(i);
+            else q[k] = i;
+        }
+
+
+    return ans;
+}
+    
+    int find(vector<int> &obstacles, vector<int> &q, int x) {
+        if (q.size() == 0) return 0;
+        if (x >= obstacles[q.back()]) return q.size();
+        int l = 0, r = q.size() - 1;
+        while (l < r) {
+            int mid = l + r >> 1;
+            if (obstacles[q[mid]] > x) r = mid;
+            else l = mid + 1;
+        }
+        return l;
+    }
+
+};

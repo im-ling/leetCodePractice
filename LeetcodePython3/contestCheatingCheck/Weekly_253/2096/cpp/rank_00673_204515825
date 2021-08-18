@@ -1,0 +1,90 @@
+class Solution {
+public:
+    int tree[400000 + 1000], a[100000 + 1000], f[100000 + 1000], tmp[100000 + 1000], n, dp[100000 + 1000];
+    struct node{
+	int l,r;
+	int mx,mi;// 区间最值 
+    }t[100500*4];
+    inline int ls(int p){return p<<1;}
+inline int rs(int p){return p<<1|1;}
+    void pushup(int p)
+{
+	t[p].mx = max( t[ls(p)].mx,t[rs(p)].mx );
+	t[p].mi = min( t[ls(p)].mi,t[rs(p)].mi );
+}
+void build(int p,int l,int r)
+{
+	t[p].l = l, t[p].r = r;
+	if( l==r )
+	{
+		t[p].mi = t[p].mx = a[l];
+		return ;
+	}
+	int mid = (l+r)>>1;
+	build(ls(p),l,mid);
+	build(rs(p),mid+1,r);
+	pushup(p);
+}
+// 单点修改 
+void update(int p,int x,int y)
+{
+	if( t[p].l==x && t[p].r==x )
+	{
+		t[p].mx = max(t[p].mx, y);
+		return ;
+	}
+	int mid = (t[p].l+t[p].r)>>1;
+	if( x<=mid ) update(ls(p),x,y);
+	else update(rs(p),x,y);
+	pushup(p);
+}
+int query_mx(int p,int l,int r)
+{
+	if( l<=t[p].l && t[p].r<=r ) return t[p].mx;
+	int mid = (t[p].l+t[p].r)>>1;
+	int ans = -1e9;
+	if( l<=mid ) ans = max( ans , query_mx(ls(p),l,r) );
+	if( r>=mid+1 ) ans = max( ans,query_mx(rs(p),l,r) );
+	return ans;
+}
+int query_mi(int p,int l,int r)
+{
+	if( l<=t[p].l && t[p].r<=r ) return t[p].mi;
+	int mid = (t[p].l+t[p].r)>>1;
+	int ans = 1e9;
+	if( l<=mid ) ans = min( ans , query_mi(ls(p),l,r) );
+	if( r>=mid+1 ) ans = min( ans,query_mi(rs(p),l,r) );
+	return ans;
+}
+
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        for (int i = 0; i < obstacles.size(); ++i)
+            tmp[i + 1] = obstacles[i];
+        sort(tmp + 1, tmp + 1 + obstacles.size());
+        int cnt = unique(tmp + 1, tmp + 1 + obstacles.size()) - tmp - 1;
+        for (int i = 0; i < obstacles.size(); ++i)
+            f[i] = lower_bound(tmp + 1, tmp + cnt + 1, obstacles[i]) - tmp;
+        n = cnt;
+        
+        vector<int> ans;
+        ans.push_back(1);
+       
+        memset(a, 0, sizeof a);
+        memset(dp, 0, sizeof dp);
+        build(1, 1, n);
+        update(1, f[0], 1);
+        dp[0] = 1;
+        
+        for (int i = 1; i < obstacles.size(); ++i)
+        {
+            int maxL = query_mx(1, 1, f[i]);
+            // cout << maxL << " " << f[i] <<  endl;
+            dp[i] = max(1, maxL + 1);
+            ans.push_back(dp[i]);
+            update(1, f[i], dp[i]);
+            // cout << query(1, 7) << endl;
+        }
+        return ans;
+    }
+};

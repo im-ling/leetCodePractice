@@ -1,0 +1,39 @@
+class Solution {
+public:
+    vector<int> res;
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<vector<int>> vec;
+        int n = obstacles.size();
+        res.resize(n);        
+        for(int i = 0; i < obstacles.size(); ++i){
+            vec.push_back({obstacles[i], i + 1});
+        }
+        sort(vec.begin(), vec.end(), [](vector<int>& v1, vector<int>& v2){
+            return v1[0] < v2[0] || (v1[0] == v2[0] && v1[1] < v2[1]);
+        });
+        for(auto& ev: vec){
+            res[ev[1] - 1] = querymax(1, 1, n, 1, ev[1]) + 1;
+            change(1, 1, n, ev[1], res[ev[1] - 1]);
+        }
+        return res;
+    }
+    int maxv[400010] = {0};
+    void pushup(int o){maxv[o]=max(maxv[o<<1],maxv[o<<1|1]);} // 向上更新
+    /* 修改单点的值 */
+    void change(int o,int l,int r,int q,int v){
+        if(l==r){maxv[o]+=v;return;}
+        int mid=(l+r)>>1;
+        if(q<=mid)change(o<<1,l,mid,q,v);
+        else change(o<<1|1,mid+1,r,q,v);
+        pushup(o); 
+    }
+    /* 查询某区间答案 */
+    int querymax(int o,int l,int r,int ql,int qr){ // 查询[ql,qr]的答案
+        if(ql<=l && r<=qr)return maxv[o];
+        int ans=0;
+        int mid=(l+r)>>1;
+        if(ql<=mid) ans = max(ans,querymax(o<<1,l,mid,ql,qr));
+        if(qr>mid) ans = max(ans,querymax(o<<1|1,mid+1,r,ql,qr));
+        return ans;
+    }
+};

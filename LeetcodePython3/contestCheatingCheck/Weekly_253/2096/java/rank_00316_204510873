@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+    	int n = obstacles.length;
+    	int[] ans = new int[n];
+    	ans[0] = 1;
+    	List<Integer> list = new ArrayList<>();
+    	list.add(obstacles[0]);
+    	for (int i = 1; i < n; i++) {
+    		int x = obstacles[i];
+    		int idx = search(list, x);
+    		if (idx != -1) {
+    			ans[i] = idx + 2;
+    			if (idx + 1 < list.size()) {
+    				list.set(idx + 1, x);
+    			} else {
+    				list.add(x);
+    			}
+    		} else {
+    			ans[i] = 1;
+    			list.set(0, x);
+    		}
+    	}
+    	return ans;
+    }
+    
+    int search(List<Integer> list, int x) {
+    	int ans = -1;
+    	int left = 0;
+    	int right = list.size() - 1;
+    	while (left <= right) {
+    		int mid = (left + right) / 2;
+    		if (list.get(mid) <= x) { 
+    			ans = mid;
+    			left = mid + 1;
+    		} else {
+    			right = mid - 1;
+    		}
+    	}
+    	return ans;
+    }
+}

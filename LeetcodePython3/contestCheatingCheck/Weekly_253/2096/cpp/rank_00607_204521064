@@ -1,0 +1,35 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n=obstacles.size();
+        //长度为i的最小值
+        vector<int> d(n+1);
+        vector<int> ans;
+        int len=1;
+        d[1]=obstacles[0];
+        ans.push_back(1);
+        for (int i=1;i<n;i++){
+            //在dp中找第一个小于的值，更新
+            int value=obstacles[i];
+            if (value >= d[len]) {
+                d[++len] = value;
+                ans.push_back(len);
+            } else {
+                int l = 1, r = len;
+                while (l < r) {
+                    int mid = (l + r) >> 1;
+                    if (d[mid] <=value) {
+                        //pos = mid;
+                        l = mid +1;
+                    } else {
+                        r = mid ;
+                    }
+                }
+                d[r] = value;
+                ans.push_back(r);
+            }
+
+        }
+        return ans;
+    }
+};

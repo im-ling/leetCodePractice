@@ -1,0 +1,56 @@
+class Solution {
+private:
+    int dp[10000001];
+    int lowbit(int i) { return i&(-i); }
+    
+    void update(int x, int maxV, int val)
+    {
+        dp[x] = val;
+        for(int i = x; i <= maxV; i+=lowbit(i))
+        {
+            for(int k = 1; k < lowbit(i); k<<=1)
+                dp[i] = max(dp[i], dp[i-k]);
+        }
+    }
+    int query(int s, int e)
+    {
+        if(s == e) return dp[s];
+        else
+        {
+            if((e-lowbit(e)+1) == s) return dp[e];
+            if((e-lowbit(e)+1) > s) return max(dp[e], query(s, e-lowbit(e)));
+            if((e-lowbit(e)+1) < s) return max(dp[e], query(s, e-1));
+        }
+        return 0;
+    }
+
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> res;
+        int maxV = -1;
+        int len = obstacles.size();
+        for(int i=0;i<len;i++)
+        {
+            maxV = max(maxV, obstacles[i]);
+        }
+        for(int i=0;i<=maxV;i++)
+        {
+            dp[i] = 0;
+        }
+        for(int i=0;i<len;i++)
+        {
+            if(i==0)
+            {
+                res.push_back(1);
+                update(obstacles[i], maxV, 1);
+            }
+            else
+            {
+                int cur = query(0, obstacles[i]);
+                res.push_back(cur +1);
+                update(obstacles[i], maxV, cur+1);
+            }
+        }
+        return res;
+    }
+};

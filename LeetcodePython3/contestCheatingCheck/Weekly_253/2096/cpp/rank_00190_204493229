@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int tr[100010];
+    int lb(int x){return x & (-x);}
+    void ad(int a, int x, int n){
+        while(a <= n){
+            tr[a] = max(tr[a], x);
+            a += lb(a);
+        }
+    }
+    int que(int a){
+        int ret = 0;
+        while(a){
+            ret = max(ret, tr[a]);
+            a -= lb(a);
+        }
+        return ret;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> q(0), ans(0);
+        memset(tr, 0, sizeof(tr));
+        vector<int> w = obstacles;
+        sort(w.begin(), w.end());
+        w.erase(unique(w.begin(), w.end()), w.end());
+        for(auto& x: obstacles)
+            x = lower_bound(w.begin(), w.end(), x) - w.begin() + 1;
+        for(auto x: obstacles){
+            ans.push_back(que(x)+1);
+            ad(x, ans.back(), w.size());
+        }
+        return ans;
+    }
+};

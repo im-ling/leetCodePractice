@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        map<int, int> helpMap;
+        helpMap[1] = obstacles[0];
+        vector<int> dp(obstacles.size(), 1);
+        for (int i = 1; i < dp.size(); i++) {
+            for (auto it = helpMap.rbegin(); it != helpMap.rend(); it++) {
+                int curNum = it->second;
+                if (curNum <= obstacles[i]) {
+                    dp[i] = it->first + 1;
+                    break;
+                }
+            }
+            if (helpMap.find(dp[i]) != helpMap.end()) {
+                int curNum = (helpMap[dp[i]], obstacles[i]);
+                helpMap[dp[i]] = curNum;
+            } else {
+                helpMap.insert(make_pair(dp[i], obstacles[i]));
+            }
+        }
+        return dp;
+    }
+};

@@ -1,0 +1,73 @@
+
+
+
+// // 优化的dp dp数组的最终下标为答案 
+// int getResult1(int n)
+// {
+// 	 dp[1] = arr[0];
+// 	 int index = 1;
+// 	 for (int i = 1; i < n; i++)
+// 	 {
+// 	 	if (arr[i] > dp[index])
+// 	 	{
+// 	 		// 更新index 
+// 	 		dp[++index] = arr[i];
+// 		 }
+// 		 else
+// 		 {
+// 		 	// 把dp数组中第一个大于n的数字替换为arr[i] 
+// 		 	int tempIndex = BinarySearch(dp, index, arr[i]);
+// 		 	dp[tempIndex] = arr[i];
+// 		 }
+// 	 }
+// 	 return index;
+// } 
+
+class Solution {
+public:
+    int BinarySearch(vector<int> &dp, int len, int n)
+{
+	int left = 1;
+	int right = len;
+	while (left < right)
+	{
+		int mid = (left + right) / 2;
+		if (dp[mid] > n)
+		{
+			right = mid;
+		}
+		else
+		{
+			left = mid+1;
+		}
+	}
+	return right;
+}
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& arr) {
+        int n = arr.size();
+        vector<int> dp(n + 3, -1);
+        vector<int> ans(n, 1);
+        if(n == 1) return ans;
+        dp[1] = arr[0];
+	    int index = 1;
+ 
+	    for (int  i = 1; i < n; i++){
+	 	        if (arr[i] >= dp[index])
+	 	{
+	 		// 更新index 
+	 		dp[++index] = arr[i];
+                    ans[i] = index;
+		 }
+		 else
+		 {
+		 	// 把dp数组中第一个大于n的数字替换为arr[i] 
+		 	int tempIndex = BinarySearch(dp, index, arr[i]);
+		 	dp[tempIndex] = arr[i];
+             ans[i] = tempIndex;
+		 }
+         
+	 }
+         return ans;
+    }
+   
+};

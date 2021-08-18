@@ -1,0 +1,36 @@
+class Solution {
+    int CeilIndex(int[] v, int r, int key) {
+        int l = 0;
+        while (r - l > 1) {
+            int m = (l + r) / 2;
+            if (v[m] <= key)
+                l = m;
+            else
+                r = m;
+        }
+
+        return v[r] <= key ? r : l;
+    }
+
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int[] dp = new int[obstacles.length];
+        int[] result = new int[obstacles.length];
+        result[0] = 1;
+        dp[0] = obstacles[0];
+        int length = 1;
+        for (int i = 1; i < obstacles.length; i++) {
+            if (obstacles[i] < dp[0]) {
+                dp[0] = obstacles[i];
+                result[i] = 1;
+            } else if (obstacles[i] >= dp[length - 1]) {
+                dp[length++] = obstacles[i];
+                result[i] = length;
+            } else {
+                int idx = CeilIndex(dp, length - 1, obstacles[i]);
+                dp[idx + 1] = Math.min(obstacles[i], dp[idx + 1]);
+                result[i] = idx + 2;
+            }
+        }
+        return result;
+    }
+}

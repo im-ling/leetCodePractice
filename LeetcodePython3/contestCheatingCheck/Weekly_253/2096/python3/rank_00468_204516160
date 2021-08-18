@@ -1,0 +1,45 @@
+from sortedcontainers import SortedDict
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        n = len(obstacles)
+        out = []
+        sd = SortedDict()
+        sd[0] = 0
+        for v in obstacles:
+            # print(v,list(sd.keys()))
+            l,r = 0,len(sd.keys())
+            while l<r:
+                m = l+(r-l)//2
+                # if v==1:
+                #     print(m,list(sd.keys()),v)
+                if sd.keys()[m]<=v:
+                    l = m+1
+                else:
+                    r = m
+            # print("v",v,"prev",sd.keys()[l-1])
+            
+            sd[v] = sd[sd.keys()[l-1]]+1
+            if sd.keys()[l-1] == v:
+                l -= 1
+            l += 1
+            while l<len(sd.keys()) and sd[v]>=sd[sd.keys()[l]]:
+                # if v==1:
+                #     print("=",sd)
+                sd.pop(sd.keys()[l])
+                # if v==1:
+                #     print(l,len(sd.keys()))
+                # l += 1
+            out.append(sd[v])
+            # print(sd,out)
+            # print(v,sd)
+        return out
+'''
+[1,2,3,2]
+=[1,2,3,3]
+[2,2,1]
+=[1,2,1]
+[3,1,5,6,4,2]
+=[1,1,2,3,2,2]
+[5,2,5,4,1,1,1,5,3,1]
+=[1,1,2,2,1,2,3,4,4,4]
+'''

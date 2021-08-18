@@ -1,0 +1,43 @@
+class Solution {
+    int[] o;
+    int n;
+    int[] f;
+    int[] t;
+    
+    int calc(int l, int r, int key) {
+        while (r - l > 1) {
+            int m = l + (r - l) / 2;
+            if (t[m] > key) {
+                r = m;
+            } else {
+                l = m;
+            }
+        }
+        return r;
+    }
+
+    public int[] longestObstacleCourseAtEachPosition(int[] oo) {
+        o = oo;
+        n = o.length;
+        f = new int[n];
+        t = new int[n];
+        t[0] = o[0];
+        f[0] = 1;
+        int l = 1;
+        for (int i = 1;i < n;i++) {
+            if (o[i] < t[0]) {
+                t[0] = o[i];
+                f[i] = 1;
+            } else if (o[i] >= t[l - 1]) {
+                t[l++] = o[i];
+                f[i] = l;
+            } else {
+                int k = calc(-1, l - 1, o[i]);
+                // System.out.println("" + i + " " + k);
+                t[k] = o[i];
+                f[i] = k + 1;
+            }
+        }
+        return f;
+    }
+}

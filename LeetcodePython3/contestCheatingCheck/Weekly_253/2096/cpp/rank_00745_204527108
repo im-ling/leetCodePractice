@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n=obstacles.size(),i,loc;
+        vector<int> res(n,0);
+        res[0]=1;
+        vector<int> sq;
+        sq.push_back(obstacles[i]);
+        for(i=1;i<n;i++) {
+            cout<<i<<" ";
+            if(sq[sq.size()-1]<obstacles[i]) {
+                sq.push_back(obstacles[i]);
+                res[i]=sq.size();
+            }
+            else {
+                loc=upper_bound(sq.begin(),sq.end(),obstacles[i])-sq.begin();
+                if(loc<sq.size()) {
+                    sq[loc]=obstacles[i];
+                    res[i]=loc+1;
+                }
+                else {
+                    sq.push_back(obstacles[i]);
+                    res[i]=sq.size();
+                }
+            }
+        }
+        cout<<endl;
+        return res;
+    }
+};

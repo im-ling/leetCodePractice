@@ -1,0 +1,36 @@
+const int maxn=1e7+100;
+int tree[maxn<<2],n=1e7;
+class Solution {
+public:
+    void Update(int l,int r,int d,int cl=1,int cr=n,int p=1)
+    {
+        if(cl==cr) tree[p]=d;
+        else{
+            int mid=(cl+cr)>>1;
+            if(l<=mid) Update(l,r,d,cl,mid,p<<1);
+            else Update(l,r,d,mid+1,cr,p<<1|1);
+            tree[p]=max(tree[p<<1],tree[p<<1|1]);
+        }
+    }
+    int Query(int l,int r,int cl=1,int cr=n,int p=1)
+    {
+        if(cl>r || cr<l) return 0;
+        if(cl>=l && cr<=r) return tree[p];
+        else{
+            int mid=(cl+cr)>>1;
+            return max(Query(l,r,cl,mid,p<<1),Query(l,r,mid+1,cr,p<<1|1));
+        }
+    }
+
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        memset(tree,0,sizeof(tree));
+        vector<int> ans;ans.clear();
+        int sz=ob.size();
+        for(int i=0;i<sz;++i){
+            int cur=Query(1,ob[i])+1;
+            Update(ob[i],ob[i],cur);
+            ans.push_back(cur);
+        }
+        return ans;
+    }
+};

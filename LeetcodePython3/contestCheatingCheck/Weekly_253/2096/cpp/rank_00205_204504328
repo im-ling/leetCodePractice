@@ -1,0 +1,30 @@
+
+#define ll long long
+#define FOR(i,s,t) for(int i=(s),_t=(t); i<=_t; ++i)
+#define FORN(i,s,t) for(int i=(s),_t=(t); i>=_t; --i)
+
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> res;
+        
+        int n = obstacles.size();
+        vector<int> ans(n);
+        res.push_back(obstacles[0]);
+        ans[0] = 1;
+        FOR(i, 1, n - 1) {
+            auto it = upper_bound(res.begin(), res.end(), obstacles[i]);
+            if (it == res.end()) {
+                res.push_back(obstacles[i]);
+                ans[i] = res.size();
+            }
+            else {
+                *it = obstacles[i];
+                ans[i] = it - res.begin()+1;
+            }
+        }
+        
+        return ans;
+    }
+};

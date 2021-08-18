@@ -1,0 +1,35 @@
+func longestObstacleCourseAtEachPosition(nums []int) []int {
+	d := []int{}
+    ans := make([]int, len(nums))
+	for i, num := range nums {
+		if len(d) == 0 || nums[d[len(d)-1]] <= num {
+			d = append(d, i)
+            ans[i] = len(d)
+		} else { //二分查找
+            set := false
+            for j := len(d)-1; j >= 0; j-- {
+                if num >= nums[d[j]] {
+                    ans[i] = j+2
+                    set = true
+                    break
+                }
+            }
+            if !set { ans[i] = 1 }
+			l, r := 0, len(d)-1
+			pos := r
+			for l <= r {
+				mid := (l + r) >> 1
+				if nums[d[mid]] > num {
+					pos = mid
+					r = mid - 1
+				} else {
+					l = mid + 1
+				}
+			}
+			d[pos] = i
+		}
+	}
+    // fmt.Println(nums)
+    // fmt.Println(d)
+	return ans
+}

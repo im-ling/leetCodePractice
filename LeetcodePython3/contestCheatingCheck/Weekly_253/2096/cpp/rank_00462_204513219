@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(n);
+        vector<int> f(n);
+        f[0] = 1;
+        ans[0] = 1;
+        vector<int> d(1);
+        d[0] = nums[0];
+        for (int i = 1; i < nums.size(); ++i) {
+            if (nums[i] >= d.back()) {
+                d.push_back(nums[i]);
+                ans[i] = d.size();
+            } else {
+                int idx = upper_bound(d.begin(), d.end(), nums[i]) - d.begin(); // 贪心找第一个大于等于的位置
+                // cout << " idx " << idx << endl;
+                d[idx] = nums[i];
+                ans[i] = idx + 1;
+            }
+        }
+        return ans;
+    }
+};

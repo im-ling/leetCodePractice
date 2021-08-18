@@ -1,0 +1,110 @@
+
+// 1.bulid(); 2.query(a,b) 3.update(a,b)
+#define lson l, m, rt << 1
+#define rson m + 1, r, rt << 1 | 1
+typedef int LL;
+const int maxn = 111111;
+
+int maxNM;
+
+struct SegTree {
+  LL sign[maxn << 2];  //
+  LL minVal[maxn << 2];
+  LL maxMal[maxn << 2];
+
+  LL str[maxn];
+
+  void PushUp(int rt) {
+    minVal[rt] = min(minVal[rt << 1], minVal[rt << 1 | 1]);
+    maxMal[rt] = max(maxMal[rt << 1], maxMal[rt << 1 | 1]);
+  }
+  void PushDown(int rt) {
+    if (sign[rt]) {
+      sign[rt << 1] += sign[rt];
+      sign[rt << 1 | 1] += sign[rt];
+
+      minVal[rt << 1] += sign[rt];
+      minVal[rt << 1 | 1] += sign[rt];
+
+      maxMal[rt << 1] += sign[rt];
+      maxMal[rt << 1 | 1] += sign[rt];
+      sign[rt] = 0;
+    }
+  }
+  void bulid(int l = 1, int r = maxNM, int rt = 1) {
+    sign[rt] = 0;
+    if (l == r) {
+      minVal[rt] = maxMal[rt] = str[l];
+      return;
+    }
+    int m = (l + r) >> 1;
+    bulid(lson);
+    bulid(rson);
+    PushUp(rt);
+  }
+  void update(int L, int R, int add, int l = 1, int r = maxNM, int rt = 1) {
+    if (L <= l && r <= R) {
+      sign[rt] += add;
+      minVal[rt] += add;
+      maxMal[rt] += add;
+      return;
+    }
+    PushDown(rt);
+    int m = (l + r) >> 1;
+    if (L <= m) update(L, R, add, lson);
+    if (R > m) update(L, R, add, rson);
+    PushUp(rt);
+  }
+  LL queryMax(int L, int R, int l = 1, int r = maxNM, int rt = 1) {
+    if (L <= l && r <= R) {
+      return maxMal[rt];
+    }
+    PushDown(rt);
+    int m = (l + r) >> 1;
+    LL ret = -1;
+    if (L <= m) {
+      ret = max(ret, queryMax(L, R, lson));
+    }
+    if (m < R) {
+      ret = max(ret, queryMax(L, R, rson));
+    }
+    return ret;
+  }
+};
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        
+        
+        map<int, int> to_index;
+        for(auto v: obstacles){
+            to_index[v];
+        }
+        int max_index = 0;
+        for(auto& p: to_index) {
+            p.second = ++max_index;
+            //printf("v=%d => %d\n", p.first, p.second);
+        }
+        
+        maxNM = max_index;
+        
+        SegTree lineSegTree;
+        memset(lineSegTree.str, 0, sizeof(lineSegTree.str));
+        lineSegTree.bulid();
+        
+        
+        vector<int> ans;
+        ans.reserve(n);
+        for(auto v: obstacles) {
+            int index = to_index[v];
+            int max_val = lineSegTree.queryMax(1, index);
+            ans.push_back(max_val + 1);
+            int now_val = lineSegTree.queryMax(index, index);
+            lineSegTree.update(index, index, ans.back() - now_val);
+        }
+        
+        return ans;
+    }
+};

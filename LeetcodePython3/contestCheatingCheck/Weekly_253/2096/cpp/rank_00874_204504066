@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int l = 0, r = nums.size() - 1;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            if (nums[mid] > target) r = mid;
+            else l = mid + 1;
+        }
+        return l;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& nums) {
+        vector<int> ans;
+        vector<int> dp;
+        ans.push_back(1);
+        dp.push_back(nums[0]);
+        for (int i = 1; i < nums.size(); i ++) {
+            if (nums[i] >= dp.back()) {
+                dp.push_back(nums[i]);
+                ans.push_back(dp.size());
+            }
+            else {
+                int pos = search(dp, nums[i]);
+                pos = dp[pos] == nums[i] ? pos + 1 : pos;
+                dp[pos] = nums[i];
+                ans.push_back(pos + 1);
+            }
+            
+        }
+        return ans;
+    }
+};

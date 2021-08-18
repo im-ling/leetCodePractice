@@ -1,0 +1,25 @@
+class Solution {
+    
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        //int n=nums.size();
+        vector<int>  res;
+        vector<int> box;
+        for(auto n:ob){
+            if(box.empty() || n>=box.back()){
+                box.push_back(n);
+                res.push_back(box.size());
+            }else{
+                auto iter=upper_bound(box.begin(),box.end(),n);
+                *iter=n;
+                res.push_back(iter-box.begin()+1);
+            }
+            
+            // for(auto b:box){
+            //     cout<<b<<" ";
+            // }
+            // cout<<endl;
+        }
+        return res;
+    }
+};

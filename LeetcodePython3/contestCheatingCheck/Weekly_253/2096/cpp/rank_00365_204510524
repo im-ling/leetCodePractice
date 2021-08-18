@@ -1,0 +1,67 @@
+// {{{
+#include <bits/stdc++.h>
+using namespace std;
+using LL = long long;
+using vi = vector<int>;
+using pii = pair<int, int>;
+#define sz(x) (int)((x).size())
+#define all(x) (x).begin(), (x).end()
+#define clr(a, b) memset(a, b, sizeof(a))
+#define debug(x...)
+#define debug_arr(x...)
+#ifdef LOCAL
+#include "prettyprint.hpp"
+#endif
+// }}}
+
+#define rep(i, a, b) for (int i = (a); i < (b); i++)
+const int N = 1e5 + 10;
+const int inf = 0x3f3f3f3f;
+int dp[N];
+
+class Solution
+{
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles)
+    {
+        int n = sz(obstacles);
+        dp[0] = 1;
+
+        vi a{0};
+        a.push_back(obstacles[0]);
+
+        for (int i = 1; i < n; i++)
+        {
+            int l = sz(a);
+            // int mx = -1;
+            // for (int j = 0; j < l; j++)
+            //{
+            // if (a[j] <= obstacles[i]) mx = max(mx, j);
+            //}
+            // 最后一个<=
+
+            int lo = 0, hi = l - 1;
+            while (lo + 1 < hi)
+            {
+                int mid = (lo + hi) / 2;
+                if (a[mid] <= obstacles[i]) lo = mid;
+                else
+                    hi = mid;
+            }
+
+            int p = lo;
+            if (a[hi] <= obstacles[i]) p = hi;
+
+            dp[i] = p + 1;
+
+            if (dp[i] >= l) a.push_back(obstacles[i]);
+            else
+            {
+                a[dp[i]] = min(a[dp[i]], obstacles[i]);
+            }
+        }
+        vi ans;
+        for (int i = 0; i < n; i++) ans.push_back(dp[i]);
+        return ans;
+    }
+};

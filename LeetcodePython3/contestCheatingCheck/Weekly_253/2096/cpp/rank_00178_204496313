@@ -1,0 +1,39 @@
+class Solution {
+private:
+    int dp[100005];
+    int ask(int p)
+    {
+        int ret = 0;
+        while(p)
+        {
+            ret = max(ret, dp[p]);
+            p -= p & -p;
+        }
+        return ret;
+    }
+    
+    void add(int p, int v)
+    {
+        while(p < 100005)
+        {
+            dp[p] = max(dp[p], v);
+            p += p & -p;
+        }
+    }
+    
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& hs) {
+        memset(dp, 0, sizeof(dp));
+        vector<int> hn(hs);
+        sort(hn.begin(), hn.end());
+        vector<int> ret(hs.size(), 1);
+        for(int i = 0; i < hs.size(); ++i)
+        {
+            int v = hs[i];
+            int rank = lower_bound(hn.begin(), hn.end(), v) - hn.begin() + 1;
+            ret[i] = ask(rank) + 1;
+            add(rank, ret[i]);
+        }
+        return ret;
+    }   
+};

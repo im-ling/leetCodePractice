@@ -1,0 +1,35 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        int[] ans = new int[obstacles.length];
+        Set<Integer> remove = new HashSet<>();
+        for (int i = 0; i < obstacles.length; i++) {
+            /*if (map.isEmpty()) {
+                ans[i] = 1;
+                map.put(obstacles[i], 1);
+                continue;
+            }*/
+            Map.Entry<Integer,Integer> floor = map.floorEntry(obstacles[i]);
+            if (floor == null) {
+                ans[i] = 1;
+                map.put(obstacles[i], ans[i]);
+                continue;
+            }
+
+            ans[i] = floor.getValue() + 1;
+            
+            Map<Integer, Integer> sub = map.tailMap(obstacles[i]);
+            remove.clear();
+            for (Map.Entry<Integer,Integer> e:  sub.entrySet()) {
+                if (e.getValue() <= ans[i]) {
+                    remove.add(e.getKey());
+                }
+            }
+            for (int key : remove) {
+                map.remove(key);
+            }
+            map.put(obstacles[i], ans[i]);
+        }
+        return ans;
+    }
+}

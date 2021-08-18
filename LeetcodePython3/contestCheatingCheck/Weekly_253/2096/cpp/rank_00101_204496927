@@ -1,0 +1,31 @@
+const int maxn = 4e5 + 5;
+class Solution {
+public:
+    int n, a[maxn], l[maxn];
+vector<int> t;
+vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+    n = obstacles.size();
+    for (int i = 1; i <= n; i++)
+        a[i] = obstacles[i - 1];
+    for (int i = 1; i <= n; i++)
+    {
+        if (t.size() == 0)
+        {
+            l[i] = 1;
+            t.push_back(a[i]);
+        }
+        else
+        {
+            int pos = upper_bound(t.begin(), t.end(), a[i]) - t.begin();
+            l[i] = pos+1;
+            if (pos == t.size())
+                t.push_back(a[i]);
+            else t[pos] = a[i];
+        }
+    }
+    vector<int> miao;
+    for (int i = 1; i <= n; i++)
+        miao.push_back(l[i]);
+    return miao;
+}
+};

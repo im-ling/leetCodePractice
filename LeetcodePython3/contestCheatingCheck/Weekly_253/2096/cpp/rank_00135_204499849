@@ -1,0 +1,25 @@
+const int maxn = 100005;
+
+class Solution {
+private:
+    int data[maxn];
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> ret;
+        
+        int idx = 0;
+        int *p;
+        int tans;
+        for (int height : obstacles) {
+            p = upper_bound(data, data + idx, height);
+            *p = height;
+            tans = (int)(p - data) + 1;
+            if (tans > idx) {
+                idx++;
+            }
+            ret.push_back(tans);
+        }
+
+        return ret;
+    }
+};

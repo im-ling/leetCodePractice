@@ -1,0 +1,56 @@
+from sortedcontainers import SortedList
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, ob: List[int]) -> List[int]:
+        res = [1]
+        sl = SortedList()
+        sl.add((ob[0], 1))
+        d = dict()
+        
+        for x in ob[1:]:
+            index = bisect.bisect_left(sl, (x, 0))
+            # print(sl, index)
+            if index == len(sl):
+                cur = sl[-1][1] + 1
+                sl.add((x, cur))
+                res.append(cur)
+            else:
+                if sl[index][0] == x:
+                    if index > 0:
+                        cur = max(sl[index-1][1], sl[index][1]) + 1
+                    else:
+                        cur = sl[index][1] + 1
+                    
+                    del sl[index]
+                    sl.add((x, cur))
+                    
+                    need_pop = []
+                    # print(sl)
+                    for j in range(index+1, len(sl)):
+                        if sl[j][1] <= sl[index][1]:
+                            need_pop.append(sl[j])
+                        else:
+                            break
+                    # print(need_pop)
+                    for x in need_pop:
+                        sl.remove(x)
+                else:
+                    if index == 0:
+                        cur = 1
+                        if (x, cur) not in sl:
+                            sl.add((x, cur))
+                    else:
+                        cur = sl[index-1][1] + 1
+                        if (x, cur) not in sl:
+                            sl.add((x, cur))
+                    need_pop = []
+                    for j in range(index+1, len(sl)):
+                        if sl[j][1] <= sl[index][1]:
+                            need_pop.append(sl[j])
+                        else:
+                            break
+                    for x in need_pop:
+                        sl.remove(x)
+                
+                res.append(cur)
+        
+        return res

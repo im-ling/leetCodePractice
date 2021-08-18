@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int dp[100050], len;
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        // memset(dp, 0x3f, sizeof(dp));
+        int n = a.size();
+        vector<int> ans;
+        for (int i = 0; i < n; i++)
+        {
+            if (a[i] >= dp[len])
+            {
+                dp[++len] = a[i];
+                ans.push_back(len);
+            }
+            else
+            {
+                int j = upper_bound(dp + 1, dp + len + 1, a[i]) - dp;
+                // printf("i = %d, j = %d\n", i, j);
+                dp[j] = a[i];
+                ans.push_back(j);
+            }
+        }
+        return ans;
+    }
+};

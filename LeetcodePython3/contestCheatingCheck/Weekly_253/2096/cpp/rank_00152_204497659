@@ -1,0 +1,25 @@
+const int N = 1e5+10;
+class Solution {
+public:
+    int f[N],q[N],idx;
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        vector<int> ans;
+        for(int i=0;i<ob.size();i++)
+        {
+            int l = 0,r = idx;
+            while(l<r)
+            {
+                int mid = (l + r +1) / 2;
+                if(q[mid]>ob[i])
+                    r = mid - 1;
+                else
+                    l = mid;
+            }
+            idx = max(idx,l+1);
+            q[l+1] = ob[i];
+            f[i] = l + 1;
+            ans.push_back(l+1);
+        }
+        return ans;
+    }
+};

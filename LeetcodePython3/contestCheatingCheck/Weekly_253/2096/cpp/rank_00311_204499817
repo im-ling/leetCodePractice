@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> stk;
+        int idx = -1;
+        
+        vector<int> res;
+        for (auto &c: obstacles)
+        {
+            if (stk.empty() || c >= stk[idx])    
+            {
+                stk.push_back(c);
+                idx++;
+                res.push_back(idx+1);
+            }
+            else
+            {
+                auto it = upper_bound(stk.begin(), stk.begin() + idx, c);
+                res.push_back(distance(stk.begin(), it) + 1);
+                if (*it > c)  *it = c;  
+            }
+            // for (auto &c: stk) cout << c << " ";
+            // cout << endl;
+        }
+        return res;
+    }
+};

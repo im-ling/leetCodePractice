@@ -1,0 +1,80 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obs) {
+        HashSet<Integer> set=new HashSet<>();
+        for(int v:obs)
+            set.add(v);
+        int[] a=new int[set.size()];
+        int idx=0;
+        for(int v:set)
+            a[idx++]=v;
+        Arrays.sort(a);
+        HashMap<Integer,Integer> map=new HashMap<>();
+        for(int i=0;i<idx;i++)
+            map.put(a[i],i);
+        SegTree sgt=new SegTree(idx);
+        sgt.build(1,0,idx-1);
+        int[] ans=new int[obs.length];
+        for(int i=0;i<obs.length;i++){
+            ans[i]=sgt.ask(1,0,map.get(obs[i]))+1;
+            sgt.change(1,map.get(obs[i]),ans[i]);
+        }
+        return ans;
+    }
+    
+     static class SegTree{
+    	class Node{
+    		int l;
+    		int r;
+    		int val;
+    		
+    		public Node(int l,int r) {
+    			this.l=l;
+    			this.r=r;
+    		}
+    	}
+    	public Node[] t;
+    
+    	public SegTree(int n) {
+    		this.t=new Node[(n+10)<<2];
+    	}
+    	
+    	public void  pushUp(int p) {
+    		t[p].val=Math.max(t[p*2].val,t[p*2+1].val);
+    	}
+    	
+    	public void build(int p,int l,int r) {
+    		t[p]=new Node(l,r);
+    		if(l==r){
+    			return ;
+            }
+    		int mid=(l+r)>>1;
+    		build(p*2,l,mid);
+    		build(p*2+1,mid+1,r);
+    	}
+    	
+    	public void change(int p,int x,int val) {
+    		if(t[p].l==t[p].r) {
+    			t[p].val=val;
+                return ;
+    		}
+    		int mid=(t[p].l+t[p].r)>>1;
+    		if(x<=mid)
+    			change(p*2,x,val);
+    		if(x>mid)
+    			change(p*2+1,x,val);
+            pushUp(p);
+    	}
+    	
+    	public int ask(int p,int l,int r) {
+    		if(t[p].l>=l&&t[p].r<=r)
+    			return t[p].val;
+    		int ans=Integer.MIN_VALUE;
+    		int mid=(t[p].l+t[p].r)>>1;
+    		if(l<=mid)
+    			ans= ask(p*2,l,r);
+    		if(r>mid)
+                ans=Math.max(ans,ask(p*2+1,l,r));
+    		return ans;
+    	}
+    }
+}

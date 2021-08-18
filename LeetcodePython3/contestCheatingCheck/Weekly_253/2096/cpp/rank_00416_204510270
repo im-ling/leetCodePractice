@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        int len = 0;
+        int n = ob.size();
+        vector<int> q(n+1);
+        vector<int> ans(n);
+        for(int i=0; i<n; i++)
+        {
+            int l = 0, r = len;
+            while(l < r)
+            {
+                int mid = (l+r+1) >> 1;
+                if(q[mid] <= ob[i])
+                    l = mid;
+                else
+                    r = mid - 1;
+            }
+            len = max(len, r+1);
+            ans[i] = r+1;
+            q[r+1] = ob[i];
+        }
+        return ans;
+    }
+};

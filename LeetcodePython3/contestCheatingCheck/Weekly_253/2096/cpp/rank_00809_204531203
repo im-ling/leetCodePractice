@@ -1,0 +1,64 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& nums) {
+        // int length = obstacles.size();
+        // vector<int> dp(length, 0);
+        // vector<int> res_left(length, 0);
+        // priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>> > que;
+        // stack<int> s;
+        // for (int i = 0; i < length; i++) {
+        //     while (!s.empty() && obstacles[i] < obstacles[s.top()])s.pop();
+        //     if (s.empty())res_left[i] = 0;
+        //     else res_left[i] = s.top() + 1;
+        //     s.push(i);
+        // }
+        // for(int i = 0; i< length; i ++){
+        //     //que.push({obstacles[i], i});
+        //     dp[i] = 1;
+        //     if(i == 0){
+        //         continue;
+        //     }
+        //     if(res_left[i] == 0){
+        //         continue;
+        //     }
+        //     for(int j = i -1; j >= 0;j --){
+        //         if(obstacles[i] >= obstacles[j])
+        //         dp[i] = max(dp[i], dp[j] + 1);
+        //     }
+        //     // priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>> > que1 = que;
+        //     // while(que.empty() == false && que.top().first <= obstacles[i]){
+        //     //     dp[i] = max(dp[i], dp[que.top().second] + 1);
+        //     //     que.pop();
+        //     // }
+        //     // que1.push({obstacles[i], i});
+        //     // que = que1;
+        // }
+        // return dp;
+        
+        int n = nums.size();
+        if(!n) return {};
+        
+        vector<int> dp(n), help(n);
+        
+        help[0] = nums[0]; dp[0] = 1;
+        
+        int right = 1;
+        int ret = 1;
+        //vector<int> res;
+        //res.push_back(ret);
+        for(int i=1; i<n; ++i){
+            int l = 0, r = right;
+            while(l<r){
+                int mid = (l+r)/2;
+                if(nums[i] >= help[mid]) l = mid+1;
+                else r = mid;
+            }
+            help[l] = nums[i];
+            dp[i] = l+1;
+            right = max(right,l+1);
+            //ret = max(dp[i],ret);
+            //res.push_back(ret);
+        }
+        return dp;
+    }
+};

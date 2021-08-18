@@ -1,0 +1,62 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) 
+    {
+        vector<int> nArr;
+        nArr.reserve(obs.size()+5);
+        nArr.push_back(0);
+        
+        vector<int> sArr;
+        sArr.reserve(obs.size()+5);
+        sArr.push_back(0);
+        
+        vector<int> retArr(obs.size(), 0);
+        for (int i = 0; i < obs.size(); i++)
+        {
+            //cout << "for i :" << i << " " << obs[i] << endl;
+            auto a = lower_bound(nArr.begin(), nArr.end(), obs[i]+1);
+            int nP = a - nArr.begin() - 1;
+            nArr.insert(a, obs[i]);
+            //cout << nP << endl;
+            int nNS = sArr[nP] + 1;
+            sArr.insert(sArr.begin() + nP + 1, nNS);
+            //cout << nNS << " " << obs[i] << endl;
+            
+            int nb = sArr.size();
+            if (sArr.back() > nNS)
+            {
+                int nR = nP+1;
+                int nL = sArr.size()-1;
+                while (nR+1 < nL)
+                {
+                    int nM = (nR+nL)/2;
+                    if (sArr[nM] <= nNS)
+                    {
+                        nR = nM;
+                    }
+                    else
+                    {
+                        nL = nM;
+                    }
+                }
+                nb = nL;
+            }
+            nP += 2;
+           
+           // cout << "erase: " << nP << " " << nb << endl;
+            if (nP < nb)
+            {
+                sArr.erase(sArr.begin()+nP, sArr.begin()+nb);
+                nArr.erase(nArr.begin()+nP, nArr.begin()+nb);
+            }
+            /*cout << "value: ";
+            for (int i = 0; i < sArr.size(); i++)
+            {
+                cout << nArr[i] << ":" << sArr[i] << "  "; 
+            }
+            cout << endl;*/
+            retArr[i] = nNS;
+        }
+        return retArr;        
+    }
+};

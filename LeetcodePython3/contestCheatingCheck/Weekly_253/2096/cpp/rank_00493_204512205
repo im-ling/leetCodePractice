@@ -1,0 +1,55 @@
+class Solution {
+    int treeVal[400007]; // [0]maxVal [1]maxDP
+    void pushUp(int rt) {
+        treeVal[rt] = max(treeVal[rt<<1],treeVal[rt<<1|1]);
+    }
+    void build(int l, int r, int rt) {
+        if(l==r) {
+            treeVal[rt] = 0;
+            return;
+        }
+        int mid = (l+r)>>1;
+        build(l, mid, rt<<1);
+        build(mid+1, r, rt<<1|1);
+        pushUp(rt);
+    }
+    void update(int I, int val, int l, int r, int rt) {
+        if(l==r) {
+            treeVal[rt] = val;
+            return;
+        }
+        int mid = (l+r)>>1;
+        if(I<=mid) {
+            update(I, val, l, mid, rt<<1);
+        } else {
+            update(I, val, mid+1, r, rt<<1|1);
+        }
+        pushUp(rt);
+    }
+    int query(int R, int l, int r, int rt) {
+        if(r<=R) {
+            return treeVal[rt];
+        }
+        int mid = (l+r)>>1;
+        if(R<=mid) {
+            return query(R,l,mid,rt<<1);
+        }
+        return max(query(R,l,mid,rt<<1),query(R,mid+1,r,rt<<1|1));
+    }
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> hashVec(obstacles);
+        sort(hashVec.begin(), hashVec.end());
+        int m = unique(hashVec.begin(), hashVec.end()) - hashVec.begin();
+        hashVec.resize(m);
+        int n = obstacles.size();
+        vector<int> ans(n,1);
+        build(1, n, 1);
+        for(int i=0; i<n; i++) {
+            obstacles[i] = lower_bound(hashVec.begin(), hashVec.end(), obstacles[i]) - hashVec.begin() + 1;
+            ans[i] = query(obstacles[i], 1, n, 1) + 1;
+            update(obstacles[i], ans[i], 1, n, 1);
+        }
+        return ans;
+    }
+};

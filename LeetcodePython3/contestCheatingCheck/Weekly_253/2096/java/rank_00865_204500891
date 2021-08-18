@@ -1,0 +1,39 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        //到当前元素位置，单调递增的元素个数
+        int n = obstacles.length;
+        int[] help = new int[n];
+        int index = 0;
+        int[] res = new int[n];
+        for (int i=0; i<n; i++){
+            if (index==0 || help[index-1]<=obstacles[i]){
+                help[index] = obstacles[i];
+                index += 1;
+                res[i] = index;
+            } else {
+                //寻找第一个大于obstacles[i]的位置，并将该位置处的值替换为obstackes[i]
+                int j = binarySearch(help, index, obstacles[i]);
+                // System.out.println(j);
+                help[j] = obstacles[i];
+                res[i] = j+1;
+            }
+        }
+        return res;
+    }
+    
+    public int binarySearch(int[] help, int index, int k){
+        int l = 0;
+        int r = index-1;
+        
+        while(l<r){
+            int m = (l+r)/2;
+            if (help[m]<=k){
+                l = m+1;
+            } else {
+                r = m;
+            }
+        }
+        
+        return l;
+    }
+}

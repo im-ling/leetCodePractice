@@ -1,0 +1,42 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        vector<int>ans(obs);
+        int low[obs.size()+1];memset(low,0x3f3f,sizeof(low));
+        ans[0]=1;
+        low[1]=obs[0];
+        int tmax=1;
+        for(int i=1;i<obs.size();i++){
+            if(obs[i]==obs[i-1]){
+                ans[i]=ans[i-1]+1;
+                low[ans[i]]=min(low[ans[i]],obs[i]);
+                if(ans[i]>tmax){
+                    tmax=ans[i];
+                }
+            }else{
+                if(obs[i]<low[1]){
+                    ans[i]=1;
+                    low[1]=obs[i];
+                }else if(obs[i]>=low[tmax]){
+                    tmax++;
+                    low[tmax]=obs[i];
+                    ans[i]=tmax;
+                }else{
+                    int l=1,r=tmax;
+                    while(l+1<r){
+                        int m=(l+r)/2;
+                        if(low[m]<=obs[i]){
+                            l=m;
+                        }else{
+                            r=m;
+                        }
+                    }
+                    ans[i]=l+1;
+                    low[l+1]=min(low[l+1],obs[i]);
+                    
+                }
+            }
+        }
+        return ans;
+    }
+};

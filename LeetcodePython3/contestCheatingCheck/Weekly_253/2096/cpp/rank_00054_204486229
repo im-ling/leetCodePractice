@@ -1,0 +1,37 @@
+class Solution {
+#define MAX 500005
+#define lowbit(x) ((x)&(-(x)))
+public:
+    int n, len;
+    int b[MAX], s[MAX], f[MAX];
+    void add(int x, int k){
+        while(x <= n){
+            s[x] = max(s[x], k);
+            x += lowbit(x);
+        }
+    }
+    int query(int x){
+        int ans = 0;
+        while(x){
+            ans = max(ans, s[x]);
+            x -= lowbit(x);
+        }
+        return ans;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        n = a.size();
+        len = 0;
+        vector<int> v;
+        for(int i = 0; i < n; i++){
+            b[++len] = a[i];
+        }
+        sort(b+1, b+n+1);
+        len = unique(b+1, b+len+1)-b-1;
+        for(int i = 0; i < n; i++){
+            a[i] = lower_bound(b+1, b+len+1, a[i])-b;
+            v.push_back(f[i] = query(a[i])+1);
+            add(a[i], f[i]);
+        }
+        return v;
+    }
+};

@@ -1,0 +1,29 @@
+
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int binarysearch(int *n,int l,int r,int tar){
+    int mid;
+    while(l<=r){
+        mid=l+r>>1;
+        if(n[mid]>tar)
+            r=mid-1;
+        else
+            l=mid+1;
+    }
+    return l;
+}
+int* longestObstacleCourseAtEachPosition(int* obstacles, int obstaclesSize, int* returnSize){
+    *returnSize=obstaclesSize;
+    int *ret=malloc(sizeof(int)*obstaclesSize);
+    int mh[10000001];
+    memset(mh,0x3f,sizeof(mh));
+    mh[0]=0;
+    for(int i=0;i<obstaclesSize;i++){
+        int tmp=binarysearch(mh,0,10000000,obstacles[i]);
+        ret[i]=tmp;
+        mh[tmp]=obstacles[i];
+    }
+    return ret;
+}

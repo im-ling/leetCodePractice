@@ -1,0 +1,36 @@
+class Solution {
+public:
+    typedef long long ll;
+    const int base = 1 << 18;
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obss) {
+        int n = obss.size();
+        unordered_map<int, int> mp;
+        vector<ll> obs(n);
+        for (int i = 0; i < n; ++i) {
+            if (mp.find(obss[i]) == mp.end()) {
+                mp[obss[i]] = 0;
+            }
+            else {
+                mp[obss[i]]++;
+            }
+            obs[i] = (ll)obss[i] * base + mp[obss[i]];
+        }
+        vector<int> res(n);
+        vector<ll> dp;
+        res[0] = 1;
+        dp.push_back(obs[0]);
+        for (int i = 1; i < n; ++i) {
+            int m = dp.size();
+            if (obs[i] > dp[m - 1]) {
+                res[i] = m + 1;
+                dp.push_back(obs[i]);
+            }
+            else {
+                int index = upper_bound(dp.begin(), dp.end(), obs[i]) - dp.begin();
+                res[i] = index + 1;
+                dp[index] = obs[i];
+            }
+        }
+        return res;
+    }
+};

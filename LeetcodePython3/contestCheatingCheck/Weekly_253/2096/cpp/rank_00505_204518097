@@ -1,0 +1,44 @@
+class Solution {
+public:
+    int upper(int len,vector<int>& vec,int& tar){
+        int sta=0;
+        while(len>0){
+            int step=len/2,temp=sta+step;
+            if(vec[temp]>tar){
+                len=step;
+            }else{
+                sta+=step+1;
+                len-=step+1;
+            }
+        }
+        return sta;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        vector<int> ans(obs.size()),rec(obs.size());
+        int posa=-1,posb=-1;
+        
+        for(auto& i:obs){
+            if(posa<0){
+                ans[++posa]=1;
+                rec[++posb]=i;
+            }else{
+                // cout<<i<<' '<<posa<<' '<<posb<<endl;
+                if(i>=rec[posb]){
+                    ++posa;
+                    ++posb;
+                    ans[posa]=posb+1;
+                    rec[posb]=i;
+                }else{
+                    int temp=upper(posb+1,rec,i);
+                    rec[temp]=i;
+                    ++posa;
+                    ans[posa]=temp+1;
+                    // cout<<i<<' '<<temp<<' '<<endl;
+                }
+            }
+            
+        }
+        return ans;
+    }
+};

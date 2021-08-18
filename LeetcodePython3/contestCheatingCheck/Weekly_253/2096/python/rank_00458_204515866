@@ -1,0 +1,32 @@
+class Solution(object):
+    def longestObstacleCourseAtEachPosition(self, obstacles):
+        """
+        :type obstacles: List[int]
+        :rtype: List[int]
+        """
+        """
+        210808
+        最长升序子序列问题的变种
+        还摆明了动态规划
+        我就不用动态规划
+        """
+        dp = [obstacles[0]]
+        ans = [1] * len(obstacles)
+        for i in range(1, len(obstacles)):
+            num = obstacles[i]
+            if num >= dp[-1]:
+                dp.append(num)
+                ans[i] = len(dp)
+            else:
+                left, right = 0, len(dp)-1
+                while left < right:
+                    middle = (left+right)>>1
+                    if dp[middle] <= num:
+                        left = middle + 1
+                    else:
+                        right = middle
+                dp[left] = num
+                ans[i] = left + 1
+        return ans
+            
+            

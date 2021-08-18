@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        //最长上升子序列
+        //LIS;
+        vector<int> ans(obs.size());
+        vector<int> pq; // 单增栈
+        for(int i = 0;i < obs.size();i ++)
+        {
+            int low = 0;
+            int high = pq.size();
+            while(low < high)
+            {
+                int mid = (low + high) / 2;
+                if(pq[mid] > obs[i]) high = mid;
+                else low = mid + 1;
+            }
+            if(low == pq.size()) pq.push_back(obs[i]);
+            else pq[low] = obs[i];
+            ans[i] = low+1;
+        }
+        return ans;
+    }
+};

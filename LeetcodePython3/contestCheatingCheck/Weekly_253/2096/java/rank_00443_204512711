@@ -1,0 +1,107 @@
+class Solution {
+    
+    
+    final int N = 100005;
+	
+	Node[] tree = new Node[N*4+5];
+    
+    class Node{
+        int left, right;
+        int max = 0;
+        public Node(int l, int r, int m){
+            left = l;
+            right = r;
+            max = m;
+        }
+    }
+    
+    
+    void build(int root,int start,int end)                     //构建线段树
+    {                              
+        //初始化时传入Build(1,1,n);
+        // System.out.println("build " + root);
+        tree[root] = new Node(start, end, 0);
+        
+        if(start == end)                    //当到达叶子节点时
+        {
+            tree[root].max = 0;
+            return;
+        }
+        int mid = (start + end)>>1;         //中间分开
+        build(root<<1,start,mid);           //对左孩子建树，左边孩子的编号为root*2
+        build((root<<1)+1,mid+1,end);       //对右边孩子建树
+        maintain(root);
+    }
+
+    
+    void update(int root, int pos, int val){
+        Node node = tree[root];
+        if(node.left == node.right && pos == node.left){
+            node.max = Math.max(node.max, val);
+            return;
+        }
+        int mid = (node.left + node.right)>>1; 
+        
+        if(pos <= mid)                                       
+            update(root<<1, pos,val);                          
+        else
+            update((root<<1) + 1 ,pos,val);   
+        maintain(root);
+    }
+    
+    void maintain(int root)         //向上调整，使得让线段树维护区间最小值最大值区间和
+    {
+        int LC = root<<1;       //此根的左孩子
+        int RC = (root<<1)+1;       //此根的右孩子
+        tree[root].max = Math.max(tree[LC].max,tree[RC].max);        //根的最大值
+    }
+    
+    int query(int root,int start,int end)                 //查询区间最大值
+    {
+        if(start == tree[root].left && tree[root].right == end)
+        {
+            return tree[root].max;
+        }
+        int mid = (tree[root].left + tree[root].right)>>1;
+        int ret = 0;                                        //************可能是 （-INF）要尽可能的小
+        if(end <= mid)
+            ret = Math.max(ret,query(root<<1,start,end));        //完全左孩子区间匹配
+        else if(start >= mid+1)
+            ret = Math.max(ret,query((root<<1)+1,start,end));        //完全右孩子区间匹配
+        else
+        {
+            int a = query(root<<1,start,mid);
+            int b = query((root<<1)+1,mid+1,end);
+            ret = Math.max(a,b);                                 //求的左右两个区间和匹配区间相符的最大值得较大者
+        }
+        return ret;                             //记得返回结果
+    }
+    
+
+    
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        TreeMap<Integer, Integer> map = new TreeMap();
+        for(int x : obstacles){
+            map.put(x, 0);
+        }
+        int idx = 1;
+        for(int x : map.keySet()){
+            map.put(x, idx);
+            idx++;
+        }
+        
+        build(1, 0, idx);
+        int[] res = new int[obstacles.length];
+        
+        for(int i = 0; i < obstacles.length; i++){
+            int val = map.get(obstacles[i]);
+            int max = query(1, 0, val);
+            // System.out.println("query " + val + " " + max);
+            res[i] = max + 1;
+            update(1, val, res[i]);
+        }
+        
+        return res;
+
+    }
+}

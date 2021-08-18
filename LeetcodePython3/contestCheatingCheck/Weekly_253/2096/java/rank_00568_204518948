@@ -1,0 +1,43 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] ans = new int[n];
+        int[] ends = new int[n + 1];
+        int right = 0;
+        ends[right] = obstacles[0];
+        ans[0] = 1;
+        for(int i = 1; i < n; ++ i) {
+            int ttarget = obstacles[i];
+            int ind = erfen(ends, right, ttarget);
+            if(ind > right) {  // 以当前obstacles[i]结尾更长的递增子序列
+                ends[ind] = ttarget;
+                right = ind;
+            } else if(ttarget < ends[ind]) {  // 如果无法更新最长递增子序列长度，那就看能否更新当前找到的位置的长度的最大元素
+                ends[ind] = ttarget;
+            }
+            ans[i] = ind + 1;
+            // System.out.println(i + "  " + Arrays.toString(ends) + " " + right);
+        }
+        return ans;
+    }
+    
+    /**
+     * 大于的或者最大的等于target的值的位置
+     */
+    private int erfen(int[] searchData, int right, int target) {
+        int left = 0;
+        int mid = 0;
+        if(searchData[right] <= target) {
+            return right + 1;
+        }
+        while(left < right) {
+            mid = left + (right - left) / 2;
+            if(searchData[mid] <= target) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        return right;
+    }
+}

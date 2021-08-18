@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        
+        // 在每个位置找最长上升子序列
+        // 必需包含第i个障碍
+        vector<int> tails;
+        int n = obstacles.size();
+        vector<int> ans(n, 0);
+        for(int i = 0; i < n; i++){
+            int x = obstacles[i];
+            int j = upper_bound(tails.begin(), tails.end(), x) - tails.begin();
+            if(j >= tails.size()){
+                tails.push_back(x);
+                ans[i] = tails.size();
+            }else{
+                tails[j] = x;
+                ans[i] =  j + 1;
+            }
+        }
+        return ans;
+    }
+};

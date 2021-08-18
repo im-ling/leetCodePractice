@@ -1,0 +1,66 @@
+class Solution {
+public:
+    static const int N = 1e5 + 10;
+    #define lson (root << 1)
+    #define rson (lson | 1)
+    int tree[N * 4];
+    
+    int build(int root, int L, int R) {
+        tree[root] = 0;
+        if (L == R) return 0;
+        int mid = (L + R) >> 1;
+        build(lson, L, mid);
+        build(rson, mid + 1, R);
+        return 0;
+    }
+    int update(int root, int L, int R, int pos, int val) {
+        if (L == R) {
+            tree[root] = std::max(tree[root], val);
+            return tree[root];
+        }
+        int mid = (L + R) >> 1;
+        if (pos <= mid) {
+            update(lson, L, mid, pos, val);
+        } else {
+            update(rson, mid + 1, R, pos, val);
+        }
+        tree[root] = std::max(tree[lson], tree[rson]);
+        return tree[root];
+    }
+    int query(int root, int L, int R, int ql, int qr) {
+        if (ql <= L && R <= qr) return tree[root];
+        int mid= (L + R) >> 1;
+        if (qr <= mid) {
+            return query(lson, L, mid, ql, qr);
+        } else if (ql > mid) {
+            return query(rson, mid + 1,R , ql, qr);
+        } else {
+            int ll = query(lson, L, mid, ql, mid);
+            int rr = query(rson, mid + 1, R, mid + 1, qr);
+            return std::max(ll, rr);
+        }
+        return  tree[root];
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        std::vector<int> sq;
+        for (int i = 0; i < obstacles.size(); ++i) {;
+            sq.push_back(obstacles[i]);
+        }
+        std::sort(sq.begin(), sq.end());
+        int hs = std::unique(sq.begin(), sq.end()) - sq.begin();
+        for (int i = 0; i < obstacles.size(); ++i) {
+            obstacles[i] = std::lower_bound(sq.begin(), sq.begin() + hs, obstacles[i]) - sq.begin() + 1;
+        }
+        
+        int n = hs;
+        build(1, 1, n);
+        std::vector<int> ans;
+        for (int i = 0; i < obstacles.size(); ++i) {
+            int val = obstacles[i];
+            int mx = val == 0 ? 0 : query(1, 1, n, 1, val);
+            ans.push_back(mx + 1);
+            update(1, 1, n, val, mx + 1);
+        }
+        return ans;
+    }
+};

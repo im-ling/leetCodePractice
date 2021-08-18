@@ -1,0 +1,18 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, osl: List[int]) -> List[int]:
+        from sortedcontainers import SortedList
+        import bisect
+        a = []
+        res = []
+        for o in osl:
+            loc = bisect.bisect_right(a, o)
+            
+            if loc == len(a):
+                a.append(o)
+                # print(loc)
+                res.append(loc + 1)
+            else:
+                a[loc] = o
+                res.append(loc + 1)
+            # print(loc, a)
+        return res

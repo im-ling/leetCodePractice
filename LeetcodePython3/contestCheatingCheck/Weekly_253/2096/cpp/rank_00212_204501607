@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int f[100010];
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        for(int i = 0;i < obstacles.size(); ++i) f[i] = 100000000;
+        f[1] = obstacles[0];
+        vector<int>ans;
+        int len = 1;
+        ans.push_back(len);
+        for(int i = 1;i < obstacles.size(); ++i)
+        {
+            if(obstacles[i] >= f[len]) 
+            {
+                f[++len] = obstacles[i];
+                ans.push_back(len);
+            }
+            else
+            {
+                int p =  upper_bound(f + 1,f + len + 1,obstacles[i]) - f;
+                f[p] = obstacles[i];
+                ans.push_back(p);
+            }
+        }
+        return ans;
+    }
+};

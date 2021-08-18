@@ -1,0 +1,39 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+    	List<Integer> l = new LinkedList<>();
+    	l.add(obstacles[0]);
+    	int[] ans = new int[obstacles.length];
+    	ans[0] = l.size();
+    	for(int i=1;i<obstacles.length;i++) {
+    		if(obstacles[i]>=l.get(l.size()-1)) {
+    			l.add(obstacles[i]);
+    			ans[i]=l.size();
+    		}else {
+    			int idx = BinirySearch(l,obstacles[i]);
+    			l.remove(idx);
+    			l.add(idx, obstacles[i]);
+    			ans[i]=idx+1;
+    		}
+    	}
+//    	for(int i=0;i<l.size();i++) {
+//    		ans[i]=l.get(i);
+//    	}
+    	return ans;
+    }
+    private int BinirySearch(List<Integer> nums, int t) {
+    	int l=0;
+    	int r=nums.size();
+    	
+    	while(l<r) {
+    		int m = l+(r-l)/2;
+    		if(t>nums.get(m)) {
+    			l=m+1;
+    		}else if(t<nums.get(m)) {
+    			r=m;
+    		}else {
+    			l=m+1;
+    		}
+    	}
+		return l;
+	}
+}
