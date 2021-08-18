@@ -191,7 +191,9 @@ def cheating_check_compute_similar(question_ids, weekly_folder_name, threshold):
             one_line = ""
             similars = []
             for line in lines:
-                one_line += line.replace(" ", "")
+                cur = line.replace(" ", "")
+                cur = cur.replace("\n", "")
+                one_line += cur
             if count >= 0:
                 similars = compute_similars(oneline_dic, one_line, file)
                 similars.sort(key=lambda x: x[0])
