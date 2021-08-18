@@ -189,6 +189,7 @@ def cheating_check_compute_similar(question_ids, weekly_folder_name, threshold):
             file_path = os.path.join(path, file)
             lines = read_text_file_to_lines(file_path)
             one_line = ""
+            similars = []
             for line in lines:
                 one_line += line.replace(" ", "")
             if count >= 0:
@@ -198,7 +199,12 @@ def cheating_check_compute_similar(question_ids, weekly_folder_name, threshold):
                     status = similars[i]
                     if status[0] >= threshold:
                         result.append(status)
-            oneline_dic[file] = one_line
+                        if status[0] > 0.999:
+                            break
+            if similars and similars[-1][0] > 0.999:
+                pass
+            else:
+                oneline_dic[file] = one_line
         return result
 
     for qid in question_ids:
