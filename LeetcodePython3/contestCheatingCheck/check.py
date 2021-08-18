@@ -10,6 +10,7 @@ import time
 
 int_format_len = 5
 
+
 def generate_urls(contest_number, paginations):
     urls = []
     prefix = "https://leetcode-cn.com/contest/api/ranking/weekly-contest-" + str(contest_number) + "/?pagination="
@@ -29,6 +30,7 @@ def read_text_file_to_lines(file_path):
     file_obj.close()
     return lines
 
+
 def write_lines_to_path(lines, path):
     '''
     :param lines: list
@@ -39,6 +41,7 @@ def write_lines_to_path(lines, path):
         for line in lines:
             filehandle.write(line)
         print("writen " + path)
+
 
 def all_files_in_folder(folder_path):
     result = []
@@ -158,8 +161,10 @@ def get_url_returns(urls, local_urls_results, writen_lock):
     loop = asyncio.get_event_loop()
     loop.run_until_complete(gather)
 
+
 def cheating_check_compute_similar(question_ids, weekly_folder_name, threshold):
     def language_check_similar(path, threshold):
+        records = {}
         def compute_similars(oneline_dic, one_line, file):
             local_result = []
             one_line_len = len(one_line)
@@ -196,18 +201,19 @@ def cheating_check_compute_similar(question_ids, weekly_folder_name, threshold):
             oneline_dic[file] = one_line
         return result
 
-
     for qid in question_ids:
         question_path = os.path.join(weekly_folder_name, str(qid))
         languages = os.listdir(question_path)
-        print(languages)
+        # print(languages)
         for language in languages:
             language_folder = os.path.join(question_path, language)
             if os.path.isdir(language_folder):
                 result = language_check_similar(language_folder, threshold)
+                result.sort(key=lambda x: x[0])
                 if len(result) > 0:
                     print(language_folder)
-                    print(result)
+                    for record in reversed(result):
+                        print("%.4f" % record[0], record[1], record[2])
 
 def cheating_check(contest_number, paginations, question_ids, similar_threshold):
     # create folder
@@ -228,7 +234,11 @@ def cheating_check(contest_number, paginations, question_ids, similar_threshold)
     download_codes(urls, urls_results, question_ids, folder_names[0])
     print(f"download codes finished at {time.strftime('%X')}")
 
+
+    print("\n\n---- reports: ----")
     cheating_check_compute_similar(question_ids, folder_names[0], similar_threshold)
+    print("---- reports end: ----\n\n")
+
     print(f"similar checking finished at {time.strftime('%X')}")
 
 
@@ -237,12 +247,14 @@ if __name__ == '__main__':
 
     # contest number
     contest_number = 253
-    # 多少页的人
+    # 调查多少页的人
     paginations = 35
-    # 需要查抄袭的内容
+    # 需要查抄袭的题目 [2095, 2096]
+    # question_id 可用 https://leetcode-cn.com/contest/api/ranking/weekly-contest-253/?pagination=0 查询
     question_ids = [2096]
-    # 相似度
+    # 相似度（高于这个阈值会被记录）
     similar_threshold = 0.85
 
     result = cheating_check(contest_number, paginations, question_ids, similar_threshold)
+
     print(f"End at {time.strftime('%X')}")
