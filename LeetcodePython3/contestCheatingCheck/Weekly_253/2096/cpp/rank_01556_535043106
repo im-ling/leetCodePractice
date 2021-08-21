@@ -1,0 +1,34 @@
+class Solution {
+public:
+    //for an index i, obstacle course must include obstacles[i]
+    //every obstacle has to be in the same order
+    //for an i, obstacle[i] <= obstacle[j] for i < j
+    //simple method would be brute force for each i, start at i and try to slowly go down, problem not sure if an index i is a part of optimal solution. 
+    //I can figure out at each index i the best possible solution and save it 
+    //what if obstacles[i-1] > obstacles[i], how does dp[i] work? 
+    //seems like I have to check every j from 0 <=j < i to find dp[i]
+    //if a obstacle[j] > obstacle[k] and j > l then j is a better solution than k 
+    //issue lies when k < j,but obstacle[k] > obstacle[j], which solution is better? 
+    //an a certain index i, there is a sequence of heights that are possible before it.
+    //a larger height 
+    //essentially keep track of a good string of smaller and possible larger building sequences, but also a current max sequence seen before
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> cards;
+        vector<int> sol;
+        for (int height : obstacles){
+            auto it = upper_bound(cards.begin(),cards.end(),height);
+            //if (cards.empty()) it = cards.end();
+            if (it == cards.end()) {
+                cards.push_back(height);
+                sol.push_back(cards.size());
+            }
+            else {
+                (*it) = height;
+                sol.push_back((it - cards.begin())+1);
+            }
+        }
+        return sol;
+    }
+};

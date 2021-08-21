@@ -1,0 +1,51 @@
+class Solution {
+public:
+    
+    int CeilIndex(std::vector<int>& v, int l, int r, int key)
+    {
+        while (r - l > 1) {
+            int m = l + (r - l) / 2;
+            if (v[m] > key)
+                r = m;
+            else
+                l = m;
+        }
+
+        return r;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& v) {
+        
+        int n=v.size();
+        
+        vector<int> tail;
+        int length = 1;
+
+        tail.push_back(v[0]);
+        vector<int>ans(n,1);
+        
+        for (int i = 1; i < v.size(); i++) {
+
+            
+            if (v[i] < tail[0]){
+                tail[0] = v[i];
+            }
+            
+            else if (v[i] >= tail[length - 1]){
+                tail.push_back(v[i]);
+                length++;
+                ans[i]=length;
+            }
+            
+            else{
+                // int ind=CeilIndex(tail, -1, length - 1, v[i]);
+                int ind2=upper_bound(tail.begin(),tail.end(),v[i])-tail.begin();
+                // cout<<ind2<<" - "<<length<<endl;
+                ans[i]=ind2+1;
+                tail[ind2] = v[i];
+            }
+        }
+
+        return ans;
+    }
+};

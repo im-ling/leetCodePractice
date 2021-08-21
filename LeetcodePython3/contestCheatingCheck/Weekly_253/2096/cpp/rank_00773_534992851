@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& num) {
+        const int N = num.size();
+        vector<int> ans(N), LIS;
+        ans[0] = 1;
+        LIS.push_back(num[0]);
+        for(int i = 1; i < N; ++i) {
+            if(num[i] >= LIS.back()) {
+                LIS.push_back(num[i]);
+                ans[i] = LIS.size();
+            } else {
+                auto it = upper_bound(LIS.begin(), LIS.end(), num[i]);
+                *it = num[i];
+                ans[i] = (it - LIS.begin()) + 1;
+            }
+        }
+        return ans;
+    }
+};

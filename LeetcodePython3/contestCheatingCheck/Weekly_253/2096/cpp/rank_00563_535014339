@@ -1,0 +1,72 @@
+class Solution {
+public:
+    
+    struct segment_tree{
+      vector<int> t, a;
+
+      segment_tree(vector<int>& v){
+        a = vector<int>(v);
+        t = vector<int>(4 * a.size());
+        build(0, 0, a.size() - 1);
+      }
+
+      void build(int v, int tl, int tr){
+        if(tl == tr) t[v] = a[tl];
+        else {
+            int tm = (tl + tr) / 2;
+            build(2 * v + 1, tl, tm);
+            build(2 * v + 2, tm + 1, tr);
+            t[v] = max(t[2 * v + 1], t[2 * v + 2]);
+        }
+      }
+
+      int query(int l, int r){
+        return _query(0, 0, a.size() - 1, l, r);
+      }
+
+      int _query(int v, int tl, int tr, int l, int r) {
+        if (l > r) return 0;
+        if (l == tl and r == tr) return t[v];
+
+        int tm = (tl + tr) / 2;
+        return max(_query(2 * v + 1, tl, tm, l, min(r, tm))
+               , _query(2 * v + 2, tm + 1, tr, max(l, tm + 1), r));
+      }
+
+      void update(int pos, int value){
+        _update(0, 0, a.size() - 1, pos, value);
+      }
+
+      void _update(int v, int tl, int tr, int pos, int new_val) {
+        if (tl == tr) t[v] = new_val;
+        else {
+            int tm = (tl + tr) / 2;
+            if (pos <= tm) _update(2 * v + 1, tl, tm, pos, new_val);
+            else _update(2 * v + 2, tm + 1, tr, pos, new_val);
+            t[v] = max(t[2 * v + 1], t[2 * v + 2]);
+        }
+      }
+    };
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> v(1e5 + 10);
+        segment_tree st(v);
+        
+        vector<int> temp(obstacles);
+        sort(temp.begin(), temp.end());
+        
+        map<int,int> mp;
+        for(int i=0;i<obstacles.size();i++) mp[temp[i]] = i;
+        for(auto &x: obstacles) x = mp[x];
+        
+        vector<int> sol;
+        
+        for(auto x: obstacles){
+            int q = st.query(0, x) + 1;
+            sol.push_back(q);
+            st.update(x, q);
+        }
+            
+        return sol;
+    }
+};

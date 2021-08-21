@@ -1,0 +1,48 @@
+class Solution {
+public:
+    
+    int read(int x, const vector<int>& tree) {
+        int ans=0;
+        while(x) {
+            ans = max(ans, tree[x]);
+            x -= (x&-x);
+        }
+        return ans;
+    }
+    
+    void update(int x, int val, vector<int>& tree) {
+        while(x < tree.size()) {
+            tree[x]=max(tree[x], val);
+            x+=(x&-x);
+        }
+    }
+    
+    
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n=obstacles.size();
+        set<int> uniq_v;
+        for(int x : obstacles) {
+            uniq_v.insert(x);
+        }
+        map<int,int> mapping;
+        for(int x : uniq_v) {
+            int sz=mapping.size();
+            mapping[x]=sz+1;
+        }
+        
+        for(int& x : obstacles) {
+            x = mapping[x];
+        }
+        
+        vector<int> ans(n, 0);
+        vector<int> tree(uniq_v.size()+1, 0);
+        
+        for(int i=0;i<obstacles.size();i++) {
+            int v = obstacles[i];
+            ans[i]=read(v,tree)+1;
+            update(v,ans[i],tree);
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,48 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& nums) {
+        unordered_set<int> s(nums.begin(), nums.end());
+        vector<int> uniq(s.begin(), s.end());
+        sort(uniq.begin(), uniq.end());
+        int n = uniq.size(), len = 2;
+        while (n >>= 1) ++len;
+        vector<int> tree(1 << len, 0);
+        int left = 0, right = uniq.size() - 1;
+        n = nums.size();
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            int index = lower_bound(uniq.begin(), uniq.end(), nums[i]) - uniq.begin();
+            ans[i] = 1+count(tree, left, right, index, 0);
+            add(tree, left, right, index, 0, ans[i]);       
+            /*
+            for (auto t : tree) {
+                cout << t << ",";
+            }
+            cout << endl;
+            */
+        }
+        return ans;
+    }
+    int count(vector<int> &tree, int left, int right, int index, int root) {
+        if (right == left) {
+            return tree[root];
+        }
+        int mid = (left + right) / 2;
+        if (mid < index) { 
+            return max(tree[2*root+1], count(tree, mid+1, right, index, 2*root+2));
+        }
+        return count(tree, left, mid, index, 2*root+1);
+    }
+    void add(vector<int> &tree, int left, int right, int index, int root, int val) {
+        tree[root] = max(tree[root], val);
+        if (right == left) {
+            return;
+        }
+        int mid = (left + right) / 2;
+        if (index <= mid) {
+            add(tree, left, mid, index, 2*root+1, val);
+        } else {
+            add(tree, mid+1, right, index, 2*root+2, val);
+        }
+    }
+};

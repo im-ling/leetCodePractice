@@ -1,0 +1,19 @@
+const int mx = 1e5;
+int bit[mx+1]; void upd(int x){while(x <= mx){bit[x]+=1;x+=x&-x;}}
+int get(int x){int sum = 0;while(x > 0){sum += bit[x]; x-=x&-x;}return sum;}
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& arr) {
+           int n = arr.size() , i = 0;
+        for(int i = 0 ; i <= mx;i++)bit[i] = 0;
+        vector<int> ans(n) , dp(n+1,1e9); dp[0] = -1e9;
+        for(int x : arr){
+            int j = upper_bound(dp.begin(),dp.end(),x)-dp.begin();
+            ans[i++] = j;
+            if(dp[j-1] <= x && dp[j] >= x){ dp[j] = x;
+                                           upd(j);
+                                          }
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,33 @@
+class Solution {
+public:
+    vector<int> now, res;
+    int search(int x) {
+        int left = 0, right = now.size() - 1, res = now.size();
+        while(left <= right) {
+            int mid = (left + right) >> 1;
+            if(now[mid] > x) {
+                res = mid;
+                right = mid - 1;
+            }
+            else {
+                left = mid + 1;
+            }
+        }
+        return res;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& arr) {
+        for(int x : arr) {
+            if(now.empty()) {
+                now.push_back(x);
+            }
+            else if(x >= now.back()) {
+                now.push_back(x);
+            }
+            else {
+                (*upper_bound(now.begin(), now.end(), x)) = x;
+            }
+            res.push_back(search(x));
+        }
+        return res;
+    }
+};

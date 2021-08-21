@@ -1,0 +1,62 @@
+    public class Solution
+    {
+        private int _n;
+
+        private int FindNotLessIndex(int[] lensHigh, int start, int end, int curHigh)
+        {
+            if (start + 1 == end)
+            {
+                if (curHigh >= lensHigh[end])
+                {
+                    return end;
+                }
+
+                return start;
+            }
+
+            if (start == end)
+            {
+                return start;
+            }
+            var mid = (end + start) / 2;
+            if (curHigh >= lensHigh[mid])
+            {
+                return FindNotLessIndex(lensHigh, mid, end, curHigh);
+            }
+
+            return FindNotLessIndex(lensHigh, start, mid, curHigh);
+        }
+
+        public int[] LongestObstacleCourseAtEachPosition(int[] obstacles)
+        {
+            _n = obstacles.Length;
+            var lensHigh = new int[_n + 1];
+            var res = new int[_n];
+            var curMaxLen = 0;
+
+            for (int i = 0; i < _n; i++)
+            {
+                var curHigh = obstacles[i];
+                var tmp = FindNotLessIndex(lensHigh, 0, curMaxLen, curHigh);
+                res[i] = tmp + 1;
+                for (int j = tmp; j >= 0; j--)
+                {
+                    if (lensHigh[j + 1] == 0 || lensHigh[j + 1] > curHigh)
+                    {
+                        lensHigh[j + 1] = curHigh;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                if (curMaxLen < res[i])
+                {
+                    curMaxLen = res[i];
+                }
+            }
+
+            return res;
+        }
+    }

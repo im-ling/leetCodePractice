@@ -1,0 +1,49 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obs) {
+        int[] ans = new int[obs.length];
+        int n = obs.length;
+        int[] tail = new int[n];
+        int len=1;
+        tail[0] = obs[0];
+        ans[0]=1;
+        for(int i=1; i<n; i++){
+            /*if(obs[i] < tail[0]){
+                ans[i]=1;
+                tail[0]=obs[i];
+            }*/
+             if(obs[i] >= tail[len-1]){
+                tail[len++] = obs[i];
+                ans[i]=len;
+            }
+            else{
+                
+                int ind = Arrays.binarySearch(tail, 0, len-1, obs[i]);
+              //  System.out.println(ind+" "+obs[i]);
+                if(ind<0) ind = Math.abs(ind+1);
+                else{
+                    while(tail[ind]==obs[i]) ind++;
+                }
+                tail[ind] = obs[i];
+                ans[i]=ind+1;
+            }
+        }
+       /* for(int i=0; i<obs.length; i++){
+            System.out.print(tail[i]+" ");
+        }*/
+        //System.out.println();
+        return ans;
+    }
+    
+    
+    private int[] slowerLis(int[] obs){
+        int[] ans = new int[obs.length];
+        for(int i=0; i<obs.length; i++){
+            ans[i]=1;
+            for(int j=i-1; j>=0; j--){
+                if(obs[j]<=obs[i])ans[i]=Math.max(ans[i], ans[j]+1);
+            }
+        }
+        
+        return ans;
+    }
+}

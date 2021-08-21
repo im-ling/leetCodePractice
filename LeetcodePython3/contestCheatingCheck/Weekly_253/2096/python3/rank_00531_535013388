@@ -1,0 +1,31 @@
+import math
+import heapq
+import bisect
+from collections import Counter, defaultdict, deque
+from functools import lru_cache
+import sortedcontainers as sc
+
+MOD = int(10**9+7)
+
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        n = len(obstacles)
+        if n == 1:
+            return [1]
+        
+        s = [obstacles[0]]
+        res = [1]
+        for i in range(1, n):
+            idx = -1
+            if obstacles[i] >= s[-1]:
+                s.append(obstacles[i])
+                res.append(len(s))
+            else:
+                idx = bisect.bisect_right(s, obstacles[i])
+                s[idx] = obstacles[i]
+                res.append(idx + 1)
+            
+            # print(i, s, res, idx)
+        
+        return res

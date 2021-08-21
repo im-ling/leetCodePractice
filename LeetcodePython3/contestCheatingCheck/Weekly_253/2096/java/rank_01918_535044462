@@ -1,0 +1,70 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        
+        
+        // lis, if can update, then update, if not, record answer
+        int[] obs = obstacles;
+        int n = obs.length;
+        int[] ans = new int[n];
+        
+        int[] dp = new int[n];
+        int[] count = new int[n]; // count[i] means position on i
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        int totalSum = 0;
+        
+        int len = 0;
+        for (int i = 0; i < n; i++) {
+            int pos = Arrays.binarySearch(dp, 0, len, obs[i]);
+            
+            if (pos < 0) {
+                pos = - pos - 1;
+            }
+            
+            // while (dp[pos] == obs[i]) {
+            //     pos++;
+            // }
+            pos = findFirstLarger(pos, len, dp, obs[i]);
+            // System.out.println("here2");
+            
+            dp[pos] = obs[i];
+            if (pos == len ) {
+                len++;
+                ans[i] = len;
+            }
+            else {
+                // System.out.println(pos);
+                // remove the original one. from the map
+                // System.out.println(count[pos]);
+                ans[i] = pos + 1;
+            }
+        }
+        
+        return ans;
+    }
+    
+    
+    public int findFirstLarger(int start, int end, int[] dp, int target) {
+        
+        int left = start, right = end;
+        // System.out.println("here");
+        
+        while (left + 1 < right) {
+            int mid = left + (right - left) / 2;
+            
+            if (dp[mid] <= target) {
+                left = mid;
+            }
+            else {
+                right = mid;
+            }
+        }
+        
+        if (dp[left] > target) {
+            return left;
+        }
+        
+        return right;
+    }
+    
+}

@@ -1,0 +1,41 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> res;
+        res.push_back(1);
+        map<int, int>m;
+        m[obstacles[0]]=1;
+        for (int i = 1; i < obstacles.size();++i){
+            auto tmp = obstacles[i];
+            if (tmp < m.begin()->first){
+                m[tmp]=1;
+                res.push_back(1);
+            }else {
+                auto iter = m.lower_bound(tmp);
+                if(iter->first == tmp){
+                    m[tmp]++;
+                    res.push_back(m[tmp]);
+                    
+                    iter = std::next(m.find(tmp));
+                    while (iter != m.end() && res.back() >= iter->second){
+                    auto v = iter->first;
+                    iter = std::next(iter);
+                    m.erase(v);
+                    }
+                }else {
+                    auto prev = std::prev(iter);
+                    m[tmp]=prev->second +1;
+                    res.push_back(prev->second +1);
+                
+                    iter = std::next(m.find(tmp));
+                    while (iter != m.end() && res.back() >= iter->second){
+                    auto v = iter->first;
+                    iter = std::next(iter);
+                    m.erase(v);
+                    }
+                }
+            }
+        }
+        return res;
+    }
+};

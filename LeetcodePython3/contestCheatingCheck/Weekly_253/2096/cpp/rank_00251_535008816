@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int size=obstacles.size();
+        vector<int> ans(size);
+        vector<int> LSP;
+        for(int i=0;i<size;i++){
+            if(LSP.empty() || LSP.back()<=obstacles[i]){
+                LSP.push_back(obstacles[i]);
+                ans[i]=LSP.size();
+            }
+            else{
+                auto ptr=upper_bound(LSP.begin(), LSP.end(), obstacles[i]);
+                *ptr=obstacles[i];
+                ans[i]=(ptr-LSP.begin())+1;
+            }
+        }
+        return ans;
+    }
+};

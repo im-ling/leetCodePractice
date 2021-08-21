@@ -1,0 +1,30 @@
+class MaxBIT:  # One-based indexing
+    def __init__(self, size):
+        self.bit = [0] * (size + 1)
+    def get(self, idx):
+        ans = 0
+        while idx > 0:
+            ans = max(ans, self.bit[idx])
+            idx -= idx & (-idx)
+        return ans
+    def update(self, idx, val):
+        while idx < len(self.bit):
+            self.bit[idx] = max(self.bit[idx], val)
+            idx += idx & (-idx)
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, nums: List[int]) -> List[int]:
+        def compress(arr):
+            uniqueSorted = sorted(set(arr))
+            for i in range(len(arr)): 
+                arr[i] = bisect_left(uniqueSorted, arr[i]) + 1
+            return len(uniqueSorted)
+        
+        nUnique = compress(nums)
+        bit = MaxBIT(nUnique)
+        for i, x in enumerate(nums):
+            subLongest = bit.get(x)
+            bit.update(x, subLongest + 1)
+            nums[i] = subLongest + 1
+        return nums
+        

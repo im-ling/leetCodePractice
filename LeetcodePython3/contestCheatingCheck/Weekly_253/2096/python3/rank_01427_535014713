@@ -1,0 +1,23 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        def findindex(a,number,n):
+            l =1
+            r =n
+            while l<r:
+                mid = (l+r)//2
+                if dp[mid]>number:
+                    r=mid
+                else:
+                    l =mid+1
+            return r
+        
+        a = obstacles
+        n =len(a)
+        dp = [float('inf')]*(n+1)
+        ans =[]
+    
+        for i in range(n):
+                index = findindex(a,a[i],n)
+                dp[index]=a[i]
+                ans.append(index)
+        return ans

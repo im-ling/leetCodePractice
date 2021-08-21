@@ -1,0 +1,86 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        final int N = obstacles.length;
+        
+        ArrayList<Integer> best = new ArrayList<>();
+        
+        int[] ans = new int[N];
+        for (int i = 0; i < N; ++i) {
+            final int currObstacle = obstacles[i];
+            int insertIdx = BinarySearch.firstThat(0, best.size(), new BinarySearch.IntCheck() {
+                @Override
+                public boolean valid(int value) {
+                    return best.get(value) > currObstacle;
+                }
+            });
+            if (insertIdx >= best.size()) {
+                best.add(currObstacle);
+            } else if (obstacles[i] < best.get(insertIdx)) {
+                best.set(insertIdx, currObstacle);
+            }
+            ans[i] = insertIdx + 1;
+        }
+        return ans;
+    }
+    
+    public static class BinarySearch {
+        // Finds the left-most value that satisfies the IntCheck in the range [L, R).
+        // It will return R if the nothing in the range satisfies the check.
+        public static int firstThat(int L, int R, IntCheck check) {
+            while (L < R) {
+                int M = (L + R) >> 1;
+                if (check.valid(M)) {
+                    R = M;
+                } else {
+                    L = M + 1;
+                }
+            }
+            return L;
+        }
+       
+        // Finds the right-most value that satisfies the IntCheck in the range [L, R).
+        // It will return L - 1 if nothing in the range satisfies the check.
+        public static int lastThat(int L, int R, IntCheck check) {
+            int firstValue = firstThat(L, R, new IntCheck() {
+                @Override
+                public boolean valid(int value) {
+                    return !check.valid(value);
+                }
+            });
+            return firstValue - 1;
+        }
+       
+        // Finds the left-most value that satisfies the LongCheck in the range [L, R).
+        public static long firstThat(long L, long R, LongCheck check) {
+            while (L < R) {
+                long M = (L + R) >> 1;
+                if (check.valid(M)) {
+                    R = M;
+                } else {
+                    L = M + 1;
+                }
+            }
+            return L;
+        }
+       
+        // Finds the right-most value that satisfies the IntCheck in the range [L, R).
+        // It will return L - 1 if nothing in the range satisfies the check.
+        public static long lastThat(long L, long R, LongCheck check) {
+            long firstValue = firstThat(L, R, new LongCheck() {
+                @Override
+                public boolean valid(long value) {
+                    return !check.valid(value);
+                }
+            });
+            return firstValue - 1;
+        }
+       
+        public static interface LongCheck {
+            public boolean valid(long value);
+        }
+       
+        public static interface IntCheck {
+            public boolean valid(int value);
+        }
+    }
+}

@@ -1,0 +1,22 @@
+class Solution {
+ public:
+  vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+    const int n = obstacles.size();
+    
+    vector<int> lis;
+    vector<int> ans(n);
+    for (int i = 0; i < n; ++i) {
+      const int cur = obstacles[i];
+      auto it = upper_bound(lis.begin(), lis.end(), cur);
+      if (it != lis.end()) {
+        ans[i] = distance(lis.begin(), it) + 1;
+        *it = cur;
+      } else {
+        lis.emplace_back(cur);
+        ans[i] = lis.size();
+      }
+    }
+    
+    return ans;
+  }
+};

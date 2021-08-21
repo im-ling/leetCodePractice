@@ -1,0 +1,26 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles):
+        dp = [1]
+
+        lastOb = [0] * len(obstacles)
+        lastOb[0] = obstacles[0]
+
+        right = 0
+
+        for i in range(1, len(obstacles)):
+            res = self.find(obstacles, lastOb, i, right)
+            if res > right:
+                right = res
+            lastOb[res] = obstacles[i]
+            dp.append(res + 1)
+        return dp
+
+    def find(self, obstacles, last, current, right):
+        left = 0
+        while left <= right:
+            mid = (left + right) // 2
+            if obstacles[current] >= last[mid]:
+                left = mid + 1
+            else:
+                right = mid - 1
+        return left

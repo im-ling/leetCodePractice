@@ -1,0 +1,40 @@
+class Solution {
+public:
+    vector<int> f;
+    int tr[10000010];
+    int n;
+    int lowbit(int x)
+    {
+        return x & -x;
+    }
+    
+    void add(int x, int c)
+    {
+        for (int i = x; i <= 1e7; i += lowbit(i)) tr[i] = max(tr[i], c); 
+
+    }
+    
+    int query(int x)
+    {
+        int res = 0;
+        for (int i = x; i; i -= lowbit(i)) res = max(res, tr[i]);
+        return res;
+    }   
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        n = obstacles.size();
+        f = vector<int>(n, 1);
+        //tr = vector<int>(1e7, 0);
+        // for (int i = 0; i < n; i++)
+        // {
+        //     for (int j = 0; j < i; j++)
+        //         if (obstacles[i] >= obstacles[j]) f[i] = max(f[i], f[j] + 1);
+        // }
+        // return f;
+        for (int i = 0; i < n; i++)
+        {
+            f[i] = query(obstacles[i]) + 1;
+            add(obstacles[i], f[i]);
+        }
+        return f;
+    }
+};

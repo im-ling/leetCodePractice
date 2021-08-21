@@ -1,0 +1,21 @@
+class Solution {
+public:
+    #define ll long long
+    const ll inf=1e17;
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n=obstacles.size();
+        vector<int>ans(n);
+        vector<ll>dp(n+1,inf);
+        dp[0]=-inf;
+        for(int i=0;i<n;i++)
+        {
+            ll in = upper_bound(dp.begin(),dp.end(),(ll)obstacles[i])-dp.begin();
+            
+            ans[i]=in;
+            dp[in]=obstacles[i];
+        }
+        
+        
+        return ans;
+    }
+};

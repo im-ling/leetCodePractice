@@ -1,0 +1,28 @@
+class Solution {
+    fun longestObstacleCourseAtEachPosition(obstacles: IntArray): IntArray {
+        val c = mutableListOf(0)
+        val dp = IntArray(obstacles.size)
+        c.add(obstacles[0])
+        dp[0] = 1
+        for (i in 1 until obstacles.size) {
+           if (obstacles[i] < c[1]) {
+              c[1] = obstacles[i]
+              dp[i] = 1
+           } else if (obstacles[i] >= c.last()) {
+               dp[i] = c.size
+               c.add(obstacles[i])
+           } else {
+               var k = c.binarySearch(obstacles[i])
+               if (k < 0) k = -k - 1
+               while (k < c.size && c[k] == obstacles[i]) {
+                   k += 1
+               }
+               c[k] = obstacles[i]
+               dp[i] = k
+           }
+        }
+        println(c)
+        return dp
+        
+    }
+}

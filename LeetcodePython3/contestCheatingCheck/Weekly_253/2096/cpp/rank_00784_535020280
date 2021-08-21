@@ -1,0 +1,58 @@
+#define ll long long
+
+class Solution {
+public:
+        
+        void update(vector<int>&p, int a, vector<int>&ans, int i)
+        {
+                int n = p.size();
+                int l = 0,r = n-1;
+                
+                while(r>l)
+                {
+                        int m = (r+l)/2;
+                        
+                        if(p[m] > a)
+                        {
+                                r = m;
+                        }
+                        else
+                        {
+                                l = m+1;
+                        }
+                }
+                
+                ans[i] = l+1;
+                p[l] = a;
+        }
+        
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& v) {
+        int n = v.size(),i,j;
+            
+            vector<int>ans(n,0);
+            vector<int>p;
+            p.push_back(v[0]);
+            ans[0] = 1;
+            
+            for(i=1; i<n; i++)
+            {
+                    int a = v[i];
+                    int m = p.size();
+                    
+         
+                    if(a >= p[m-1])
+                    {
+                            p.push_back(a);
+                            ans[i] = m+1;
+                    }
+                    else
+                    {
+                            update(p,a,ans,i);
+                    }
+            }
+            
+               return ans;
+    }
+        
+     
+};

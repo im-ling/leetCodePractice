@@ -1,0 +1,86 @@
+struct segtree {
+    using T = int;
+
+    int n;
+    vector<T> node;
+
+    T e() {
+        return 0;
+    }
+
+    T op(T x, T y) {
+        return max(x, y);
+    }
+
+    segtree() : segtree(0) {}
+    segtree(int _n) {
+        n = 1 << (32 - __builtin_clz(_n - 1));
+        node.resize(2 * n, e());
+    }
+    segtree(vector<T> v) {
+        n = 1 << (32 - __builtin_clz((int) v.size() - 1));
+        node.resize(2 * n, e());
+        for (int i = 0; i < (int) v.size(); i++) {
+            node[i + n] = v[i];
+        }
+        for (int i = n - 1; i > 0; i--) {
+            node[i] = op(node[2 * i], node[2 * i + 1]);
+        }
+    }
+
+    void update(int k, T v) {
+        k += n;
+        node[k] = v;  // update
+        // node[k] += v;  // add
+        while (k > 1) {
+            k /= 2;
+            node[k] = op(node[2 * k], node[2 * k + 1]);
+        }
+    }
+
+    T get(int x, int y, int k, int l, int r) {
+        if (r <= x || y <= l) {
+            return e();
+        }
+        if (x <= l && r <= y) {
+            return node[k];
+        }
+        T vl = get(x, y, 2 * k, l, (l + r) / 2);
+        T vr = get(x, y, 2 * k + 1, (l + r) / 2, r);
+        return op(vl, vr);
+    }
+
+    T get(int x, int y) {
+        return get(x, y, 1, 0, n);
+    }
+
+    T get(int x) {
+        return node[x + n];
+    }
+};
+
+struct Solution {
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n = (int) a.size();
+        vector<int> b = a;
+        sort(b.begin(), b.end());
+        b.resize(unique(b.begin(), b.end()) - b.begin());
+        for (int i = 0; i < n; i++) {
+            a[i] = (int) (lower_bound(b.begin(), b.end(), a[i]) - b.begin());
+        }
+        int m = (int) b.size();
+        if (m == 1) {
+            vector<int> ans(n);
+            iota(ans.begin(), ans.end(), 1);
+            return ans;
+        }
+        segtree seg(m);
+        vector<int> ans(n, 1);
+        for (int i = 0; i < n; i++) {
+            int j = seg.get(0, a[i] + 1);
+            ans[i] = j + 1;
+            seg.update(a[i], ans[i]);
+        }
+        return ans;
+    }
+};

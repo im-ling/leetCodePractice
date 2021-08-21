@@ -1,0 +1,23 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        res = []
+        tail = [float("-inf")] ## index is length and element is min tail
+        for e in obstacles:
+            if e>=tail[-1]: 
+                tail.append(e)
+                res.append(len(tail)-1)
+                #print(tail)
+                continue
+            lb,ub = 0,len(tail)-1
+            while lb<ub:
+                temp = (lb+ub+1)//2
+                if tail[temp] > e:
+                    ub = temp-1
+                else: lb = temp
+            tail[lb+1] = e    
+            res.append(lb+1)
+            #print(tail)
+            
+        return res     
+
+            

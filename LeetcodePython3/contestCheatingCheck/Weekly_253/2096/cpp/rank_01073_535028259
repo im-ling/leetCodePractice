@@ -1,0 +1,34 @@
+#define A << " " <<
+#define cn(x) cout << x << "\n";
+#define db(x) cout << (#x) << " : " << x << "\n";
+#define fi(i,s,e) for(int i=s;i<e;i++)
+#define fd(i,s,e) for(int i=s;i>=e;i--)
+#define fe(x,v) for(auto& x : v)
+#define at(s,i) (s.begin()+i)
+#define all(s) s.begin(),s.end()
+#define F first
+#define S second
+#define pb push_back
+#define pv(v) for(auto& x_ : v)cout << x_ << " ";cout << endl;
+#define ps(s) for(auto& x_ : m){cout << x_.first << " " << x_.second << "\n";}
+#define pa(a,n) for(int i_=0;i_<n;i_++)cout << a[i_] << " ";cout << endl;
+#define pm(a,n,m) for(int i_=0;i_<n;i_++){for(int j_=0;j_<m;j_++)cout << a[i_][j_] << " ";cout << "\n";}
+#define vi2(v,n,m,x) vector<vector<int>> v(n,vector<int>(m,x));
+typedef long long ll;typedef vector<int> vi;typedef pair<int,int> pii;
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& v) {
+        int n=v.size();
+        vi w,a(n);
+        fi(i,0,n){
+            if(w.empty()||v[i]>=w.back())w.pb(v[i]),a[i]=w.size();
+            else{
+                auto it=upper_bound(all(w),v[i]);
+                *it=v[i];
+                a[i]=it-w.begin()+1;
+            }
+        }
+        return a;
+    }
+};

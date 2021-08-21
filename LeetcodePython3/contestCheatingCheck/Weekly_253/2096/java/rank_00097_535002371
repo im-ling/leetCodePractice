@@ -1,0 +1,32 @@
+class Solution {
+
+    private int findIndex(int value) {
+        int low = 0 , high = 100010;
+        while (low < high) {
+            int mid = (low + high) / 2;
+            if (dp[mid] <= value) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
+        }
+        return high;
+    }
+
+    private int[] dp = new int[100010];
+
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        Arrays.fill(dp , Integer.MAX_VALUE);
+        int i , n = obstacles.length;
+        int[] ans = new int[n];
+        dp[0] = Integer.MIN_VALUE;
+        for (i = 0;i < n;i ++) {
+            int value = obstacles[i];
+            int idx = findIndex(value);
+            dp[idx] = value;
+            ans[i] = idx;
+        }
+        return ans;
+    }
+
+}

@@ -1,0 +1,57 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+//         vector<int> ans(obstacles.size());
+//         map<int, int> ans2;
+//         deque<int> st;
+        
+//         for (int i = 0; i < obstacles.size(); i++) {
+// //             int prev = -1;
+            
+// //             while (!st.empty() && obstacles[st.back()] > obstacles[i]) {
+// //                 st.pop_back();
+// //             }
+            
+// //             if (!st.empty()) {
+// //                 cout << "prev is " << st.back() << " at " << i << "\n";
+                
+// //                 ans[i] = ans[st.back()] + 1;
+// //             } else {
+// //                 ans[i] = 1;
+// //             }
+            
+//             // st.push_back(i);
+            
+//             map<int, int>::iterator it = ans2.upper_bound(obstacles[i]);
+            
+//             if (it != ans2.begin()) {
+//                 it = prev(it);
+                
+//                 ans[i] = it->second + 1;
+//                 ans2[obstacles[i]] = ans[i];
+//             } else {
+//                 ans[i] = 1;
+//                 ans2[obstacles[i]] = 1;
+//             }
+//         }
+        
+//         return ans;
+        
+        vector<int> lis;
+        vector<int> ans(obstacles.size());
+        
+        for (int i = 0; i < obstacles.size(); i++) {
+            int x = upper_bound(lis.begin(), lis.end(), obstacles[i]) - lis.begin();
+            
+            if (x == lis.size()) {
+                lis.push_back(obstacles[i]);
+            } else {
+                lis[x] = obstacles[i];
+            }
+            
+            ans[i] = x + 1;
+        }
+        
+        return ans;
+    }
+};

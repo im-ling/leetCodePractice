@@ -1,0 +1,48 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] nums) {
+        int ans[] = new int[nums.length];
+        int dp[] = new int[nums.length];
+        
+        int len = 0;
+        
+        for(int i = 0; i<nums.length; i++){
+            int val = nums[i];
+            
+            int idx = Arrays.binarySearch(dp, 0, len, val);
+            if(idx < 0){
+                idx = -(idx+1);
+            }
+            
+            if(dp[idx] == val) {
+                idx = Arrays.binarySearch(dp, 0, len, val + 1);
+            }
+            
+            
+            if(idx < 0) {
+                idx = -(idx + 1);
+            }
+            
+            if(dp[idx] == val+1){
+                int a = idx;
+                while(a >= 0 && dp[a] == val+1){
+                    a--;
+                }
+                idx = a+1;
+            }
+            
+            dp[idx] = val;
+            
+            if(idx == len) {
+                len++;
+            }
+            
+            // for(int v:dp)System.out.print(v+ " ");
+            // System.out.println(idx);
+            ans[i] = idx+1;
+        }
+        
+        
+        
+        return ans;
+    }
+}

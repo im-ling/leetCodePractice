@@ -1,0 +1,41 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        List<Integer> smallestEnd = new ArrayList<>();
+        smallestEnd.add(obstacles[0]);
+        int [] result = new int[obstacles.length];
+        result[0] = 1;
+        for(int i = 1; i<obstacles.length; i++){
+            int curr  = obstacles[i];
+            int index = bs(smallestEnd,curr);
+            if(index == smallestEnd.size()-1){
+                smallestEnd.add(curr);
+            } else {
+                smallestEnd.set(index+1,curr);
+            }
+            result[i] = index+2;   
+        }
+        
+        return result;
+        
+    }
+    
+    private int bs(List<Integer>smallestEnd,int curr){
+        int left = 0;
+        int right = smallestEnd.size()-1;
+        while(left < right - 1){
+            int mid = (right-left)/2+left;
+            if(smallestEnd.get(mid) <= curr){
+                left = mid;
+            } else {
+                right = mid-1;
+            }
+        }
+        if(smallestEnd.get(right)<=curr){
+            return right;
+        } 
+        if(smallestEnd.get(left)<= curr){
+            return left;
+        }
+        return -1;
+    }
+}

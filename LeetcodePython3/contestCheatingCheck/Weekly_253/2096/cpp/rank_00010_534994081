@@ -1,0 +1,30 @@
+class Solution {
+    int tree[10000007];
+    
+    void update(int idx,int data) {
+        while(idx<=1e7) {
+            tree[idx]=max(tree[idx],data);
+            idx+=idx&-idx;
+        }
+    }
+    
+    int query(int idx) {
+        int rs=0;
+        while(idx>0) {
+            rs=max(rs,tree[idx]);
+            idx-=idx&-idx;
+        }
+        return rs;
+    }
+    
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n=a.size();
+        vector<int> f(n);
+        for(int i=0;i<a.size();i++) {
+            f[i]=query(a[i])+1;
+            update(a[i],f[i]);
+        }
+        return f;
+    }
+};

@@ -1,0 +1,16 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        n = len(obstacles)
+        table=[None]*n
+        mins = [inf]*n
+        
+        table[0]=1
+        mins[0] = obstacles[0]
+        
+        for i in range(1,n):
+            seqlen = bisect.bisect_right(mins, obstacles[i])
+            table[i] = seqlen + 1
+            mins[seqlen] = min(mins[seqlen], obstacles[i])            
+        return table
+        
+        

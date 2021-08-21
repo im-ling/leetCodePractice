@@ -1,0 +1,25 @@
+int BIT[10000001];
+class Solution {
+public:
+    void update(int& val,int& index){
+        for(int i=index;i<10000001;i+=(i&(-i))){
+            BIT[i]=max(BIT[i],val);
+        }
+    }
+    int query(int x){
+        int ans=0;
+        for(int i=x;i>0;i-=(i&(-i))){
+            ans=max(ans,BIT[i]);
+        }
+        return ans;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        memset(BIT,0,sizeof(BIT));
+        vector<int> ans;
+        for(auto x:obstacles){
+            ans.push_back(query(x)+1);
+            update(ans[ans.size()-1],x);
+        }
+        return ans;
+    }
+};

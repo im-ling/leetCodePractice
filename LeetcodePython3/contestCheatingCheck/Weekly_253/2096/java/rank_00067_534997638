@@ -1,0 +1,35 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] arr) {
+
+        int[] dp = new int[arr.length];
+
+        int p = 0;
+        int[] ans = new int[arr.length];
+
+
+        for (int i = 0; i < arr.length; i++) {
+
+            if (p == 0 || dp[p - 1] <= arr[i]) {
+                dp[p++] = arr[i];
+                ans[i] = p;
+            } else {
+                int idx = findFirstGT(dp, 0, p - 1, arr[i]);
+                dp[idx] = arr[i];
+                ans[i] = idx + 1;
+            }
+        }
+        return ans;
+    }
+
+    private int findFirstGT(int[] arr, int lo, int hi, int target) {
+        if (hi <= lo) {
+            return hi;
+        }
+        int mid = lo + (hi - lo) / 2;
+        if (arr[mid] > target) {
+            return findFirstGT(arr, lo, mid, target);
+        } else {
+            return findFirstGT(arr, mid + 1, hi, target);
+        }
+    }
+}

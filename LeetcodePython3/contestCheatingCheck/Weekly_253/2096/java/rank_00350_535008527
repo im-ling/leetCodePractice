@@ -1,0 +1,31 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] A) {
+    //public int lengthOfLIS(int[] A) { 
+        int n = A.length;
+        int[] dp = new int[n];
+        
+        int max = 0;
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        dp[0] = A[0];
+        int[] res = new int[n];
+        for(int i =0; i < n; i++){
+            //dp[i] = 1;
+            int l = 0, r = i;
+            while(l < r){
+                int mid = l + (r - l)/2;
+                if(dp[mid] <= A[i]) l = mid + 1;
+                else r = mid;
+            }
+            
+            
+           
+            
+             max = Math.max(max, r + 1);
+             res[i] = r + 1;
+            dp[r] = A[i];
+            
+        }
+        
+        return res;
+    }
+}

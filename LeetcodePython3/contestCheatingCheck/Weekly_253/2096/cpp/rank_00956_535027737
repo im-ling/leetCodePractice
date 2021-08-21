@@ -1,0 +1,79 @@
+class Solution {
+    struct node {
+        int l, r;
+        int val;
+        int lcd, rcd;
+    };
+    node nodes[210000];
+    int tot;
+    
+    int build(int l, int r) {
+        int cur = tot;
+        tot++;
+        nodes[cur].l = l;
+        nodes[cur].r = r;
+        nodes[cur].val = 0;
+        nodes[cur].lcd = nodes[cur].rcd = -1;
+        if (r > l + 1) {
+            int mid = (l + r) / 2;
+            nodes[cur].lcd = build(l, mid);
+            nodes[cur].rcd = build(mid, r);
+        }
+        return cur;
+    }
+    
+    void update(int i, int index, int val) {
+        if (nodes[i].r == nodes[i].l + 1 && nodes[i].l == index) {
+            nodes[i].val = val;
+            return;
+        }
+        int mid = (nodes[i].l + nodes[i].r) / 2;
+        if (index < mid) {
+            update(nodes[i].lcd, index, val);
+        } else {
+            update(nodes[i].rcd, index, val);
+        }
+        nodes[i].val = max(nodes[nodes[i].lcd].val, nodes[nodes[i].rcd].val);
+    }
+    
+    int query(int i, int left, int right) {
+        if (nodes[i].l == left && nodes[i].r == right) {
+            return nodes[i].val;
+        }
+        int mid = (nodes[i].l + nodes[i].r) / 2;
+        if (right <= mid) {
+            return query(nodes[i].lcd, left, right);
+        } else if (left >= mid) {
+            return query(nodes[i].rcd, left, right);
+        } else {
+            return max(query(nodes[i].lcd, left, mid), query(nodes[i].rcd, mid, right));
+        }
+    }
+    
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> result(n, 0);
+        vector<pair<int, int>> nums;
+        for (int i = 0; i < n; i++) {
+            nums.push_back({obstacles[i], i});
+        }
+        sort(nums.begin(), nums.end());
+        
+        tot = 0;
+        build(0, n);
+        
+        for (int i = 0; i < n; i++) {
+            int cur_index = nums[i].second;
+            int cur_res = 0;
+            if (cur_index == 0) {
+                cur_res = 1;
+            } else {
+                cur_res = query(0, 0, cur_index) + 1;
+            }
+            update(0, cur_index, cur_res);
+            result[cur_index] = cur_res;
+        }
+        return result;
+    }
+};

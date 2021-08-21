@@ -1,0 +1,42 @@
+class Solution {
+public:
+    int cap;
+    unordered_map<int, int> data;
+    
+    void Add(int i, int val)
+    {
+        ++i;
+        while (i <= cap)
+        {
+            data[i] = max(data[i], val);           
+            i += i & -i;
+        }
+    }
+    
+    int Query(int i)
+    {
+        ++i;
+        int maxVal = 0;
+        while (i > 0)
+        {
+            maxVal = max(maxVal, data[i]);
+            i -= i & -i;
+        }
+        return maxVal;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {        
+        cap = 10200000;        
+        vector<int>& nums = obstacles;
+        
+        vector<int> ans;
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            int val = Query(nums[i]);
+            Add(nums[i], val + 1);           
+            ans.push_back(val + 1);            
+        }
+                        
+        return ans;
+    }
+};

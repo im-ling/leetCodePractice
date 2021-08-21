@@ -1,0 +1,38 @@
+class Solution {
+    private int bs(List<Integer> list, int p) {
+        if (list.size() == 0) return 0;
+        int l =0, r = list.size() - 1;
+        while(l < r) {
+            int mid = l + (r - l) / 2;
+            if(list.get(mid) <= p) {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        }
+        if(l == list.size() - 1 && p >= list.get(l)){
+            return l + 1;
+        }
+        return l;
+    }
+    
+    public int[] longestObstacleCourseAtEachPosition(int[] obs) {
+        List<Integer> rec = new ArrayList<>();
+        int len = obs.length;
+        int[] ans = new int[len];
+        for(int i = 0; i < len; i ++) {
+            int idx = bs(rec, obs[i]);
+            // System.out.println(rec);
+            // System.out.println(idx);
+            if (idx == 0 && rec.size() > 0 && rec.get(idx) > obs[i]) {
+                rec.set(idx, obs[i]);
+            } else if(idx == rec.size()) {
+                rec.add(obs[i]);
+            } else {
+                rec.set(idx, obs[i]);
+            }
+            ans[i] = idx + 1;
+        }
+        return ans;
+    }
+}

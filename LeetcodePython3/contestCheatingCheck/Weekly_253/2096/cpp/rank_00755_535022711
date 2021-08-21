@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> stack;
+        vector<int> res;
+        for(const auto & ele : obstacles){
+            if(stack.size() == 0 || *stack.rbegin() <= ele) stack.push_back(ele);
+            else{
+                auto it = upper_bound(stack.begin(), stack.end(), ele);
+                *it = ele;
+            }
+            int temp = upper_bound(stack.begin(), stack.end(), ele) - stack.begin();
+            res.push_back(temp);
+            // for(auto e : stack)cout << e <<", ";
+            // cout << endl;
+        }
+        return res;
+    }
+};

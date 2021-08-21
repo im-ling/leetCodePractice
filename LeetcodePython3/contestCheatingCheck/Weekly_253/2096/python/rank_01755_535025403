@@ -1,0 +1,39 @@
+class Solution(object):
+    def longestObstacleCourseAtEachPosition(self, obstacles):
+        """
+        :type obstacles: List[int]
+        :rtype: List[int]
+        """
+        v = obstacles
+        res = []
+        if len(v) == 0:  # boundry case
+            return res
+ 
+        tail = [0 for i in range(len(v) + 1)]
+        length = 1  # always points empty slot in tail
+        
+        tail[0] = v[0]
+        res.append(length)
+        for i in range(1, len(v)):
+            if v[i] >= tail[length-1]:
+                # v[i] extends the largest subsequence
+                tail[length] = v[i]
+                length += 1
+                res.append(length)
+            else:
+                # v[i] will extend a subsequence and discard older subsequence
+
+                # find the largest value just smaller than v[i] in tail
+
+                # to find that value do binary search for the v[i] in
+                # the range from begin to 0 + length
+
+                # bisect function either returns index where element is found
+                # or the appropriate index at which element should be placed
+
+                # finally replace the existing subsequene with new end value
+                idx = bisect_right(tail, v[i], 0, length-1)
+                tail[idx] = v[i]
+                res.append(idx+1)
+
+        return res

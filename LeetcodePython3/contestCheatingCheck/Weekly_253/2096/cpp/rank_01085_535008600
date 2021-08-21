@@ -1,0 +1,33 @@
+const int N = 1e7+1;
+int bit[N];
+void add(int i,int x){
+    while(i<N){
+        bit[i]=max(x,bit[i]);
+        i+=(i&(-i));
+    }
+}
+int get(int i){
+    int sum=0;
+    while(i>0){
+        sum=max(bit[i],sum);
+        i-=(i&(-i));
+    }
+    return sum;
+}
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int mx = *max_element(a.begin(),a.end());
+        for(int i = 0;i<=mx;i++)bit[i] = 0;
+        int n = a.size();
+        vector<int>ans(n);
+        add(a[0],1);
+        ans[0] = 1;
+        for(int i =1;i<n;i++){
+            int v = get(a[i]);
+            ans[i] = v+1;
+            add(a[i],ans[i]);
+        }
+        return ans;
+    }
+};

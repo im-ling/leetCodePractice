@@ -1,0 +1,62 @@
+const int maxv = (1<<20);
+class Solution {
+public:
+    int d[maxv*4+10]; // root: 1
+    void update(int target, int idx, int lb, int ub, int val) {
+        if (lb+1 == ub) {
+            if (lb == target) {
+                d[idx] = max(d[idx], val);
+            }
+            return;
+        }
+        if (target < lb || target >= ub) {
+            return;
+        }
+        d[idx] = max(d[idx], val);
+        int mid = (lb+ub)/2;
+        update(target, idx*2, lb, mid, val);
+        update(target, idx*2+1, mid, ub, val);
+    }
+    // query max in [0, target)
+    int query(int target, int idx, int lb, int ub) {
+        if (lb+1 == ub) {
+            if (lb < target) {
+                return d[idx];
+            }
+            return -1;
+        }
+        if (ub <= target) {
+            return d[idx];
+        }
+        if (lb >= target) {
+            return -1;
+        }
+        int mid = (lb+ub)/2;
+        int a = query(target, idx*2, lb, mid);
+        int b = query(target, idx*2+1, mid, ub);
+        return max(a, b);
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int len = obstacles.size();
+        memset(d, -1, sizeof(d));
+        map<int, vector<int>> M;
+        for (int i = 0 ; i != len ; i++) {
+            M[obstacles[i]].push_back(i);
+        }
+        vector<int> ret(len);
+        for (const auto& iter: M) {
+            int h = iter.first;
+            for (int idx: iter.second) {
+                int q = query(idx, 1, 0, maxv);
+                if (q != -1) {
+                    ret[idx] = q+1; 
+                }
+                else {
+                    ret[idx] = 1;
+                }
+                update(idx, 1, 0, maxv, ret[idx]);
+            }
+        }
+        return ret;
+    }
+};

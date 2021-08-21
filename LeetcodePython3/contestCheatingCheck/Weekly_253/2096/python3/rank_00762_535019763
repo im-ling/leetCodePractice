@@ -1,0 +1,18 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        STACK = []
+        result = []
+        for o in obstacles:
+            l,r = 0,len(STACK)
+            while l<r:
+                c = (l+r) // 2
+                if STACK[c] > o:
+                    r = c
+                else:
+                    l = c+1
+            if l == len(STACK):
+                STACK.append(o)
+            else:
+                STACK[l] = o
+            result.append(l+1)
+        return result

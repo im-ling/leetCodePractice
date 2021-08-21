@@ -1,0 +1,26 @@
+from sortedcontainers import SortedList
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        sorted_list = SortedList()
+        sorted_list.add(0)
+        ret = []
+        num_size = {0:0}
+        for height in obstacles:
+            idx = sorted_list.bisect_left(height)
+            if idx < len(sorted_list) and sorted_list[idx] == height:
+                num_size[height] += 1
+            else:
+                num_size[height] = num_size[sorted_list[idx-1]] + 1
+                sorted_list.add(height)
+            idx += 1
+            if idx < len(sorted_list):
+                if num_size[sorted_list[idx]] == num_size[height]:
+                    del num_size[sorted_list[idx]]
+                    sorted_list.pop(idx)
+            ret.append(num_size[height])
+        return ret
+            
+            
+                
+            
+            

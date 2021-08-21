@@ -1,0 +1,32 @@
+class Solution {
+    public static int bs(ArrayList<Integer> list, int val) {
+        int start = 0, end = list.size();
+        while (start < end) {
+            int mid = start + (end-start)/2;
+            if(list.get(mid) <= val) {
+                start = mid+1;
+            } else {
+                end = mid;
+            }
+        }
+        return start;
+    }
+    
+    public int[] longestObstacleCourseAtEachPosition(int[] arr) {
+        int n = arr.length;
+        int[] res = new int[arr.length];
+        ArrayList<Integer> list = new ArrayList<>();
+        int maxv = 1;
+        for(int i=0; i<n; i++) {
+            int idx = bs(list, arr[i]);
+            if(idx == list.size()){
+                list.add(arr[i]);
+            }
+            else {
+                list.set(idx, arr[i]);
+            }
+            res[i] = idx+1;
+        }
+        return res; 
+    }
+}

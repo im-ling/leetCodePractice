@@ -1,0 +1,33 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] o) {
+    int n = o.length;
+    int[] dp = new int[n];
+    Arrays.fill(dp, 1);
+    TreeMap<Integer, Integer> tree= new TreeMap<>();
+    
+    for(int i = 0; i < n; i++) {
+    	Integer fkey = tree.floorKey(o[i]);
+    	if(fkey == null) {
+    		tree.put(o[i], 1);
+    	}
+    	else {
+    		int fval = tree.get(fkey);
+    		dp[i] = fval + 1;
+    		Integer hkey = tree.higherKey(o[i]);
+    		
+    		if(hkey == null) {
+    			tree.put(o[i], dp[i]);
+    		}
+    		else {
+    	 		while(hkey != null && tree.get(hkey) <= dp[i]) {
+        			tree.remove(hkey);
+        			hkey = tree.higherKey(o[i]);
+        		}
+    	 		tree.put(o[i], dp[i]);
+    		}
+   
+    	}
+    }
+    return dp;
+    }
+}

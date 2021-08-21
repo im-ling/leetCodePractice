@@ -1,0 +1,183 @@
+constexpr int kMaxN = 100'005;
+using ll = long long;
+struct Info {
+  int max;
+};
+template <typename InfoT>
+class SegmentTree {
+ private:
+  int n_;
+  // val
+  static int tree_nums_[kMaxN];
+  // processed info for current tree
+  static InfoT info_[kMaxN * 4];
+  // unprocessed info for subtrees
+  static ll tag_[kMaxN * 4];
+  // l, r, tree_nums => info_root
+  inline InfoT Init(int l, int r, int num) { return InfoT{0}; }
+  // l, r, info_l, info_r => info_root
+  inline InfoT Merge(int l, int r, InfoT info_l, InfoT info_r) {
+    if (info_l.max > info_r.max) {
+      return info_l;
+    }
+    return info_r;
+  }
+  // l, r, origin_info, val => new_info
+  inline InfoT Update(int l, int r, InfoT origin, int val) {
+    origin.max += val;
+    return origin;
+  }
+  // l, r, origin_info, val => new_info
+  inline InfoT Set(int l, int r, InfoT origin, int val) {
+    origin.max = val;
+    return origin;
+  }
+  inline InfoT QueryReturnDefault() { return InfoT{INT_MIN}; }
+  void Build(int root, int l, int r) {
+    if (l > r) {
+      return;
+    }
+    if (l == r) {
+      info_[root] = Init(l, r, tree_nums_[l]);
+      return;
+    }
+    int mid = l + (r - l) / 2;
+    Build(root * 2, l, mid);
+    Build(root * 2 + 1, mid + 1, r);
+    info_[root] = Merge(l, r, info_[root * 2], info_[root * 2 + 1]);
+  }
+  // Push down current tag before updating subtree
+  void PushDownRangeAdd(int root, int l, int r) {
+    int mid = l + (r - l) / 2;
+    int val = tag_[root];
+    info_[root * 2] = Update(l, mid, info_[root * 2], val);
+    tag_[root * 2] += val;
+    info_[root * 2 + 1] = Update(l, mid, info_[root * 2 + 1], val);
+    tag_[root * 2 + 1] += val;
+    tag_[root] = 0;
+  }
+  // Push down current tag before updating subtree
+  void PushDown(int root, int l, int r) {
+    int mid = l + (r - l) / 2;
+    int val = tag_[root];
+    info_[root * 2] = Update(l, mid, info_[root * 2], val);
+    tag_[root * 2] += val;
+    info_[root * 2 + 1] = Update(l, mid, info_[root * 2 + 1], val);
+    tag_[root * 2 + 1] += val;
+    tag_[root] = 0;
+  }
+  // Range + / -
+  void Update(int root, int l, int r, int q_l, int q_r, int val) {
+    if (q_l <= l && r <= q_r) {
+      info_[root] = Update(l, r, info_[root], val);
+      tag_[root] += val;
+      return;
+    }
+    if (q_l > r || q_r < l) {
+      return;
+    }
+    int mid = l + (r - l) / 2;
+    PushDownRangeAdd(root, l, r);
+    Update(root * 2, l, mid, q_l, q_r, val);
+    Update(root * 2 + 1, mid + 1, r, q_l, q_r, val);
+    info_[root] = Merge(l, r, info_[root * 2], info_[root * 2 + 1]);
+  }
+  // Single point set
+  void Set(int root, int l, int r, int q_index, int val) {
+    if (q_index == l && r == q_index) {
+      info_[root] = Set(l, r, info_[root], val);
+      return;
+    }
+    if (q_index > r || q_index < l) {
+      return;
+    }
+    int mid = l + (r - l) / 2;
+    PushDownRangeAdd(root, l, r);
+    Set(root * 2, l, mid, q_index, val);
+    Set(root * 2 + 1, mid + 1, r, q_index, val);
+    info_[root] = Merge(l, r, info_[root * 2], info_[root * 2 + 1]);
+  }
+  InfoT Query(int root, int l, int r, int q_l, int q_r) {
+    if (q_l <= l && r <= q_r) {
+      return info_[root];
+    }
+    if (q_l > r || q_r < l) {
+      return QueryReturnDefault();
+    }
+    int mid = l + (r - l) / 2;
+    PushDownRangeAdd(root, l, r);
+    return Merge(l, r, Query(root * 2, l, mid, q_l, q_r),
+                 Query(root * 2 + 1, mid + 1, r, q_l, q_r));
+  }
+
+ public:
+  explicit SegmentTree(vector<int> const& nums) : n_(nums.size()) {
+    memcpy(tree_nums_, nums.data(), sizeof(int) * nums.size());
+    fill(info_, info_ + sizeof(info_) / sizeof(InfoT), InfoT());
+    memset(tag_, 0, sizeof(tag_));
+    Build(1, 0, n_ - 1);
+  }
+  explicit SegmentTree(int n) : n_(n) {
+    memset(tree_nums_, 0, sizeof(int) * n);
+    fill(info_, info_ + sizeof(info_) / sizeof(InfoT), InfoT());
+    memset(tag_, 0, sizeof(tag_));
+    Build(1, 0, n_ - 1);
+  }
+  void Update(int q_l, int q_r, int val) {
+    if (q_l > q_r) {
+      return;
+    }
+    Update(1, 0, n_ - 1, q_l, q_r, val);
+  }
+  void Set(int q_index, int val) {
+    Set(1, 0, n_ - 1, q_index, val);
+  }
+  InfoT Query(int q_l, int q_r) {
+    if (q_l > q_r) {
+      return QueryReturnDefault();
+    }
+    return Query(1, 0, n_ - 1, q_l, q_r);
+  }
+};
+template <typename InfoT>
+int SegmentTree<InfoT>::tree_nums_[kMaxN];
+template <typename InfoT>
+InfoT SegmentTree<InfoT>::info_[kMaxN * 4];
+template <typename InfoT>
+ll SegmentTree<InfoT>::tag_[kMaxN * 4];
+
+
+int alg[kMaxN];
+
+set<int> num_set;
+unordered_map<int, int> num_to_index;
+int index_to_num[kMaxN];
+
+class Solution {
+public:
+  vector<int> longestObstacleCourseAtEachPosition(vector<int>& nums) {
+    memset(alg, 0, sizeof(alg));
+    int n = nums.size();
+    
+    
+    num_set = set<int>(nums.begin(), nums.end());
+    int index = 0;
+    for (auto const& num : num_set) {
+      num_to_index[num] = index;
+      index_to_num[index] = num;
+      ++index;
+    }
+    
+    alg[0] = 1;
+    SegmentTree<Info> root(num_set.size());
+    root.Set(num_to_index[nums[0]], alg[0]);
+    
+    for (int i = 1; i < n; ++i) {
+      Info query = root.Query(0, num_to_index[nums[i]]);
+      alg[i] = max(1, 1 + query.max);
+      root.Set(num_to_index[nums[i]], alg[i]);
+    }
+    
+    return {&alg[0], &alg[0] + n};
+  }
+};

@@ -1,0 +1,15 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        # patient sort
+        # dp[i] stors the minimum ending elements that has LIS = i
+        res = []
+        dp = []
+        for i in range(len(obstacles)):
+            idx = bisect.bisect_right(dp, obstacles[i])
+            if idx == len(dp):
+                dp.append(obstacles[i])
+            else:
+                dp[idx] = obstacles[i]
+            res.append(idx + 1)
+        #print(dp)
+        return res

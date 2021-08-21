@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int CeilIndex(std::vector<int>& v, int l, int r, int key){
+        while (r - l > 1) {
+            int m = l + (r - l) / 2;
+            if (v[m] > key)
+                r = m;
+            else
+                l = m;
+        }   
+ 
+        return r;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& v) {
+        vector<int> tail(v.size(), 0);
+        int length = 1;
+        tail[0] = v[0];
+        vector<int> ret;
+        ret.push_back(1);
+        for(int i=1;i<v.size();i++) {
+            int cur;
+            if(v[i] < tail[0]) {
+                cur = 0;
+                tail[0] = v[i];                
+            } else if(v[i] >= tail[length-1]) {
+                cur = length;
+                tail[length++] = v[i];
+            } else {
+                cur = CeilIndex(tail, -1, length - 1, v[i]);
+                tail[cur]=v[i];
+            }
+            ret.push_back(cur+1);
+        }
+        return ret;
+    }
+};

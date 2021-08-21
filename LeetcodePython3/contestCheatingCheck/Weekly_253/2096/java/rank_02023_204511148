@@ -1,0 +1,46 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] res = new int[n];
+        int[] tmp = new int[n];
+        int cnt = 1;
+        tmp[0] = obstacles[0];
+        res[0] = 1;
+        for (int i = 1; i < n; i++) {
+            int index = helper(0, cnt - 1, obstacles[i], tmp);
+            //System.out.println("i=" + i + " , index = " + index);
+            if (index == cnt) {
+                tmp[cnt] = obstacles[i];
+                res[i] = cnt + 1;
+                cnt++;
+            } else {
+                tmp[index] = obstacles[i];
+                res[i] = index + 1;
+            }
+        }
+        // for (int i = 1; i < n; i++) {
+        //     for (int j = i - 1; j >= 0; j--) {
+        //         if (obstacles[j] <= obstacles[i]) {
+        //             res[i] = Math.max(res[i], res[j] + 1);
+        //         }
+        //     }
+        // }
+        
+        return res;
+    }
+    
+    //找出tmp数组中从left到right中第一个大于k的数的下标
+    private int helper(int left, int right, int k, int[] tmp) {
+        if (tmp[right] <= k) return right + 1;
+        while (left < right) {
+            int mid = left + right >> 1;
+            if (tmp[mid] <= k) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        
+        return left;
+    }
+}

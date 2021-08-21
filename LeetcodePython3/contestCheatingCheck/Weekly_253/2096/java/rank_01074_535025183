@@ -1,0 +1,43 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obs) {
+        int len = obs.length;
+        int[] ans = new int[len];
+        ArrayList<Integer> ali = new ArrayList<>();
+        int lMax = 0;
+        for(int i=0;i<len;i++){
+            if(i==0){
+                ans[i] = 1;
+                ali.add(obs[i]);
+                // System.out.println(obs[i] + ":" + String.valueOf(ali));
+                continue;
+            }
+            if(obs[i] >= ali.get(lMax)){
+                lMax += 1;
+                ans[i] = lMax+1;
+                ali.add(obs[i]);
+                // System.out.println(obs[i] + ":" + String.valueOf(ali));
+                continue;
+            }
+            int start = 0;
+            int end = lMax;
+            int match = -1;
+            while(start <= end){
+                int mid = start + (end-start)/2;
+                if(obs[i] >= ali.get(mid)){
+                    match = Math.max(match,mid);
+                    start = mid + 1;
+                }
+                else{
+                    end = mid - 1;
+                }
+            }
+            match += 1;
+            ans[i] = match+1;
+            if(ali.get(match) > obs[i]){
+                ali.set(match,obs[i]);
+            }
+            // System.out.println(match + ":" + obs[i] + ":" + String.valueOf(ali));
+        }
+        return ans;
+    }
+}

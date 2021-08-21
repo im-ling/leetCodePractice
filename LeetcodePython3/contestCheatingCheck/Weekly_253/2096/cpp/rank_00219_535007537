@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int n;
+    vector<int> arr,lis,ans;
+    
+    int getIndx(int x) {
+        if(lis.empty()) {
+            lis.push_back(x);
+            return 1;
+        }
+        int idx= upper_bound(lis.begin(),lis.end(),x)- lis.begin();
+        if(idx==lis.size()) lis.push_back(x);
+        else lis[idx]=x;
+        return idx+1;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        arr=obstacles;
+        int n= arr.size();
+        
+        for(int i=0;i<n;i++) {
+            int x= getIndx(arr[i]);
+            ans.push_back(x);
+        }
+        return ans;
+    }
+};

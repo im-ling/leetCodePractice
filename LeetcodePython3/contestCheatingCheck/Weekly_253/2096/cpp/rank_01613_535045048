@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        // 先算出以i为结尾的最长上升子序列长度
+        vector<int> dp(n, -1);
+        dp[0]=1;
+        
+        int cnt=0;
+        vector<int> w = obstacles;
+        vector<int> f(n+1, 0);
+        f[cnt++] = w[0];
+        for (int i = 1; i < n; i++) {
+            if (w[i] >= f[cnt-1]) {
+                dp[i] = cnt+1;
+                f[cnt++] = w[i];
+            }
+            else {
+                int l = 0, r = cnt - 1;
+                while (l < r) {
+                    int mid = (l + r) >> 1;
+                    if (f[mid] > w[i]) r = mid;
+                    else l = mid + 1;
+                }
+                f[r] = w[i];
+                dp[i] = r+1;
+            }
+        }
+        return dp;
+    }
+};

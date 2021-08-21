@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& A) {
+        vector<int> res = {1};
+        unordered_map<int, int> mp;
+        mp[0] = 1;
+        vector<int> dp;
+        dp.push_back(A[0]);
+        for (int i = 1 ; i < A.size(); ++i)
+        {
+            int n = A[i];
+            if (n >= dp.back()) {
+                dp.push_back(n);
+                res.push_back(dp.size());
+            } else {
+                auto it = upper_bound(dp.begin(), dp.end(), n);
+                *it = n;
+                cout << i << "\n";
+                int idx = it - begin(dp) + 1;
+                res.push_back(idx);
+            }
+        }
+
+        return res;
+    }
+};

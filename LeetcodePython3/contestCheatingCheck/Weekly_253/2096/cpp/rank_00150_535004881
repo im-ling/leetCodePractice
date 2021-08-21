@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> ret;
+        set<pair<int, int>> s;
+        for (int obstacle: obstacles){
+            set<pair<int, int>>::iterator it = s.lower_bound(make_pair(-obstacle, INT_MIN));
+            if (it == s.end()){
+                s.insert(make_pair(-obstacle, -1));
+                ret.push_back(1);
+            } else {
+                auto [index, val] = *it;
+                ret.push_back(-val + 1);
+                vector<pair<int, int>> toRemove;
+                while (it-- != s.begin()){
+                    if (-it->first >= obstacle && -it->second <= ret.back())
+                        toRemove.push_back(*it);
+                    else
+                        break;
+                }
+                for (auto p: toRemove)
+                    s.erase(p);
+                s.insert(make_pair(-obstacle, -ret.back()));
+            }
+        }
+        return ret;
+    }
+};

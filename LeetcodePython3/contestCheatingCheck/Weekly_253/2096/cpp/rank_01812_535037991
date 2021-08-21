@@ -1,0 +1,37 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& A) {
+        int n = A.size();
+        vector<int> res(n);
+        // multiset<int> b;
+        vector<int> b;
+        for(int i = 0; i < n; ++i) {
+            int cur = 0;
+            if(b.empty() || b.back() <= A[i]) {
+                b.push_back(A[i]);
+                cur = b.size();
+            }
+            else {
+                int idx = bs(b, A[i]);
+                // b.insert(idx, A[i]);
+                b[idx] = A[i];
+                cur = idx + 1;
+            }
+            res[i] = cur;
+            // b.insert(A[i]);
+            // auto it = b.upper_bound(A[i]);
+            // res[i] = it - b.begin();
+        }
+        return res;
+    }
+               
+    int bs(vector<int> &nums, int target){
+        int left(0), right(nums.size());
+        while(left < right){
+            int mid = left + (right - left)/2;
+            if(nums[mid] <= target) left = mid + 1;
+            else right = mid;
+        }
+        return left;
+    }       
+};

@@ -1,0 +1,64 @@
+class SegmentTree {
+private:
+    int n = 0;
+
+    int query(int ind, int low, int high, int q_low, int q_high) {
+        if (high < q_low || low > q_high) return 0; // non-overlapping
+        if (low >= q_low && high <= q_high) return seg[ind]; // full-overlap
+        // assert(low < high);
+        // partial-overlapping
+        int mid = (low+high)/2;
+        return max(query(2*ind+1, low, mid, q_low, q_high),
+               query(2*ind+2, mid+1, high, q_low, q_high));
+    }
+
+    void update(int ind, int low, int high, int u_low, int u_val) {
+        // Base Case
+        if (u_low < low || u_low > high) return;
+        if (low == high) {
+            seg[ind] = max(seg[ind], u_val);
+            return;
+        }
+        // Recursive Case
+        int mid = (low+high)/2;
+        update(2*ind+1, low, mid, u_low, u_val);
+        update(2*ind+2, mid+1, high, u_low, u_val);
+        seg[ind] = max(seg[2*ind+1], seg[2*ind+2]);
+    }
+
+public:
+    vector<int> seg;
+
+    SegmentTree(int n): n(n) {
+        seg = vector<int>(4*n, 0);
+    }
+
+    int query(int q_low, int q_high) {
+        if (q_high < q_low) return 0;
+        return query(0, 0, n-1, q_low, q_high);
+    }
+
+    void update(int u_low, int u_val) {
+        update(0, 0, n-1, u_low, u_val);
+    }
+};
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        if (n == 0) return {};
+        
+        int m = *max_element(obstacles.begin(), obstacles.end());
+        SegmentTree seg_tree(m+5);
+        
+        vector<int> dp(n);
+        dp[0] = 1;
+        seg_tree.update(obstacles[0], dp[0]);
+        for (int i=1; i<n; i++) {
+            dp[i] = 1 + seg_tree.query(0, obstacles[i]);
+            seg_tree.update(obstacles[i], dp[i]);
+        } 
+        return dp;
+    }
+};

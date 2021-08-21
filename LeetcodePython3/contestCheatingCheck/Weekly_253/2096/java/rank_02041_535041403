@@ -1,0 +1,38 @@
+class Solution {
+
+    public int[] longestObstacleCourseAtEachPosition(int[] obs) {
+        int[] result = new int[obs.length];
+        List<Integer> assit = new ArrayList<>();
+        
+        result[0] = 1;
+        
+        int len = 0;
+        for(int i = 0; i < obs.length; i++) {
+            int index = findMax(assit, obs[i]);
+            if(index >= assit.size()) {
+                assit.add(obs[i]);
+            } else {
+                assit.set(index, obs[i]);
+            }
+            result[i] = index + 1;
+        }
+        return result;
+        
+    }
+    
+    public int findMax(List<Integer> arr, int target) {
+
+        int l = 0, r = arr.size(), i = l;
+        while (l < r) {
+            int mid = (l + r) / 2;
+            if(arr.get(mid) <= target) {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        }
+        
+        return l;
+        
+    }
+}

@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        multiset<int> set;
+        vector<int> ans(n, 0);
+        for (int i = 0; i < n; i++) {
+            int cur = obstacles[i];
+            auto iter = set.upper_bound(cur);
+            if (iter == set.end()) {
+                set.insert(cur);
+                ans[i] = set.size();
+            } else {
+                ans[i] = distance(set.begin(), iter) + 1;
+                set.erase(iter);
+                set.insert(cur);
+            }
+            
+                
+            
+        }
+        return ans;
+        
+        
+    }
+};

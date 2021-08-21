@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int i,j,n,s,t,a[100001];
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+      int n=obstacles.size();  
+        
+      a[0]=-100000000;
+        
+      vector<int>  ans; 
+      for(i=0;i<n;i++)
+      {
+         t= obstacles[i];
+         int aa=1;
+         if(t>=a[s]){ 
+             a[++s]=t;
+             aa = s;   
+         }
+         else
+         {
+             int l=1,h=s,m;
+
+             while(l<=h)
+             {
+                 m=(l+h)/2;
+                 if(t>=a[m]) l=m+1;
+                 else h=m-1;
+             }/* 用t替换 */
+             a[l]=t;
+             aa=l;
+         }
+         ans.push_back(aa); 
+     }
+         
+         return ans; 
+    }
+};

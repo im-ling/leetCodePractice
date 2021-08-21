@@ -1,0 +1,54 @@
+class Solution {
+public:
+    map<int,int> mp;
+    int n,cnt;
+    vector<int> seg;
+    int Find(int st,int en,int qst,int qen,int pos){
+        if(en<qst || qen<st)
+            return 0;
+        if(qst<=st && en<=qen)
+            return seg[pos];
+        int mid=(st+en)/2;
+        return max(Find(st,mid,qst,qen,2*pos),Find(mid+1,en,qst,qen,2*pos+1));
+    }
+    void update(int st,int en,int ind,int pos,int val){
+        if(ind>en || ind<st)
+            return;
+        if(st==en){
+            seg[pos]=val;
+            return;
+        }
+        int mid=(st+en)/2;
+        if(st<=ind && ind<=mid){
+            update(st,mid,ind,2*pos,val);
+        }
+        else{
+            update(mid+1,en,ind,2*pos+1,val);
+        }
+        seg[pos]=max(seg[2*pos],seg[2*pos+1]);
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        mp=map<int,int>();
+        n=a.size();
+        cnt=0;
+        vector<int> aa=a;
+        sort(aa.begin(),aa.end());
+        for(int i:aa)
+        {
+            if(!mp[i]){
+                mp[i]=++cnt;
+            }
+        }
+        for(int i=0;i<n;i++){
+            a[i]=mp[a[i]];
+        }
+        seg=vector<int>(4*cnt+1);
+        vector<int> ans;
+        for(int i=0;i<n;i++){
+            int k=Find(1,cnt,1,a[i],1);
+            ans.push_back(k+1);
+            update(1,cnt,a[i],1,k+1);
+        }
+        return ans;
+    }
+};

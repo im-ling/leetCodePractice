@@ -1,0 +1,23 @@
+class Solution {
+    fun longestObstacleCourseAtEachPosition(obstacles: IntArray): IntArray {
+        val res = IntArray(obstacles.size)
+        val list = mutableListOf<Int>()
+        for (i in obstacles.indices) {
+            var index = list.binarySearch(obstacles[i])
+            if (index < 0) {
+                index = - index - 1
+            } else {
+                while (index < list.size && list[index] == obstacles[i]) {
+                    ++index
+                }
+            }
+            if (index == list.size) {
+                list.add(index, obstacles[i])
+            } else {
+                list[index] = obstacles[i]
+            }
+            res[i] = index + 1
+        }
+        return res
+    }
+}

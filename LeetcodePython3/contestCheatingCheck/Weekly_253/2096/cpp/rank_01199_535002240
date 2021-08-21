@@ -1,0 +1,19 @@
+class Solution {
+    int stk[100005];
+    int top;
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> ans;
+        for(auto x:obstacles){
+            int kk=0;
+            if(top==0||stk[top-1]<=x) stk[top++]=x, kk=top;
+            else{
+                int pos = upper_bound(stk,stk+top,x) - stk;
+                kk = pos+1;
+                stk[pos]=x;
+            }
+            ans.push_back(kk);
+        }
+        return ans;
+    }
+};

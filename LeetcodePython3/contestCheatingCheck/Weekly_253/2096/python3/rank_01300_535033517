@@ -1,0 +1,27 @@
+from sortedcontainers import SortedList
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obs: List[int]) -> List[int]:
+        #LIS
+        sl = SortedList()
+        ret = []
+        lis = []
+        for o in obs:
+            idx = bisect.bisect_right(lis, o)
+            if idx >= len(lis):
+                lis.append(o)
+            else:
+                lis[idx] = o
+            ret.append(idx+1)
+        return ret
+                
+            
+        for o in obs:
+            sl.add(o)
+            print(sl, o)
+            sz = sl.bisect_right(o) #- sl.bisect_left(o)
+            ret.append(sz)
+        return ret
+            
+        
+# def print(*K): pass
+        

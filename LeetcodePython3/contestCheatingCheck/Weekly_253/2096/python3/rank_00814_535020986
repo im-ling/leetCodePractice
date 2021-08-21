@@ -1,0 +1,21 @@
+MAX_V = 10000005
+class Solution:
+    def addbit(self, i, v):
+        while i <= MAX_V:
+            self.bit[i] = max(self.bit[i], v)
+            i += i & (-i)
+
+    def query(self, i):
+        res = 0
+        while i > 0:
+            res = max(res, self.bit[i])
+            i -= i & (-i)
+        return res
+
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        self.bit = defaultdict(int)
+        ans = [0] * len(obstacles)
+        for i, v in enumerate(obstacles):
+            ans[i] = self.query(v) + 1
+            self.addbit(v, ans[i])
+        return ans

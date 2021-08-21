@@ -1,0 +1,73 @@
+class SegmentTree {
+    private SegmentTree left, right;
+    private int start, end;
+    private int max;
+
+    SegmentTree(int start, int end) {
+        this.start = start;
+        this.end = end;
+    }
+
+    private int getMid(int start, int end) {
+        return start + ((end-start)>>1);
+    }
+
+    private void extend() {
+        if ((left == null) && (start < end)) {
+            int mid = getMid(start, end);
+            left = new SegmentTree(start, mid);
+            right = new SegmentTree(mid+1, end);
+        }
+    }
+
+    public int get(int sleft, int sright) {
+        if ((start > sright) || (end < sleft)) {
+            return 0;
+        }
+
+        if ((sleft <= start) && (sright >= end)) {
+            return max;
+        }
+        
+        if (left == null) {
+            return max;
+        }
+        
+        return Math.max(left.get(sleft, sright), right.get(sleft, sright));
+    }
+
+    public void set(int index, int value) {
+        if ((this.start > index) || (this.end < index)) {
+            return ;
+        }
+
+        if ((this.start == this.end)) {
+            this.max = value;
+            return ;
+        }
+
+        extend();
+        int mid = getMid(this.start, this.end);
+        if (index > mid) {
+            right.set(index, value);
+        } else {
+            left.set(index, value);
+        }
+        this.max = Math.max(left.max, right.max);
+    }
+}
+
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        SegmentTree tree = new SegmentTree(0, (int)(1e7));
+        int n = obstacles.length;
+        int[] ret = new int[n];
+        for (int i = 0; i < n; i++) {
+            int val = obstacles[i];
+            int max = tree.get(0, val);
+            ret[i] = max+1;
+            tree.set(val, max+1);
+        }
+        return ret;
+    }
+}

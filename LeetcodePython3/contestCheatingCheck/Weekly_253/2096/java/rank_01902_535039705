@@ -1,0 +1,29 @@
+/*
+DP [i] longest obstacle course till i
+DP [i] = DP[floorKey(obstacle[i])] + 1
+*/
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        // count -> obstacle
+        TreeMap<Integer, Integer> invertedTree = new TreeMap<>();
+        HashMap<Integer, Integer> cache = new HashMap<>();
+        int[] dp = new int[obstacles.length];
+        for(int i = 0; i < obstacles.length; i++) {
+            int obstacle = obstacles[i];
+            int max = 0;
+            for(Integer key : invertedTree.descendingKeySet()) {
+                if(cache.get(key) <= obstacle) {
+                    max = key;
+                    break;
+                }
+            }
+            dp[i] = max + 1;
+            if(invertedTree.getOrDefault(dp[i], Integer.MAX_VALUE) >= obstacle) {
+                invertedTree.put(dp[i], obstacle);
+                cache.put(dp[i], obstacle);
+            }
+        }
+        
+        return dp;
+    }
+}

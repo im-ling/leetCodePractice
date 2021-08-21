@@ -1,0 +1,66 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> X(obstacles);
+        sort(X.begin(), X.end());
+        X.resize(unique(X.begin(), X.end()) - X.begin());
+        
+        int m = X.size();
+        
+        for (auto& x : obstacles) {
+            x = lower_bound(X.begin(), X.end(), x) - X.begin();
+        }
+        
+        FenwickTree ft(m + 10);
+        
+        int n = obstacles.size();
+        vector<int> res(n, 0);
+        
+        for (int i = 0; i < n; ++i) {
+            int x = obstacles[i];
+            auto ans = ft.get(x);
+            ans = max(0LL, ans);
+            ++ans;
+            res[i] = ans;
+            ft.put(x, ans);
+        }
+        return res;
+    }
+    
+private:
+const static long long INF = 1LL << 58;
+class FenwickTree {
+    public:
+        FenwickTree(int n) : N(n), data(N, -INF) {
+            h = 0;
+            while (1 << (h + 1) <= N) {
+                ++h;
+            }
+        }
+
+        void reset() {
+            fill(data.begin(), data.end(), -INF);
+        }
+
+        void put(int x, long long v) {
+            assert(x >= 0);
+            for (; x < N; x |= x + 1) {
+                data[x] = max(data[x], v);
+            }
+        }
+
+        long long get(int x) {
+            assert(x < N);
+            long long res = -INF;
+            for (; x >= 0; x = (x & (x + 1)) - 1) {
+                res = max(res, data[x]);
+            }
+            return res;
+        }
+
+    private:
+        int N;
+        int h;
+        vector<long long> data;
+};
+};

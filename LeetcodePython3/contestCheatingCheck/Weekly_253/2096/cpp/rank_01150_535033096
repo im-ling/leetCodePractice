@@ -1,0 +1,41 @@
+class Solution {
+public:
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        int n= obs.size(), size=0;
+        vector<int> tails(n,0), ans(n);
+
+        for(int i=0; i<obs.size(); i++){
+            int o= obs[i];
+            
+            int lo=0, hi=size-1, u= size;
+            while(lo <= hi){
+                int mid = (lo+hi)/2;
+                
+                if(tails[mid] <= o){
+                    lo = mid+1;
+                }
+                else{
+                    u= mid;
+                    hi= mid-1;
+                }
+            }
+            
+            if(u==size)     tails[size++] = o;
+            else            tails[u] = o;
+            
+            // auto u = upper_bound(tails.begin(), tails.end(), o);
+            // if(u==tails.end())  
+            //     tails.push_back(o);
+            // else
+            //     *u = o;
+            
+            // for(int t: tails) cout<<t<<" ";
+            // cout<< endl;
+            
+            ans[i] = (u +1);
+        }
+        
+        return ans;
+    }
+};

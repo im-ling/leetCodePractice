@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> ret(n, 0);
+        vector<int> db(n + 1, 1e7 + 1);
+        
+        ret[0] = 1;
+        db[1] = obstacles[0];
+        int largest = 1;
+        
+        for (int i = 1; i < obstacles.size(); ++i) {
+            int pre = 0;
+            for (int j = largest; j >= 0; --j) {
+                if (db[j] <= obstacles[i]) {
+                    pre = j;
+                    break;
+                }
+            }
+            ret[i] = pre + 1;    
+            largest = max(largest, ret[i]);
+            db[ret[i]] = min(obstacles[i], db[ret[i]]);
+        }
+        // for (int x: db) cout << x << endl;
+        return ret;
+    }
+};

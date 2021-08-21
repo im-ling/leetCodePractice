@@ -1,0 +1,72 @@
+class Solution {
+public:
+    /*
+    int CeilIndex(std::vector<int>& v, int l, int r, int key)
+    {
+        while (r - l > 1) {
+            int m = l + (r - l) / 2;
+            //cout<<m<<" "<<v[m]<<l<<" "<<r<<endl;
+            if (v[m] >= key)
+                r = m;
+            else
+                l = m;
+        }
+        //cout<<r<<endl;
+        return r;
+        
+    }
+    */
+    int CeilIndex(std::vector<int>& v, int l, int r, int key)
+    {
+        int ans = 0;
+        while(l < r){
+            int m = l + (r-l)/2;
+            if(v[m] <= key){
+                l = m+1;
+                ans = max(ans,l);
+            }
+                
+            else
+                r = m;
+        }
+        return ans;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& v) {
+        if (v.size() == 0)
+            return {};
+
+        std::vector<int> tail(v.size(), 0);
+        int length = 1; // always points empty slot in tail
+
+        tail[0] = v[0];
+        vector<int> ans(v.size(),0);
+        ans[0] = 1;
+        for (size_t i = 1; i < v.size(); i++) {
+
+            // new smallest value
+            if (v[i] < tail[0]){
+                tail[0] = v[i];
+                ans[i] = 1;
+            }
+                
+
+            // v[i] extends largest subsequence
+            else if (v[i] >= tail[length - 1]){
+                tail[length++] = v[i];
+                ans[i] = length;
+            }
+                
+
+            else{
+                //int idx = CeilIndex(tail, -1, length - 1, v[i]);
+                int idx = CeilIndex(tail, 0, length, v[i]);
+                //cout<<v[i]<<" "<<i<<" "<<idx<<endl;
+                tail[idx] = v[i];
+                ans[i] = idx+1;
+            }
+
+        }
+
+        return ans;
+    }
+};

@@ -1,0 +1,60 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int[] res = new int[obstacles.length];
+        int[] curArr=new int[obstacles.length];
+        curArr[0]=obstacles[0];
+        res[0]=1;
+        int curEnd=0;
+        for (int i = 1; i < obstacles.length; i++) {
+            int index =binarySearch(curArr,0,curEnd,obstacles[i]);
+            if (index >= 0) {
+                res[i] = index + 2;
+                if(index==curEnd){
+                    curEnd++;
+                }
+                curArr[index+1]=obstacles[i];
+            } else {
+                int addPos = -(index + 1);
+                res[i] = addPos + 1;
+                if (addPos>curEnd) {
+                    curEnd++;
+                }
+                curArr[addPos]=obstacles[i];
+            }
+        }
+        return res;
+    }
+
+    public int binarySearch(int[] arr, int start, int end, int value){
+        if(value>arr[end]){
+            return -(end+1)-1;
+        }
+        int orignStart=start;
+        int orignEnd=end;
+        while (start<end){
+            int mid=(start+end+1)/2;
+            if(arr[mid]<value){
+                start=mid+1;
+            }else if(arr[mid]==value){
+                start=mid;
+            }else {
+                end=mid-1;
+            }
+        }
+        if(arr[start]==value){
+            return start;
+        }
+        start=orignStart;
+        end=orignEnd;
+        //比该元素大的的最小位置
+        while (start<end){
+            int mid=(start+end)/2;
+            if(arr[mid]<value){
+                start=mid+1;
+            }else {
+                end=mid;
+            }
+        }
+        return -end-1;
+    }
+}

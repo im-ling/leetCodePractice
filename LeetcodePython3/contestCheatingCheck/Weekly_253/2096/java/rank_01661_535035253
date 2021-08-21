@@ -1,0 +1,23 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int BIT[] = new int[10000002];
+        int ans[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            int length = 0;
+            int ob = obstacles[i];
+            while (0 <= ob) {
+                length = Math.max(length, BIT[ob]);
+                ob = (ob & (ob + 1)) - 1;
+            }
+            ob = obstacles[i];
+            length += 1;
+            while (ob <= 10000002) {
+                BIT[ob] = Math.max(BIT[ob], length);
+                ob |= ob + 1;
+            }
+            ans[i] = length;
+        }
+        return ans;
+    }
+}

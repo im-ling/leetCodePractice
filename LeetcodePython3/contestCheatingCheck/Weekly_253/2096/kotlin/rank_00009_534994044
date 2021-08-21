@@ -1,0 +1,17 @@
+import java.util.*
+
+class Solution {
+    fun longestObstacleCourseAtEachPosition(obstacles: IntArray): IntArray {
+        val answer = IntArray(obstacles.size)
+        val treeMap = TreeMap<Int, Int>()
+        treeMap[0] = 0
+        for ((j, h) in obstacles.withIndex()) {
+            answer[j] = treeMap.floorEntry(h)!!.value + 1
+            while (treeMap.ceilingEntry(h)?.value ?: Int.MAX_VALUE < answer[j]) {
+                treeMap.remove(treeMap.ceilingKey(h)!!)
+            }
+            treeMap[h] = answer[j]
+        }
+        return answer
+    }
+}

@@ -1,0 +1,29 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int[] res = new int[obstacles.length];
+        int start = 0, end = 0;
+        for(int i = 0; i<obstacles.length; ++i){
+            int preLargerIndex = binarySearch(obstacles, obstacles[i], start, end);
+            res[i] = preLargerIndex + 1;
+            obstacles[preLargerIndex] = obstacles[i];
+            if(preLargerIndex == end){
+                ++end;
+            }
+        }
+        return res;
+    }
+    
+    // find the first num that is larger than value
+    // end exclusive
+    private int binarySearch(int[] nums, int value, int start, int end){
+        while(start < end){
+            int mid = start + ((end-start) >> 1);
+            if(nums[mid] <= value){
+                start = mid+1;
+            } else{
+                end = mid;
+            }
+        }
+        return end;
+    }
+}

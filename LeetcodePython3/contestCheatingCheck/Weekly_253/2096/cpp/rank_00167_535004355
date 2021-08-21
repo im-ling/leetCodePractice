@@ -1,0 +1,30 @@
+class Solution {
+public:
+    static const int N = 1e7+1;
+    
+    int bit[N];
+    
+    void update(int x, int y) {
+        for (int i = x; i < N; i += i&(-i))
+            bit[i] = max(bit[i], y);
+    }
+    
+    int find(int x) {
+        int ret = 0;
+        for (int i = x; i > 0; i -= i&(-i))
+            ret = max(ret, bit[i]);
+            
+        return ret;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        vector<int> ans;
+        for (int i = 0; i < obs.size(); i++) {
+            int x = find(obs[i]);
+            ans.push_back(x+1);
+            update(obs[i], x+1);
+        }
+        
+        return ans;
+    }
+};

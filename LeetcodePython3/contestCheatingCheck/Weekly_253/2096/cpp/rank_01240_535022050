@@ -1,0 +1,49 @@
+class Solution {
+public:
+    
+    
+    int query(vector<int> &BIT, int i){
+        int maximum = 0;
+        while(i > 0){
+            maximum = max(maximum, BIT[i]);
+            i -= (i&(-i));
+        }
+        return maximum;
+    }
+    
+    void update(vector<int> &BIT, int n, int i, int val){
+        while(i <= n){
+            BIT[i] = max(BIT[i], val);
+            i += (i&(-i));
+        }
+    }
+    
+    void coordinateCompression(vector<int> &arr, int n){
+        set<int> s;
+        for(int i=0; i<n; i++)
+            s.insert(arr[i]);
+        
+        unordered_map<int, int> m;
+        int id = 1;
+        for(int num: s)
+            m[num] = id++;
+        
+        for(int i=0; i<n; i++)
+            arr[i] = m[arr[i]];
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& arr) {
+        int n = arr.size();
+        coordinateCompression(arr, n);
+        
+        vector<int> BIT(n+2, 0);
+        vector<int> ans(n);
+        for(int i=0; i<n; i++){
+            int curr = query(BIT, arr[i]) + 1;
+            ans[i] = curr;
+            update(BIT, n+1, arr[i], curr);
+        }
+        
+        return ans;
+    }
+};

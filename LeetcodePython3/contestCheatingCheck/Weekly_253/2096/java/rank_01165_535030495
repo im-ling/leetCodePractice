@@ -1,0 +1,61 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] a) {
+        int n = a.length;
+        int dp[] = new int[n];
+        dp[0] = 1;
+        ArrayList<Integer> temp = new ArrayList<>();
+        temp.add(a[0]);
+
+        for(int i = 1; i < n; i++){
+            int ind = upBound(temp , temp.size() , a[i]);
+            if(ind == temp.size()){
+                temp.add(a[i]);
+            }
+            else{
+                temp.set(ind , a[i]);
+            }
+            dp[i] = ind + 1;
+        }
+        
+        return dp;
+    }
+    
+    int upBound(ArrayList<Integer> al, int N, int X)
+    {
+        int mid;
+
+        // Initialise starting index and
+        // ending index
+        int low = 0;
+        int high = N;
+
+        // Till low is less than high
+        while (low < high) {
+            // Find the middle index
+            mid = low + (high - low) / 2;
+
+            // If X is greater than or equal
+            // to arr[mid] then find
+            // in right subarray
+            if (X >= al.get(mid)) {
+                low = mid + 1;
+            }
+
+            // If X is less than arr[mid]
+            // then find in left subarray
+            else {
+                high = mid;
+            }
+        }
+
+        // if X is greater than arr[n-1]
+        if(low < N && al.get(low) <= X) {
+           low++;
+        }
+
+        // Return the upper_bound index
+        return low;
+    }
+ 
+ 
+}

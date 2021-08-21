@@ -1,0 +1,66 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& o) 
+    {
+        int n=o.size();
+        deque<int>seq;
+        vector<int>ans;
+        seq.push_back(o[0]);
+        ans.push_back(1);
+        for(int i=1;i<n;i++)
+        {
+            
+            // cout<<"ffsvs"<<index;
+            // for(auto x:seq)
+            //            cout<<x<<" ";
+            //             cout<<endl;
+            
+            if(seq.back()>o[i])
+            {
+                
+                int index=upper_bound(seq.begin(),seq.end(),o[i])-seq.begin();
+                // cout<<index<<endl;
+                if(index==0 && seq[index]>o[i])
+                {
+                    ans.push_back(1);
+                    seq[index]=o[i];
+                }
+                else if(index==0 && seq[index]==o[i])
+                {
+                    seq.push_front(o[i]);
+                    ans.push_back(2);
+                     
+                }
+                
+                    
+                else
+                {
+                //      if(i==5)
+                //      {
+                //          for(auto x:seq)
+                //              cout<<x<<" ";
+                //      }
+                    if(seq[index]>o[i])
+                    {
+                        ans.push_back(index+1);
+                        seq[index]=o[i];
+                    }
+                    else
+                    {
+                           ans.push_back(index+2);
+                           seq[index]=o[i];
+                    }
+                  
+                    
+                }
+               
+            }
+            else
+            {
+                seq.push_back(o[i]);
+                ans.push_back(seq.size());
+            }
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,54 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obs) {
+        Set<Integer> set = new HashSet<>();
+        for (int o : obs) {
+            set.add(o);
+        }
+        List<Integer> list = new ArrayList<>(set);
+        Collections.sort(list);
+        Fenwick tree = new Fenwick(list.size() + 1);
+        Map<Integer, Integer> numToIdx = new HashMap<>();
+        for (int i = 0; i < list.size(); i++) {
+            numToIdx.put(list.get(i), i);
+        }        
+        
+        int[] res = new int[obs.length];
+        for (int i = 0; i < res.length; i++) {
+            int cur = obs[i];
+            int idx = numToIdx.get(cur);
+            res[i] = tree.query(idx + 1) + 1;
+            tree.update(idx + 1, res[i]);
+        }
+        return res;
+    }
+    
+    public static class Fenwick {
+        public int[] array;
+        public int n;
+        
+        public Fenwick(int n) {
+            this.n = n;
+            array = new int[n];
+        }
+        
+        private int lowB(int x) {
+            return x & (-x);
+        }
+        
+        public void update(int idx, int val) {            
+            while (idx < n) {
+                array[idx] = Math.max(array[idx], val);    
+                idx += lowB(idx);
+            }
+        }
+        
+        public int query(int idx) {
+            int max = 0;
+            while (idx > 0) {
+                max = Math.max(array[idx], max);
+                idx -= lowB(idx);
+            }
+            return max;
+        }
+    }
+}

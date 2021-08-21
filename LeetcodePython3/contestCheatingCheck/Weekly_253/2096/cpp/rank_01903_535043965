@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> res; //int maxi;
+        
+        vector<int> heights;
+        res.push_back(1); heights.push_back(obstacles[0]);
+        for (int i = 1; i < obstacles.size(); i++) {
+            bool smallest = true;
+            for (int j = heights.size()-1; j >= 0; j--) {
+                if (obstacles[i] >= heights[j]) {
+                    if (j+1 == heights.size()) {heights.push_back(obstacles[i]);}
+                    else {heights[j+1] = obstacles[i];}
+                    res.push_back(j+2);
+                    smallest = false;
+                    break;
+                }
+            }
+            if (smallest) {heights[0] = obstacles[i]; res.push_back(1);}
+            
+        }
+        return res;
+    }
+};

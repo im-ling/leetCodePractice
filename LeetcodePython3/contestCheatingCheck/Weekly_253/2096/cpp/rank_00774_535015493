@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> dp(obstacles.size(),INT_MAX);
+        vector<int> res(obstacles.size());
+        int maxLIS = 0;
+        for(int i=0;i<obstacles.size();i++){
+            int start = searchInsert(0,maxLIS, dp,obstacles[i]);
+            dp[start] = obstacles[i];
+            res[i] = start+1;
+            if(start==maxLIS) maxLIS++;
+        }
+        return res;
+    }
+    
+    int searchInsert(int low, int high, vector<int>& nums, int target) {
+        while (low <= high) {
+            int mid = low + (high-low)/2;
+
+            if (nums[mid] <= target)
+                low = mid+1;
+            else
+                high = mid-1;
+        }
+        //cout << low << endl;
+        return low;
+    }
+};

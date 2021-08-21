@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        n = a.size();
+        tree.resize(n + 1);
+        map<int,int> order;
+        for (auto val : a) order[val] = 0;
+        int idx = 0;
+        for (auto &entry : order) {
+            entry.second = ++idx;
+        }
+        vector<int> v;
+        for (int i = 0; i < a.size(); i++) {
+            v.push_back(query(order[a[i]]) + 1);
+            insert(order[a[i]], v.back());
+        }
+        return v;
+    }
+    
+    int query(int k) {
+        int ret = 0;
+        for (; k > 0; k -= k & -k) ret = max(ret, tree[k]);
+        return ret;
+    }
+    
+    void insert(int k, int val) {
+        for (; k <= n; k += k & -k) tree[k] = max(tree[k], val);
+    }
+    
+    vector<int> tree;
+    int n;
+};

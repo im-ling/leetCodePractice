@@ -1,0 +1,30 @@
+class Solution(object):
+    def bisect(self, tail, height):
+        L, R = 0, len(tail)
+        best = -1
+        while L < R:
+            mid = (L + R) // 2
+            if tail[mid] <= height:
+                best = mid
+                L = mid + 1
+            else:
+                R = mid
+        return best
+    def longestObstacleCourseAtEachPosition(self, obstacles):
+        """
+        :type obstacles: List[int]
+        :rtype: List[int]
+        """
+        n = len(obstacles)
+        ans = []
+        tail = []
+        # print("Case#")
+        for i in range(n):
+            j = self.bisect(tail, obstacles[i])
+            if j + 1 < len(tail) and tail[j + 1] > obstacles[i]:
+                tail[j + 1] = obstacles[i]
+            elif j + 1 == len(tail):
+                tail.append(obstacles[i])
+            v = j + 1 + 1
+            ans.append(v)            
+        return ans

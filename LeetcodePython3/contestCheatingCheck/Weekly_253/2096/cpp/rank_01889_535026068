@@ -1,0 +1,68 @@
+#define ll int
+class Solution {
+public:
+    ll size;
+    map<int,vector<int>>ma;
+    ll tree[400005];
+    void set(ll i,ll v,ll x,ll lx,ll rx){
+        if(rx-lx==1){
+        tree[x]=max(tree[x],v);
+        return;
+        }
+        ll m=(lx+rx)/2;
+        if(i<m){
+            set(i,v,2*x+1,lx,m);
+        }
+        else{
+            set(i,v,2*x+2,m,rx);
+        }
+        tree[x]=max(tree[2*x+1],tree[2*x+2]);
+        
+    }
+    void set(ll i,ll v){
+        set(i-1,v,0,0,size);
+    }
+    ll calc(ll l,ll r,ll x,ll lx,ll rx){
+        if(lx>=r || rx<=l)
+        return 0;
+        if(lx>=l and rx<=r)
+        return tree[x];
+        ll m=(lx+rx)/2;
+        ll s1=calc(l,r,2*x+1,lx,m);
+        ll s2=calc(l,r,2*x+2,m,rx);
+        return max(s1,s2);
+        
+    }
+    ll calc(ll l,ll r){
+        return calc(l-1,r,0,0,size);
+    } 
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+                ma.clear();
+        for(int i=0;i<a.size();i++)
+            ma[a[i]].push_back(i);
+        int p=1;
+        vector<int>here;
+        for(auto it:ma)
+        {
+            here=it.second;
+            for(int i:here) a[i]=p;
+            p++;
+            
+        }
+        int nn=*max_element(a.begin(),a.end());
+        size=1;
+        while(size<nn) size*=2;
+        for(int i=0;i<2*size;i++)
+            tree[i]=0;
+        
+        vector<int>ans(a.size());
+        // cout<<calc(1,100);
+        for(int i=0;i<a.size();i++)
+        {
+            ans[i]=calc(1ll,(ll)a[i]) +1;
+            set(a[i],ans[i]);
+        }
+        return ans;
+        
+    }
+};

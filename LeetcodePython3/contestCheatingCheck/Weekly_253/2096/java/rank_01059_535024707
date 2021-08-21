@@ -1,0 +1,33 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int[] smallestEnding = new int[obstacles.length];
+        int[] res =new int[obstacles.length];
+        smallestEnding[0] = obstacles[0];
+        res[0] = 1;
+        int LIS = 1;
+        for(int i = 1; i < obstacles.length; i ++) {
+            int idx = binarySearch(smallestEnding, obstacles[i], LIS);
+            idx = -idx - 1;
+            smallestEnding[idx] = obstacles[i];
+            res[i] = idx + 1;
+            if (idx == LIS)
+                LIS ++;
+        }
+        return res;
+    }
+    
+    private int binarySearch(int[] array, int target, int exclusiveEnd) {
+        int lo = 0;
+        int hi = exclusiveEnd;
+        while(lo < hi) {
+            int mid = (lo + hi) >> 1;
+            if (array[mid] <= target) {
+                lo = mid+1;
+            } else {
+                hi = mid;
+            }
+        }
+        
+        return -lo -1;
+    }
+}

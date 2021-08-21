@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int n;
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> path;
+        n = obstacles.size();
+        vector<int> ans;
+        for (auto& ob : obstacles)
+        {
+            int cur = 0;
+            if (path.empty())
+            {
+                path.push_back(ob);
+                cur = 1;
+            }
+            else
+            {
+                auto iter = upper_bound(path.begin(), path.end(), ob);
+                if (iter == path.end())
+                {
+                    path.push_back(ob);
+                    cur = path.size();
+                }
+                else
+                {
+                    int d = std::distance(path.begin(), iter) + 1;
+                    cur = d;
+                    *iter = ob;
+                }
+            }
+            ans.push_back(cur);
+        }
+        return ans;
+        
+    }
+};

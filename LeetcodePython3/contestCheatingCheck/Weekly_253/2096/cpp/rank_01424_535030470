@@ -1,0 +1,36 @@
+const int N=1e7+5;
+int bit[N];
+
+class Solution {
+public:
+    
+    void update(int idx,int val) {
+        while(idx<N) {
+            bit[idx]=max(bit[idx],val);
+            idx+=idx&(-idx);
+        }
+    }
+    
+    int getPrefixMax(int idx) {
+        int ans=0;
+        while(idx>0) {
+            ans=max(ans,bit[idx]);
+            idx-=idx&(-idx);
+        }
+        return ans;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& v) {
+        memset(bit,0,sizeof(bit));
+        int n=v.size();
+        vector<int> dp(n);
+        dp[0]=1;
+        update(v[0],1);
+        for(int i=1;i<n;i++) {
+            int res=getPrefixMax(v[i]); // extend the one with max length
+            dp[i]=res+1;
+            update(v[i],dp[i]); // update the answer if it is greater than dp[i]
+        }
+        return dp;
+    }
+};

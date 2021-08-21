@@ -1,0 +1,12 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        st = []
+        ret = [1] * len(obstacles)
+        for i, j in enumerate(obstacles):
+            p = bisect_right(st, j)
+            if p >= len(st):
+                st.append(j)
+            else:
+                st[p] = min(st[p], j)
+            ret[i] = p + 1
+        return ret

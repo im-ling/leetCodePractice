@@ -1,0 +1,47 @@
+#define mx 100001;
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        vector<int>v(1000001,INT_MAX);
+        vector<int>z;
+        map<int,int>mp;
+        for(int i=0;i<obs.size();i++)
+        {
+            int l=0,r=100001,ans=-1,p=0;
+            while(l<r)
+            {
+                int mid=(l+r)/2;
+               // cout<<mid<<" ";
+                if(v[mid]<=obs[i])
+                {  
+                    if(mp[v[mid]]>=p)
+                    {
+                        p=mp[v[mid]];
+                        ans=v[mid];
+                    }
+                   
+                    l=mid+1;
+                }
+                else
+                    r=mid;
+            }
+      //  cout<<ans<<"\n";
+            //cout<<v[3]<<"\n";
+            if(ans!=-1)
+               { 
+                 z.push_back(mp[ans]+1);
+                 v[mp[ans]+1]=min(v[mp[ans]+1],obs[i]);
+                 mp[obs[i]]=max(mp[obs[i]],mp[ans]+1);
+               }
+            else
+            {
+                z.push_back(1);
+                mp[obs[i]]=1;
+                v[1]=min(v[1],obs[i]);    
+            }
+                
+            
+        }
+        return z;
+    }
+};

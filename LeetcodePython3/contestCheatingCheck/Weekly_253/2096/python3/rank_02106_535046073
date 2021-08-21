@@ -1,0 +1,18 @@
+from collections import defaultdict
+import bisect
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        curr_nums = [obstacles[0]]
+        ans = [1]
+        for index in range(1, len(obstacles)):
+            insert_index = bisect.bisect_left(curr_nums, obstacles[index])
+            if insert_index < len(curr_nums) and curr_nums[insert_index] == obstacles[index]:
+                insert_index = bisect.bisect_right(curr_nums, obstacles[index])
+            if insert_index == len(curr_nums):
+                curr_nums.append(obstacles[index])
+            else:
+                curr_nums[insert_index] = obstacles[index]
+            ans.append(insert_index + 1)
+
+        return ans

@@ -1,0 +1,96 @@
+class Solution {
+public:
+
+class BinaryIndexTree {
+public:
+    BinaryIndexTree(vector<int> nums) {
+        int n = nums.size();
+        arr = vector<int>(n, 0);
+        bit_tree = vector<int>(n+1, 0);
+        for(int i = 0; i < n; i++)
+            update(i, nums[i]);
+    }
+    void update(int idx, int val) {
+        int delta = val - arr[idx];
+        arr[idx] = val;
+        int x = idx + 1;
+        while (x < (int)bit_tree.size()) {
+            bit_tree[x] += delta;
+            x += x & (-x);
+        }
+    }
+    int _sumRange(int x) {
+        int ret = 0;
+        while (x > 0) {
+            ret += bit_tree[x];
+            x -= x & (-x);
+        }
+        return ret;
+    }
+    int sumRange(int from, int to) {
+        return _sumRange(to+1) - _sumRange(from);
+    }
+    int find_kth_smaller(int kth) { // log(range)^2
+        int l = 0, r = arr.size()-1;
+        while (l < r) {
+            int mid = l + (r-l) /2;
+            if (sumRange(0, mid) < kth)
+                l = mid+1;
+            else
+                r = mid;
+        }
+        return l;
+    }
+private:
+    vector<int> arr;
+    vector<int> bit_tree;
+};
+    #define p1d(x) cout << (#x) << ": ["; for(auto& zz: x) cout << zz << " "; cout << "]\n"
+
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        set<int> s(obstacles.begin(), obstacles.end());
+        int idx = 0;
+        unordered_map<int, int> mm;
+        for(int val: s) {
+            mm[val] = idx++;
+        }
+        for(auto& val: obstacles) {
+            val = mm[val];
+        }
+        // p1d(obstacles);
+        
+        int n = obstacles.size();
+        vector<int> ans(n, 0); 
+        map<int, int> rec;
+        rec[-1] = 0;
+        rec[1e9] = 1e9;
+        for(int i = 0; i < n; i++) {
+            int tar = obstacles[i];
+            auto it = prev(rec.upper_bound(tar));
+            rec[tar] = max(rec[tar], it->second + 1);
+            // cout << "i = " << i << ", ans[i] = " << rec[tar] << endl;
+            ans[i] = rec[tar];
+            while(rec.size() > 0) {
+                auto it2 = rec.upper_bound(tar);
+                if (it2->second <= ans[i]) {
+                    rec.erase(it2);
+                } else {
+                    break;
+                }
+            }
+        }
+        return ans;
+        // vector<int> lis;
+        // int n = obstacles.size();
+        // vector<int> ans(n, 0);  
+        // for(int i = 0; i < n; i++) {
+        //     while(lis.size() > 0 && lis.back() > obstacles[i]) {
+        //         lis.pop_back();
+        //     }
+        //     lis.push_back(obstacles[i]);
+        //     ans[i] = lis.size();
+        // }
+        // return ans;
+        return {};
+    }
+};

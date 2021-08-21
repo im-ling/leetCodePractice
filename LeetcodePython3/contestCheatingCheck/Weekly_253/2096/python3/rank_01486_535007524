@@ -1,0 +1,27 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        longest = []
+        res = []
+        for i, ob in enumerate(obstacles):
+            if not longest or ob >= longest[-1]:
+                longest.append(ob)
+                res.append(len(longest))
+            else:
+                idx = self.binary_search(longest, ob)
+                longest[idx] = ob
+                res.append(idx + 1)
+        
+        return res
+    
+    def binary_search(self, arr, target):
+        lo = 0
+        hi = len(arr) - 1
+        while lo < hi:
+            mid = (lo + hi) // 2
+            if arr[mid] <= target:
+                lo = mid + 1
+            else:
+                hi = mid
+        
+        return lo
+        

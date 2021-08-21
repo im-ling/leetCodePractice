@@ -1,0 +1,43 @@
+struct BIT
+{
+    int *B;
+    int size;
+    BIT(int size) {
+        this->size = size;
+        B = new int[size + 1];
+        for(int i = 0 ; i < size + 1; i++) 
+          B[i] = 0;
+    }
+
+    ~BIT() {
+        delete [] B;
+    }
+
+    void add(int x, int v) {
+        for (int i = x; i <= size; i+= i & (-i)) {
+            B[i] =max(B[i], v);
+        }
+    }
+
+    int get(int x){
+        int v = 0;
+        for (int i = x; i > 0; i-= i & (-i)) {
+            v = max(v, B[i]);
+        }
+        return v;
+    }
+
+};
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& O) {
+      vector<int> A(O.size());
+      BIT B(10000001);
+      for(int i = 0; i < O.size(); ++i) {
+        A[i] = B.get(O[i]) + 1;
+        B.add(O[i], A[i]);
+      }
+      return A;
+    }
+};

@@ -1,0 +1,67 @@
+int CeilIndex(vector<pair<int, int>>& v, int l, int r, pair<int,int> key) {
+    while (r - l > 1) {
+        int m = l + (r - l) / 2;
+        if (v[m] >= key)
+            r = m;
+        else
+            l = m;
+    }
+
+    return r;
+}
+
+vector<int> LIS(vector<pair<int,int>>& v) {
+    vector<pair<int,int>> tail(v.size());
+    vector<int> ts(v.size(), 0);
+    vector<int> ret;
+    int length = 1; // always points empty slot in tail
+
+    tail[0] = v[0];
+    ts[0] = 1;
+    ret.push_back(1);
+
+    for (size_t i = 1; i < v.size(); i++) {
+
+      // cout << "A[" << i << "]=" << v[i] << " ";
+
+        // new smallest value
+        if (v[i] < tail[0]) {
+          // cout << "case 1" << endl;
+          tail[0] = v[i];
+          ret.push_back(ts[0]);
+        }
+
+        // v[i] extends largest subsequence
+        else if (v[i] >= tail[length - 1]) {
+          // cout << "case 2" << endl;
+          tail[length] = v[i];
+          ts[length] = ts[length-1] + 1;
+          ret.push_back(ts[length]);
+          length++;
+        }
+
+        else {
+          // cout << "case 3" << endl;
+          int j = CeilIndex(tail, -1, length, v[i]);
+          tail[j] = v[i];
+          ret.push_back(ts[j]);
+        }
+    }
+
+    return ret;
+}
+
+vector<int> ans(vector<int> v) {
+  vector<pair<int,int>> vv;
+  for (int i=0; i<v.size(); i++) {
+    vv.push_back(make_pair(v[i], i));
+  }
+  return LIS(vv);
+}
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        return ans(obstacles);
+    }
+};

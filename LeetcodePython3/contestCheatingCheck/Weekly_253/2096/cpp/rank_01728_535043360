@@ -1,0 +1,46 @@
+class Solution {
+public:
+    int findId(vector<int>& v, int l, int r, int val)
+    {
+        while (r - l > 1) {
+            int m = l + (r - l) / 2;
+            if (v[m] >= val)
+                r = m;
+            else
+                l = m;
+        }
+
+        return r;
+    }
+
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        int n = obs.size();
+        vector<int> res(n);
+        vector<int> t(n, 0);
+        int len = 1;
+
+        t[0] = obs[0];
+        res[0] = 1;
+        for (int i = 1; i < obs.size(); i++) {
+            if (obs[i] < t[0]) {
+                t[0] = obs[i];
+                res[i] = 1;
+            }
+
+            else if (obs[i] >= t[len - 1]) {
+                t[len++] = obs[i];
+                res[i] = len;
+            }
+
+            else {
+                int id = findId(t, -1, len - 1, obs[i] + 1);
+                t[id] = obs[i];
+                res[i] = id + 1;
+            }
+        }
+        // for(auto &val: t)
+        //     cout << val << " ";
+
+        return res;
+    }
+};

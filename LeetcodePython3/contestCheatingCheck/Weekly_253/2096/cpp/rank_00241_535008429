@@ -1,0 +1,68 @@
+
+
+
+
+class Solution {
+public:
+    #define maxn 100005
+    struct node {
+        int h, idx;
+    } tmp[maxn];
+    int arr[maxn];
+    int dp[maxn];
+    
+    struct tree_node {
+        int val;
+    } tr[maxn<<2];
+    
+    void push_up(int cur) {
+        tr[cur].val = max(tr[cur<<1].val, tr[cur<<1|1].val);
+    }
+    
+    void insert(int cur, int l, int r, int p, int x) {
+        if (l == r) {
+            tr[cur].val = max(tr[cur].val, x);
+            return;
+        }
+        int mid = (l+r) >> 1;
+        if (p <= mid) insert(cur<<1, l, mid, p, x);
+        else insert(cur<<1|1, mid+1, r, p, x);
+        push_up(cur);
+    }
+    
+    int query(int cur, int l, int r, int L, int R) {
+        if (L <= l && R >= r) {
+            return tr[cur].val;
+        }
+        int mid = (l+r) >> 1;
+        int res = 0;
+        if (L <= mid) res = max(res, query(cur<<1, l, mid, L, R));
+        if (R > mid) res = max(res, query(cur<<1|1, mid+1, r, L, R));
+        return res;
+    }
+    
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        int n = obs.size();
+        for (int i = 0; i < obs.size(); i++) {
+            tmp[i+1] = {obs[i], i+1};
+        }
+        sort(tmp+1, tmp+n+1, [](auto a, auto b) {
+            return a.h < b.h;
+        });
+        int p = 0;
+        for (int i = 1; i <= n; i++) {
+            if (tmp[i].h != tmp[i-1].h) ++p;
+            arr[tmp[i].idx] = p;
+        }
+        vector<int> ans;
+        for (int i = 1; i <= n; i++) {
+            int h = arr[i];
+            // cout << h << endl;
+            int m = query(1, 1, n, 1, h);
+            ans.push_back(m+1);
+            insert(1, 1, n, h, m+1);
+        }
+        return ans;
+    }
+};

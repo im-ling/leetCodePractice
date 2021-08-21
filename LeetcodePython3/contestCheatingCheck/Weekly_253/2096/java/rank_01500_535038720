@@ -1,0 +1,71 @@
+class Solution {
+    
+    private static class Node {
+        
+        Node zero;
+        Node one;
+        Integer value = 0;
+        
+    }
+    
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {        
+        int bits = 24; // 10^7 has 24 bits
+        
+        int[] result = new int[obstacles.length];
+        //int[] left = new int[obstacles.length];
+        //int[] right = new int[obstacles.length];
+        
+        Node leftRoot = new Node();
+        
+        for (int i = 0; i < obstacles.length; i++) {
+            // read phase. find the best value possible.
+            Node current = leftRoot;
+            int best = 0;
+            
+            for (int bv = 1 << bits - 1; bv > 0; bv >>= 1) {
+                Node next;
+                
+                if ((bv & obstacles[i]) != 0) {
+                    if (current.one == null) {
+                        current.one = new Node();
+                    }
+                    
+                    next = current.one;
+                    best = Math.max(best, current.value);
+                } else {
+                    if (current.zero == null) {
+                        current.zero = new Node();
+                    }
+                    
+                    next = current.zero;
+                }
+                
+                current = next;
+            }
+            
+            best = Math.max(best, current.value);
+            
+            result[i] = best + 1;
+            
+            // write phase. write the best value back.
+            current = leftRoot;
+            
+            for (int bv = 1 << bits - 1; bv > 0; bv >>= 1) {
+                Node next;
+            
+                if ((bv & obstacles[i]) != 0) {
+                    next = current.one;
+                } else {
+                    next = current.zero;
+                    current.value = Math.max(best + 1, current.value);
+                }
+                
+                current = next;
+            }
+            
+            current.value = Math.max(best + 1, current.value);
+        }
+
+        return result;
+    }
+}

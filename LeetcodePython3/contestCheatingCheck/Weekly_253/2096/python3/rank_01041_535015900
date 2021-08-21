@@ -1,0 +1,20 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        scores = [0 for x in range(len(obstacles))]
+        best = [9999999999 for x in range(len(obstacles)+1)]
+        longest = 1
+        for i, ob in enumerate(obstacles):
+            highest = 1
+            #print()
+            for x in reversed(range(1, longest + 1)):
+                #print("x", x)
+                #print(ob, obstacles[x])
+                if ob >= best[x]:
+                    highest = max(highest, 1 + x)
+                    break
+            scores[i] = highest
+            best[highest] = min(ob, best[highest])
+            longest = max(longest, highest)
+            #print(longest, best)
+            
+        return scores

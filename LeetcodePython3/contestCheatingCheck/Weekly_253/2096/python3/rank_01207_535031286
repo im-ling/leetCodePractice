@@ -1,0 +1,76 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        # need to sort in decreasing length of obstacles and increasing height of last obstacle
+        ls=[(1,obstacles[0])] # -length, highest
+        for i in range(1,len(obstacles)):
+            val=1
+            for l,h in ls:
+                if obstacles[i]>=h:
+                    val=max(val,l+1)
+            ls.append((val,obstacles[i]))
+            
+        return [val for val,_ in ls]
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        # need to sort in decreasing length of obstacles and increasing height of last obstacle
+        ls=[(1,obstacles[0])] # -length, highest
+        for i in range(1,len(obstacles)):
+            val=1
+            for l,h in ls:
+                if obstacles[i]>=h:
+                    val=max(val,l+1)
+            ls.append((val,obstacles[i]))
+            
+        return [val for val,_ in ls]
+    
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        tops=[]
+        res=[]
+        for obs in obstacles:
+            if tops==[]:
+                tops.append(obs)
+                res.append(len(tops))
+            else:
+                idx=self.bs(tops,obs)
+                if idx<len(tops):
+                    tops[idx]=obs
+                else:
+                    tops.append(obs)
+                res.append(idx+1)
+        return res
+    
+    def bs(self,tops,num):
+        l,r=0,len(tops)-1
+        m=(l+r)//2
+        if tops[-1]<=num:
+            return len(tops)
+        while l<=r:
+            if tops[m]<=num:
+                if m<len(tops) and tops[m+1]<=num:
+                    l=m+1
+                    m=(l+r)//2
+                else:
+                    return m+1
+            elif tops[m]>num:
+                r=m-1
+                m=(l+r)//2
+        return m+1
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

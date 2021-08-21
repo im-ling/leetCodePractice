@@ -1,0 +1,86 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+// 0-index based segment tree
+#define _int int
+class SegmentTree
+{
+private:
+    vector<_int> seg;
+    vector<_int> arr;
+
+public:
+    SegmentTree(vector<_int> ar){
+
+        int n = ar.size();
+        seg.assign(4*n, 0);
+        arr = ar;
+    }
+    void build(int idx, int l, int r){
+
+        if(l == r) {seg[idx] = arr[l]; return;}
+
+        int mid = (l+r)/2;
+
+        build(2*idx+1, l, mid);
+        build(2*idx+2, mid+1, r);
+
+        seg[idx] = min(seg[2*idx+1], seg[2*idx+2]);
+    }
+    _int query(int idx, int l, int r, int i, int j){
+
+        if(j<l || r<i) return INT_MIN;
+
+        if(i<=l && j>=r) return seg[idx];
+
+        int mid = (l+r)/2;
+
+        _int left, right;
+        left = query(2*idx+1, l, mid, i, j);
+        right = query(2*idx+2, mid+1, r, i, j);
+
+        return max(left, right);
+    }
+    void update(int idx, int l, int r, int i, int j, int val){
+        if(j<l || i>r) return;
+
+        if(i<=l && j>=r){
+            seg[idx] = max(seg[idx], val);
+            return ;
+        }
+
+        int mid = (l+r)/2;
+
+        update(2*idx+1, l, mid, i, j, val);
+        update(2*idx+2, mid+1, r, i, j, val);
+
+        seg[idx] = max(seg[2*idx+1], seg[2*idx+2]);
+    }
+};
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> tmp = obstacles;
+        sort(tmp.begin(), tmp.end());
+        map<int, int> m;
+        int cur = 1;
+        for(int x:tmp){
+            if(m.find(x)==m.end()){
+                m[x] = cur++;
+            }
+        }
+        vector<int> ar(cur+1, 0);
+        SegmentTree seg(ar);
+        seg.build(0, 0, cur);
+        vector<int> ans;
+        for(int x:obstacles){
+            int y = m[x];
+            int val = seg.query(0, 0, cur, 0, y);
+            ans.push_back(val+1);
+            seg.update(0, 0, cur, y, y, val+1);
+        }
+        return ans;
+    }
+};

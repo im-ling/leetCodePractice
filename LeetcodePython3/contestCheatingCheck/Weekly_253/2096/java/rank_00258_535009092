@@ -1,0 +1,31 @@
+class Solution {
+    public int binarySearch(int[] arr, int tar) {
+        int low = 0;
+        int high = arr.length-1;
+        int ans = -1;
+        while(low <= high) {
+            int mid = (low+high)/2;
+            if(arr[mid] <= tar) {
+                ans = mid;
+                low = mid+1;
+            } else {
+                high = mid-1;
+            }
+        }
+        return ans;
+    }
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] dp = new int[n+1];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        dp[0] = 0;
+        int[] res = new int[n];
+        for(int i = 0; i < n; i++) {
+            int x = obstacles[i];
+            int temp = binarySearch(dp, x);
+            dp[temp+1] = Math.min(dp[temp+1], x);
+            res[i] = temp+1;
+        }
+        return res;
+    }
+}

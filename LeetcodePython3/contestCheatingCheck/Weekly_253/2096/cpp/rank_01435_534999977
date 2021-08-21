@@ -1,0 +1,16 @@
+#define inf 100000000
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n=a.size();
+        vector<int> dp(n+1,inf);
+        dp[0]=-1;
+        vector<int> ans(n);
+        for(int i=0;i<n;i++){
+            int id=upper_bound(dp.begin(),dp.end(),a[i])-dp.begin()-1;
+            ans[i]=id+1;
+            dp[ans[i]]=min(dp[ans[i]],a[i]);
+        }
+        return ans;
+    }
+};

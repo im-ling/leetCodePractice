@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<pair<int, int>> arr;
+        for (int i = 0; i < obstacles.size(); ++i) {
+            arr.push_back({obstacles[i], i});
+        }
+        sort(arr.begin(), arr.end());
+        vector<int> res = vector<int>(obstacles.size());
+        vector<int> tmp;
+        for (int i = 0; i < arr.size(); ++i) {
+            if (tmp.empty() || tmp.back() < arr[i].second) {
+                tmp.push_back(arr[i].second);
+                res[arr[i].second] = tmp.size();
+            } else {
+                auto it = lower_bound(tmp.begin(), tmp.end(), arr[i].second);
+                *it = arr[i].second;
+                res[arr[i].second] = it - tmp.begin() +1;
+            }
+            // for (int j = 0; j < tmp.size(); ++j)
+            //     printf("%d ", tmp[j]);
+            // puts("");
+            // res[arr[i].second] = tmp.size();
+        }
+        return res;
+    }
+};

@@ -1,0 +1,37 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] ob) {
+         int T[] = new int[ob.length];
+         int[] res = new int[ob.length];
+         int len=0;
+         T[0]=0;
+         res[0]=1;
+         for(int i=1;i<ob.length;i++){
+           if(ob[T[0]]>ob[i]){
+               res[i] = 1;
+               T[0] = i;
+           }else if(ob[T[len]]<=ob[i]){
+               len++;
+               res[i] = len+1;
+               T[len] = i;
+           }else{
+               int idx = findCeil(ob,T,len,ob[i]);
+               res[i] = idx+1;
+               T[idx] = i;
+           }
+         }
+         return res;
+    }
+    
+    private int findCeil(int ob[], int T[], int end, int e){
+        int start=0;
+        while(start<=end){
+            int middle = start + (end-start)/2;
+            if(ob[T[middle]]<=e){
+                start = middle+1;
+            }else{
+                end = middle-1;
+            }
+        }
+        return start;
+    }
+}

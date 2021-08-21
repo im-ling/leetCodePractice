@@ -1,0 +1,187 @@
+#include <vector>
+#include <complex>
+#include <unordered_map>
+#include <unordered_set>
+#include <iostream>
+#include <random>
+#include <queue>
+#include <algorithm>
+#include <climits>
+#include <map>
+#include <set>
+#include <stack>
+#include <sstream>
+#include <cstring>
+#include <bitset>
+#include <deque>
+
+using namespace std;
+
+typedef long long ll;
+typedef long double ld;
+typedef complex<ld> cd;
+
+typedef pair<int, int> pi;
+typedef pair<ll, ll> pl;
+typedef pair<ld, ld> pd;
+
+typedef vector<ld> vd;
+typedef vector<pi> vpi;
+typedef vector<pl> vpl;
+typedef vector<pd> vpd;
+typedef vector<cd> vcd;
+typedef vector<string> vs;
+
+#define FOR(i, a, b) for (int i = a; i < b; i++)
+#define F0R(i, a) for (int i = 0; i < (a); i++)
+#define FORd(i, a, b) for (int i = b; i > a; i--)
+#define F0Rd(i, a) for (int i = a; i > -1; i--)
+
+#define sz(x) (int)(x).size()
+#define mp make_pair
+#define pb push_back
+#define pob pop_back
+#define f first
+#define s second
+#define lb lower_bound
+#define ub upper_bound
+#define all(x) x.begin(), x.end()
+#define ins insert
+#define que queue
+#define pa pair
+#define ex(m, i) m.find(i) != m.end()
+#define nex(m, i) m.find(i) == m.end()
+
+typedef vector<int> vi1;
+typedef vector<vector<int>> vi2;
+typedef vector<vector<vector<int>>> vi3;
+typedef vector<vector<vector<vector<int>>>> vi4;
+typedef vector<vector<vector<vector<vector<int>>>>> vi5;
+
+typedef vector<ll> vl1;
+typedef vector<vector<ll>> vl2;
+typedef vector<vector<vector<ll>>> vl3;
+typedef vector<vector<vector<vector<ll>>>> vl4;
+typedef vector<vector<vector<vector<vector<ll>>>>> vl5;
+
+#define uniq(x) x.resize(unique(all(x)) - x.begin())
+
+// mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+const int MOD = 1000000007;
+const ll INF = 1e18;
+const int inf = 1e9;
+const int MX = 100001; //check the limits, dummy
+const double epsilon = 1e-12;
+const int ds[4][2] = {
+    {-1, 0},
+    {1, 0},
+    {0, -1},
+    {0, 1}};
+
+const int dds[8][2] = {
+    {-1, 0},
+    {1, 0},
+    {0, -1},
+    {0, 1},
+    {-1, 1},
+    {-1, -1},
+    {1, -1},
+    {1, 1},
+};
+
+const int ks[8][2] = {
+    {2, 1},
+    {2, -1},
+    {-2, 1},
+    {-2, -1},
+    {1, 2},
+    {1, -2},
+    {-1, 2},
+    {-1, -2}};
+
+#define LOCAL
+#define sim template <class c
+#define ris return *this
+#define dor > debug &operator<<
+#define eni(x)                                                                    \
+    sim > typename enable_if<sizeof dud<c>(0) x 1, debug &>::type operator<<(c i) \
+    {
+sim > struct rge
+{
+    c b, e;
+};
+sim > rge<c> range(c i, c j) { return rge<c>{i, j}; }
+sim > auto dud(c *x) -> decltype(cerr << *x, 0);
+sim > char dud(...);
+struct debug
+{
+#ifdef LOCAL
+    ~debug()
+    {
+        cerr << endl;
+    }
+    eni(!=) cerr << boolalpha << i;
+    ris;
+} eni(==) ris << range(begin(i), end(i));
+}
+sim, class b dor(pair<b, c> d)
+{
+    ris << "(" << d.first << ", " << d.second << ")";
+}
+sim dor(rge<c> d)
+{
+    *this << "[";
+    for (auto it = d.b; it != d.e; ++it)
+        *this << ", " + 2 * (it == d.b) << *it;
+    ris << "]";
+}
+#else
+    sim dor(const c &)
+    {
+        ris;
+    }
+#endif
+}
+;
+#define imie(...) " [" << #__VA_ARGS__ ": " << (__VA_ARGS__) << "] "
+// debug & operator << (debug & dd, P p) { dd << "(" << p.x << ", " << p.y << ")"; return dd; }
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        
+        int n = sz(obs);
+        map<int,int> cmap;
+
+        vi1 ret(n,0);
+
+        set<int> lcs;
+
+        for(int i = 0; i < n; i++){
+            auto it = lcs.upper_bound(obs[i]);
+            if(it == lcs.begin()){
+                cmap[obs[i]] = 1;
+                ret[i] = 1;
+                lcs.ins(it,obs[i]);
+            }
+            else{
+                --it;
+                cmap[obs[i]] = max(cmap[obs[i]], cmap[*it] + 1);
+                ++it;
+                while(it != lcs.end() && cmap[(*it)] <= cmap[obs[i]]){
+                    // auto it2 = it;
+                    // ++it2;
+                    it = lcs.erase(it);
+                    // it 
+                }
+                lcs.insert(it,obs[i]);
+                ret[i] = cmap[obs[i]];
+            }
+            
+        }
+
+        return ret;
+
+    }
+};

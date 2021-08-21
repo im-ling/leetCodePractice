@@ -1,0 +1,39 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        //monotonic stack
+        //nums[length]: min number when longest length = length
+        // if obstacles[i] >= nums[length], add to nums[length+1]
+        // else insert in fron of smallestGreater than obstacles[i]
+        int[] nums = new int[obstacles.length + 1];
+        nums[1] = obstacles[0];
+        int[] result = new int[obstacles.length];
+        result[0] = 1;
+        int longest = 1;
+        for (int i = 1; i < obstacles.length; i++) {
+            if (obstacles[i] >= nums[longest]) {
+                nums[++longest] = obstacles[i];
+                result[i] = longest;
+            } else {
+                int index = smallestGreater(nums, 1, longest, obstacles[i]);
+                nums[index] = obstacles[i];
+                result[i] = index;
+            }
+        }
+        return result;        
+    }
+    private int smallestGreater(int[] array, int left, int right, int target) {
+        while (left < right - 1) {
+            int mid = left + (right - left) / 2;
+            if (array[mid] <= target) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        if (array[left] > target) {
+            return left;
+        } else {
+            return right;
+        }
+    }
+}

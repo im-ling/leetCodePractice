@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> endvals;
+        vector<int> ans(obstacles.size());
+        endvals.push_back(obstacles[0]);
+        ans[0] = 1;
+        for (int i = 1; i < obstacles.size(); ++i){
+            auto it = upper_bound(endvals.begin(), endvals.end(), obstacles[i]);
+            if (it == endvals.end()){
+                endvals.push_back(obstacles[i]);
+                ans[i] = endvals.size();
+            }
+            else{
+                *it = obstacles[i];
+                ans[i] = (int)(it - endvals.begin()) + 1;
+            }
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,21 @@
+using vi = vector<int>;
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vi s;
+        vi ret;
+        int len = obstacles.size();
+        for (int i = 0; i < len; ++i) {
+            auto it = upper_bound(s.begin(), s.end(), obstacles[i]);
+            if (it == s.end()) {
+                s.push_back(obstacles[i]);
+                ret.push_back(s.size());
+            } else {
+                *it = obstacles[i];
+                ret.push_back(std::distance(s.begin(), it) + 1);
+            }
+        }
+        
+        return ret;
+    }
+};

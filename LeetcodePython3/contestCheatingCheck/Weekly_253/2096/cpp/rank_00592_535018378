@@ -1,0 +1,55 @@
+// BEGIN SUBMIT
+
+#ifdef JONATHAN
+#include "_testing.h"
+#else
+#define debug(x...)
+#endif
+
+#define ll long long
+#define ull unsigned long long
+
+#define pll pair<ll, ll>
+#define pull pair<ull, ull>
+#define pint pair<int, int>
+
+#define vint vector<int>
+#define vll vector<ll>
+#define vull vector<ull> 
+
+const int RANGE = 1e9+7;
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        // int n = obstacles.size();
+        // deque<int> st;
+        // vector<int> res(n, 0);
+        // for (int i = 0; i < n; i++) {
+        //     int x = obstacles[i];
+        //     while (st.size() && st.back() > x) {
+        //         st.pop_back();
+        //     }
+        //     st.push_back(x);
+        //     res[i] = st.size();
+        // }
+        int n = obstacles.size();
+        debug(obstacles);
+        vector<int> dp;
+        vector<int> res(n, 0);
+        for (int i = 0; i < n; i++) {
+            int x = obstacles[i];
+            auto it = upper_bound(dp.begin(), dp.end(), x);
+            if (it == dp.end()) {
+                dp.push_back(x);
+                res[i] = dp.size();
+            } else if (x <= *it) {
+                debug(*it);
+                *it = x;
+                res[i] = distance(dp.begin(), it)+1;
+            }
+            debug(dp, x);
+        }
+        return res;
+    }
+};

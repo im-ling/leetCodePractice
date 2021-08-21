@@ -1,0 +1,30 @@
+class Solution(object):
+    def longestObstacleCourseAtEachPosition(self, obstacles):
+        """
+        :type obstacles: List[int]
+        :rtype: List[int]
+        """
+        a = obstacles
+        n = len(a)
+        s = sorted(set(a))
+        d = {v:i for i,v in enumerate(s)}
+        m = len(s)+1
+        a = [d[i] for i in a]
+        ans = [0] * n
+        fen = [0] * (m+1)
+        def _get(i):
+            r = 0
+            while i:
+                r = max(r, fen[i])
+                i -= i & -i
+            return r
+        def _upd(i, v):
+            i += 1
+            while i <= m:
+                fen[i] = max(fen[i], v)
+                i += i & -i
+        for i in xrange(n):
+            v = _get(a[i]+1) + 1
+            _upd(a[i], v)
+            ans[i] = v
+        return ans

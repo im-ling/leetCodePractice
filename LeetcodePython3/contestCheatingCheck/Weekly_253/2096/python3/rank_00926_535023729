@@ -1,0 +1,15 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        from sortedcontainers import SortedList
+        sl = []
+        ans = []
+        for i, ob in enumerate(obstacles):
+            if not sl or ob >= sl[-1]:
+                sl.append(ob)
+                ans.append(len(sl))
+            else:
+                pos = bisect_right(sl, ob)
+                ans.append(pos+1)
+                sl[pos] = ob
+            
+        return ans

@@ -1,0 +1,39 @@
+const int N = (int)1e5 + 5;
+int tree[4 * N];
+void upd(int pos, int val, int node, int st, int en) {
+    if (st == en) {
+        tree[node] = val;
+        return;
+    }
+    int m = (st + en) >> 1;
+    if (pos <= m) upd(pos, val, 2*node+1, st, m);
+    else upd(pos, val, 2*node+2, m+1, en);
+    tree[node] = max(tree[2*node+1], tree[2*node+2]);
+}
+int qry(int l, int r, int node, int st, int en) {
+    if (st > r || en < l) return 0;
+    if (st >= l && en <= r) return tree[node];
+    int m = (st + en) >> 1;
+    return max(qry(l, r, 2*node+1, st, m), qry(l, r, 2*node+2, m+1, en));
+}
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        for (int i=0;i<=4*n;++i) tree[i] = 0;
+        vector<pair<int, int>> dist;
+        for (int i=0;i<n;++i) dist.push_back({obstacles[i], i});
+        sort(dist.begin(), dist.end());
+        vector<int> ans(n, 0);
+        for (auto &p : dist) {
+            int pos = p.second, v = p.first;
+            ans[pos] = 1;
+            if (pos > 0) {
+                ans[pos] += qry(0, pos-1, 0, 0, n-1);
+            }
+            upd(pos, ans[pos], 0, 0, n-1);
+        }
+        return ans;
+    }
+};

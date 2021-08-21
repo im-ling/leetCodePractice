@@ -1,0 +1,35 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        def findFirstLarger(prefix, target):
+            left = 0
+            right = len(prefix) - 1
+            while left + 1 < right:
+                mid = (left + right) // 2
+                if prefix[mid] <= target:
+                    left = mid
+                else:
+                    right = mid
+                    
+            if prefix[left] > target:
+                return left
+            
+            return right
+                
+        
+        prefix = []
+        rst = []
+        for obstacle in obstacles:
+            if len(prefix) == 0:
+                prefix.append(obstacle)
+                rst.append(1)
+            elif prefix[-1] <= obstacle:
+                prefix.append(obstacle)
+                rst.append(len(prefix))
+            else:
+                index = findFirstLarger(prefix, obstacle)
+                prefix[index] = obstacle
+                rst.append(index + 1)
+                
+        return rst
+            
+    

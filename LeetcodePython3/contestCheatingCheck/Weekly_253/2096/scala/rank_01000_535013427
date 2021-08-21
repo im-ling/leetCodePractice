@@ -1,0 +1,31 @@
+object Solution {
+  class BIT(len: Int) {
+    val bit = Array.fill(len)(0)
+
+    def update(pos: Int, value: Int): Unit = {
+      if (pos < len) {
+        bit(pos) = bit(pos) max value
+        update(pos | (pos + 1), value)
+      }
+    }
+
+    def query(pos: Int): Int = {
+      def run(pos: Int, result: Int): Int = {
+        if (pos < 0) result
+        else run((pos & (pos + 1)) - 1, result max bit(pos))
+      }
+      run(pos, 0)
+    }
+  }
+  def longestObstacleCourseAtEachPosition(obstacles: Array[Int]): Array[Int] = {
+    val res = Array.fill(obstacles.length)(0)
+    val tree = new BIT(obstacles.max + 1)
+    for (i <- obstacles.indices) {
+        // println(i, obstacles(i), tree.bit.toSeq)
+      val cur = 1 + tree.query(obstacles(i))
+      res(i) = cur
+      tree.update(obstacles(i), cur)
+    }
+    res
+  }
+}

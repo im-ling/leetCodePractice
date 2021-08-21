@@ -1,0 +1,25 @@
+import java.util.Map.Entry;
+import java.util.TreeMap;
+
+class Solution {
+	public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+		int[] ret = new int[obstacles.length];
+		TreeMap<Integer, Integer> mp = new TreeMap<Integer, Integer>();
+		for (int i = 0; i < obstacles.length; i++) {
+			int k = obstacles[i];
+			Entry<Integer, Integer> e = mp.floorEntry(k);
+			int v = 1;
+			if (e != null)
+				v = e.getValue() + 1;
+			for (e = mp.ceilingEntry(k + 1); e != null;e = mp.ceilingEntry(k + 1))
+				if (e.getValue() <= v)
+					mp.remove(e.getKey());
+				else
+					break;
+			mp.put(k, v);
+			ret[i] = v;
+		}
+		return ret;
+
+	}
+}

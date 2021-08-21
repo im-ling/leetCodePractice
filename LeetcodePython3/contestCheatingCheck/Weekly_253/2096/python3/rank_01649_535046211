@@ -1,0 +1,29 @@
+class Solution:
+    clen = 0
+    
+    def find(self, lis: List[int], obstacle: int) -> int:
+        l = 0
+        r = self.clen
+        while l < r:
+            m = (l + r) >> 1
+            if lis[m] > obstacle:
+                r = m
+            else:
+                l = m + 1
+        return l
+
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        lis = [0] * (len(obstacles) + 1)
+        lis[1] = obstacles[0]
+        self.clen = 1
+        ans = [1]
+        for i in range(1, len(obstacles)):
+            if obstacles[i] >= lis[self.clen]:
+                self.clen += 1
+                lis[self.clen] = obstacles[i]
+                ans.append(self.clen)
+            else:
+                pos = self.find(lis, obstacles[i])
+                lis[pos] = obstacles[i]
+                ans.append(pos)
+        return ans

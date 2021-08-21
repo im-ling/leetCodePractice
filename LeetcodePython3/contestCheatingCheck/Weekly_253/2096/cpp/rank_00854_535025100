@@ -1,0 +1,52 @@
+class Solution {
+public:
+    
+    int n,pref[100005],suff[100005],bit[1000005];
+    void upd(int ind,int v){
+        while(ind<=n){
+            bit[ind]=max(bit[ind],v);
+            ind +=(ind & (-ind));
+        }
+    }
+    
+    int query(int ind){
+        int s=0;
+        while(ind>0){
+            s=max(s,bit[ind]);
+            ind-= (ind & (-ind));
+        }
+        return s;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        n=obstacles.size();
+        map<int,int> help;
+        
+        for(int i=1;i<=n;i++){
+            help[obstacles[i-1]]++;
+        }
+        
+        int c=1;
+        map<int,int>::iterator it;
+        for(it=help.begin();it!=help.end();it++){
+            it->second=c++;
+        }
+        
+        for(int i=1;i<=n;i++){
+            obstacles[i-1]=help[obstacles[i-1]];
+            int v=obstacles[i-1];
+            int x=query(v);
+            pref[i]=x+1;
+            upd(v,pref[i]);
+        }
+        
+       
+        
+        
+        
+        vector<int> sol;
+        for(int i=1;i<=n;i++){
+            sol.push_back(pref[i]);
+        }
+        return sol;
+    }
+};

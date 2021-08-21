@@ -1,0 +1,21 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, nums: List[int]) -> List[int]:
+        tails = [0] * len(nums)
+        size = 0
+        ans=[]
+        for x in nums:
+            i, j = 0, size
+            while i != j:
+                m = (i + j) // 2
+                if tails[m] <= x:
+                    i = m + 1
+                else:
+                    j = m
+            tails[i] = x
+            size = max(i + 1, size)
+            if size==i+1:
+                ans.append(size)
+            else:
+                ans.append(i+1)
+            # print (size)
+        return ans

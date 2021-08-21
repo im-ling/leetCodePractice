@@ -1,0 +1,47 @@
+struct RMQ_max {
+    static const int N = 1e7+1;
+    static const int inf = 1e9;
+    int a[N * 2];
+    RMQ_max() {
+        for(int i=0;i< N * 2;i++)
+            a[i] = 0;
+    }
+    void SetMax(int pos, int x) {  // fr(i,n) tre.SetMax(i,arr[i])
+        for (int i = pos + N; i; i >>= 1)
+            a[i] = max(a[i], x);
+    }
+    int GetMax(int L, int R) const // [L, R) i.e. L <= i < R
+    {
+        int res = 0;
+        for (L += N, R += N; L < R; L >>= 1, R >>= 1) {
+            if (L & 1) {
+                res = max(res, a[L]);
+                L++;
+            }
+            if (R & 1) {
+                R--;
+                res = max(res, a[R]);
+            }
+        }
+        return res;
+    }
+};
+
+
+class Solution {
+public:
+    Solution(){
+        ios_base::sync_with_stdio(0); 
+        cin.tie(0); cout.tie(0);
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& arr) {
+        RMQ_max treMax;
+        vector<int>ans;
+        for(int i=0;i<arr.size();i++){
+                int mn=treMax.GetMax(1,arr[i]+1);
+                ans.push_back(mn+1);
+                treMax.SetMax(arr[i],mn+1);
+        }
+        return ans;
+    }
+};

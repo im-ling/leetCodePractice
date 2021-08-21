@@ -1,0 +1,57 @@
+// class Solution {
+// public:
+//     vector<int> BIT;
+//     int n;
+    
+//     void add(int i,int x){
+//         i++;
+//         while(i<n){
+//             BIT[i]+=x;
+//             i+=i&(-i);
+//         }
+//     }
+    
+//     int sum(int i){
+//         int s=0;
+//         i++;
+//         while(i>0){
+//             s+=BIT[i];
+//             i-=i&(-i);
+//         }
+//         return s;
+//     }
+    
+//     vector<int> longestObstacleCourseAtEachPosition(vector<int>& v) {
+//         n=*max_element(v.begin(),v.end());
+//         BIT.resize(n+10);
+//         n+=10;
+//         int m=v.size();
+//         vector<int> ans(m);
+//         for(int i=0;i<m;i++){
+//             add(v[i],1);
+//             ans[i]=sum(v[i]);
+//         }
+//         return ans;
+//     }
+// };
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& v) {
+        int m=v.size();
+        vector<int> ans(m);
+        vector<int> temp;
+        for(int i=0;i<m;i++){
+            auto it=upper_bound(temp.begin(),temp.end(),v[i]);
+            if(it==temp.end()){
+                temp.push_back(v[i]);
+                ans[i]=temp.size();
+            }
+            else{
+                *it=v[i];
+                ans[i]=it-temp.begin()+1;
+            }
+        }
+        return ans;
+    }
+};

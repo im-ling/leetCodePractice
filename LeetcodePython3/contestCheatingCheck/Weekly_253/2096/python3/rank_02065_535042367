@@ -1,0 +1,20 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        n = len(obstacles)
+        tails = [0] * n
+        res = [1] * n
+        size = 0
+
+        for idx, num in enumerate(obstacles):
+            lo, hi = 0, size
+            while lo < hi:
+                mid = (lo + hi) // 2
+                if num < tails[mid]:
+                    hi = mid
+                else:
+                    lo = mid + 1
+            tails[lo] = num
+            size = max(lo + 1, size)
+            res[idx] = lo + 1
+
+        return res

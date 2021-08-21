@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        map<int, int> mqun; 
+        map<int, int>:: iterator it;
+        vector<int> ans;
+        for(int i = 0; i < obstacles.size(); i++){
+            int x = -obstacles[i];
+            it = mqun.lower_bound(x);
+            int D = 0;
+            if(it==mqun.end()){
+                D = 1;
+            }else{
+                D = (it->second) + 1;
+            }
+            ans.push_back(D);
+            while(true){
+                if((it->first)<=x && (it->second)<=D){
+                    mqun.erase(it->first);
+                }
+                if(it==mqun.begin()){
+                    break;
+                }
+                it--;
+            }
+            mqun[x] = D;
+        }
+        return ans;
+    }
+};

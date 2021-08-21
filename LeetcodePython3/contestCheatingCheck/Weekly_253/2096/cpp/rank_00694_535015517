@@ -1,0 +1,32 @@
+class Solution {
+public:
+    const int lim = 1e7+5;
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> res, v;
+        for(auto u: obstacles){
+            int lo = 0, hi = v.size()-1, fin=-1, mid;
+            if(v.empty()){
+                v.push_back(u);
+                res.push_back(1);
+                continue;
+            }
+            while(lo<=hi){
+                mid = (lo+hi)/2;
+                if(v[mid]>u){
+                    fin = mid;
+                    hi = mid-1;
+                }else{
+                    lo = mid+1;
+                }
+            }
+            if(fin==-1){
+                res.push_back(v.size() + 1);
+                v.push_back(u);
+            }else{
+                res.push_back(fin+1);
+                v[fin] = u;
+            }
+        }
+        return res;
+    }
+};

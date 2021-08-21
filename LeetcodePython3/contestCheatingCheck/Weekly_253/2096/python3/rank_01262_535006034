@@ -1,0 +1,15 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        return solve(obstacles)
+import bisect
+def solve(obs):
+    longest = [float('inf')] * len(obs)
+    res = []
+    for num in obs:
+        ind = bisect.bisect_right(longest, num)
+        res.append(ind+1)
+        if num < longest[ind]:
+            longest[ind] = num
+            
+    return res
+            

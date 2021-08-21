@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int pp(vector<int> &v,int ele){
+        int lo=0;
+        int hi=v.size()-1;
+        int ans=0;
+        while(lo<=hi){
+            int mi=(lo+hi)/2;
+            if(v[mi]<=ele){
+                ans=mi;
+                lo=mi+1;
+            }else hi=mi-1;
+        }
+        return ans;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        int n=ob.size();
+        if(n==0)return {};
+        vector<int> st,res(n,1);
+        st.push_back(ob[0]);
+        for(int i=1;i<n;i++){
+            int last=st.back();
+            if(ob[i]>=last){st.push_back(ob[i]);res[i]=st.size();}
+            else{
+                int d=upper_bound(st.begin(),st.end(),ob[i])-st.begin();
+                if(st[d]>ob[i])res[i]=d+1;
+                else res[i]=d+2;
+                st[d]=ob[i];
+                // for(int j=0;j<st.size();j++){
+                //     cout<<st[j]<<" ";
+                // }cout<<endl;
+            }
+        }
+        return res;
+    }
+};

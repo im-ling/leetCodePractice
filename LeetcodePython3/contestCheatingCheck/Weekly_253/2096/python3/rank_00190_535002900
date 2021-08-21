@@ -1,0 +1,12 @@
+from bisect import bisect, bisect_left
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, nums):
+        dp = [10**10] * (len(nums) + 1)
+        ans = []
+        for elem in nums:
+            ind = bisect(dp, elem)
+            ans += [ind + 1]
+            dp[ind] = elem  
+        return ans
+        

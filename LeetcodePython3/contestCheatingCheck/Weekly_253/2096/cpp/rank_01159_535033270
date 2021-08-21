@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int go(vector<int>& lis, int k, int x) {
+        int l = 0, r = k - 1;
+        if(k && lis[k - 1] <= x) return k;
+        while(l < r) {
+            int m = l + (r - l) / 2;
+            if(lis[m] > x) r = m;
+            else l = m + 1;
+        }
+        return l;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size(), k = 0;
+        vector<int> ans, lis;
+        for(auto x : obstacles) {
+            int res = go(lis, k, x);
+            if(res == k) {
+                k++;
+                lis.push_back(x);
+            } else {
+                lis[res] = x;
+            }
+            ans.push_back(res + 1);
+        }
+        return ans;
+    }
+};

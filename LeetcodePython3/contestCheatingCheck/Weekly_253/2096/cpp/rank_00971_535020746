@@ -1,0 +1,89 @@
+#define ll                    long long
+#define all(v)                v.begin(),v.end()
+#define frr(i,j,k)           for(ll i=j; i<k; i++)
+#define frp(i,j,k)           for(ll i=j; i>=k; i--)
+#define pb(a)                 push_back(a)
+#define lb(v,t)               lower_bound(all(v),t)-v.begin()
+#define ub(v,t)               upper_bound(all(v),t)-v.begin()
+#define inputarr(a,n)        for(int i=0;i<n;++i) cin>>a[i]
+#define printarr(a,n)        for(int i=0;i<n;++i) cout<<a[i]<<" "
+#define F first
+#define S  second
+class Solution {
+public:
+    ll power2GreaterThanEqual(ll n){
+    ll res=0;
+    frr(i,0,63){
+        ll p=1<<i;
+        if(p>=n) return p;
+    }
+    return 1<<res;
+}
+void construcSegTree(vector<int>&v,vector<ll>&seg,ll l,ll r,ll pos){
+    if(l==r){
+        seg[pos]=v[l];
+        return ;
+    }
+    ll mid=(l+r)/2;
+    construcSegTree(v,seg,l,mid,2*pos+1);
+    construcSegTree(v,seg,mid+1,r,2*pos+2);
+    seg[pos]=__gcd(seg[2*pos+1],seg[2*pos+2]);
+}
+ 
+ll rangequery(vector<ll>&seg,ll l,ll r,ll ql,ll qr,ll pos){
+    if(ql<=l && qr>=r) return seg[pos];
+    if(ql>r || qr<l) return 0;
+    ll mid=(l+r)/2;
+    return max(rangequery(seg,l,mid,ql,qr,2*pos+1),rangequery(seg,mid+1,r,ql,qr,2*pos+2));
+}
+void rangeupdate(vector<ll>&seg,ll l,ll r,ll idx,ll val,ll pos){
+    if(idx<l || idx>r) return ;
+    if(l==r){
+        seg[pos]=max(seg[pos],val);
+        return;
+    }
+    ll mid=(l+r)/2;
+    rangeupdate(seg,l,mid,idx,val,pos*2+1);
+    rangeupdate(seg,mid+1,r,idx,val,2*pos+2);
+    seg[pos]=max(seg[2*pos+1],seg[2*pos+2]);
+}
+    vector<ll>bit;
+    ll getsum(ll x){
+        x++;
+        ll sum=0;
+        while(x>0){
+            sum=max(sum,bit[x]);
+            x=x-(x&-x);
+        }
+        return sum;
+    }
+    void update(ll i,ll x){
+        i++;
+        while(i<bit.size()){
+            bit[i]=max(bit[i],x);
+            i+=(i&-i);
+        }
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& v) {
+        ll n=v.size();
+        bit.resize(n+1,0);
+        map<ll,ll>mp;
+        frr(i,0,n){
+            mp[v[i]];
+        }
+        ll time=0;
+        for(auto &c:mp){
+            c.S=time++;
+        }
+        frr(i,0,n){
+            v[i]=mp[v[i]];
+        }
+        vector<int>res(n);
+        frr(i,0,n){
+            ll mx=getsum(v[i]);
+            res[i]=mx+1;
+            update(v[i],mx+1);
+        }
+        return res;
+    }
+};

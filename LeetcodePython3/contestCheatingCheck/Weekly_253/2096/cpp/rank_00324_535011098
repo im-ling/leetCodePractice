@@ -1,0 +1,49 @@
+template <typename T>
+class max_prefix_array
+{
+    vector<T> values, data;
+public:
+    max_prefix_array(size_t n) : values(n), data(n) { }
+    size_t size() const { return values.size(); }
+    T get(size_t i) const { return values[i]; }
+    T maximum(size_t i) const
+    {
+        T ret = 0;
+        while (i > 0) {
+            ret = max(ret, data[i - 1]);
+            i &= (i - 1);
+        }
+        return ret;
+    }
+    T maximum() const { return maximum(size()); }
+    void update(size_t i, T value)
+    {
+        values[i] = value;
+        while (i < data.size()) {
+            data[i] = max(data[i], value);
+            i |= (i + 1);
+        }
+    }
+};
+
+class Solution
+{
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles)
+    {
+        set<int> s(obstacles.begin(), obstacles.end());
+        int i = 0;
+        unordered_map<int, int> m;
+        for (int o : s) m[o] = ++i;
+        vector<int> clone(obstacles.size());
+        for (int i = 0; i < obstacles.size(); i++)
+            clone[i] = m[obstacles[i]];
+        max_prefix_array<int> a(100'001);
+        vector<int> result(obstacles.size());
+        for (int i = 0; i < obstacles.size(); i++) {
+            a.update(clone[i], a.maximum(clone[i] + 1) + 1);
+            result[i] = a.maximum(clone[i] + 1);
+        }
+        return result;
+    }
+};

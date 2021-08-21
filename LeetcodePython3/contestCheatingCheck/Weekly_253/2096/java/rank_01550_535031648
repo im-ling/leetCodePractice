@@ -1,0 +1,30 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] nums) {
+        int n = nums.length;
+        int[] array = new int[n], res = new int[n];
+        int index = -1;
+        for (int i = 0; i < n; i++) {
+            if (index == -1 || array[index] <= nums[i]) {
+                array[++index] = nums[i];
+                res[i] = index + 1;
+            } else {
+                int largestSmall = findLargestSmall(array, nums[i], 0, index);
+                array[largestSmall + 1] = nums[i];
+                res[i] = largestSmall + 2;
+            }
+        }
+        return res;
+    }
+    
+    private int findLargestSmall(int[] array, int target, int left, int right) {
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (array[mid] > target) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return right;
+    }
+}

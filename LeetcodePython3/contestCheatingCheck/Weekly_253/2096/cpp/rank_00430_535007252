@@ -1,0 +1,54 @@
+#define ll int
+class Solution {
+public:
+    vector <ll> tree;
+    ll N; // n must be power of two
+
+    ll cal(ll a, ll b) { //0 indexed
+        a += N; b += N;
+        ll s = 0;
+        while (a <= b) {
+            if (a%2 == 1) s = max(s, tree[a++]);
+            if (b%2 == 0) s = max(s, tree[b--]);
+            a /= 2; b /= 2;
+        }
+
+        return s;
+    }
+
+    void add(ll k, ll x) { //0 indexed
+        k += N;
+        tree[k] = x;
+        for (k /= 2; k >= 1; k /= 2) {
+            tree[k] = max(tree[2*k],tree[2*k+1]);
+        }
+    }
+
+    void init(ll n){
+        N = 1;
+        while(N<n) N*=2;
+
+        tree.resize(N+N,0);
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        // dp[i] -> LIS ending here
+        int c = 1;
+        map<int, int> val;
+        vector<int> b = a;
+        sort(b.begin(), b.end());
+        
+        for(int i = 0; i < b.size(); i++){
+            if(val[b[i]] == 0) val[b[i]] = c++;
+        }
+        
+        init(c);
+        int n = a.size();
+        vector<int> dp(n, 0);
+        for(int i = 0; i < n; i++){
+            dp[i] = cal(0, val[a[i]]) + 1;
+            add(val[a[i]], dp[i]);
+        }
+        
+        return dp;
+    }
+};

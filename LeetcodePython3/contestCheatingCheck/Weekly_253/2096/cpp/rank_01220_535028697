@@ -1,0 +1,42 @@
+class Solution {
+public:
+    
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> norm = obstacles;
+        sort(norm.begin(), norm.end());
+        norm.erase(unique(norm.begin(), norm.end()), norm.end());
+        map<int,int> mp;
+        for(int k: obstacles) mp[k] = 1;
+        int j = 0;
+        for(auto& kv: mp) kv.second = ++j;
+        for(int& obs: obstacles) obs = mp[obs];
+    
+        
+        vector<int> bit(100010);
+        
+        auto find = [&](int x) {
+            int mx = 0 ;  
+            while(x > 0) {
+                mx = max(mx, bit[x]);
+                x -= x&-x;
+            }
+            return mx;
+        };
+        auto upd = [&](int x, int v) {
+            while(x <= 100000) {
+                bit[x] = max(bit[x], v);
+                x += x&-x;
+            }
+        };
+        
+        vector<int> res;
+        for(int obs: obstacles) {
+            int len = find(obs) + 1;
+            res.push_back(len);
+            upd(obs, len);
+        }
+        
+        return res;
+    }
+};

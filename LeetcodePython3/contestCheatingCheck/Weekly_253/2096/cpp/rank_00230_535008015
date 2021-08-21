@@ -1,0 +1,50 @@
+class Solution {
+public:
+    
+    vector<int> t;
+    int n;
+
+    void init (int nn)
+    {
+        n = nn;
+        t.assign (n, 0);
+    }
+
+    int getmax (int r)
+    {
+        int result = 0;
+        for (; r >= 0; r = (r & (r+1)) - 1)
+            result = max (result, t[r]);
+        return result;
+    }
+
+    void update (int i, int new_val)
+    {
+        for (; i < n; i = (i | (i+1)))
+            t[i] = max (t[i], new_val);
+    }
+
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        
+        int mx = 0;
+        for (auto u : obs) {
+            mx = max(mx, u);
+        }
+        
+        init(mx);
+        int m = obs.size();
+        vector < int > d(m);
+        d[0] = 1;
+        update(obs[0] - 1, 1);
+        
+        for (int i = 1; i < m; i++) {
+            int x = getmax(obs[i] - 1);
+            d[i] = x + 1;
+            update(obs[i] - 1, d[i]);
+        }
+        
+        return d;
+        
+    }
+};

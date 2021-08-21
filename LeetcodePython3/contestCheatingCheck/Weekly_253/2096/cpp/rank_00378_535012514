@@ -1,0 +1,47 @@
+class Solution {
+public:
+    int n;
+    int tr[400010];
+    void update(int s,int e,int i,int indx,int val)
+    {
+        if(s>indx || e<indx)return;
+        if(s==e)
+        {
+            tr[i]=val;return;
+        }
+        int mid=s+(e-s)/2;
+        update(s,mid,2*i,indx,val);
+        update(mid+1,e,2*i+1,indx,val);
+        tr[i]=max(tr[2*i],tr[2*i+1]);
+    }
+    int qu(int s,int e,int i,int qs,int qe)
+    {
+        if(s>qe || e<qs)return 0;
+        if(qs<=s && e<=qe)
+        {
+            return tr[i];
+        }
+        int mid=s+(e-s)/2;
+        int lf=qu(s,mid,2*i,qs,qe),rt=qu(mid+1,e,2*i+1,qs,qe);
+        return max(lf,rt);
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& v) {
+        n=v.size();
+        vector<pair<int,int>>a(n);
+        for(int i=0;i<n;i++)a[i]={v[i],i};
+        sort(a.begin(),a.end());
+        vector<int>ans(n);
+        for(int i=0;i<n;i++)
+        {
+            int val;
+            if(a[i].second==0)val=0;
+            else
+                val=qu(0,n-1,1,0,a[i].second-1);
+            // cout<<val<<" "<<a[i].second<<endl;;
+            ans[a[i].second]=val+1;
+            update(0,n-1,1,a[i].second,ans[a[i].second]);
+        }
+        // cout<<endl;
+        return ans;
+    }
+};

@@ -1,0 +1,17 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, nums: List[int]) -> List[int]:
+        res = [1]*len(nums)
+        sub = []
+        for j in range(len(nums)):
+            i = bisect_right(sub, nums[j])
+
+            # If num is greater than any element in sub
+            if i == len(sub):
+                sub.append(nums[j])
+                res[j] = len(sub)
+            # Otherwise, replace the first element in sub greater than or equal to num
+            else:
+                sub[i] = nums[j]
+                res[j]=i+1
+            #print(sub)
+        return res

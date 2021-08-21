@@ -1,0 +1,46 @@
+// int sz = 16777216;
+// int seg[33554432];
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& A) {
+        int i, j, n = A.size(), pos;
+        vector<int> ans(n);
+        map<int, int> M;
+        
+        for(i = 0; i < n; i++){
+            M[A[i]] = 1;
+        }
+        i = 0;
+        for(auto &it: M){
+            M[it.first] = i++;
+        }
+        int N = i;
+        int l2 = ceil(log2(N));
+        int sz = pow(2, l2);
+        vector<int> seg(2 * sz);
+        
+        auto update = [&](int k, int u) {
+            k += sz;
+            while (k) {
+                seg[k] = max(seg[k], u);
+                k >>= 1;
+            }
+        };
+        auto query = [&](int l, int r) {
+            l += sz, r += sz;
+            int ans = 0;
+            while (l <= r) {
+                ans = max({ans, ((l & 1) ? seg[l++] : 0), ((r & 1) == 0 ? seg[r--] : 0)});
+                l >>= 1, r >>= 1;
+            }
+            return ans;
+        };
+        
+        for(i = 0; i < n; i++){
+            pos = M[A[i]];
+            ans[i] = query(0, pos) + 1;
+            update(pos, ans[i]);
+        }
+        return ans;
+    }
+};

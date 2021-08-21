@@ -1,0 +1,26 @@
+class Solution(object):
+    def longestObstacleCourseAtEachPosition(self, obstacles):
+        """
+        :type obstacles: List[int]
+        :rtype: List[int]
+        """
+        bisearch=[obstacles[0]]
+        n=len(obstacles)
+        res=[0]*n
+        res[0]=1
+        count=0
+        for i in range(1,n):
+            if obstacles[i]>=bisearch[-1]:
+                bisearch.append(obstacles[i])
+                res[i]=len(bisearch)
+            #find smallest j st bisearch[j]>obstacles[i]
+            left,right=0,len(bisearch)-1
+            while left<right:
+                mid=(left+right)/2
+                if bisearch[mid]>obstacles[i]:
+                    right=mid
+                else:
+                    left=mid+1
+            bisearch[left]=obstacles[i]
+            res[i]=left+1
+        return res

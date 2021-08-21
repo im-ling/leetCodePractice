@@ -1,0 +1,43 @@
+const int N = 1e5 + 5;  // limit for array size
+class Solution {
+public:
+    // Segment tree code: https://codeforces.com/blog/entry/18051
+    int t[2 * N];
+
+        int n;
+        void build() {  // build the tree
+          for (int i = n - 1; i > 0; --i) t[i] = max(t[i<<1], t[i<<1|1]);
+        }
+
+        void modify(int p, int value) {  // set value at position p
+          for (t[p += n] = value; p > 1; p >>= 1) t[p>>1] = max(t[p], t[p^1]);
+        }
+
+        int query(int l, int r) {  // sum on interval [l, r)
+          int res = 0;
+          for (l += n, r += n; l < r; l >>= 1, r >>= 1) {
+            if (l&1) res = max(res, t[l++]);
+            if (r&1) res = max(res, t[--r]);
+          }
+          return res;
+        }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        n = obstacles.size();
+        for (int i = 0; i < 2 * N; ++i) t[i] = 0;
+         build();
+        vector<int> ans(n, 0);
+        vector<pair<int, int>> process;
+        for (int i = 0; i < obstacles.size(); ++i) process.push_back({obstacles[i], i});
+        sort(process.begin(), process.end());
+        for (auto it : process) {
+            int val = it.first;
+            int idx = it.second;
+            if (idx == 0) ans[idx] = 1;
+            else ans[idx] = 1 + query(0, idx);
+            modify(idx, ans[idx]);
+            
+        }
+        return ans;
+    }
+};

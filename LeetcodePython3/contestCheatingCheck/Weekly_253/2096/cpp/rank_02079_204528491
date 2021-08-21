@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> dp(n,1);
+        vector<int> end;
+        end.push_back(obstacles[0]);
+        unordered_map<int,int>mp;
+        
+        for(int i = 1; i < n; ++i){
+            auto it = upper_bound(end.begin(),end.end(), obstacles[i]);
+            if(it == end.end()){
+                end.push_back(obstacles[i]);
+                dp[i] = end.size();
+            }
+            else{
+                int l = it - end.begin();            
+                dp[i] = l + 1;
+                end[l] = obstacles[i];
+            }
+            
+            //mp[obstacles[i]] = max(mp[opstaacles[i]], dp[i]);
+        }
+        
+        return dp;
+
+    }
+};

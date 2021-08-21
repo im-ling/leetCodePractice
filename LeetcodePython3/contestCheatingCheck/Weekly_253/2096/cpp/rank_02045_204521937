@@ -1,0 +1,104 @@
+namespace luoyu {
+    using namespace std;
+//#pragma GCC optimize("Ofast")   
+#define PB push_back
+#define EB emplace_back
+#define fi first
+#define se second
+#define MP make_pair
+#define LB lower_bound
+#define UB upper_bound
+#define CE cout << endl
+#define FOR(i,a,b) for(int i=(a),_i=(b);i<_i;++i)
+#define FFOR(i,a,b) for(int i=(a),_ii=(b);i<=_ii;++i)
+#define EOR(j,a,b) for(int j=(a),_I=(b);j>_I;--j)
+#define EEOR(j,a,b) for(int j=(a),_II=(b);j>=_II;--j)
+#define ALL(x) x.begin(), x.end()
+#define SZ(a) ((int)a.size())
+#define PQ priority_queue
+    typedef vector<int> VI;
+    typedef vector<vector<int>> VVI;
+    typedef pair<int, int> pii;
+    typedef long long ll;
+    typedef unsigned long long ull;
+    typedef double db;
+    const double pi = acos(-1.0);
+    const int MOD = 1e9 + 7;
+    int dx[4] = { 1, 0, -1, 0 };
+    int dy[4] = { 0, 1, 0, -1 };
+
+    //__gcd(int a, int b);
+    //lower_bound(x.begin(), x.end(), value);
+    //iota(x.begin(),x.end(),val); val,val+1,val+2....
+    //fill(x.begin(),x.end(),val); val,val,val....
+    //accumulate(x.begin(), x.end(), start_val);
+    //next_permutation(x.begin(), x.end());
+    //prev(iterator[,n]);将迭代器往后移n个单位，第二个为默认参数=1，返回一个迭代器所在新位置，同理有next(it [,n])
+    //nth_element(first，kth，end);  把第k个元素放在正确的位置上，前面的数比它小，后面的数比它大
+    //void itoa(int val, char *buffer, int radix);    把整数转为radix进制字符串
+    //int atoi(char *buffer);  把字符串转为整数
+    template<class T>
+    void PRINT(T x) {
+        for (auto p = x.begin(); p != x.end(); p++)
+            cout << *p << " ";
+        cout << endl;
+    }
+#define PRINT_2(x)                            \
+        for (int i = 0, n = x.size(); i < n; i++) \
+        {                                         \
+            PRINT(x[i]);                          \
+        }
+    /*template <typename T> inline void read(T& x)
+    {
+        x = 0; char ch = getchar(); ll f = 1;
+        while (!isdigit(ch)) { if (ch == '-')f = -1; ch = getchar(); }
+        while (isdigit(ch)) { x = (x << 3) + (x << 1) + (ch ^ 48); ch = getchar(); }x *= f;
+    }*/
+    void quick_read(){
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
+    }
+}//namespace luoyu
+
+using namespace luoyu;
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        // stack<int> s;
+        // const int n = SZ(obs);
+        // VI res(n);
+        // FOR (i, 0, n){
+        //     while (!s.empty() && s.top() > obs[i]) s.pop();
+        //     s.push(obs[i]);
+        //     res[i] = SZ(s);
+        // }
+        // return res;
+        
+        
+        // const int n = SZ(obs);
+        // VI res(n);
+        // VI s(n);
+        // FOR (i, 0, n){
+        //     int ins = s.
+        //     s[ins] = obs[i];
+        //     res[i] = ins + 1;
+        // }
+        // return res;
+        
+        const int n = SZ(obs);
+        VI res(n);
+        VI s(n);
+        int lst = 0;
+        FOR (i, 0, n){
+            int ins = lst;
+            while (ins - 1 >= 0 && s[ins - 1] > obs[i]) ins --;
+            
+            s[ins] = obs[i];
+            if (lst == ins) lst ++;
+            // for (int i = 0; i < lst; i++) cout << s[i] << " ";CE;
+            res[i] = ins + 1;
+        }
+        return res;
+    }
+};

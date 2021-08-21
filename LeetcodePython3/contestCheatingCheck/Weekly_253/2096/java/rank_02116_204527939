@@ -1,0 +1,40 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int length = obstacles.length;
+        int k = 0;
+        int[] lis = new int[length + 1];
+        int[] dp = new int[length];
+        for (int i = 0; i < obstacles.length; i++) {
+            int len = search(lis, k, obstacles[i]);
+            if (len == -1) {
+                dp[i] = 1;
+            } else {
+                dp[i] = len + 1;
+            }
+            if (dp[i] > k) {
+                k = dp[i];
+                lis[dp[i]] = obstacles[i];
+            } else if (lis[dp[i]] > obstacles[i]) {
+                lis[dp[i]] = obstacles[i];
+            }
+        }
+        return dp;
+    }
+    
+    private int search(int[] nums, int k, int target) {
+        int l = 1, r = k;
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            if (nums[mid] <= target) {
+                if (mid == k || nums[mid + 1] > target) {
+                    return mid;
+                } else {
+                    l = mid + 1;
+                }
+            } else {
+                r = mid - 1;
+            }
+        }
+        return -1;
+    }
+}

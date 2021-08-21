@@ -1,0 +1,44 @@
+class BIT:
+    def __init__(self, n):
+        self.n = n
+        self.tree = [0] * (n + 1)
+    
+    def getMax(self, i):
+        
+        i += 1
+        ans = 0
+        
+        while i > 0:
+            ans = max(ans, self.tree[i])
+            i -= ( i & -i)
+        
+        return ans
+    
+    def add(self, i, val):
+        
+        i += 1
+        
+        while i <= self.n:
+            self.tree[i] = max(self.tree[i], val)
+            i += (i & -i)
+    
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, A: List[int]) -> List[int]:
+        
+        n = len(A)
+        
+        rank = {x : i for i, x in enumerate(sorted(A))}
+        
+        tree = BIT(n)
+        
+        ans = []
+        
+        for num in A:
+            prev = tree.getMax(rank[num])
+            ans.append(prev + 1)
+            tree.add(rank[num], prev + 1)
+        
+        return ans
+        
+                    

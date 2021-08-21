@@ -1,0 +1,34 @@
+class Solution {
+private:
+    int n, m;
+    vector<int> c;
+    
+    void update(int k, int v) {
+        for (int i = k; i <= m; i += i & -i) c[i] = max(c[i], v);
+    }
+    
+    int accum(int k) {
+        int s = 0;
+        for (int i = k; i > 0; i -= i & -i) s = max(s, c[i]);
+        return s;
+    }
+
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        n = obs.size();
+        m = 0;
+        for (auto h : obs) {
+            m = max(m, h);
+        }
+        c.resize(m + 1, 0);
+        // std::cout << m << endl;
+        vector<int> ans;
+        for (auto h : obs) {
+            int l = accum(h) + 1;
+            // std::cout << l << endl;
+            update(h, l);
+            ans.push_back(l);
+        }
+        return ans;
+    }
+};

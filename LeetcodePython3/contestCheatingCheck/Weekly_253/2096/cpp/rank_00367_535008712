@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int find(vector<int> & v, int x) {
+        int l = 0;
+        int r = v.size() - 1;
+        int res = -1;
+        while (l <= r) {
+            int mid = (l +r)/2;
+            if (v[mid] <= x) {
+                res = mid;
+                l = mid +1;
+            } else {
+                r = mid -1;
+            }
+        }
+        return res;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> q;
+        vector<int> res;
+        for (int i = 0; i < obstacles.size(); i ++) {
+            auto curr = upper_bound(q.begin(), q.end(), obstacles[i]) - q.begin();
+            if (curr == q.size()) {
+                q.push_back(obstacles[i]);
+                res.push_back(q.size());
+            } else {
+                q[curr] = obstacles[i];
+                res.push_back(curr + 1);
+            }
+        }
+        return res;
+    }
+};

@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int help(vector<int>& st, int k){
+        auto iter = upper_bound(begin(st), end(st), k);
+        return iter - begin(st);
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> res;
+        vector<int> st;
+        
+        for(int i = 0; i < obstacles.size(); ++i){
+            int pos = help(st, obstacles[i]);
+            
+            if(pos == st.size()){
+                st.push_back(obstacles[i]);
+                res.push_back(st.size());
+            }
+            else{
+                st[pos] = obstacles[i];
+                res.push_back(pos+1);
+            }
+        }
+        
+        return res;
+    }
+};

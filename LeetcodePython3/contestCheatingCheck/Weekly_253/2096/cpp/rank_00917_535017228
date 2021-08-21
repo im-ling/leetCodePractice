@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& arr) {
+        // multimap<int ,int>mp;
+        // vector<int>ans;
+        // for(int i=0;i<obs.size();i++){
+        //     int x*=mp.upper_bound(obs[i]);
+        //     ans.push_back(x+1);
+        //     mp[obs[i]]=i;
+        // }
+        // return ans;
+        vector<int> ans,res;
+        
+    int n = arr.size();
+    for (int i = 0; i < n; i++) {
+        auto it
+            = upper_bound(ans.begin(), ans.end(), arr[i]);
+        if (it == ans.end()) {
+            ans.push_back(arr[i]);
+            int k=ans.size();
+            res.push_back(k);
+        }
+        else {
+            *it = arr[i];
+            int k=it-ans.begin();
+            res.push_back(k+1);
+        }
+    }
+    return res;
+    }
+};

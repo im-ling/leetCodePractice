@@ -1,0 +1,44 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] res = new int[n];
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            int o = obstacles[i];
+            int index = findLargestNotLarger(list, o);
+            if (index == list.size() - 1) {
+                list.add(o);
+            } else {
+                list.set(index + 1, o);
+            }
+            res[i] = index + 2;
+        }
+        return res;
+    }
+    
+    private int findLargestNotLarger(List<Integer> list, int target) {
+        int n = list.size();
+        if (n == 0) {
+            return -1;
+        }
+        int left = 0;
+        int right = n - 1;
+        while (left < right - 1) {
+            int mid = left + (right - left) / 2;
+            if (list.get(mid) > target) {
+                right = mid - 1;
+            } else {
+                left = mid;
+            }
+        }
+        if (list.get(right) <= target) {
+            return right;
+        }
+        if (list.get(left) <= target) {
+            return left;
+        }
+        return -1;
+    }
+    
+    
+}

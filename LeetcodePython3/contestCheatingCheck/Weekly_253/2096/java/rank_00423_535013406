@@ -1,0 +1,46 @@
+class Solution {
+    // [1,2,3,2]
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int[] ans = new int[obstacles.length];
+        ans[0] = 1;
+        
+        int max = 1;
+        int[] height = new int[obstacles.length];
+        height[0] = obstacles[0];
+       
+        for(int i = 1 ; i < obstacles.length; i++){
+            int index = binary(height, max, obstacles[i]);
+            if(index == max){
+                max = index+1;
+            }
+            height[index] = obstacles[i];
+            ans[i] = index+1;
+        }
+        
+        return ans;
+    }
+        
+        private int binary(int[] height, int limit, int target){
+            if(target < height[0]){
+                return 0;
+            }
+            if(target >= height[limit-1]){
+                return limit;
+            }
+            int i = 0 , j = limit-1, ans = 0;
+            while(i<= j){
+                int m = (i+j) / 2;
+                if(height[m] == target){
+                    ans = m+1;
+                    i = m+1;
+                }else if(height[m] > target){
+                    ans = m;
+                    j = m-1;
+                }else{
+                    i = m+1;
+                }
+            }
+            
+            return ans;
+        }
+}

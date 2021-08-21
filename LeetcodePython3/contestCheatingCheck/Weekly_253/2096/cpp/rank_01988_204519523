@@ -1,0 +1,52 @@
+#ifdef LOCAL_ENV
+#include "contest.h"
+#endif
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int> &obstacles) {
+        // map<len, idx>
+        int n = obstacles.size();
+        vector<int> dp(n, 1);
+        map<int, int> uMap;
+
+        uMap[1] = 0;
+        int currMax = 1;
+        for (int i = 1; i < n; ++i) {
+            int val = obstacles[i];
+
+            // b search
+            int minLen = 0;
+            int maxLen = min(i, currMax);
+            int midLen;
+            while (minLen < maxLen) {
+                midLen = (maxLen + minLen) / 2;
+                auto it = uMap.lower_bound(midLen);
+                //cout << it->first << " " << it->second << endl;
+                if (obstacles[it->second] > val) {
+                    maxLen = midLen;
+                } else {
+                    minLen = midLen + 1;
+                }
+            }
+            //cout << "end " << minLen << " " << maxLen << endl;
+            if (uMap.find(minLen) != uMap.end() && obstacles[uMap[minLen]] > val) {
+                minLen = max(0, minLen - 1);
+            }
+            int len = minLen + 1;
+            currMax = max(currMax, len);
+            //cout << currMax << endl;
+            uMap[len] = i;
+            dp[i] = len;
+        }
+
+        return dp;
+    }
+};
+
+#ifdef LOCAL_ENV
+int main(int argc, char const *argv[]) {
+    cout << "hello" << endl;
+    return 0;
+}
+#endif

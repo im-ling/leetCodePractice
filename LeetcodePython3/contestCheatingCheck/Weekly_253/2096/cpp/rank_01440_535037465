@@ -1,0 +1,86 @@
+class Solution {
+public:
+    
+    struct seg{
+        
+        vector<int> s;
+        int n;
+        
+        seg(int z){
+            n=z;
+            s.resize(4*n+10);
+            build(1,1,n);
+        }
+        
+        int merge(int x,int y){
+            return max(x,y);
+        }
+        
+        void build(int v,int l,int r){
+            
+            if(l==r) s[v]=0;
+            else{
+                int m=(l+r)/2;
+                build(2*v,l,m);
+                build(2*v,l,m);
+                s[v]=merge(s[2*v],s[2*v+1]);
+            }
+        }
+        
+        void update(int v,int l,int r,int id,int val){
+            
+            if(l==r){
+                s[v]=val;
+                return;
+            }
+            
+            int m=(l+r)/2;
+            
+            if(id<=m) update(2*v,l,m,id,val);
+            else update(2*v+1,m+1,r,id,val);
+            
+            s[v]=merge(s[2*v],s[2*v+1]);
+            
+            // cout<<v<<" "<<l<<" "<<r<<" "<<s[2*v+1]<<"\n";
+        }
+        
+        int query(int v,int l,int r,int L,int R){
+            
+            if(L>R) return 0;
+            if(l==L&&r==R) return s[v];
+            
+            int m=(l+r)/2;
+            
+            int t1=query(2*v,l,m,max(l,L),min(m,R));
+            int t2=query(2*v+1,m+1,r,max(m+1,L),min(r,R));
+            
+            return merge(t1,t2);
+        }
+    };
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n=a.size();
+        map<int,int> m;
+        for(int x:a) m[x];
+        
+        int t=0;
+        for(auto &x:m) x.second=++t;
+        for(int &x:a) x=m[x];
+        
+        seg st(n);
+        
+        
+        // for(int x:a) cout<<x<<" ";
+        vector<int> ans(n);
+        
+        ans[0]=1; st.update(1,1,n,a[0],1);
+        
+        for(int i=1;i<n;++i){
+            int q=st.query(1,1,n,1,a[i]);
+            ans[i]=q+1;
+            st.update(1,1,n,a[i],q+1);
+        }
+        
+        return ans;
+    }
+};

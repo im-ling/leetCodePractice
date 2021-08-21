@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define rep(i,s,n) for(int i = s; i < n; i++)
+#define f first
+#define s second
+#define pb push_back
+#define sz(x) (int)(x).size()
+const int P = 1e9+7;
+const int maxn = 10000005;
+struct Tree { 
+       static constexpr int unit = INT_MIN; 
+       int s[maxn<<1];
+       int n = maxn; 
+       Tree(){ memset(s,0,sizeof s);} 
+
+       void update(int pos, int val) { 
+           for (s[pos += n] = val; pos /= 2;) s[pos] = max(s[pos * 2], s[pos * 2 + 1]);
+       } 
+       int query(int b, int e) { // query [b , e)
+           int ra = unit, rb = unit; 
+           for (b += n, e += n; b < e; b /= 2, e /= 2) {
+               if (b % 2) ra = max(ra, s[b++]); 
+               if (e % 2) rb = max(s[--e], rb);
+           } 
+           return max(ra, rb); 
+       }
+};
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        Tree tri = Tree();
+        vector<int> ans; int oblen = ob.size();
+        ans.pb(1); tri.update(ob[0], 1);
+        rep(i,1,oblen){
+            int curans = tri.query(0, ob[i]+1)+1;
+            ans.pb(curans);
+            tri.update(ob[i], curans);
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,36 @@
+function longestObstacleCourseAtEachPosition(obstacles: number[]): number[] {
+    const result = [1];
+    const minForLength = [0, obstacles[0]];
+    for (let i = 1; i < obstacles.length; i++) {
+        let left = 1;
+        let right = minForLength.length - 1;
+        while (left < right) {
+            const mid = Math.ceil((left + right) / 2);
+            if (minForLength[mid] > obstacles[i]) {
+                right = mid - 1;
+            } else {
+                left = mid;
+            }
+        }
+        if (minForLength[left] <= obstacles[i]) {
+            minForLength[left + 1] = Math.min(minForLength[left + 1] || Infinity, obstacles[i]);
+            result.push(left + 1);
+        } else {
+            minForLength[1] = Math.min(minForLength[1], obstacles[i]);
+            result.push(1);
+        }
+    }
+    return result;
+}
+
+/*
+need to get the max length which has a max value <= current value and only increases
+needs to be O(n * log(n)) time or better
+we can keep the max lengths with max value
+actually min value for length
+
+binary search for most-right value that's <= current value
+if none exists, set index 1 to min of current value and existing index 1 value
+if it exists, check if exists value to right set it to min of left + 1 and its current right value
+*/
+

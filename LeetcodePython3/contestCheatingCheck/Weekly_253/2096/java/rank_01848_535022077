@@ -1,0 +1,37 @@
+class Solution {
+    int upperBound(List<Integer> list,int val) {
+        int ans = -1;
+        int l = 0;
+        int r = list.size() - 1;
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            if (list.get(mid) > val) {
+                ans = mid;
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return ans;
+    }
+    public int[] longestObstacleCourseAtEachPosition(int[] arr) {
+        int n = arr.length;
+        int[] ans = new int[n];
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            if (list.size() == 0 || arr[i] >= list.get(list.size()-1)) {
+                list.add(arr[i]);
+                ans[i] = list.size();
+            } else {
+                int idx = upperBound(list,arr[i]);
+                // System.out.println(list);
+                // System.out.println(idx);
+                if (idx != -1) {
+                    list.set(idx,arr[i]);
+                    ans[i] = idx + 1;
+                }
+            }
+        }
+        return ans;
+    }
+}

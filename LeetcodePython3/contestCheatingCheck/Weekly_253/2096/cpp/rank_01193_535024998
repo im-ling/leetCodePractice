@@ -1,0 +1,84 @@
+template<typename T>
+struct Segtree {
+    int n;
+    T e; // default value
+    vector<T> dat;
+    typedef function<T(T a, T b)> Func;
+    Func f;
+
+    Segtree(){}
+    Segtree(int n_input, Func f_input, T e_input) {
+        initialize(n_input, f_input, e_input);
+    }
+
+    void initialize(int n_input, Func f_input, T e_input) {
+        f = f_input;
+        e = e_input;
+        n = 1;
+        while(n < n_input) { n<<=1; }
+        dat.resize(2*n-1, e);
+    }
+    
+    void set(int k, T a) {
+        k += n-1;
+        dat[k] = a;
+        while(k > 0) {
+            k = (k-1)/2;
+            dat[k] = f(dat[2*k+1], dat[2*k+2]);
+        }
+    }
+
+    void update(int k, T a) {
+        k += n-1;
+        dat[k] = f(dat[k], a);
+        while(k > 0) {
+            k = (k-1)/2;
+            dat[k] = f(dat[2*k+1], dat[2*k+2]);
+        }
+    }
+
+    T get(int k) {
+        return dat[k+n-1];
+    }
+    // [a, b)
+    T query(int a, int b) {
+        return _query(a, b, 0, 0, n);
+    }
+
+    // [a, b)
+    T _query(int a, int b, int k, int l, int r) {
+        if(r<=a || b<= l) return e;
+        if(a<=l && r<=b) return dat[k];
+        T vl = _query(a, b, 2*k+1, l, (l+r)/2);
+        T vr = _query(a, b, 2*k+2, (l+r)/2, r);
+        return f(vl, vr);
+    }
+};
+/** Usage:
+Segtree<int> seg(n, [](int a, int b) {return max(a,b);}, 0); // init
+REP(i, n+1) st.update(i, i)
+st.query(a, b)
+*/
+
+class Solution {
+public:
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        vector<int> xs;
+        for ( int i:a ) xs.push_back(i);
+        sort(xs.begin(),xs.end());
+        xs.erase(unique(xs.begin(),xs.end()),xs.end());
+        for ( int i=0; i<a.size(); i++ ) {
+            a[i]=lower_bound(xs.begin(),xs.end(),a[i])-xs.begin();
+        }
+        const int MAX=100010;
+        Segtree<int> seg(MAX, [](int a, int b) {return max(a,b);}, 0); // init
+        vector<int> ans(a.size());
+        for ( int i=0; i<a.size(); i++ ) {
+            int me=seg.query(0,a[i]+1)+1;
+            seg.update(a[i],me);
+            a[i]=me;
+        }
+        return a;
+    }
+};

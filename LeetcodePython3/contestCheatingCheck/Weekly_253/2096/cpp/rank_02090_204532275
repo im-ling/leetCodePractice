@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int q[100005];
+    // q[k]存长度为k的上升子序列的的结尾元素
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        // 找以a[i]为尾的最长上升子序列
+        // 对长度相等的子序列，存结尾数字更小的
+        vector<int> ans;
+        int maxL=0;
+        q[0]=-1e7-10;
+        for(int i=0;i<a.size();i++){
+            // 从0-maxL中二分找到a[i]大于等于的最后（大）一个数
+            int l=0,r=maxL;
+            while(l<r){
+                int mid=(l+r+1)>>1;
+                if(q[mid]<=a[i]){
+                    l=mid;
+                }
+                else{
+                    r=mid-1;
+                }
+            }
+            maxL=max(maxL,l+1);
+            ans.push_back(l+1);
+            q[l+1]=a[i];
+        }
+        return ans;
+    
+    }
+};

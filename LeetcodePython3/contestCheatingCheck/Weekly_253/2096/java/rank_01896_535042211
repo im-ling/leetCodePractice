@@ -1,0 +1,24 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] nums) {
+        int N = nums.length;
+        int[] dp = new int[N];
+        Arrays.fill(dp, (int)1e8);
+        for (int i = 0; i < N; i++) {
+            int pos = upperBound(dp, 0, N - 1, nums[i]);
+            dp[pos] = nums[i];
+            nums[i] = pos + 1;
+        }
+        return nums;
+    }
+    private int upperBound(int[] a, int lb, int ub, int ele) {
+        while (lb < ub) {
+            int mid = ((ub - lb) >> 1) + lb;
+            if (a[mid] > ele) {
+                ub = mid;
+            } else {
+                lb = mid + 1;
+            }
+        }
+        return lb;
+    }
+}

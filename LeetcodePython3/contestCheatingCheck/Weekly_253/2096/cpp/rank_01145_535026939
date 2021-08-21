@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& o) {
+        vector<int>arr;
+        int n=o.size();
+        vector<int>ans;
+        for(int i=0;i<n;i++){
+            int index=upper_bound(arr.begin(), arr.end(), o[i])-arr.begin();
+            if(index==arr.size())arr.push_back(o[i]);
+            // cout<<index<<" ";
+            if(arr[index]>=o[i])arr[index]=o[i];
+            ans.push_back(index+1);
+        }
+        // for(auto i:ans)cout<<i<<"*";
+        
+        return ans;
+    }
+    
+};

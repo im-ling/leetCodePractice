@@ -1,0 +1,18 @@
+impl Solution {
+    pub fn longest_obstacle_course_at_each_position(obstacles: Vec<i32>) -> Vec<i32> {
+        let mut r = vec![];
+        let mut stacks = vec![];
+        for n in obstacles {
+            let i = match stacks.binary_search(&n) {
+                Ok(i) => i + 1,
+                Err(j) => j,
+            };
+            if i >= stacks.len() {
+                stacks.push(0);
+            }
+            stacks[i] = n;
+            r.push(i as i32 + 1);
+        }
+        r
+    }
+}

@@ -1,0 +1,38 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int>ans;
+        bst[obstacles[0]] = 1;
+        ans.push_back(1);
+        int n = obstacles.size();
+        for(int i = 1; i < n; i++){
+            auto it = bst.upper_bound(obstacles[i]);
+            if (it == bst.begin()) {
+                bst[obstacles[i]] = 1;
+                ans.push_back(1);
+                continue;
+            }
+            --it;
+            int bound = it -> second + 1;
+            ans.push_back(bound);
+            auto it2 = ++it;
+            unordered_set<int> to_delete;
+            while (it2 != bst.end()) {
+                if (it2 -> second <= bound) {
+                    to_delete.insert(it2 -> first);
+                } else {
+                    break;
+                }
+                ++it2;
+            }
+            for(auto to_d = to_delete.begin(); to_d != to_delete.end(); ++to_d) {
+                bst.erase(*to_d);
+            }
+            bst[obstacles[i]] = bound;
+        }
+        return ans;
+        
+    }
+private:
+    map<int, int>bst;
+};

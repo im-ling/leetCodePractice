@@ -1,0 +1,38 @@
+#pragma GCC optimize("O2")
+#include<bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for(int i = 0; i < (n); ++i)
+#define rrep(i,n) for(int i = (n)-1; i >= 0; --i)
+#define all(x) (x).begin(), (x).end()
+#define rall(x) (x).rbegin(), (x).rend()
+template<class T> void chmax(T& a, const T& b) {a = max(a, b);}
+template<class T> void chmin(T& a, const T& b) {a = min(a, b);}
+using ll = long long;
+using P = pair<int,int>;
+using VI = vector<int>;
+using VVI = vector<VI>;
+using VL = vector<ll>;
+using VVL = vector<VL>;
+
+static const auto my_init = []{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    return false;
+}();
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& x) {
+        int n = x.size();
+        std::vector<int> d;
+        VI ans;
+        d.reserve(n);
+        for(int xi: x) {
+            auto it = std::upper_bound(d.begin(), d.end(), xi);
+            ans.push_back(it - d.begin() + 1);
+            if (it == d.end()) d.push_back(xi);
+            else *it = xi;
+        }
+        return ans;
+    }
+};

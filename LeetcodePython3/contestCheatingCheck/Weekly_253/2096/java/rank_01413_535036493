@@ -1,0 +1,33 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] res = new int[n];
+        List<Integer> LIS = new ArrayList<>();
+        int len = 0;
+        for (int i=0;i<obstacles.length;i++) {
+            int lo = 0;
+            int hi = len-1;
+            int x = obstacles[i];
+            // find the last element smaller or equals to x
+            int ans = -1;
+            while (lo<=hi) {
+                int mid = (lo+hi)/2;
+                if (LIS.get(mid)>x) {
+                    hi = mid-1;
+                } else {
+                    lo = mid+1;
+                    ans = mid;
+                }
+            }
+            if (ans == len-1) {
+                LIS.add(x);
+                len++;
+                res[i] = len;
+            } else {
+                LIS.set(ans+1, x);
+                res[i] = ans+2;
+            }
+        }
+        return res;
+    }
+}

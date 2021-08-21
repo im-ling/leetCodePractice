@@ -1,0 +1,55 @@
+class Fen{
+public:
+    vector<int> t;
+    int n;
+    void u(int i, int v){
+        for(;i < n; i = i | (i + 1)){
+            t[i] = max(t[i], v);
+        }
+    }
+    int q(int r){
+        int res = 0;
+        for(;r>-1;r=(r&(r+1))-1){
+            res = max(res, t[r]);
+        }
+        return res;
+    }
+    Fen(vector<int> a){
+        n = a.size();
+        this->n = n;
+        t.assign(n, 0);
+        for(int i = 0; i < n; i++){
+            this->u(i, a[i]);
+        }
+    }
+};
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n = a.size();
+        set<int> s;
+        for(int i: a) s.insert(i);
+        map<int, int> vti;
+        auto it = s.begin();
+        for(int i = 0 ; i < s.size(); i++){
+            vti[*it] = i;
+            it++;
+        }
+        int b[n];
+        for(int i = 0; i < n; i++){
+            b[i] = vti[a[i]];
+        }
+        vector<int> c, d, res;   
+        c.assign(n, 0);
+        d.assign(n, 0);
+        res.assign(n, 0);
+        Fen f(c);
+        for(int i = 0; i < n; i++){
+            d[b[i]]++;
+            int v = f.q(b[i]) + 1;
+            f.u(b[i], v);
+            res[i] = v;
+        }
+        return res;
+    }
+};

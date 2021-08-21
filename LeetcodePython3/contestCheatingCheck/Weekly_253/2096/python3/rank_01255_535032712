@@ -1,0 +1,30 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        ans = [1] * len(obstacles)
+        path = []
+        
+        # find the last index where path[index] <= tgt
+        def bin_search(tgt):
+            lo, hi = 0, len(path) - 1
+            while lo <= hi:
+                mid = (lo + hi) // 2
+                if path[mid] <= tgt:
+                    lo = mid + 1
+                else:
+                    hi = mid - 1
+            return hi
+            
+        for i, o in enumerate(obstacles):
+            if not path:
+                path.append(o)
+            else:
+                cur = bin_search(o)
+                
+                # print(path, o, cur)
+                ans[i] = cur + 2
+                if cur == len(path) - 1:
+                    path.append(o)
+                else:
+                    path[cur + 1] = o
+        return ans
+                    

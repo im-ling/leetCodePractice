@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {;
+        int l = int(obstacles.size());
+        vector<int> ans(l, 0);
+        vector<int> low(l, 0);
+        low[0] = obstacles[0];
+        int t = 1;
+        ans[0] = 1;
+        for(int i=1; i<l; ++i) {
+            int best = 1;
+            if(obstacles[i]>=low[t-1]) {
+                low[t] = obstacles[i];
+                t++;
+                best = t;
+            } else {
+                auto p = std::lower_bound(low.begin(), low.begin()+t-1, obstacles[i]);
+                int k = p-low.begin()+1;
+                while(low[k-1]==obstacles[i])
+                    k++;
+                best = k;
+                low[best-1] = obstacles[i];
+            }
+            ans[i] = best;
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,51 @@
+// [3,1,5,6,4,2]
+
+// [1]
+// [1,2]
+// [1,5,6]
+func longestObstacleCourseAtEachPosition(obstacles []int) []int {
+    cache := []int{} // stores last number
+    ret := make([]int, len(obstacles))
+    for i := range ret {
+        if i == 0 {
+            cache = append(cache, obstacles[i])
+            ret[i] = 1
+            continue
+        }
+        l := 0
+        r := len(cache)-1
+        ans := -1
+        for l <= r { // find largest num <= curr
+            mid := (l+r)/2
+            last := cache[mid]
+            if last <= obstacles[i] { // we can append after this number
+                ans = max(ans, mid)
+                l = mid+1
+            } else {
+                r = mid-1
+            }
+        }
+        if ans == len(cache)-1 {
+            cache = append(cache, obstacles[i])
+        } else {
+            cache[ans+1] = obstacles[i]
+        }
+        ret[i] = ans+2
+    }
+    // fmt.Println(cache)
+    return ret
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+
+func min(a, b int) int {
+    if a < b {
+        return a
+    }
+    return b
+}

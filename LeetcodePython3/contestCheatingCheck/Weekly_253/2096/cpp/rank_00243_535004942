@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        const int n = a.size();
+        vector<int> result(n,1);
+        
+        vector<int> h;
+        h.push_back(0);
+        
+        for (int i=0;i<n;++i) {
+            auto it = upper_bound(h.begin(), h.end(), a[i]);
+            --it;
+            result[i] = it - h.begin() + 1;
+            
+            printf("%d\n", *it);
+            
+            ++it;
+            if (it == h.end()) h.push_back(a[i]);
+            else *it = min(*it, a[i]);
+        }
+        
+        return result;
+    }
+};

@@ -1,0 +1,25 @@
+int t, n;  
+int p[100005];  
+int dp[100005];
+
+vector<int> lis(int *p, int n) //longest increasing subsequence  
+{  
+    vector<int> ret;
+    for (int i = 0; i < n; i++) dp[i] = (1<<30);  
+    for (int i = 0; i < n; i++) {  
+        *upper_bound(dp, dp + n, p[i]) = p[i];  
+        int ind = upper_bound(dp, dp + n, p[i]) - dp;
+        ret.push_back(ind);
+    }  
+    return ret;
+}  
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        n = obstacles.size();
+        for(int i=0;i<n;i++)
+            p[i] = obstacles[i];
+        return lis(p, n);
+    }
+};

@@ -1,0 +1,32 @@
+/**
+ * @param {number[]} obstacles
+ * @return {number[]}
+ */
+var longestObstacleCourseAtEachPosition = function(nums) {
+    var arr = []// tails contains length of i + 1 LIS smallest last element 
+    arr[0] = nums[0];
+    var result = [];
+    result[0] = arr.length;
+    for (var i = 1; i < nums.length; i++) {
+        var start = 0, end = arr.length - 1;
+        while (start + 1 < end) {
+            var mid = Math.floor(start + (end - start) / 2);
+            if (arr[mid] <= nums[i]) {
+                start = mid;
+            } else {
+                end = mid;
+            }
+        }
+        if (arr[end] <= nums[i]) {
+            arr.push(nums[i]);
+            result.push(arr.length);
+        } else if (arr[end] > nums[i] && arr[start] <= nums[i]) {
+            arr[end] = nums[i];
+            result.push(end + 1);
+        } else { // arr[start] > nums[i]
+            arr[start] = nums[i];
+            result.push(start + 1);
+        }
+    }
+    return result;
+};

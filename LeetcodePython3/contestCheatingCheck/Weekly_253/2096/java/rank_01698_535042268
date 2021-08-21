@@ -1,0 +1,85 @@
+class Solution {
+    //longest non-decreasing subsequence for [0 : i]
+    //sorted map prevValue -> ans
+    //segment tree
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] ans = new int[n];
+        // Node root = buildTree(1, 10_000_000);
+        int[] max = new int[10_000_001];
+        for (int i = 0; i < n; i++) {
+            int cur = obstacles[i];
+            int maxLen = query(max, cur) + 1;
+            update(max, cur, maxLen);
+            // int maxLen = find(root, cur) + 1;
+            // update(root, cur, maxLen);
+            ans[i] = maxLen;
+        }
+        return ans;
+    }
+    
+    private void update(int[] max, int key, int val) {
+        while (key < max.length) {
+            max[key] = Math.max(max[key], val);
+            key += lowbit(key);
+        }
+    }
+    
+    private int query(int[] max, int key) {
+        int res = 0;
+        while (key > 0) {
+            res = Math.max(res, max[key]);
+            key -= lowbit(key);
+        }
+        return res;
+    }
+    
+    private int lowbit(int x) {
+        return x & (-x);
+    }
+    
+//     class Node {
+//         int start, end;
+//         int max;
+//         Node left, right;
+//         public Node(int start, int end, int max) {
+//             this.start = start;
+//             this.end = end;
+//             this.max = max;
+//         }
+//     }
+    
+//     private Node buildTree(int start, int end) {
+//         if (start == end) {
+//             return new Node(start, end, 0);
+//         }
+//         int mid = (start + end) / 2;
+//         Node cur = new Node(start, end, 0);
+//         cur.left = buildTree(start, mid);
+//         cur.right = buildTree(mid + 1, end);
+//         return cur;
+//     }
+    
+//     private void update(Node root, int key, int value) {
+//         if (root == null) return;
+//         root.max = Math.max(root.max, value);
+//         int mid = (root.start + root.end) / 2;
+//         if (key <= mid) {
+//             update(root.left, key, value);
+//         } else {
+//             update(root.right, key, value);
+//         }
+//     }
+    
+//     private int find(Node root, int key) {
+//         if (key == root.end) {
+//             return root.max;
+//         }
+//         int mid = (root.start + root.end) / 2;
+//         if (key <= mid) {
+//             return find(root.left, key);
+//         } else {
+//             return find(root.right, key);
+//         }
+//     }
+}

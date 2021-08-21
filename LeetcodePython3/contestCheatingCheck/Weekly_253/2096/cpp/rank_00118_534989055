@@ -1,0 +1,17 @@
+class Solution {
+    int val[100002];
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n = a.size();
+        int cur = 0;
+        int pos;
+        vector<int> res(n);
+        for (int i = 0; i < n; ++i) {
+            pos = upper_bound(val, val + cur, a[i]) - val;
+            res[i] = pos + 1;
+            val[pos] = a[i];
+            cur = max(cur, pos + 1);
+        }
+        return res;
+    }
+};

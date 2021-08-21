@@ -1,0 +1,41 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
+        List<Integer> aL = new ArrayList<>();
+        
+        aL.add(nums[0]);
+        result[0] = 1;
+        for(int i=1;i<nums.length;i++){
+            
+            if(nums[i]>=aL.get(aL.size()-1)){
+                aL.add(nums[i]);
+                result[i] = aL.size();
+            }else{
+                int index = binSearch(aL,nums[i]);
+                
+                result[i] = index+1;
+                aL.set(index,nums[i]);
+            }
+            //System.out.println(aL);
+        }
+        
+        return result;
+    }
+    
+    private int binSearch(List<Integer> aL,int target){
+        int l=0,r=aL.size()-1;
+        int ans=aL.size()-1;
+        while(l<=r){
+            int mid = l + (r-l)/2;
+            if(aL.get(mid)>target){
+                ans = mid;
+                r = mid-1;
+            }else{
+                l = mid+1;
+            }
+        }
+        
+        return ans;
+    }
+}

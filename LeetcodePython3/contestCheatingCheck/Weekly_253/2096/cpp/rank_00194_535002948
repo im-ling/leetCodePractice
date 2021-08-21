@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& arr) {
+        make_unique(arr);
+        int n = arr.size();
+        vector<int> dp(n + 2, 1e9), ans(n);
+        dp[0] = 0;
+        for(int i = 0, cur = 1; i < n; i++){
+            int pos = lower_bound(dp.begin(), dp.begin() + cur + 1, arr[i]) - dp.begin();
+            ans[i] = pos;
+            if(dp[pos] == 1e9) cur++;
+            dp[pos] = arr[i];
+        }
+        return ans;
+    }
+    
+    void make_unique(vector<int> & arr){
+        map<int, vector<int>> mp;
+        int id = 0;
+        for(int &x: arr) mp[x].push_back(id++);
+        id = 1;
+        for(auto &vec: mp){
+            for(int &x: vec.second) arr[x] = id++;
+        }
+    }
+};

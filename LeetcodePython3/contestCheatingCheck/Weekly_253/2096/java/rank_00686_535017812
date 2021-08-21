@@ -1,0 +1,29 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int [] L = new int [n + 1];
+        int [] ans = new int [n];
+        L[1] = obstacles[0];
+        ans[0] = 1;
+        int max = 1;
+        for (int i = 1; i<n; ++i) {
+            int pos = binSearch(L, obstacles[i], max);
+            L[pos] = obstacles[i];
+            ans[i] = pos;
+            max = Math.max(pos, max);
+        }
+        return ans;
+    }
+    public int binSearch(int [] L, int v, int max) {
+        int min = 0;
+        while (min < max) {
+            int piv = (min+max+1)/2;
+            if (L[piv] > v) {
+                max = piv-1;
+            } else if (L[piv] <= v) {
+                min = piv;
+            }
+        }
+        return min+1;
+    }
+}

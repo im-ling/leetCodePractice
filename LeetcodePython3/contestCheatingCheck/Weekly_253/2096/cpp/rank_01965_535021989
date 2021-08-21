@@ -1,0 +1,36 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> vp;
+        vector<int> ans;
+        for(int i=0; i<obstacles.size(); i++){
+            if(binary_search(vp.begin(), vp.end(), obstacles[i])){
+                auto it = upper_bound(vp.begin(), vp.end(), obstacles[i]);
+                if(it==vp.end()){
+                    vp.push_back(obstacles[i]);
+                    ans.push_back(vp.size());
+                }
+                else{
+                    int index = upper_bound(vp.begin(), vp.end(), obstacles[i]) - vp.begin();
+                    ans.push_back(index+1);
+                    *it = obstacles[i];
+                }
+            }
+            else{
+                auto it = upper_bound(vp.begin(), vp.end(), obstacles[i]);
+                if(it==vp.end()){
+                    vp.push_back(obstacles[i]);
+                    ans.push_back(vp.size());
+                }
+                else{
+                    int index = upper_bound(vp.begin(), vp.end(), obstacles[i]) - vp.begin();
+                    // cout << obstacles[i] << " "  << index << " ";
+                    ans.push_back(index+1);
+                    *it = obstacles[i];
+                }
+            }
+            
+        }
+        return ans;
+    }
+};

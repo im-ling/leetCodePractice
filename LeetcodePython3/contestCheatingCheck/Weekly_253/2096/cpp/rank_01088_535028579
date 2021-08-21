@@ -1,0 +1,49 @@
+class Solution {
+public:
+    int segment[400005];
+    
+    void update(int node, int start, int end, int ind, int val)
+    {
+        if(start>ind || end<ind) return;
+        else if(start==end) segment[node] = max(segment[node],val);
+        else
+        {
+            int mid = (start+end)/2;
+            update(node*2,start,mid,ind,val);
+            update(node*2+1,mid+1,end,ind,val);
+            segment[node] = max(segment[node*2],segment[node*2+1]);
+        }
+    }
+    
+    int query(int node, int start, int end, int l, int r)
+    {
+        if(l>r || end<l || r<start) return 0;
+        else if(l<=start && end<=r) return segment[node];
+        else
+        {
+            int mid = (start+end)/2;
+            int left = query(node*2,start,mid,l,r);
+            int right = query(node*2+1,mid+1,end,l,r);
+            return max(left,right);
+        }
+    }
+    
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& o) {
+        int n = o.size();
+        memset(segment,0,sizeof(segment));
+
+        vector<pair<int,int>> vec(n);
+        
+        for(int i = 0;i<n;i++) vec[i] = {o[i],i};
+        sort(vec.begin(),vec.end());
+        vector<int> ans(n);
+        for(int i = 0;i<n;i++)
+        {
+            int x = query(1,1,n,1,vec[i].second+1);
+            ans[vec[i].second] = x+1;
+            update(1,1,n,vec[i].second+1,x+1);
+        }
+        return ans;
+    }
+};

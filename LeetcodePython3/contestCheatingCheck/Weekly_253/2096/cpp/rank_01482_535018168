@@ -1,0 +1,66 @@
+class Solution {
+public:
+    
+    vector<int> st;
+    
+    void resize( int n) {
+        int N = 1;
+        while(N<n) {
+            N = 2*N;
+        }
+        st.resize(2*N,0);
+    }
+    
+    void update( int node, int id, int start, int end, int val) {
+        if(start==end) {
+            st[node] = val;
+            // cout << "(start:" << start << ",end: " << end << ",val:" << val << ")";
+        } else {
+            int mid = (start+end)/2;
+            if(id<=mid) {
+                update( 2*node, id, start, mid, val);
+            } else {
+                update( 2*node+1, id, mid+1, end, val);
+            }
+            st[node] = max( st[2*node], st[2*node+1]);
+            // cout << "(start:" << start << ",end: " << end << ",val:" << val << ")";
+        }
+    }
+    
+    int query( int node, int start, int end, int left, int right) {
+        if((left>end) || (start>right) || (start>end)) {
+            return 0;
+        } else if((left<=start) && (end<=right)) {
+            // cout << "(start:" << start << ",end: " << end << ",val:" << st[node] << ")";
+            return st[node];
+        } else {
+            int mid = (start+end)/2;
+            int l_val = query( 2*node, start, mid, left, right);
+            int r_val = query( 2*node+1, mid+1, end, left, right);
+            return max( l_val, r_val);
+        }
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        
+        int n = a.size();
+        vector< pair<int,int> > arr;
+        
+        for( int i=0; i<n; i++) {
+            arr.push_back({ a[i], i});
+        }
+        sort(arr.begin(), arr.end());
+        
+        vector<int> ans(n);
+        resize(n);
+        
+        for( int i=0; i<n; i++) {
+            int val = query( 1, 0, n-1, 0, arr[i].second) + 1;
+            ans[arr[i].second] = val;
+            update( 1, arr[i].second, 0, n-1, val);
+            // cout << "-";
+        }
+        
+        return ans;
+    }
+};

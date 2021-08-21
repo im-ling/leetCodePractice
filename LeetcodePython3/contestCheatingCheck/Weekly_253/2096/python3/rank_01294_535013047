@@ -1,0 +1,26 @@
+import bisect
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        
+#         lis = [1 for _ in range(len(obstacles))]
+        
+#         for index in range(len(obstacles)):
+#             for index2 in range(0, index):
+#                 if obstacles[index] >= obstacles[index2]:
+#                     lis[index] = max([lis[index], lis[index2] + 1])
+                    
+        # print(lis)
+
+        stack = [obstacles[0]]
+        output = [1]
+        for obstacle in obstacles[1:]:
+            position = bisect.bisect_right(stack, obstacle)
+            if position == len(stack):
+                stack.append(obstacle)
+            else:
+                stack[position] = obstacle
+                
+            output.append(position + 1)
+
+        return output

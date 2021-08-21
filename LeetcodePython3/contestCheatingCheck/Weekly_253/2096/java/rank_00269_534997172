@@ -1,0 +1,83 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] A) {
+        int n =A.length;
+        int res[]=new int[n];
+        int B[]=new int[n];
+        for(int i=0;i<n;i++){
+            B[i]=A[i];
+        }
+        Arrays.sort(B);
+        Map<Integer,Integer>f=new HashMap<>();
+        int id=0;
+        for(int i:B){
+            if(!f.containsKey(i)){
+                f.put(i,id++);
+            }
+        }
+        
+        for(int i=0;i<A.length;i++){
+            A[i]=f.get(A[i]);
+        }
+        
+        Seg seg=new Seg(0,id+1);
+        
+        for(int i=0;i<A.length;i++){
+            int cur =A[i];
+            int mx = seg.query(0,cur);
+            res[i]=mx+1;
+            seg.update(cur,mx+1);
+        }
+        return res;
+        
+    }
+    
+    class Seg{
+        int l,r;
+        int max=0;
+        Seg left=null,right=null;
+        public Seg(int l,int r){
+            this.l=l;
+            this.r=r;
+            if(l!=r){
+                int mid=l+(r-l)/2;
+                if(l<=mid)left=new Seg(l,mid);
+                if(r>=mid+1)right=new Seg(mid+1,r);
+                if(left!=null)this.max=Math.max(max,left.max);
+                if(right!=null)this.max=Math.max(max,right.max);
+            }else{
+
+            }
+        }
+        public int query(int s,int e){
+            if(l==s&&r==e){
+                return max;
+            }
+            int mid=l+(r-l)/2; //left :  to mid-1,
+            if(e<=mid){
+                return left.query(s,e);
+            }
+            else if(s>=mid+1){
+                return right.query(s,e);
+            }else{
+                return Math.max(left.query(s,mid),right.query(mid+1,e));
+            }
+        }
+
+        public void update(int index,int val){
+            if(l==r){
+                max=val;
+                return;
+            }
+            int mid=l+(r-l)/2;
+            if(index<=mid){
+                left.update(index,val);
+            }else{
+                right.update(index,val);
+            }
+            this.max=Math.max(left.max,right.max);
+        }
+    }
+}
+
+//[5,1,5,5,1,3,4,5,1,4]
+//[1,1,2,4,2,4,5,8,4,8]

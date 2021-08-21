@@ -1,0 +1,48 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        n = len(obstacles)
+        tails = [0] * n
+        tails_idx = [0] * n
+        res = [1] * n
+        tails[0] = obstacles[0]
+        
+        
+        # find the first element in tails (left to right)
+        # that the ending element is larger than num
+        def ceilIndex (l, r, num):
+            # print(tails)
+            while l <= r:
+                mid = (l + r) // 2
+                if tails[mid] > num:
+                    r = mid - 1
+                elif tails[mid] <= num:
+                    l = mid + 1
+                # else:
+                #     return mid
+            # print(l)
+            return l
+                    
+        
+        length = 1
+        for i in range(1, n):
+            # print(tails)
+            if obstacles[i] < tails[0]: # case 1
+                tails[0] = obstacles[i]
+                tails_idx[0] = i
+                res[i] = 1
+            elif obstacles[i] >= tails[length - 1]:
+                tails[length] = obstacles[i]
+                tails_idx[length] = i
+                length += 1
+                res[i] = length
+            else: 
+                # print("i: ", i)
+                idx = ceilIndex(0, length - 1, obstacles[i])
+                # if tails[idx] == obstacles[i]:
+                #     res[i] = res[tails_idx[idx]] + 1
+                # else:
+                res[i] = idx + 1
+                tails[idx] = obstacles[i]
+                tails_idx[idx] = i                         
+                       
+        return res

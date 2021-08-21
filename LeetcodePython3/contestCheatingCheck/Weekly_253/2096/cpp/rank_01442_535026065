@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> res;
+        vector<int> smallest_end_by_len{0};
+        for(auto &obs: obstacles){
+            int tmp;
+            auto it = upper_bound(smallest_end_by_len.begin(), smallest_end_by_len.end(), obs);
+            if(it == smallest_end_by_len.end()) {
+                tmp = smallest_end_by_len.size();
+                smallest_end_by_len.push_back(obs);
+            }
+            else {
+                tmp = it - smallest_end_by_len.begin();    
+                *it = obs;
+            }
+            res.push_back(tmp);
+        }
+        return res;
+    }
+};

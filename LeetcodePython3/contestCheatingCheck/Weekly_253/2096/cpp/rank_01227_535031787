@@ -1,0 +1,30 @@
+const int M = (int)1e7;
+
+struct Fenwick {
+    int t[M + 1] = {0};
+    
+    void update(int r, int m) {
+        while(r <= M)
+            t[r] = max(t[r], m), r |= r + 1;
+    }
+    
+    int getMax(int r) {
+        int res = -M;
+        while(r >= 0)
+            res = max(res, t[r]), r &= r + 1, r--;
+        return res;
+    }
+};
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        Fenwick tree;
+        vector<int> res(obstacles.size());
+        for(int i = 0; i < obstacles.size(); i++) {
+            res[i] = tree.getMax(obstacles[i]) + 1;
+            tree.update(obstacles[i], res[i]);
+        }
+        return res;
+    }
+};

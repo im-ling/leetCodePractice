@@ -1,0 +1,45 @@
+const int MAX = 1e5+10;
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int N = obstacles.size();
+        vector<int> dp(N,0);
+        dp[0] = 1;
+        map<int,int> mp;
+        mp[obstacles[0]] = 1;
+        for(int i=1;i<obstacles.size();i++){
+            int now = obstacles[i];
+            auto it = mp.upper_bound(now);
+            if(it == mp.end()){
+   //             cout << "1: i = " << i << endl;
+                it--;
+                dp[i] = (it->second) + 1;
+                mp[now] = dp[i];
+            }else if(it == mp.begin()){
+//                cout << "2: i = " << i << endl;
+                dp[i] = 1;
+                mp[now] = 1;
+            }else{
+ //               cout << "3: i = " << i << endl;
+                it--;
+                dp[i] = (it->second) + 1;
+                mp[now] = dp[i];
+                vector<int> del;
+                for(auto it = mp.upper_bound(now);it != mp.end();it++){
+                    if((it->second) <= dp[i]){
+                        del.push_back(it->first);
+                    }else{
+                        break;
+                    }
+                }
+ //               cout << "delete: ";
+                for(auto d:del){
+  //                  cout << d << " ";
+                    mp.erase(d);
+                }
+  //              cout << endl;
+            }
+        }
+       return dp;
+    }
+};

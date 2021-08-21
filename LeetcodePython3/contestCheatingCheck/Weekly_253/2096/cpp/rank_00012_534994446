@@ -1,0 +1,17 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n=a.size();
+        vector<int>dp(n+1,1e8);
+        vector<int>lis(n,-1);
+        int l=0;
+        dp[0]=0;
+        for(int i=0;i<n;i++){
+            int ind=upper_bound(dp.begin(),dp.begin()+l+1,a[i])-dp.begin()-1;
+            dp[ind+1]=min(dp[ind+1],a[i]);
+            l=max(l,ind+1);
+            lis[i]=ind+1;
+        }
+        return lis;
+    }
+};

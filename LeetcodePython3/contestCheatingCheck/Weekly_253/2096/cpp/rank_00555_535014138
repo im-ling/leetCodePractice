@@ -1,0 +1,64 @@
+#include <bits/stdc++.h>
+using namespace std;
+template <typename T>
+struct RangeTree {
+	int N; vector<T> node_vals;
+	T base_value;
+	int ceil_pow_2(int v) { // Nearest power of two upper bound.
+		int p; for (p = 1; p < v; p *= 2) {} return p;
+	}
+	RangeTree(int sz, T base) : base_value(base), N(ceil_pow_2(sz)) {
+		node_vals.resize(2*N-1, base_value);
+	}
+	T combine(T a, T b) { return max(a, b); } // Could be min or +.
+	T query(int l, int r, int nid, int nl, int nr) {
+		if (l == nl && r == nr)
+			return node_vals[nid];
+		int mid = (nl+nr)/2; T result = base_value;
+		if (l <= mid)
+			result = combine(result, query(l, min(r, mid), 2*nid+1, nl, mid));
+		if (r > mid)
+			result = combine(result, query(max(l, mid+1), r, 2*nid+2, mid+1, nr));
+		return result;
+	}
+	T query(int l, int r) { return query(l, r, 0, 0, N-1); }
+	void update(int index, T value, int nid, int nl, int nr) {
+		if (nl == nr) { node_vals[nid] = value; return; }
+		int mid = (nl+nr)/2;
+		if (index <= mid) 	update(index, value, 2*nid+1, nl, mid);
+		else				update(index, value, 2*nid+2, mid+1, nr);
+		node_vals[nid] = combine(node_vals[2*nid+1], node_vals[2*nid+2]);
+	}
+	void update(int index, T value) { update(index, value, 0, 0, N-1); }
+	// Optional
+	void print() {
+		for (int i : node_vals)
+			cout << i << " ";
+		cout << endl;
+	}
+};
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> sorted(begin(obstacles), end(obstacles));
+        sort(begin(sorted), end(sorted));
+        auto it = unique(sorted.begin(), sorted.end());
+        sorted.resize(distance(sorted.begin(), it));
+        vector<int> sorted_idx(n);
+        for (int i = 0; i < n; ++i) {
+            auto it = lower_bound(begin(sorted), end(sorted), obstacles[i]);
+            sorted_idx[i] = distance(begin(sorted), it);
+            // cout << i << " " << obstacles[i] << " " << sorted_idx[i] << endl;
+        }
+        RangeTree<int> tree(sorted.size(), 0);
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            // cout << i << " " << sorted_idx[i] << endl;
+            ans[i] = tree.query(0, sorted_idx[i])+1;
+            tree.update(sorted_idx[i], ans[i]);
+        }
+        return ans;
+    }
+};

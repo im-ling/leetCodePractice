@@ -1,0 +1,26 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        
+        stack=[]
+        out=[]
+        for num in obstacles:
+            l=0
+            r=len(stack)
+            
+            while l<r:
+                mid=(l+r)>>1
+                
+                if stack[mid]<=num:
+                    l=mid+1
+                else:
+                    r=mid
+            out+=[l+1]
+            if l==len(stack):
+                stack+=[num]
+            else:
+                stack[l]=num
+            
+            
+        
+        return out
+            

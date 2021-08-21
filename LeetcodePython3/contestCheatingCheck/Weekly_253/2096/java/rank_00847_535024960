@@ -1,0 +1,25 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] res = new int[n];
+        int i = 0;
+        TreeMap<Integer, Integer> longestTail = new TreeMap<>();
+        for (int obstacle : obstacles) {
+            int cur = 1;
+            Integer lte = longestTail.floorKey(obstacle);
+            if (lte == null) {
+                longestTail.put(obstacle, 1);
+            } else {
+                cur = longestTail.get(lte) + 1;
+                longestTail.put(obstacle, cur);
+            }
+            Integer gte = longestTail.ceilingKey(obstacle + 1);
+            while (gte != null && longestTail.get(gte) <= cur) {
+                longestTail.remove(gte);
+                gte = longestTail.ceilingKey(obstacle + 1);
+            }
+            res[i++] = cur;
+        }
+        return res;
+    }
+}

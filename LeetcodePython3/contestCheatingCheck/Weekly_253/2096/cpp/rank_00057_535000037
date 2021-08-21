@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int bit[10000005];
+    int query(int ind) {
+        int res = 0;
+        while(ind>0) {
+            res = max(res,bit[ind]);
+            ind -= ind & (-ind);
+        }
+        return res;
+    }
+    void update(int ind, int val) {
+        while(ind <= 10000000) {
+            bit[ind] = max(bit[ind], val);
+            ind += ind & (-ind);
+        }
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> ans(obstacles.size(),1);
+        update(obstacles[0],1);
+        for (int i = 1; i < obstacles.size(); i++) {
+            ans[i] = query(obstacles[i])+1; 
+            update(obstacles[i],ans[i]);
+        }
+        return ans;
+    }
+};

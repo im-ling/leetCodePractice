@@ -1,0 +1,28 @@
+from typing import List
+
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        n = len(obstacles)
+        res = [0] * n
+        cur = []
+        for i, num in enumerate(obstacles):
+            cur_res = 0
+            if not cur or num >= cur[-1]:
+                cur.append(num)
+                cur_res = len(cur)
+            else:
+                l, r = 0, len(cur) - 1
+                loc = r
+                while l <= r:
+                    mid = (l + r) // 2
+                    if cur[mid] > num:
+                        loc = mid
+                        r = mid - 1
+                    else:
+                        l = mid + 1
+                cur[loc] = num
+                cur_res = loc + 1
+            res[i] = cur_res
+
+        return res

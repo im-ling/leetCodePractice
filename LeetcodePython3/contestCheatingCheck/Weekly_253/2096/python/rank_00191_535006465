@@ -1,0 +1,28 @@
+class Solution(object):
+    def longestObstacleCourseAtEachPosition(self, nums):
+        """
+        :type obstacles: List[int]
+        :rtype: List[int]
+        """
+        def binarySearch(sub, val):
+            lo, hi = 0, len(sub)-1
+            while(lo <= hi):
+                mid = lo + (hi - lo)//2
+                if sub[mid] <= val:
+                    lo = mid + 1
+                elif val < sub[mid]:
+                    hi = mid - 1
+                else:
+                    return mid
+            return lo
+        
+        sub = []
+        ans = []
+        for val in nums:
+            pos = binarySearch(sub, val)
+            if pos == len(sub):
+                sub.append(val)
+            else:
+                sub[pos] = val
+            ans.append(pos + 1)
+        return ans

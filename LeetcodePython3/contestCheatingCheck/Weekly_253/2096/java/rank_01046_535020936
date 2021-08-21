@@ -1,0 +1,51 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] ob) {
+        List<Integer> li = new ArrayList<>();
+        int rightIndex = -1;
+        int[] res = new int[ob.length];
+        for (int i = 0; i < ob.length; i++) {
+            if (rightIndex == -1) {
+                res[0] = 1;
+                li.add(ob[0]);
+                rightIndex = 0;
+            } else {
+                int newPos = helper(li, ob[i], rightIndex);
+                if (newPos == li.size()) {
+                    li.add(ob[i]);
+                    rightIndex++;     
+                    res[i] = rightIndex + 1;
+                } else {
+                    li.set(newPos, ob[i]);  
+                    res[i] = newPos + 1;
+                }
+                
+            }
+        }
+        return res;
+    }
+    
+    public int helper(List<Integer> li, int target, int rightIndex) {
+         //找到最后一个 <=他的
+        int left = 0;
+        int right = rightIndex;
+        while (left < right - 1) {
+            int mid = left + (right - left) / 2;
+            if (li.get(mid) <= target)  {
+                left = mid;
+            } else {
+                right = mid;
+            }
+        }
+        if (li.get(right) <= target) {
+            return right + 1;
+        }
+        if (li.get(left) <= target) {
+            return left + 1;
+        }
+        return 0;
+    }
+
+}
+
+// [5,1,5,5,1,3,4,5,1,4]
+// [1,1,2,3,2,3,4,]

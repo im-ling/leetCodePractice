@@ -1,0 +1,27 @@
+class Solution(object):
+    def longestObstacleCourseAtEachPosition(self, nums):
+        """
+        :type obstacles: List[int]
+        :rtype: List[int]
+        """
+        def getIndex(num):
+            left, right = 0, len(tails)
+            while left<right:
+                mid = (left+right)/2
+                if tails[mid]>num:
+                    right = mid
+                else:
+                    left = mid+1
+            return left
+        
+        tails = []
+        res = []
+        for n in nums:
+            index = getIndex(n)
+            res.append(index+1)
+            if index >= len(tails):
+                tails.append(n)
+            else:
+                tails[index] = min(tails[index], n)
+        
+        return res

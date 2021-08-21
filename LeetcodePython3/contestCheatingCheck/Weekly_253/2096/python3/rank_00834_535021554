@@ -1,0 +1,38 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        from sortedcontainers import SortedList
+        st = SortedList()
+        n2l = {}
+        ret = []
+        for o in obstacles:
+            if len(st):
+                if o in st:
+                    n2l[o] += 1
+                    idx = st.bisect_left(o)
+                    ret.append(n2l[o])
+                else:
+                    idx = st.bisect_right(o)
+                    st.add(o)
+                    if idx:
+                        val = n2l[st[idx-1]]+1
+                        ret.append(val)
+                        n2l[o] = val
+                    else:
+                        ret.append(1)
+                        n2l[o] = 1
+            else:
+                st.add(o)
+                ret.append(1)
+                n2l[o] = 1
+                idx = 0
+            #print(st)
+            #print([n2l[st[i]] for i in range(len(st))])
+            while len(st) != idx+1:
+                if n2l[st[idx+1]] <= n2l[st[idx]]:
+                    st.pop(idx+1)
+                else:
+                    break
+            #print(st)
+            #print([n2l[st[i]] for i in range(len(st))])
+        #print("------")
+        return ret

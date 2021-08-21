@@ -1,0 +1,33 @@
+typedef vector<int> VI;
+typedef pair<int, int> PI;
+typedef vector<PI> VPI;
+
+#define FOR(i,a,n) for (int i = (a); i < (n); ++i)
+#define FORE(i,a,n) for (int i = (a); i <= (n); ++i)
+#define FORD(i,a,b) for (int i = (a); i >= (b); --i)
+#define REP(i,n) FOR(i,0,n)
+#define REPE(i,n) FORE(i,0,n)
+#define LL long long
+#define FIR(n) REP(i,n)
+#define FJR(n) REP(j,n)
+#define ALL(v) v.begin(), v.end()
+
+#define FI FIR(n)
+#define FJ FJR(n)
+#define FR(i,a) FOR(i,a,n)
+#define REPN(i) REP(i,n)
+
+class Solution {
+public:
+	vector<int> longestObstacleCourseAtEachPosition(vector<int> obstacles) {
+		auto f = obstacles.begin();
+		vector<int> res(obstacles.size());
+		FIR(obstacles.size()) {
+			auto p = upper_bound(obstacles.begin(), f, obstacles[i]);
+            *p = obstacles[i];
+			res[i] = (p - obstacles.begin()) +1;
+			if (p == f) ++f;
+		}
+		return res;
+	}
+};

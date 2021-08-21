@@ -1,0 +1,40 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& nums) {
+        
+        
+    vector<int> ttt;
+        
+    ttt.reserve(nums.size());
+        
+    ttt.push_back(nums.front());
+        
+    vector<int>v;
+        v.push_back(1);
+    
+    for(int i=0;i<10;i++)
+    {
+        
+    }
+        
+    for (size_t i = 1; i < nums.size(); ++i) {
+        
+        
+      const int& n = nums[i];
+      auto it = upper_bound(ttt.begin(), ttt.end(), n);
+      if (it == ttt.end())
+        {ttt.push_back(n);
+            v.push_back(ttt.size());
+        }
+      else if (n < *it)
+        {
+          *it = n;
+          int y=it-ttt.begin();
+          v.push_back(y+1);
+          
+          
+        }
+    }
+    return v;
+    }
+};

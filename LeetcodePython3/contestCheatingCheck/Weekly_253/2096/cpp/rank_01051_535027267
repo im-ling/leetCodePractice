@@ -1,0 +1,39 @@
+class Solution {
+public:
+     int getBestCandidates(map<int,int> &mp,int val){
+        auto it=mp.upper_bound(val);
+        if(it==mp.begin()) return 0;
+        it--;
+        return it->second;
+    }
+    void insert(map<int,int>& mp,int val,int adv){
+       if(mp[val]>=adv) return;
+        mp[val]=adv;
+        auto it=mp.find(val);
+        it++;
+        while(it!=mp.end()&&it->second<=adv){
+            auto tmp=it;
+            it++;
+            mp.erase(tmp);
+        }
+    }
+  
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& nums) {
+        
+        vector<int> arr(nums.size());
+        arr[0]=1;
+          int ans=0,curr=0;
+        ans=curr=1;
+        map<int,int> mp;
+        mp[nums[0]]=1;
+        
+        for(int i=1;i<nums.size();i++){
+            curr=1+getBestCandidates(mp,nums[i]);
+            arr[i]=curr;
+            ans=max(ans,curr);
+            insert(mp,nums[i],curr);
+        }
+        return arr;
+       
+    }
+};

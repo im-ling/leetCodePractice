@@ -1,0 +1,22 @@
+func longestObstacleCourseAtEachPosition(arr []int) []int {
+    n := len(arr)
+    
+    stk := []int{}
+    res := make([]int, n)
+    
+    for i:=0; i<n; i++ {
+        ans := 0
+        if len(stk) == 0 || arr[stk[len(stk)-1]] <= arr[i] {
+            stk = append(stk, i)
+            ans = len(stk)
+        } else {
+            idx := sort.Search(len(stk), func(k int) bool {
+                return arr[stk[k]] > arr[i]
+            })
+            stk[idx] = i
+            ans = idx+1
+        }
+        res[i] = ans
+    }
+    return res
+}

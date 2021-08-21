@@ -1,0 +1,19 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        '''
+        Find longest increasing subsequence
+        '''
+        lis = [0]
+        output = []
+        for i, obstacle in enumerate(obstacles):
+            if obstacle >= lis[-1]:
+                lis.append(obstacle)
+                output.append(len(lis) - 1)
+            else:
+                index = bisect.bisect_right(lis, obstacle)
+                lis[index] = obstacle
+                output.append(index)
+        
+        return output
+        
+        

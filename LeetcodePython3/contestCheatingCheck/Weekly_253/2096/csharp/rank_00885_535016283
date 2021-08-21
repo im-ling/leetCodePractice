@@ -1,0 +1,38 @@
+public class Solution {
+    public int[] LongestObstacleCourseAtEachPosition(int[] obs) {
+        int N = obs.Length;
+        int[] ans = new int[N];
+        List<int> list = new List<int>();
+        for (int i = 0; i < N; i ++){
+            ans[i] = 1;
+            
+            int T = obs[i];
+            
+            int idx = Idx(list, T);
+            
+            if (idx >= list.Count){
+                list.Add(T);
+                ans[i] = list.Count;
+            }else{
+                list[idx] = T;
+                ans[i] = idx + 1;
+            }
+        }
+        
+        return ans;
+    }
+    
+    int Idx(List<int> list, int T){
+        int l = 0;
+        int r = list.Count- 1;
+        while (l <= r){
+            int m = l + (r - l) / 2;
+            if (list[m] <= T){
+                l = m + 1;
+            }else if (list[m] > T){
+                r = m - 1;
+            }
+        }
+        return l;
+    }
+}

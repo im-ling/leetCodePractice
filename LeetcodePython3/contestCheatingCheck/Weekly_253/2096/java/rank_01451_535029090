@@ -1,0 +1,59 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] A) {
+        int n = A.length;
+        int[] ret = new int[n];
+        Arrays.fill(ret, 1);
+        // TreeMap<Integer, Integer> map = new TreeMap<>();
+        // for (int i = 0; i < n; i++) {
+        //     for (Map.Entry<Integer, Integer> entry : map.headMap(A[i], true).entrySet()) {
+        //         ret[i] = Math.max(ret[i], entry.getValue() + 1);
+        //     }
+        //     map.put(A[i], ret[i]);
+        // }
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            if (list.isEmpty()) {
+                list.add(A[i]);
+                continue;
+            }
+            int j = lower_bound(list, A[i]);
+            if (j == -1) {
+                list.set(0, A[i]);
+            } else {
+                if (j == list.size() - 1) {
+                    list.add(A[i]);
+                    ret[i] = Math.max(ret[i], list.size());
+                } else {
+                    list.set(j + 1, A[i]);
+                }
+                ret[i] = Math.max(ret[i], j + 2);
+            }
+            // if (j == list.size()) {
+            //     list.add(A[i]);
+            // } else {
+            //     list.set(j, A[i]);
+            // }
+            // ret[i] = Math.max(ret[i], j + 1);
+        }
+        return ret;
+    }
+    
+    int lower_bound(List<Integer> list, int target) {
+        int lo = 0, hi = list.size() - 1;
+        while (lo + 1 < hi) {
+            int mid = lo + (hi - lo) / 2;
+            if (list.get(mid) <= target) {
+                lo = mid;
+            } else {
+                hi = mid;
+            }
+        }
+        if (list.get(hi) <= target) {
+            return hi;
+        }
+        if (list.get(lo) <= target) {
+            return lo;
+        }
+        return -1;
+    }
+}

@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> pre_nums;
+        vector<int> res;
+        for (int num : obstacles) {
+            int index = binary_search(num, pre_nums);
+            if (index == pre_nums.size()) {
+                pre_nums.push_back(num);
+            } else {
+                pre_nums[index] = num;
+            }
+            res.push_back(index + 1);
+        }
+        return res;
+    }
+private:
+    int binary_search(int target, vector<int>& nums) {
+        int lo = 0, hi = nums.size(), mi;
+        while (lo < hi) {
+            mi = lo + (hi - lo) / 2;
+            if (nums[mi] <= target) {
+                lo = mi + 1;
+            } else {
+                hi = mi;
+            }
+        }
+        
+        return lo;
+    }
+};

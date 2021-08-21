@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        
+        int n = obstacles.size();
+        
+        vector<int>dp(n + 1,INT_MAX);
+        dp[0] = INT_MIN;
+        
+        vector<int>result(n);
+        
+        for(int i = 0; i < n; i++){
+            int index = upper_bound(dp.begin(),dp.end(),obstacles[i]) - dp.begin();
+            //cout<<index<<endl;
+            if(dp[index - 1] <= obstacles[i] && dp[index] >= obstacles[i]){
+                dp[index] = obstacles[i];
+                result[i] = index;
+            }
+        }
+        
+        //for(int i = 0; i <= n; i++) cout<<dp[i]<<" ";
+        
+        return result;
+        
+    }
+};

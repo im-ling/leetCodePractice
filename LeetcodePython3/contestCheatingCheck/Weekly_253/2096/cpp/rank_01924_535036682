@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        const int n = obstacles.size();
+        vector<int> ans(n);
+        vector<int> dp;
+        int i=0;
+        for (auto obs: obstacles) {
+            auto it = std::upper_bound(dp.begin(), dp.end(), obs);
+            if (it == dp.end()) {
+                ans[i] = it - dp.begin() + 1;
+                dp.emplace_back(obs);
+            } else {
+                *it = obs;
+                ans[i] = it - dp.begin() + 1;
+            }
+            ++i;
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,30 @@
+class Solution {
+    public int findMoreThanIt(int[] arr, int from, int to, int x) {
+        int l = from, r = to;
+        while (l <= r) {
+            int mid = l + ((r - l) >> 1);
+            if (arr[mid] <= x) {
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] res = new int[n];
+        int[] nums = new int[n];
+        res[0] = 1;
+        nums[0] = obstacles[0];
+        int len = 1;
+        for (int i = 1; i < n; i++) {
+            int x = obstacles[i];
+            int pos = findMoreThanIt(nums, 0, len - 1, x);
+            res[i] = pos + 1;
+            nums[pos] = x;
+            len = Math.max(len, pos + 1);
+        }
+        return res;
+    }
+}

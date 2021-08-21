@@ -1,0 +1,45 @@
+class Solution {
+public:
+    
+    int getIndex(vector<int> &arr, int val)
+    {
+        int n = arr.size(), s = 0, e = n-1;
+        
+        while(s<e)
+        {
+            int mid = (s+e)/2;
+            
+            if(arr[mid] <= val)
+                s = mid+1;
+            else
+                e = mid;
+        }
+        
+        return s;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> res, store;
+        int n = obstacles.size();
+        
+        store.push_back(obstacles[0]);
+        res.push_back(1);
+        
+        for(int i=1;i<n;i++)
+        {
+            if(obstacles[i] >= store.back())
+            {
+                store.push_back(obstacles[i]);
+                res.push_back(store.size());
+            }
+            else
+            {
+                int index = getIndex(store, obstacles[i]);
+                store[index] = obstacles[i];
+                res.push_back(index+1);
+            }
+        }
+        
+        return res;
+    }
+};

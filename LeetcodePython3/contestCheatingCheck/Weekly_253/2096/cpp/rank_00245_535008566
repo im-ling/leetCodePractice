@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int le(vector<int>& a, int t) {
+        int l = 0, r = a.size()-1, ans = -1;
+        while(l <= r) {
+            int m = l + (r-l) / 2;
+            if(a[m] <= t) {
+                ans = m;
+                l = m+1;
+            } else r = m-1;
+        }
+        int idx = ans+1;
+        if(idx == a.size()) a.push_back(t);
+        else a[idx] = t;
+        return idx+1;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> ans, lis;
+        for(int ob : obstacles) {
+            ans.push_back(le(lis, ob));
+        }
+        return ans;
+    }
+};

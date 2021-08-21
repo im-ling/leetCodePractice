@@ -1,0 +1,31 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        ascstack = []
+        leftcnt = []
+        numcntmap = {}
+        n = len(obstacles)
+        for h in obstacles:
+            if not ascstack or h >= ascstack[-1]:
+                ascstack.append(h)
+                numcntmap[h] = len(ascstack)
+                leftcnt.append(len(ascstack))
+            else:
+                #binary search
+                index = bisect.bisect_right(ascstack, h)
+                tmpans = 0
+                if index == 0:
+                    tmpans = 1
+                elif ascstack[index] == h:
+                    tmpans = numcntmap[h] + 1
+                else:
+                    tmpans = numcntmap[ascstack[index-1]] + 1
+                if index < len(ascstack):
+                    ascstack[index] = h
+                else:
+                    ascstack.append(h)
+                
+                leftcnt.append(tmpans)
+                numcntmap[h] = tmpans
+            #print(ascstack)
+            
+        return leftcnt

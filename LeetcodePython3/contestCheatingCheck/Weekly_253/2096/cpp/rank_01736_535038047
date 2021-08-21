@@ -1,0 +1,135 @@
+
+#define pii pair<int,int>
+#define vi vector<int>
+#define mii map<int,int>
+#define ADJ map<int,set<int>>
+#define vpii vector<pii>
+#define fmap gp_hash_table
+
+// Shorthand Macros
+#define pb push_back
+#define ed end()
+#define bg begin()
+#define sz size()
+#define ln length()
+#define all(x) x.begin(),x.end()
+#define endl '\n'
+#define NL cout << '\n';
+#define F first
+#define S second
+#define TT third
+#define disp(x) for(auto t : x )cout<<t<<" ";
+#define for0(n) for(int i = 0 ; i < n ; i++)
+#define for0j(n) for(int j = 0 ; j < n ; j++)
+#define oldfor(v) for(auto it = v.begin(); it != v.end(); ++it)
+#define SS << ' ' <<
+#define acum accumulate
+#define arrin(a,n) vi a(n);for0(n){cin >> a[i];}
+#define arrinp(a,n) vpii a(n);for0(n){cin >> a[i].F;a[i].S=i;}
+#define pf(x) cout << x << endl;
+#define Check pf("Check")
+#define gridin(num,n,m) for0(n){for0j(m) cin >> num[i][j];}
+#define dispgrid(num,n,m) for0(n){for0j(m) cout << num[i][j] << ' '; cout << endl;}
+
+// IO Helpers
+#define tks(x) string x;cin >> x;
+#define tk(a) int a;cin >> a;
+#define tk2(a,b)tk(a)tk(b)
+#define tk3(a,b,c)tk2(a,b)tk(c)
+#define tk4(a,b,c,d)tk2(a,b)tk2(c,d)
+#define tk5(a,b,c,d,e)tk4(a,b,c,d)tk(e)
+#define tk6(a,b,c,d,e,f)tk3(a,b,c)tk3(d,e,f)
+#define tk7(a,b,c,d,e,f,g)tk6(a,b,c,d,e,f)tk(g)
+#define tk8(a,b,c,d,e,f,g,h)tk7(a,b,c,d,e,f,g)tk(h)
+#define addEdge(adj) tk2(u,v) adj[u].insert(v);adj[v].insert(u);
+#define test tk(test)while(test--)
+
+// Common Affirmations
+#define YES cout << "YES" <<endl;
+#define Yes cout << "Yes" <<endl;
+#define NO cout << "NO" <<endl;
+#define No cout << "No" <<endl;
+#define yes cout << "yes" <<endl;
+#define no cout << "no" <<endl;
+
+
+// Common Constants
+#define MOD 1000000007
+#define N 100000
+#define accuracy chrono::steady_clock::now().time_since_epoch().count()
+
+// Overloaded Ostream Classes
+
+template<typename F, typename S>
+ostream& operator<<(ostream& os,const pair<F,S> &p){return os << "(" << p.F << ", " << p.S << ")";}
+
+template < typename T >
+ostream &operator<<(ostream &os,const vector<T> &v){os<< "{";oldfor(v){if(it!=v.bg)os<<", ";os<<*it;}return os << "}";}
+
+template < typename T >
+ostream &operator << (ostream &os, const set<T> &v){os << "[";oldfor(v){if(it!=v.bg)os<< ", ";os << *it;}return os << "]";}
+
+template < typename T >
+ostream &operator << (ostream &os, const multiset<T> &v){os << "[";oldfor(v){if(it!=v.bg) os << ", ";os<<*it;}return os << "]";}
+
+template < typename F, typename S >
+ostream &operator <<(ostream & os, const map<F,S> &v){os << "[";oldfor(v){if(it!=v.bg)os<< ", ";os<< it->F<<" = "<<it->S;}return os << "]";}
+
+
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        vi sol;
+        int n=a.sz;
+		set<pii> ss;
+        for(int i=0;i<n;i++){
+        	if(ss.sz==0){
+        		ss.insert({a[i],1});
+        		sol.pb(1);
+        		continue;
+        	}else{
+        		auto it=ss.lower_bound({a[i],-1});
+        		if(it==ss.ed){
+        			it--;
+        		}
+        		pii temp = *it;
+        		if(temp.F>a[i] and it!=ss.bg){
+        			it--;
+        			temp = *it;
+        		}
+        		//pf(i SS ss)
+        		if(temp.F<=a[i]){
+        			sol.pb(temp.S+1);
+        			if(temp.F==a[i])
+	        			ss.erase(it);
+        			ss.insert({a[i],temp.S+1});
+					while(ss.sz>0){
+						auto it=ss.upper_bound({a[i],temp.S+1});
+						if(it==ss.ed)break;
+						if((it->F)>a[i] and (it->S)<temp.S+1){					
+							ss.erase(it);
+						}else{
+							break;
+						}
+					}
+        		}else{
+        			sol.pb(1);
+        			ss.insert({a[i],1});
+					while(ss.sz>0){
+						auto it=ss.ed;
+						it--;
+						if((it->F)>a[i] and (it->S)<1){					
+							ss.erase(it);
+						}else{
+							break;
+						}
+					}
+        		}
+
+        	}
+        }
+	    //  pf(sol)
+        return sol;
+    }
+};

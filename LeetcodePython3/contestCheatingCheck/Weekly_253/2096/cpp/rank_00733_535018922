@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        stack<int> st;
+        vector<int> res(a.size());
+        vector<int> tails(a.size(), 0);  // for length i, smallest end element of all subsequences with that length
+        int s = 0;
+        for(int k = 0; k < a.size(); k++){
+            int i = 0, j = s; // BS the length of subsequence
+            while(i < j){
+                int m = i + (j-i)/2;
+                if(tails[m] <= a[k]) {// smallest end element of size m+1 is < current
+                    i = m+1; 
+                } else{
+                    j = m; // smallest end element of size m+1 is > current, so the length has to go down 
+                }
+            }
+            tails[i] = a[k]; // i+1 is the length of LIS?
+            res[k] = i+1;
+            if(i >= s) s = i+1;
+        }
+        return res;
+    }
+};

@@ -1,0 +1,24 @@
+class Solution {
+    fun longestObstacleCourseAtEachPosition(obstacles: IntArray): IntArray {
+        var lis=IntArray(obstacles.size+1){100000000}
+        var fans=ArrayList<Int>()
+        for(i in obstacles){
+            var l=0
+            var r=lis.size-1
+            var ans=r
+            while(l<=r){
+                var mid=(l+r)/2
+                if(lis[mid]>i){
+                    ans=mid
+                    r=mid-1
+                }
+                else{
+                    l=mid+1
+                }
+            }
+            lis[ans]=i
+            fans.add(ans+1)
+        }
+        return fans.toIntArray()
+    }
+}

@@ -1,0 +1,37 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        int n = obs.size();
+        vector<pair<int,int>> arr;
+        for (int i = 0; i < n; i++)
+            arr.push_back({obs[i], i});
+        
+        sort(arr.begin(), arr.end());
+        
+        vector<int> ans(n);
+        set<pair<int,int>> stt;
+        stt.insert({-1, 0});
+        
+        for (auto [v, i]: arr) {
+            auto it = stt.lower_bound({i,0});
+            --it;
+            
+            int res = it->second + 1;
+            ans[i] = res;
+            stt.insert({i, res});
+            
+            it = stt.find({i, res});
+            it++;
+            while (it != stt.end()) {
+                if (it->second > res)
+                    break;
+                auto it2 = it;
+                it2++;
+                stt.erase(it);
+                it = it2;
+            }
+        }
+        
+        return ans;
+    }
+};

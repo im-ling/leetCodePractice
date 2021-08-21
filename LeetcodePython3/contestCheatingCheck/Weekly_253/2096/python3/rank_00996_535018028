@@ -1,0 +1,20 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        length2minEnd = collections.defaultdict(lambda :10**8)
+        res = []
+        def get_pre_length(max_possible_length, end):
+            l,r = 0, max_possible_length + 1
+            while l < r:
+                m = (l + r) // 2
+                if length2minEnd[m] <= end:
+                    l = m + 1
+                else:
+                    r = m
+            
+            return max(l - 1,0)
+        
+        for i,o in enumerate(obstacles):
+            pre_length = get_pre_length(i,o)
+            length2minEnd[pre_length + 1] = min(length2minEnd[pre_length + 1], o)
+            res.append(pre_length + 1)
+        return res

@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<int> v;
+    
+    int foo(int from, int to, int num){
+        if(from+1 >= to){
+            if(from >= v.size() || v[from] > num)
+                return from;
+            else
+                return to;
+        }
+        int mid = (from+to)/2;
+        //cout << v[mid] << endl;
+        if(v[mid] <= num)
+            return foo(mid+1, to, num);
+        else
+            return foo(from, mid, num);
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> ret;
+        for(int i = 0; i < obstacles.size(); ++i){
+            int idx = foo(0, v.size(), obstacles[i]);
+            if(idx >= v.size())
+                v.push_back(obstacles[i]);
+            else
+                v[idx] = obstacles[i];
+            ret.push_back(idx+1);
+        }
+        return ret;
+    }
+};

@@ -1,0 +1,55 @@
+class Solution {
+public:
+    int f(vector<long long>& v, int l, int r, long long key)
+    {
+        while (r - l > 1) {
+            int m = l + (r - l) / 2;
+            if (v[m] > key)
+                r = m;
+            else
+                l = m;
+        }
+
+        return r;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& vv) {
+        unordered_map<int,int>mp;
+        vector<long long>v;
+        for(int a:vv)
+        {
+            v.push_back((long long)a*100000000+mp[a]);
+            mp[a]++;
+        }
+
+        vector<long long> tail(v.size(), 0);
+        vector<int>dp(v.size());
+        dp[0]=1;
+        int length = 1;
+
+        tail[0] = v[0];
+        for (size_t i = 1; i < v.size(); i++) {
+
+            if (v[i] < tail[0])
+            {
+                tail[0] = v[i];
+                dp[i]=1;
+            }
+            else
+            {
+                if (v[i] > tail[length - 1])
+                {
+                  tail[length++] = v[i];
+                  dp[i]=length;
+                }
+                else
+                {
+                    int kk=f(tail, -1, length - 1, v[i]);
+                    tail[kk] = v[i];
+                    dp[i]=kk+1;
+                }
+            }
+        }
+
+        return dp;
+    }
+};

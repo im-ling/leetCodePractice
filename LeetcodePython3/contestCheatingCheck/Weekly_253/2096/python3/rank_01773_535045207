@@ -1,0 +1,27 @@
+
+    
+class Solution:
+
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        
+        ans = [1 for _ in range(len(obstacles))]
+        
+        stack = []
+        def bsearch(x):
+            l, r = 0, len(stack) - 1
+            while l < r:
+                mid = l + r >> 1
+                if stack[mid] > x: r = mid
+                else: l = mid + 1
+            return l
+
+        for i in range(len(obstacles)):
+            if not stack or obstacles[i] >= stack[-1]: 
+                stack.append(obstacles[i])
+                ans[i] = len(stack)
+            else: 
+                t = bsearch(obstacles[i])
+                stack[t] = obstacles[i]
+                ans[i] = t+1
+            
+        return ans

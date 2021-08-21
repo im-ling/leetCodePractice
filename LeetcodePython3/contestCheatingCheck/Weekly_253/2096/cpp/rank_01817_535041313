@@ -1,0 +1,53 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        
+        seg.clear();
+        seg.resize(3e5, 0);
+        
+        vector<int> cpy = obstacles;
+        sort(cpy.begin(), cpy.end());
+        
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            int key = lower_bound(cpy.begin(), cpy.end(), obstacles[i]) - cpy.begin();
+            int curr_ans = get(0, n - 1, 0, key, 0) + 1;
+            ans[i] = curr_ans;
+            insert(0, n - 1, key, curr_ans, 0);
+        }
+        return ans;
+    }
+
+private:
+    void insert(int l, int r, int x, int v, int i) {
+        if (l > x || r < x) {
+            return; 
+        }
+        if (l == r) {
+            seg[i] = max(seg[i], v);
+            return;
+        }
+        int mid = (l + r) / 2;
+        if (x > mid) {
+            insert(mid + 1, r, x, v, 2 * i + 2);
+        } else {
+            insert(l, mid, x, v, 2 * i + 1);
+        }
+        seg[i] = max(seg[2 * i + 1], seg[2 * i + 2]);
+    }
+    
+    int get(int l, int r, int a, int b, int i) {
+        if (r < a || l > b) {
+            return 0;
+        }
+        if (l >= a && r <= b) {
+            return seg[i];
+        }
+        int mid = (l + r) / 2;
+        return max(get(l, mid, a, b, 2 * i + 1),
+                  get(mid + 1, r, a, b, 2 * i + 2));
+    }
+    
+    vector<int> seg;
+};

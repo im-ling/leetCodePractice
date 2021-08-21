@@ -1,0 +1,41 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        X = obstacles
+        
+        N = len(X)
+        P = [0] * N
+        M = [0] * (N + 1)
+        # M[j] — stores the index k of the smallest value X[k] such that there is an increasing subsequence of length j ending at X[k]
+        # P[k] — stores the index of the predecessor of X[k] in the longest increasing subsequence ending at X[k].
+        L = 0 # length of current LIS
+        
+        S = [0] * N
+        
+        for i in range(N):
+            # Find largest positive j <= L s.t. X[M[j]] <= X[i]
+            # I.e., find longest increasing prefix of X[i]
+            lo = 1
+            hi = L + 1
+            while lo < hi:
+                mid = (lo + hi) // 2
+                if X[M[mid]] > X[i]:
+                    hi = mid
+                else:
+                    lo = mid + 1
+            # hi - 1: length of longest prefix of X[i]
+        
+            newL = hi # newL = (hi-1) + 1
+            S[i] = newL
+
+            # The predecessor of X[i] is the last index of the subsequence of length newL - 1
+            P[i] = M[newL-1]
+            M[newL] = i
+
+            if newL > L:
+                # We found a subsesequence longer than any we've found yet, update L
+                L = newL
+
+    
+        
+        return S
+

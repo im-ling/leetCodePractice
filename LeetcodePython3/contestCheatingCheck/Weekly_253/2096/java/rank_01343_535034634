@@ -1,0 +1,37 @@
+class Solution {
+    public class Node{
+        int val,len;
+        Node(int val,int len){
+            this.val = val;
+            this.len = len;
+        }
+    }
+    public int insert(int val,List<Node> list){
+        int start = 0,end = list.size()-1;
+        int ans = 0;
+        while(start <= end){
+            int mid = (start+end)/2;
+            if(list.get(mid).val > val) end = mid-1;
+            else{
+                ans = mid;
+                start = mid+1;
+            }
+        }
+        int mid = ans;
+        ans = list.get(mid).len + 1;
+        list.add(mid+1,new Node(val,ans));
+        mid = mid+2;
+        while(mid < list.size() && list.get(mid).len <= list.get(mid-1).len) list.remove(mid);
+        if(list.get(mid-1).val == list.get(mid-2).val) list.remove(mid-2);
+        return ans;
+    }
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        List<Node> list = new ArrayList<>();
+        list.add(new Node(0,0));
+        for(int i = 0;i<n;i++){
+            obstacles[i] = insert(obstacles[i],list);
+        }
+        return obstacles;
+    } 
+}

@@ -1,0 +1,45 @@
+class Solution {
+    private int getUpperBound(int a[],int sz, int v){
+        int lo=0,hi=sz-1,mid,idx=sz-1;
+        while(lo<=hi){
+            mid=(lo+hi)/2;
+            if(a[mid]<=v){
+                lo=mid+1;
+                idx=mid+1;
+            }
+            else {
+                hi=mid-1;
+            }
+        }
+        return idx;
+    }
+    private int[] getLis(int a[]){
+        int n=a.length;
+        int lis[]=new int[n];
+        int l=1;
+        lis[0]=a[0];
+        int ret[]=new int[n];
+        if(n<1)return ret;
+        ret[0]=1;
+        if(n<2)return ret;
+        for(int i=1;i<n;i++){
+            if(lis[l-1]<=a[i]){
+                lis[l++]=a[i];
+                ret[i]=l;
+            }
+            else if(lis[0]>a[i]){
+                lis[0]=a[i];
+                ret[i]=1;
+            }
+            else {
+                int ub=getUpperBound(lis,l,a[i]);
+                ret[i]=ub+1;
+                lis[ub]=a[i];
+            }
+        }
+        return ret;
+    }
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        return getLis(obstacles);
+    }
+}

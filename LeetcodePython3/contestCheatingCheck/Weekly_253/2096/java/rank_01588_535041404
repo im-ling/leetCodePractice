@@ -1,0 +1,61 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        SegmentTree st = new SegmentTree(obstacles.length);
+        int[] result = new int[obstacles.length];
+        
+        PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> {
+            if (a[0] == b[0]) return a[1] - b[1];
+            return a[0] - b[0];
+        });
+        
+        for (int i = 0; i < obstacles.length; i++) {
+            q.offer(new int[] {obstacles[i], i});
+        }
+        
+        while (!q.isEmpty()) {
+            int[] small = q.poll();
+            int num = small[0];
+            int idx = small[1];
+            
+            int leftMax = st.max(1, 0, obstacles.length - 1, 0, idx);
+            result[idx] = leftMax + 1;
+            st.update(1, 0, obstacles.length - 1, idx, leftMax + 1);
+        }
+        
+        return result;
+    }
+    
+}
+
+class SegmentTree {
+    int n;
+    int[] t;
+    
+    public SegmentTree(int n) {
+        this.n = n;
+        t = new int[n*4];
+    }
+    
+    public int max(int v, int tl, int tr, int l, int r) {
+        if (l > r) 
+            return 0;
+        if (l == tl && r == tr) {
+            return t[v];
+        }
+        int tm = (tl + tr) / 2;
+        return Math.max(max(v*2, tl, tm, l, Math.min(r, tm)), max(v*2+1, tm+1, tr, Math.max(l, tm+1), r));
+    }
+    
+    public void update(int v, int tl, int tr, int pos, int newVal) {
+        if (tl == tr) {
+            t[v] = newVal;
+        } else {
+            int tm = (tl + tr) / 2;
+            if (pos <= tm)
+                update(v*2, tl, tm, pos, newVal);
+            else
+                update(v*2+1, tm+1, tr, pos, newVal);
+            t[v] = Math.max(t[v*2], t[v*2+1]);
+        }
+    }
+}

@@ -1,0 +1,18 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        multiset < int > s;
+        multiset < int > :: iterator it;
+        int n=a.size();
+        vector<int> ans(n,0);
+        vector<int> v;
+        for (int i = 0; i < n; i++) {
+            auto it = upper_bound(v.begin(), v.end(), a[i]);
+            if (it != v.end())
+                *it = a[i];
+            else v.push_back(a[i]);
+            ans[i]=(upper_bound(v.begin(),v.end(),a[i])-v.begin());
+        }
+        return ans;
+    }
+};

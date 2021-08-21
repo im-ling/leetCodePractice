@@ -1,0 +1,46 @@
+class Solution {
+public:
+    vector<int> tree_arr;
+  
+    int lowbit(int x) {
+        return (x & -x);
+    }
+    
+    void SetValue(int pos, int x) {
+        while (pos < tree_arr.size()) {
+            tree_arr[pos] = max(tree_arr[pos], x);
+            pos += lowbit(pos);
+        }
+    }
+    
+    int GetValue(int pos) {
+        int ans = 0;
+        while (pos) {
+            ans = max(ans, tree_arr[pos]);
+            pos -= lowbit(pos);
+        }
+        return ans;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        map<int, int> leng;
+        vector<int> res;
+        
+        set<int> st;
+        map<int, int > mp;
+        for (auto t : obstacles)
+            st.insert(t);
+        int tot = 0;
+        for (auto it = st.begin(); it != st.end(); it++) {
+            mp[*it] = ++tot;
+        }
+        tree_arr = vector<int>(tot + 1, 0);
+        
+        for (auto t : obstacles) {
+            int prev = GetValue(mp[t]);
+            SetValue(mp[t], prev + 1);
+            res.push_back(prev + 1);
+        }
+        return res;
+    }
+};

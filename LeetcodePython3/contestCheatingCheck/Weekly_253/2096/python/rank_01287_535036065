@@ -1,0 +1,28 @@
+class Solution(object):
+    def longestObstacleCourseAtEachPosition(self, nums):
+        """
+        :type obstacles: List[int]
+        :rtype: List[int]
+        """
+        n = len(nums)
+        result = [float("inf") for i in range(n)]
+        result2 = []
+        for num in nums:
+            index = self.binary_serarch(result, num)
+            result[index] = num
+            result2.append(index + 1)
+        return result2
+        
+        
+    def binary_serarch(self, nums, value):
+        left = 0 
+        right = len(nums) - 1
+        while left + 1 < right:
+            mid = (left + right) // 2
+            if nums[mid] > value:
+                right = mid
+            else:
+                left = mid
+        if nums[left] > value:
+            return left
+        return right

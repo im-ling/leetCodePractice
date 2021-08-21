@@ -1,0 +1,70 @@
+class Solution {
+public:
+    // void update(int x,int val,vector<int>& v,int n)
+    // {
+    //     for(x;x<=n;x+=x&-x)
+    //         v[x]+=val;
+    // }
+    // int query(int x,vector<int>& v)
+    // {
+    //     int ans=0;
+    //     while(x>0)
+    //     {
+    //         ans+=v[x];
+    //         x-=x&-x;
+    //     }
+    //     return ans;
+    // }
+    vector<int>v;
+    void update(int node, int start, int end, int idx, int val,vector<int>& tree)
+    {
+        if(start == end)
+        {
+            tree[node] = val;
+        }
+        else
+        {
+            int mid = (start + end) / 2;
+            if(start <= idx and idx <= mid)
+            {
+                update(2*node, start, mid, idx, val,tree);
+            }
+            else
+            {
+                update(2*node+1, mid+1, end, idx, val,tree);
+            }
+            tree[node] = max(tree[2*node], tree[2*node+1]);
+        }
+    }
+    int query(int node, int start, int end, int l, int r,vector<int>& tree)
+    {
+        if(r < start or end < l)
+        {
+            return 0;
+        }
+        if(l <= start and end <= r)
+        {
+            return tree[node];
+        }
+        int mid = (start + end) / 2;
+        int p1 = query(2*node, start, mid, l, r,tree);
+        int p2 = query(2*node+1, mid+1, end, l, r,tree);
+        return max(p1 , p2);
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n=obstacles.size(),N=0;v.clear();
+        for(int i=0;i<n;i++)
+            N=max(N,obstacles[i]);
+        
+        N+=10;
+        v.resize(5*N,0);
+        vector<int>ans;
+        for(int i=0;i<n;i++)
+        {
+            int num=query(1,1,N,1,obstacles[i],v);
+           ans.push_back(num+1);
+            update(1,1,N,obstacles[i],num+1,v);
+        }
+        return ans;
+    }
+};

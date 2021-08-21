@@ -1,0 +1,35 @@
+class Fenwick:
+    def __init__(self, n):
+        self.a = [0] * (n + 1)
+    
+    def max(self, i):
+        s = 0
+        while i > 0:
+            s = max(s, self.a[i])
+            i -= i & -i
+        return s
+    
+    def update(self, i, x):
+        while i < len(self.a):
+            self.a[i] = max(self.a[i], x)
+            i += i & -i
+            
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, A: List[int]) -> List[int]:
+        n = len(A)
+        s = []
+        ans = 0
+        res = []
+        fen = Fenwick(max(A) + 1)
+        
+        for i, a in enumerate(A):
+            L = 0
+            while s and A[s[-1]] > a:
+                s.pop()
+            s.append(i)
+            # res.append(len(s))
+            score = fen.max(a + 1)
+            score = max(score + 1, len(s))
+            res.append(score)
+            fen.update(a + 1, score)
+        return res

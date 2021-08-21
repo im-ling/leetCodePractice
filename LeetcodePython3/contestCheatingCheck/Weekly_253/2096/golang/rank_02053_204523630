@@ -1,0 +1,16 @@
+// github.com/EndlessCheng/codeforces-go
+func longestObstacleCourseAtEachPosition(a []int) []int {
+	n := len(a)
+	lis := make([]int, n)
+	dp := make([]int, 0, n)
+	for i, v := range a {
+		p := sort.SearchInts(dp, v+1)
+		if p < len(dp) {
+			dp[p] = v
+		} else {
+			dp = append(dp, v)
+		}
+		lis[i] = p + 1
+	}
+	return lis
+}

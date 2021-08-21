@@ -1,0 +1,43 @@
+#define maxOb 10000005
+
+void setVal(int v, int vl, int vr, int idx, int newVal, int* tree) {
+    if(vl == vr) {
+        tree[v] = newVal;
+        return;
+    }
+    int m = (vl + vr) / 2;
+    if(idx > m) {
+        setVal(2 * v + 2, m + 1, vr, idx, newVal, tree);
+    } else {
+        setVal(2 * v + 1, vl, m, idx, newVal, tree);
+    }
+    tree[v] = max(tree[2 * v + 1], tree[2 * v + 2]);
+}
+
+int getVal(int v, int vl, int vr, int l, int r, int* tree) {
+    if(vl == l && vr == r)
+        return tree[v];
+    if(vl > r || vr < l)
+        return 0;
+    int m = (vl + vr) / 2;
+    int a = getVal(2 * v + 1, vl, m, l, min(m, r), tree);
+    int b = getVal(2 * v + 2, m + 1, vr, max(m + 1, l), r, tree);
+    return max(a, b);
+}
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> ans(n);
+        int* tree = (int*)malloc(4 * maxOb * sizeof(int));
+        int m = 0;
+        for(int i = 0; i < n; i++) {
+            m = max(m, obstacles[i]);
+            ans[i] = getVal(0, 0, maxOb - 1, 0, obstacles[i], tree) + 1;
+            setVal(0, 0, maxOb - 1, obstacles[i], ans[i], tree);
+        }
+        cout << m << endl;
+        return ans;
+    }
+};

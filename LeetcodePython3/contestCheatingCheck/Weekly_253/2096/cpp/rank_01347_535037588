@@ -1,0 +1,42 @@
+class Solution {
+public:
+    int findFirstLarger(vector<int>& piles, int target) {
+        int n = piles.size();
+        if(n == 0) return 0;
+        
+        int low = 0, high = n;
+        
+        while(low + 1 < high) {
+            int mid = low + (high-low)/2;
+            
+            if(piles[mid] == target) {
+                low = mid;
+            } else if (piles[mid] < target) {
+                low = mid;
+            } else {
+                high = mid;
+            }
+        }
+        
+        if(piles[low] > target) return low;
+        else return high;
+    }
+    
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> piles;
+        
+        vector<int> ans(n);
+        for(int i = 0; i < n; i++) {
+            int target = obstacles[i];
+            int idx =  findFirstLarger(piles, target);
+            if(idx == piles.size()) piles.push_back(target);
+            else piles[idx] = target;
+            
+            ans[i] = idx+1;
+        }
+        
+        return ans;
+    }
+};

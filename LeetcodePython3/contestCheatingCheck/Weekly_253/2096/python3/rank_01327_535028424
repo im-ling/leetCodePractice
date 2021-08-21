@@ -1,0 +1,23 @@
+from typing import List
+
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        sz = len(obstacles)
+        dp = [0] * sz
+        e = -1
+        ans = []
+
+        for i, o in enumerate(obstacles):
+            l, r = 0, e
+            while l <= r:
+                m = (l + r) // 2
+                if dp[m] <= o:
+                    l = m + 1
+                else:
+                    r = m - 1
+            dp[r+1] = o
+            if r + 1 > e:
+                e = r + 1
+            ans.append(r+1+1)
+        return ans

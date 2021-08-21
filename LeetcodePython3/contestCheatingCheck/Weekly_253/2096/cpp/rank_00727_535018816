@@ -1,0 +1,19 @@
+#define SIZE 10000002
+class Solution {
+    int fenwick[SIZE] = {0};
+    void add(int i, int val){for(;i<SIZE;i+=i&-i)fenwick[i]=max(fenwick[i],val);}
+    int find(int i){int o=0;for(;i>0;i-=i&-i)o=max(o,fenwick[i]);return o;}
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> o(n);
+        for(int i = 0; i < n; i++)
+        {
+            int ob = obstacles[i];
+            int sol = find(ob)+1;
+            o[i] = sol;
+            add(ob,sol);
+        }
+        return o;
+    }
+};

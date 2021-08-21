@@ -1,0 +1,48 @@
+class Solution {
+public:
+    void bitInsert(int b[], int n, int v) {
+        while (n < 10000001) {
+            b[n] += v;
+            n += (n & (-n));
+        }
+    }
+    
+    int bitSearch(int b[], int n) {
+        int res = 0;
+        while (n) {
+            res += b[n];
+            n -= (n & (-n));
+        }
+        return res;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& A) {
+        int N = A.size();
+        
+        int bit[10000001];
+        memset(bit, 0, sizeof(bit));
+        bitInsert(bit, A[0], 1);
+        
+        multiset<int> dp;
+        dp.insert(A[0]);
+        
+        vector<int> res;
+        res.push_back(1);
+        
+        for (int i = 1; i < N; i++) {
+            auto f = dp.upper_bound(A[i]);
+            
+            if (f != dp.end()) {
+                bitInsert(bit, *f, -1);
+                dp.erase(f);
+            }
+            
+            bitInsert(bit, A[i], 1);
+            dp.insert(A[i]);
+            
+            res.push_back(bitSearch(bit, A[i]));
+        }
+        
+        return res;
+    }
+};

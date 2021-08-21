@@ -1,0 +1,32 @@
+class Solution {
+public:
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n = a.size();
+        a.push_back(1000000000);
+        vector<int> m(n + 1, n);
+        vector<int> answer(n);
+        answer[0] = 1;
+        m[0] = 0;
+        m[1] = 0;
+        for (int i = 1; i < n; ++i) {
+            int left = 1;
+            int right = n;
+            while (right - left > 5) {
+                int mid = (left + right) / 2;
+                if (a[m[mid]] <= a[i]) left = mid;
+                else right = mid;
+            }
+            int j = right;
+            for (; j >= left; --j) {
+                //cout << j << " " << m[j] << " " << a[m[j]] << endl;
+                if (a[m[j]] <= a[i]) break;
+            }
+            //cout << j << endl;
+            answer[i] = j + 1;
+            m[j + 1] = i;
+        }
+        
+        return answer;
+    }
+};

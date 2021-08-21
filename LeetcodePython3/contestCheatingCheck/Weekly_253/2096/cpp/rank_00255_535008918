@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        vector<int> dp, res; // val of smallest streak with len i
+        int size = ob.size();
+        auto bs = [&](int val) -> int {
+            int l = 0, r = dp.size(), mid;
+            while(l < r) {
+                mid = (l + r)/2;
+                // find first index dp[mid] > val
+                if(dp[mid] > val)
+                    r = mid;
+                else 
+                    l = mid +1;
+            }
+            if(l == dp.size()) {
+                dp.push_back(val);
+                return dp.size();
+            }
+            else {
+                dp[l] = min(dp[l], val);
+                return l+1;
+            }
+            
+        };
+        for(int i = 0; i < size; ++i) {
+            int x = bs(ob[i]);
+            res.push_back(x);
+        }
+        return res;
+    }
+};

@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int find_order_and_update_queue(int num, vector<int>& order_queue) {
+        if (order_queue.size() == 0) {
+            order_queue.emplace_back(num);
+            return 1;
+        }
+        int left = 0, right = order_queue.size() - 1;
+        while (left <= right) {
+            int mid = (left+right) >> 1;
+            if (num < order_queue[mid]) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        if (left >= order_queue.size()) {
+            order_queue.emplace_back(num);
+        } else {
+            order_queue[left] = min(num, order_queue[left]);
+        }
+        return left + 1;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> order_queue;
+        vector<int> ans;
+        for (int i = 0; i < obstacles.size(); ++i) {
+            int cur_order = find_order_and_update_queue(obstacles[i], order_queue);
+            ans.emplace_back(cur_order);
+        }
+        return ans;
+    }
+};

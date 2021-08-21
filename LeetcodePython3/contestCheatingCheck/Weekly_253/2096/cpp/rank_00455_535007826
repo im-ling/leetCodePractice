@@ -1,0 +1,47 @@
+class Solution {
+public:
+    int BS_get_Upper_Bound(vector<int> &dp, int target)
+    {
+        int n = dp.size();
+        int lo = 0, hi = n-1, mid;
+
+        // p(x): x > target, FFF*TTT*, first T
+        while(lo < hi)
+        {
+            mid = lo + (hi-lo)/2;
+            if(dp[mid] > target)
+                hi = mid;
+            else
+                lo = mid + 1;
+        }
+
+        return lo;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        if(n == 1)
+            return {1};
+
+        vector<int> dp, res;
+        dp.push_back(obstacles[0]);
+        res.push_back(1);
+        
+        for(int i = 1; i < n; i++)
+        {
+            if(dp.back() <= obstacles[i])
+            {
+                dp.push_back(obstacles[i]);
+                res.push_back(dp.size());
+            }
+            else
+            {
+                int idx = BS_get_Upper_Bound(dp, obstacles[i]);
+                dp[idx] = obstacles[i];
+                res.push_back(idx+1);
+            }
+        }
+        
+        return res;
+    }
+};

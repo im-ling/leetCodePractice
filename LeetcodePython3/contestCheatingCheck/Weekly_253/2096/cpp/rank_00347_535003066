@@ -1,0 +1,40 @@
+#define ll int 
+ll seg[400001];
+void upd(ll si,ll st,ll en,ll ix,ll v){
+    if(st==en){
+        seg[si]=max(seg[si],v);
+        return;
+    }
+    ll mi=(st+en)/2;
+    if(ix<=mi) upd(2*si,st,mi,ix,v);
+    else upd(2*si+1,mi+1,en,ix,v);
+    seg[si]=max(seg[2*si],seg[2*si+1]);
+}
+ll go(ll si,ll st,ll en,ll l,ll r){
+    if(st>r || en<l) return 0;
+    if(l<=st && r>=en) return seg[si];
+    ll mi=(st+en)/2;
+    return max(go(2*si,st,mi,l,r),go(2*si+1,mi+1,en,l,r));
+}
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& o) {
+        int n=o.size();
+        memset(seg,0,sizeof(seg));
+        map<ll,ll>pk;
+        for(int i:o){
+            pk[i];
+        }
+        int cn=0;
+        for(auto i:pk){
+            pk[i.first]=++cn;
+        }
+        vector<int>res(n,1);
+        for(int i=0;i<n;i++){
+            int cv=o[i];
+            res[i]=1+go(1,1,100000,1,pk[cv]);
+            upd(1,1,100000,pk[cv],res[i]);
+        }
+        return res;
+    }
+};

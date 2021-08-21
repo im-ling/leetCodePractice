@@ -1,0 +1,45 @@
+class Solution {
+public:
+    
+    int read (int idx, vector<int> &tree) {
+        int ac = 0;
+        while (idx != 0) {
+            ac = max(ac, tree[idx]);
+            idx -= idx&-idx;
+        }
+        return ac;
+    }
+    
+    void update (int idx, int new_val,vector<int> &tree) {
+        
+        while (idx < tree.size()) {
+            tree[idx] = max(tree[idx], new_val);
+            idx += (idx&-idx);
+        }
+        
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int>tree(n + 1, 0);
+        
+        vector<int> aux = obstacles;
+        sort(aux.begin(), aux.end());
+        map<int, int>m;
+        m[aux[0]] = 1;
+        for (int i = 1; i < aux.size(); i++)
+            if (aux[i] != aux[i - 1])
+                m[aux[i]] = 1 + m[aux[i - 1]];
+        
+        vector<int> longest_obs(n, 1);
+        
+        for (int i = 0; i < obstacles.size(); i++) {
+            obstacles[i] = m[obstacles[i]];
+            int get_max = 1 + read(obstacles[i], tree);
+            longest_obs[i] = get_max;
+            update(obstacles[i], get_max, tree);
+        }
+        
+        return longest_obs;
+    }
+};

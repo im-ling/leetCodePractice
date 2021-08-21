@@ -1,0 +1,36 @@
+class Solution(object):
+    def longestObstacleCourseAtEachPosition(self, obstacles):
+        """
+        :type obstacles: List[int]
+        :rtype: List[int]
+        """
+        q = []
+        
+        def find(ob,q):
+            lo, hi = 0, len(q)-1
+            ans = -1
+            while lo<= hi:
+                mid = (lo+hi)/2
+                if ob>=q[mid]:
+                    ans = mid
+                    lo = mid + 1
+                else:
+                    hi = mid-1
+            return ans
+            
+        
+        ans = []
+        for ob in obstacles:
+            if not q:
+                q.append(ob)
+                ans.append(1)
+                continue
+            idx = find(ob,q)
+            ans.append(idx + 2)
+            if idx+1<len(q):
+                q[idx+1] = min(ob, q[idx+1])
+            else:
+                q.append(ob)
+            
+        return ans
+            

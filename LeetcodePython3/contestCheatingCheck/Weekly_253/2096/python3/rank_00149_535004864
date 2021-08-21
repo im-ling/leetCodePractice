@@ -1,0 +1,10 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        ans = [0]*len(obstacles)
+        increasing = [float("inf")]*len(obstacles)
+        for i in range(len(obstacles)):
+            ind = bisect_right(increasing, obstacles[i])
+            ans[i] = ind+1
+            increasing[ind] = obstacles[i]
+            # print(increasing)
+        return ans

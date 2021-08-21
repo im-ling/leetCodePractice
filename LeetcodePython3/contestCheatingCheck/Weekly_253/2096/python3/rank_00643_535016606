@@ -1,0 +1,15 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        stk = []
+        ans = []
+        stk.append(obstacles[0])
+        ans.append(1)
+        for n in obstacles[1:]:
+            idx = bisect.bisect_right(stk, n)
+            ans.append(idx + 1)
+            if idx == len(stk):
+                stk.append(n)
+            else:
+                stk[idx] = n
+            # print(ans)
+        return ans

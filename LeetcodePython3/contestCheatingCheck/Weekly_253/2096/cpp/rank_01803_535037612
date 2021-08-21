@@ -1,0 +1,54 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> res(n, 0);
+        vector<int> tail(n);
+        map<int, int> om;
+        om[obstacles[0]] = 1;
+        map<int, int> lm;
+        lm[1] = obstacles[0];
+        res[0] = 1;
+        for (int i = 1; i < n; i++) {
+            int o = obstacles[i];
+            auto it = om.upper_bound(o);
+            int tmp = 0;
+            if (it == om.begin()) {
+               
+                res[i] = 1;
+                tmp = 1;
+                
+                if (lm.find(tmp) != lm.end()) {
+                    int x = lm[tmp];
+                    if (om[x] == tmp)
+                        om.erase(lm[tmp]);
+                    lm[tmp] = min(lm[tmp], o);
+                }
+                else {
+                    lm[tmp] = o;
+                }
+                
+                om[lm[tmp]] = tmp;
+            }
+            else {
+                it--;
+                tmp = it->second + 1;
+                if (lm.find(tmp) != lm.end()) {
+                    int x = lm[tmp];
+                    if(om[x] == tmp)
+                        om.erase(lm[tmp]);
+                    lm[tmp] = min(lm[tmp], o);
+                }
+                else {
+                    lm[tmp] = o;
+                }
+                
+                om[lm[tmp]] = tmp;
+                res[i] = tmp;
+            }
+
+
+        }
+        return res;
+    }
+};

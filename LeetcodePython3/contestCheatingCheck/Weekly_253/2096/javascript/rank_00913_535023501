@@ -1,0 +1,45 @@
+class SegmentTree {
+  constructor(size) {
+    this.n = 1;
+    while (this.n < size) this.n *= 2;
+    this.node = [];
+    for (let i = 0; i < 2 * this.n - 1; i++) this.node[i] = 0;
+  }
+  update(a, x) {
+    a += this.n - 1;
+    this.node[a] = x;
+    while (a > 0) {
+      a = Math.floor((a - 1) / 2);
+      this.node[a] = Math.max(this.node[2 * a + 1], this.node[2 * a + 2]);
+    }
+  }
+  query(a, b, k = 0, l = 0, r = this.n) {
+    if (r <= a || b <= l) return 0;
+    if (a <= l && r <= b) return this.node[k];
+    const m = Math.floor((l + r) / 2);
+    const left = this.query(a, b, 2 * k + 1, l, m);
+    const right = this.query(a, b, 2 * k + 2, m, r);
+    return Math.max(left, right);
+  }
+}
+
+/**
+ * @param {number[]} obstacles
+ * @return {number[]}
+ */
+var longestObstacleCourseAtEachPosition = function(obstacles) {
+  const unique = Array.from(new Set(obstacles)).sort((a, b) => a - b);
+  const index = new Map();
+  for (let i = 0; i < unique.length; i++) {
+    index.set(unique[i], i + 1);
+  }
+  const st = new SegmentTree(unique.length + 100);
+  const ans = [];
+  for (let i = 0; i < obstacles.length; i++) {
+    const p = index.get(obstacles[i]);
+    const sum = st.query(0, p + 1) + 1;
+    ans.push(sum);
+    st.update(p, sum);
+  }
+  return ans;
+};

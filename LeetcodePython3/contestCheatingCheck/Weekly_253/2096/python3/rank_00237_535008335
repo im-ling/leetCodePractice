@@ -1,0 +1,29 @@
+class BIT:
+    def __init__(self, n):
+        self.f = [0]*n
+        self.n = n
+    def w(self, k):
+        k+=1
+        return k&(-k)
+    def query(self, k):
+        ans=0
+        while k>=0:
+            ans=max(ans,self.f[k])
+            k-=self.w(k)
+        return ans
+    def update(self, k, v):
+        while k<self.n:
+            self.f[k]=max(self.f[k],v)
+            k+=self.w(k)
+    
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        n=len(obstacles)
+        bit=BIT(n)
+        S=[(h,idx) for idx,h in enumerate(obstacles)]
+        S.sort()
+        ans=[None]*n
+        for _,idx in S:
+            ans[idx]=bit.query(idx)+1
+            bit.update(idx,ans[idx])
+        return ans

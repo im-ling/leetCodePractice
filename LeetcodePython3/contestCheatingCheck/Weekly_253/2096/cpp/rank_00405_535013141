@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<pair<int, int>> arr;
+        int n = obstacles.size();
+        vector<int> res(n);
+        for ( int i = 0; i < n; ++i ) {
+            pair<int, int> x = {obstacles[i], i};
+            update(arr, x);
+            res[i] = lower_bound(arr.begin(),arr.end(), x) - arr.begin() + 1;
+        }
+        return res;
+    }
+    
+    void update(vector<pair<int, int>>& arr, pair<int, int> x) {
+        // 找到第一个大于等于x的，用x来替换
+        if ( arr.size() == 0 || x > arr.back() ) arr.push_back(x);
+        else {
+            int l = 0, r = arr.size() -1;
+            while ( l + 1 < r ) {
+                int mid = ( l + r ) >> 1;
+                if ( arr[mid] < x ) l = mid;
+                else r = mid;
+            }
+            if ( arr[l] >= x ) {
+                arr[l] = x;
+            } else {
+                arr[r] = x;
+            }
+        }
+    }
+};

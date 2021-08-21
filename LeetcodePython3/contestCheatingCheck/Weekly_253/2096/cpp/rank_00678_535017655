@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+#define pi pair<int, int>
+#define mod 1000000007
+#define ss second
+#define inf 1e16
+#define ff first
+#define all(x) x.begin(), x.end()
+#define vi vector<int>
+#define forit() for (auto it = m.begin(); it != m.end(); it++)
+#define srt(a) sort(a.begin(), a.end())
+#define rvs(a) reverse(a.begin(), a.end())
+#define pb push_back
+#define rrep(i, n) for (int i = n - 1; i >= 0; i--)
+#define fr() for (int i = 0; i < n; i++)
+using namespace std;
+
+class Solution
+{
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int> &a)
+    {
+        int n = a.size();
+        vi ans;
+        vi v;
+        for (int x : a)
+        {
+            int idx = upper_bound(all(v), x) - v.begin();
+            if (idx == v.size())
+            {
+                v.pb(x);
+                ans.pb(v.size());
+            }
+            else
+            {
+                v[idx] = x;
+                ans.pb(idx + 1);
+            }
+        }
+        return ans;
+    }
+};

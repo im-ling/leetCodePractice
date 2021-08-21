@@ -1,0 +1,43 @@
+class Solution {
+    // 解法1
+    // LIS
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int N = obstacles.length;
+        int[] res = new int[N];
+        int[] dp = new int[N];
+        Arrays.fill(dp, 1000000000);
+        int maxLen = 0;
+        for (int i = 0; i < N; i++) {
+            int idx = binarySearch(dp, 0, maxLen, obstacles[i]);
+            //System.out.println(idx);
+            dp[idx] = obstacles[i];
+            res[i] = idx + 1;
+            if (maxLen == idx) {
+                maxLen++;
+            }
+            
+        }
+        //System.out.println(Arrays.toString(dp));
+        return res;
+    }
+    
+    private int binarySearch(int[] nums, int start, int end, int target) {
+        //System.out.println(Arrays.toString(nums));
+        //System.out.println("end: " + end);
+        //System.out.println("target: " + target);
+        int left = start, right = end;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] <= target) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+            //System.out.println("left: " + left);
+        }
+        //if (left < end && nums[left] > target) {
+        //    left--;
+        //}
+        return left;
+    }
+}

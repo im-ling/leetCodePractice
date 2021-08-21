@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int sz=obstacles.size();
+        vector<int> lis;
+        vector<int> res;
+        int i=0;
+        while(i<sz){
+        auto itr = std::upper_bound(lis.begin(), lis.end(), obstacles[i]);
+        int len=itr-lis.begin()+1;
+        if(itr!=lis.end()) 
+            *itr=obstacles[i];
+        else 
+            lis.push_back(obstacles[i]);
+            
+            res.push_back(len);
+        i++;
+    }
+        return res;
+    }
+};

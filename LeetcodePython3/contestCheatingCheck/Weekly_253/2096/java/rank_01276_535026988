@@ -1,0 +1,53 @@
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.TreeMap;
+
+class Solution {
+    public static void main(String[] args) {
+//        [1,1,2,3,2,3,4,5,3,5]
+//        System.out.println(Arrays.toString(new Solution().longestObstacleCourseAtEachPosition(new int[]{5, 1, 5, 5, 1, 3, 4, 5, 1, 4})));
+
+        //[1,2,3,4,1,4,5,2,6,3]
+        System.out.println(Arrays.toString(new Solution().longestObstacleCourseAtEachPosition(new int[]{2, 2, 3, 5, 1, 4, 4, 1, 5, 1})));
+    }
+
+    public int[] longestObstacleCourseAtEachPosition(int[] obs) {
+        int n = obs.length;
+        int[] ans = new int[n];
+        var stk = new LinkedList<Integer>();
+        var tree = new TreeMap<Integer, Integer>();
+
+        int ptr = 0;
+        for (int ob : obs) {
+            while (!stk.isEmpty() && stk.getLast() > ob) {
+                stk.removeLast();
+            }
+            stk.add(ob);
+            int res = 0;
+            final Map.Entry<Integer, Integer> entry = tree.floorEntry(ob);
+            if (entry != null) {
+                res = Math.max(res, entry.getValue() + 1);
+            }
+
+            res = Math.max(res, stk.size());
+
+
+            ans[ptr] = res;
+
+
+            tree.put(ob, ans[ptr]);
+            final Iterator<Map.Entry<Integer, Integer>> itt = tree.subMap(ob, false, Integer.MAX_VALUE, true).entrySet().iterator();
+            while (itt.hasNext()) {
+                final Map.Entry<Integer, Integer> e = itt.next();
+                if (e.getValue() <= res) {
+                    itt.remove();
+                }
+            }
+
+            ptr++;
+        }
+        return ans;
+    }
+}

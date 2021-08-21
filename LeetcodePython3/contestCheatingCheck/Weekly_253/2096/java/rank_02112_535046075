@@ -1,0 +1,57 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int l = obstacles.length;
+        int[] ans = new int[l];
+        int[] lis = new int[l];
+        lis[0] = obstacles[0];
+        ans[0] = 1;
+        int size = 1;
+        for (int i = 1; i < l; i++) {
+            if (obstacles[i] >= lis[size - 1]) {
+                lis[size++] = obstacles[i];
+                ans[i] = size;
+                // System.out.println("lis: " + Arrays.toString(lis));
+                // System.out.println(Arrays.toString(ans));
+                continue;
+            }
+            // System.out.println(Arrays.toString(lis));
+            int idx = Arrays.binarySearch(lis, 0, size, obstacles[i]);
+            // System.out.println("idx for " + obstacles[i] + " = " + idx);
+            int last = idx;
+            // System.out.println("size: " + size);
+            while (idx >= 0) {
+                if (idx == size - 1) {
+                    // System.out.println("breaking 1");
+                    break;
+                }
+                if (lis[idx + 1] == obstacles[i]) {
+                    last = idx;
+                    idx = Arrays.binarySearch(lis, idx + 1, size, obstacles[i]);
+                    // System.out.println("new idx for " + obstacles[i] + " = " + idx);
+                } else {
+                    last = idx;
+                    // System.out.println("breaking 2");
+                    break;
+                }
+            }
+            if (last >= 0) {
+                if (last < size - 1) {
+                    // System.out.println("In type 1");
+                    lis[last + 1] = obstacles[i];
+                } else {
+                    // System.out.println("In type 2");
+                    lis[size++] = obstacles[i];
+                }
+                ans[i] = last + 2;
+            } else {
+                // System.out.println("In type 3");
+                idx = -idx - 1;
+                lis[idx] = obstacles[i];
+                ans[i] = idx + 1;
+            }
+            // System.out.println("lis: " + Arrays.toString(lis));
+            // System.out.println(Arrays.toString(ans));
+        }
+        return ans;
+    }
+}

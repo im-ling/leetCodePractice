@@ -1,0 +1,40 @@
+class Solution {
+public:
+    int lower(vector<int> &nums, int val) {
+        int l = 0;
+        int r = nums.size();
+        
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            
+            if (nums[mid] > val) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        
+        return l;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> ans(obstacles.size(), 0);
+        vector<int> len_max;
+        
+        for (int i = 0; i < obstacles.size(); ++i) {
+            int val = obstacles[i];
+            
+            int idx = lower(len_max, val);
+            
+            if (idx == len_max.size()) {
+                len_max.push_back(val);
+            } else {
+                len_max[idx] = val;
+            }
+            
+            ans[i] = idx + 1;
+        }
+        
+        return ans;
+    }
+};

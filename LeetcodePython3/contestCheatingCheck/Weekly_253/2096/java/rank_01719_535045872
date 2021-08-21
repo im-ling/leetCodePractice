@@ -1,0 +1,43 @@
+import java.util.*;
+
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+
+        int[] ans = new int[obstacles.length];
+        int[] order = new int[obstacles.length];
+        int orderSize = 0; // non-null elems in `order`; also position of next elem added to `order`.
+
+        // Initial.
+        ans[0] = 1;
+        order[0] = obstacles[0];
+        orderSize = 1;
+
+        for(int i = 1; i < obstacles.length; i++) {
+            int height = obstacles[i];
+
+            // Case: append at end.
+            if (height >= order[orderSize-1]) { order[orderSize++] = height; ans[i] = orderSize; }
+
+            // Case: binsearch.
+            else {
+                int lo = 0, hi = orderSize - 1; // inclusive of possible replacement target.
+                while (lo < hi) {
+                    int mid = lo + (hi - lo) / 2;
+                    if (height >= order[mid]) {
+                        lo = mid + 1;
+                    } else {
+                        hi = mid;
+                    }
+                }
+
+                order[lo] = height;
+                ans[i] = lo + 1;
+            }
+
+            //System.out.println("current order: ");
+            //for(int j = 0; j < orderSize; j++) { System.out.print(order[j] + " "); }
+
+        }
+        return ans;
+    }
+}

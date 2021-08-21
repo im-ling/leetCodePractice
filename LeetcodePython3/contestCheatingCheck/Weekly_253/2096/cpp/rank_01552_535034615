@@ -1,0 +1,137 @@
+class Solution {
+public:
+    int tree[400004];
+    void update(int v,int start,int end,int idx,int val)
+    {
+        if(start==end)
+        {
+            tree[v] = max(tree[v],val);
+            return;
+        }
+        else
+        {
+            int mid = start + (end-start)/2;
+            
+            if(idx>=start && idx<=mid)
+            {
+                update(2*v,start,mid,idx,val);
+            }
+            else
+            {
+                update(2*v + 1,mid+1,end,idx,val);
+            }
+            tree[v] = max(tree[2*v],tree[2*v + 1]);
+        }
+    }
+    int query(int v,int start,int end,int l,int r)
+    {
+        if(l>r) return 0;
+        if(l==start && r==end)
+        {
+            return tree[v];
+        }
+        else
+        {
+            int mid = start + (end-start)/2;
+            
+            int left = query(2*v,start,mid,l,min(r,mid));
+            int right = query(2*v + 1,mid+1,end,max(mid+1,l),r);
+            
+            return max(left,right);
+        }
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        
+        stack<int> A;
+        
+        map<int,int> m;
+        
+        int i = 0;
+        
+        vector<int> ans(n,0);
+        
+        map<int,int> co_comp;
+        
+        vector<int> t = obstacles;
+        sort(t.begin(),t.end());
+        int id = 0;
+        
+        for(auto &k:t)
+        {
+            if(co_comp.find(k)==co_comp.end())
+            {
+                co_comp[k] = id++;
+            }
+        }
+        
+        memset(tree,0,sizeof tree);
+        
+        while(i<n)
+        {
+            if(A.empty())
+            {
+                A.push(obstacles[i]);
+            }
+            else
+            {
+                while(!A.empty() && A.top()>obstacles[i])
+                {
+                    A.pop();
+                }
+                A.push(obstacles[i]);
+            }
+            
+//             if(m.size()>0)
+//             {
+//                 auto it = m.upper_bound(obstacles[i]);
+                
+//                 if(it==m.begin())
+//                 {
+//                     ans[i] = A.size();
+//                 }
+//                 else
+//                 {
+//                     it--;
+//                     if(it->first>obstacles[i])
+//                     {
+//                         ans[i] = A.size();
+//                     }
+//                     else
+//                     {
+//                         int temp = it->second;
+
+//                         ans[i] = max((int)A.size(),temp+1);                        
+//                     }
+
+//                 }
+//             }
+//             else
+//             {
+//                 ans[i] = A.size();
+            // }
+            
+            ans[i] = A.size();
+            
+            int temp = query(1,0,id,co_comp[1],co_comp[obstacles[i]]);
+            
+            ans[i] = max(ans[i],temp+1);
+            
+            
+            update(1,0,id,co_comp[obstacles[i]],ans[i]);
+            // m[obstacles[i]] = ans[i];
+                         
+            i++;
+        }
+        
+        return ans;
+    }
+};
+// [2,2,3,5,1,4,4,1,5,1]
+
+// Input:
+// [2,2,3,5,1,4,4,1,5,1]
+// Output:
+// [1,2,3,4,1,4,5,2,5,3]
+// Expected:
+// [1,2,3,4,1,4,5,2,6,3]

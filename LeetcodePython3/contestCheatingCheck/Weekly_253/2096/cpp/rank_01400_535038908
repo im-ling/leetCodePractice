@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n=a.size();
+        vector<pair<int,int>> v(n);
+        for(int i=0;i<n;++i){
+            v[i].first=a[i];
+            v[i].second=i;
+        }
+        
+        sort(begin(v),end(v));
+        
+        // for(auto &c:v) cout<<c.second<<" ";
+        
+        vector<int> lis,res(n);
+        lis.emplace_back(v[0].second);
+        res[v[0].second]=1;
+        for(int i=1;i<n;++i){
+            auto it=lower_bound(begin(lis),end(lis),v[i].second);
+            if(v[i].second > lis.back()){
+                lis.emplace_back(v[i].second);
+                res[v[i].second]=lis.size();
+            }
+            else{
+               *it = v[i].second;
+                res[v[i].second]=it-lis.begin()+1;
+            }  
+        }
+        
+        return res;
+    }
+};

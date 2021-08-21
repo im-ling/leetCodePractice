@@ -1,0 +1,33 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& v) {
+        multiset<int> S;
+        vector<int> ret;
+        map<int,int> m;
+        for(auto x : v) {
+            auto it = S.upper_bound(x);
+            if(it != S.end()){
+                auto it2=S.lower_bound(x);
+                if(*it2==x){
+                    m[x]++;
+                    ret.push_back(m[x]);
+                }else{
+                    if(it2==S.begin()){
+                        m[x]=1;
+                        ret.push_back(1);
+                    }else{
+                        it2--;
+                        ret.push_back(m[*it2]+1);
+                        m[x]=ret.back();
+                    }
+                }
+                S.erase(it);
+            }else{
+                ret.push_back(S.size()+1);
+                m[x]=ret.back();
+            }
+            S.insert(x);
+        }
+        return ret;
+    }
+};

@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        int n = obs.size();
+        vector<int> ans;
+        map<int, int> myMap;
+        myMap[0] = 0;
+        for(int i = 0; i < n; ++i)
+        {
+            auto it = --myMap.upper_bound(obs[i]);
+            myMap[obs[i]] = 1 + it->second;
+            ans.push_back(myMap[obs[i]]);
+            it = ++myMap.find(obs[i]);
+            while(myMap.upper_bound(obs[i]) != myMap.end() && myMap.upper_bound(obs[i])->second <= ans.back())
+            {
+                myMap.erase(myMap.upper_bound(obs[i]));
+            }
+            
+        }
+        return ans;
+    }
+};

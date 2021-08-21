@@ -1,0 +1,55 @@
+class Solution {
+    //就是返回每一位的最长递增数列
+    public int[] longestObstacleCourseAtEachPosition(int[] nums) {
+        int[] tails = new int[nums.length];
+        int res = 0;
+        int[] result = new int[nums.length];
+        for(int x = 0; x < nums.length; x++) {
+            int num = nums[x];
+            int i = 0, j = res;
+            while(i < j) {
+                int m = (i + j) / 2;
+                if(tails[m] <= num) i = m + 1;
+                else j = m;
+            }
+            tails[i] = num;
+            result[x] = i + 1;
+            if(res == j) res++;
+        }
+        return result;
+    }
+    
+    // public int[] longestObstacleCourseAtEachPosition(int[] nums) {
+    //     // if(nums.length == 0) return 0;
+    //     int[] tail = new int[nums.length + 1];
+    //     int max = 0;
+    //     int[] result = new int[nums.length];
+    //     for(int i=0;i<nums.length;i++){
+    //         int l = 0, r = max;
+    //         while(l < r){
+    //             int m = l + (r-l)/2;
+    //             if(tail[m] < nums[i]) l = m+1;
+    //             else r = m;
+    //         }
+    //         tail[r] = nums[i];
+    //         if(max == l) max++; //增大上限
+    //         result[i] = r + 1;
+    //     }
+    //     return result;
+    // }
+    
+    //递增必须包含自己
+    //TLE了，可能需要优化一下，直接找小于的那个，如果
+    // public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+    //     int[] dp = new int[obstacles.length];
+    //     for(int j=0;j<obstacles.length;j++){
+    //         dp[j] = 1;
+    //         for(int i=j-1;i>=0;i--){
+    //             if(obstacles[i] <= obstacles[j]){
+    //                 dp[j] = Math.max(dp[j], dp[i] + 1);
+    //             }
+    //         }
+    //     }
+    //     return dp;
+    // }
+}

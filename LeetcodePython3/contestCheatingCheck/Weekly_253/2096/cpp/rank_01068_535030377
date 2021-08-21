@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& QAS) {
+        int plkmn = QAS.size();
+        vector<int> asdc(plkmn);
+        vector<int> BHN;
+        int kloi = 0;
+        auto derf = [&](int hnjkm) {
+            if (kloi && BHN[kloi-1] <= hnjkm) return kloi;
+            int sabn = 0, klop = kloi - 1;
+            while (sabn < klop) {
+                int kloi = (sabn + klop) >> 1;
+                if (BHN[kloi] > hnjkm) {
+                    klop = kloi;
+                } else {
+                    sabn = kloi + 1;
+                }
+            }
+            return sabn;
+        };
+        int shjk = 0;
+        for (int hnjkm: QAS) {
+            int erdf = derf(hnjkm);
+            if (erdf == kloi) {
+                ++kloi;
+                BHN.push_back(hnjkm);
+            } else {
+                BHN[erdf] = hnjkm;
+            }
+            asdc[shjk++] = erdf + 1;
+        }
+        return asdc;
+    }
+};

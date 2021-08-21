@@ -1,0 +1,31 @@
+class Solution {
+private:
+    vector<int> arr;
+    int bs(int n) {
+        int l = 0, r = arr.size() - 1, m;
+        if(r == -1 || n >= arr.back())
+            return r + 1;
+        while(l < r) {
+            m = (l + r) / 2;
+            if(arr[m] <= n)
+                l = m + 1;
+            else
+                r = m;
+        }
+        return l;
+    }
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int i;
+        vector<int> re;
+        for(auto n: obstacles) {
+            i = bs(n);
+            if(i == arr.size())
+                arr.push_back(n);
+            else
+                arr[i] = n;
+            re.push_back(i+1);
+        }
+        return re;
+    }
+};

@@ -1,0 +1,94 @@
+#define INF 1000000000
+const int maxn = 1e5 + 10;
+class Solution {
+public:
+struct max_lazy_tree{
+    struct node{
+        int val , lz;
+        node(){}
+        node(int v , int l) : val(v) , lz(l) {}
+    };
+    node tree[maxn << 2];
+    void build(int l , int r , int id){
+        for(int i = 0; i < maxn * 4; ++i)tree[i].val = tree[i].lz = 0;
+    }
+    void push_down(int l , int r , int id){
+        if(l < r && tree[id].lz){
+            tree[id << 1].lz += tree[id].lz;
+            tree[id << 1].val += tree[id].lz;
+            tree[id << 1 | 1].lz += tree[id].lz;
+            tree[id << 1 | 1].val += tree[id].lz;
+        }
+        tree[id].lz = 0;
+    }
+    node merge(node lhs , node rhs){
+        node ret(0 , 0);
+        if(lhs.val > rhs.val){
+            ret.val = lhs.val;
+        }
+        else{
+            ret.val = rhs.val;
+        }
+        return ret;
+    }
+    int query(int l , int r , int x , int y , int id){
+        if(l > r || x > y || r < x || y < l)return -INF;
+        push_down(x , y , id);
+        if(l <= x && y <= r){
+            return tree[id].val;
+        }
+        int mid = (x + y) >> 1;
+        if(r <= mid){
+            return query(l , r , x , mid , id << 1);
+        }
+        if(l > mid){
+            return query(l , r , mid + 1 , y , id << 1 | 1);
+        }
+        return max(
+            query(l , r , x , mid , id << 1) ,
+            query(l , r , mid + 1 , y , id << 1 | 1)
+        );
+    }
+    void update(int l , int r , int x , int y , int id , int v){ // support range update
+        if(l > r || x > y || r < x || l > y)return;
+        push_down(x , y , id);
+        if(l <= x && y <= r){
+            tree[id].val = v;
+            tree[id].lz = v;
+            return;
+        }
+        int mid = (x + y) >> 1;
+        if(r <= mid){
+            update(l , r , x , mid , id << 1 , v);
+        }
+        else if(l > mid){
+            update(l , r , mid + 1 , y , id << 1 | 1 , v);
+        }
+        else{
+            update(l , r , x , mid , id << 1 , v);
+            update(l , r , mid + 1 , y , id << 1 | 1 , v);
+        }
+        tree[id] = merge(tree[id << 1] , tree[id << 1 | 1]);
+    }
+} T;
+    int N , M;
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        N = a.size();
+        vector<int> ans(N);
+        vector<int> tmp;
+        for(int i : a)tmp.push_back(i);
+        sort(tmp.begin() , tmp.end());
+        tmp.erase(unique(tmp.begin(), tmp.end()), tmp.end());
+        vector<int> id(N);
+        for(int i = 0; i < N; ++i){
+            id[i] = lower_bound(tmp.begin() , tmp.end() , a[i]) - tmp.begin();
+        }
+        M = tmp.size();
+        T.build(0 , M , 1);
+        for(int i = 0; i < N; ++i){
+            ans[i] = 1 + T.query(0 , id[i] , 0 , M , 1);
+            T.update(id[i] , id[i] , 0 , M , 1 , ans[i]);
+        }
+        return ans;
+    }
+};

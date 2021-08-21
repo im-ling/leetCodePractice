@@ -1,0 +1,16 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> ret(n, 0);
+        vector<int> res;
+        for(int i=0; i<n; i++) {
+            auto it = std::upper_bound(res.begin(), res.end(), obstacles[i]);
+             int id = it - res.begin();
+            if(it==res.end()) res.push_back(obstacles[i]);
+            else *it = obstacles[i];
+            ret[i] = id + 1;
+        }
+        return ret;
+    }
+};

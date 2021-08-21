@@ -1,0 +1,31 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] arr) {
+        ArrayList<Integer> lis = new ArrayList<>();
+        int n = arr.length;
+        int[] ans = new int[n];
+        for(int i=0;i<n;i++){
+            int insertAt = searchInsert(lis,arr[i]);
+            if(insertAt == lis.size()){
+                lis.add(arr[i]);
+                ans[i] = lis.size();
+            }else{
+                lis.set(insertAt,arr[i]);
+                ans[i] = insertAt+1;
+            }
+        }
+        return ans;
+    }
+    
+    public int searchInsert(ArrayList<Integer> arr,int val){
+        int si = 0, ei = arr.size()-1;
+        while(si<=ei){
+            int mid = si + (ei-si)/2;
+            if(arr.get(mid) > val){
+                ei = mid-1;
+            }else{
+                si = mid+1;
+            }
+        }
+        return si;
+    }
+}

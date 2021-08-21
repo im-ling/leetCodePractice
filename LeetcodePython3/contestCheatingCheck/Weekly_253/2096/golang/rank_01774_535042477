@@ -1,0 +1,18 @@
+func longestObstacleCourseAtEachPosition(obs []int) []int {
+    res := []int{1}
+    dp := []int{obs[0]}
+    for i := 1; i < len(obs); i++ {
+        idx := sort.Search(len(dp), func(x int) bool {
+            return dp[x] > obs[i]
+        })
+        if idx >= len(dp) {
+            dp = append(dp, obs[i])
+        } else if dp[idx] > obs[i]{
+            dp[idx] = obs[i]
+        }
+        
+        res = append(res, idx+1)
+        
+    }
+    return res
+}

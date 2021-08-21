@@ -1,0 +1,61 @@
+class SegTree {
+    vector<int> A;
+    int n;
+    int query(int a, int b, int k, int l, int r) {
+        if (r <= a || b <= l) {
+            return 0;
+        }
+        if (a <= l && r <= b) {
+            return A[k];
+        }
+        int vl = query(a, b, k * 2 + 1, l, (l + r) / 2);
+        int vr = query(a, b, k * 2 + 2, (l + r) / 2, r);
+        return max(vl, vr);
+    }
+public:
+    SegTree(int n_) {
+        n = 1;
+        while (n < n_) n *= 2;
+        A.resize(2 * n - 1);
+    }
+    void update(int k, int a) {
+        k += n - 1;
+        A[k] = a;
+        while (k > 0) {
+            k = (k - 1) / 2;
+            A[k] = max(A[k * 2 + 1], A[k * 2 + 2]);
+        }
+    }
+    int Query(int b) {
+        return this->query(0, b + 1, 0, 0, n);
+    }
+};
+
+class Solution {
+    unordered_map<int, int> id;
+    void buildId(vector<int> A) {
+        sort(A.begin(), A.end());
+        int n = A.size(), cur = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i > 0 && A[i] == A[i - 1])
+                continue;
+            id[A[i]] = cur++;
+        }
+    }
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> res;
+        
+        buildId(obstacles);
+        SegTree root = SegTree(id.size());
+        for (int x: obstacles) {
+            int t = id[x];
+            int v = root.Query(t) + 1;
+            res.push_back(v);
+            root.update(t, v);
+        }
+        
+        return res;
+    }
+};

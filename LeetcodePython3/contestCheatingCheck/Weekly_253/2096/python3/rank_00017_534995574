@@ -1,0 +1,16 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, nums: List[int]) -> List[int]:
+        chain = [float("-inf")]
+        ans = []
+        for x in nums:
+            # Find longest length with ending <= x
+            newLen = bisect_right(chain, x)
+            assert chain[newLen - 1] <= x
+            # Extend it to form a chain of length `newLen`, updating if it's a lower value
+            if newLen == len(chain):
+                chain.append(x)
+            else:
+                assert x < chain[newLen]
+                chain[newLen] = x
+            ans.append(newLen)
+        return ans

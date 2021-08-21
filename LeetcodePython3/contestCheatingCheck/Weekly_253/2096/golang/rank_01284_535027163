@@ -1,0 +1,24 @@
+import (
+    "sort"
+)
+func longestObstacleCourseAtEachPosition(obs []int) []int {
+    stack := []int{}
+    res := []int{}
+    for i:=0; i < len(obs); i ++ {
+        if len(stack) == 0 || obs[i] >= stack[len(stack)-1] {
+            stack = append(stack, obs[i])
+            res = append(res, len(stack))
+        } else {
+            // get index
+            // index := sort.SearchInts(stack, obs[i])   
+            index := sort.Search(len(stack), func(x int) bool { return stack[x] > obs[i] })
+            
+            // fmt.Println(obs[i], index)
+            stack[index] = obs[i]
+            res = append(res, index+1)
+        }
+        // fmt.Println(stack)
+    }
+    
+    return res
+}

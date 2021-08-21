@@ -1,0 +1,63 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obs) {
+        int n = obs.length;
+        int[] tarr = new int[n];
+        int len = 0;
+        int[] ans = new int[n];
+        
+        
+        for(int i = 0; i < n; i++){
+            if(len == 0){
+                tarr[len] = obs[i];
+                ans[i] = 1;
+                len++;
+                //continue;
+            } else {
+                int v = obs[i];
+                int index = Arrays.binarySearch(tarr, 0, len, obs[i]);
+
+                //System.out.println(obs[i]+" "+ index +" " +  len);
+                if(index >=0){
+                    int l = index, r = len, mid = (l + r)/2;
+                    while(l < r - 1){
+                        if(tarr[mid] == v){
+                            l = mid;
+                        } else{
+                            r = mid;
+                        }
+
+                        mid = (l + r)/2;
+                    }
+                    index = l;
+                    if(index == len - 1){
+                        //++++
+                        tarr[len] = obs[i];
+                        len++;
+                        ans[i] = len;
+                    } else {
+                        //not expand
+                        tarr[index + 1] = obs[i];
+                        ans[i] = index + 2;
+                    }
+                } else {
+                    index = -index - 1;
+                    
+                    if(index == len){
+                        //++++
+                        tarr[len] = obs[i];
+                        len++;
+                        ans[i] = len;
+                    } else {
+                        //not expand
+                        tarr[index] = obs[i];
+                        ans[i] = index + 1;
+                    }
+                    //tarr[rindex] = obs[i];
+                    //ans[i] = rindex + 1;
+                }
+            }
+            //System.out.println(Arrays.toString(tarr));
+        }
+        return ans;
+    }
+}

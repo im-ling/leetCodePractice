@@ -1,0 +1,34 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        courses = []
+        result = []
+        for i, obstacle in enumerate(obstacles):
+            result.append(self.get_insert_position(courses, obstacle))
+            # print(courses)
+        return result
+    
+    def get_insert_position(self, courses, obstacle):
+        if not courses or obstacle >= courses[-1]:
+            courses.append(obstacle)
+            return len(courses)
+        
+        if obstacle < courses[0]:
+            courses[0] = obstacle
+            return 1
+        
+        start, end = 0, len(courses) - 1
+        while start + 1 < end:
+            mid = (start + end) // 2
+            if obstacle < courses[mid]:
+                end = mid
+            else:
+                start = mid
+        
+        if courses[end] <= obstacle:
+            courses[end + 1] = obstacle
+            return end + 2
+        if courses[start] <= obstacle:
+            courses[start + 1] = obstacle
+            return start + 2
+        course[start] = obstacle
+        return start + 1

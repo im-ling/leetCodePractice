@@ -1,0 +1,35 @@
+import java.util.Arrays;
+
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n=obstacles.length;
+        int[]dp=new int[n];
+        int[]f=new int[n+1];
+        Arrays.fill(dp,1);
+        Arrays.fill(f,0x3fffffff);
+        dp[0]=1;
+        f[0]=-1;
+        f[1]=obstacles[0];
+        int i,j;
+        for(i=1;i<n;i++){
+//            for(j=0;j<i;j++){
+//                if(obstacles[i]>=obstacles[j]){
+//                    dp[i]=Math.max(dp[i],dp[j]+1);
+//                }
+//            }
+            int left=0,right=n;
+            while(left<right){
+                int mid=left+right>>1;
+                if(f[mid]<=obstacles[i]){
+                    left=mid+1;
+                }else{
+                    right=mid;
+                }
+            }
+            //left-1为答案
+            dp[i]=Math.max(dp[i],left);
+            f[left]=Math.min(f[left],obstacles[i]);
+        }
+        return dp;
+    }
+}

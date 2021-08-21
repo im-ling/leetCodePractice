@@ -1,0 +1,55 @@
+class Solution {
+public:
+    int CeilIndex(vector<int>& v, int l, int r, int key)
+{
+    while (r - l > 1) {
+        int m = l + (r - l) / 2;
+        if (v[m] > key)
+            r = m;
+        else
+            l = m;
+    }
+ 
+    return r;
+}
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        int n=obs.size();
+    vector<int> tail(obs.size());
+    int length = 1; // always points empty slot in tail
+    vector<int>ans(n);
+    tail[0] = obs[0];
+    ans[0]=1;
+    for (size_t i = 1; i < n; i++) {
+ 
+        // new smallest value
+        if (obs[i] < tail[0]){
+            tail[0] = obs[i];
+            ans[i]=1;
+        }  
+ 
+        // v[i] extends largest subsequence
+        else if (obs[i] >= tail[length - 1]){
+            
+            tail[length++] = obs[i];
+            ans[i]=length;
+        }
+            
+ 
+        // v[i] will become end candidate of an existing
+        // subsequence or Throw away larger elements in all
+        // LIS, to make room for upcoming grater elements
+        // than v[i] (and also, v[i] would have already
+        // appeared in one of LIS, identify the location
+        // and replace it)
+        else{
+            int r=CeilIndex(tail, -1, length - 1, obs[i]);
+            tail[r] = obs[i];
+            ans[i]=r+1;
+        }
+            
+        // ans[i]=tail.size();
+    }
+ 
+    return ans;
+    }
+};

@@ -1,0 +1,80 @@
+class Solution {
+    static int findLastOccurrence(int A[], int low, int high, int x) {
+        int N = A.length;
+
+        // initialize the result by -1
+        int result = -1;
+            
+        // loop till the search space is exhausted
+        while (low <= high)
+        {
+            // find the mid-value in the search space and compares it with the target
+            int mid = (low + high)/2;
+
+            // if the target is located, update the result and
+            // search towards the right (higher indices)
+            if (x == A[mid]) {
+                result = mid;
+                low = mid + 1;
+            }
+
+            // if the target is less than the middle element, discard the right half
+            else if (x < A[mid]) {
+                high = mid - 1;
+            }
+            // if the target is more than the middle element, discard the left half
+            else {
+                low = mid + 1;
+            }
+        }
+
+        // return the leftmost index, or -1 if the element is not found
+        return result;
+    }
+    
+    static int[] longestObstacleCourseAtEachPosition(int[] A)
+    {
+        int size = A.length;
+        // Add boundary case, when array size is one
+ 
+        int[] tailTable = new int[size];
+        int[] lengths = new int[size];
+        int len; // always points empty slot
+ 
+        tailTable[0] = A[0];
+        lengths[0] = 1;
+        len = 1;
+        for (int i = 1; i < size; i++) {
+            if (A[i] < tailTable[0]) {
+                // new smallest value
+                // System.out.println("new smallest value: " + A[i]);
+                tailTable[0] = A[i];
+                lengths[i] = 1; 
+            } else if (A[i] >= tailTable[len - 1]) {
+                // A[i] wants to extend largest subsequence
+                // System.out.println("extending " + A[i]);
+                tailTable[len++] = A[i];
+                lengths[i] = len;
+            } else {
+                // A[i] wants to be current end candidate of an existing
+                // subsequence. It will replace ceil value in tailTable
+                int index = findLastOccurrence(tailTable, 0, len - 1, A[i]);
+                if (index == -1) {
+                    index = Arrays.binarySearch(tailTable, 0, len - 1, A[i]);
+                    index = -1 * index - 1;
+                }
+                // System.out.println("fill " + A[i] + " at index: " + index);
+                if (tailTable[index] == A[i]) {
+                    tailTable[index+1] = A[i];
+                    lengths[i] = index + 2;
+                } else {
+                    tailTable[index] = A[i];
+                    lengths[i] = index+1;
+                }
+            }
+            
+        }
+ 
+        return lengths;
+    }
+}

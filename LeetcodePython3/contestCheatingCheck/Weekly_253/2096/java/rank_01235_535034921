@@ -1,0 +1,79 @@
+class Solution {
+    
+    private int binarySearch(List<Integer> list, int target) {
+        int low = 0;
+        int high = list.size() - 1;
+        int result = -1;
+
+        while(low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if(list.get(mid) > target) {
+                result = mid;
+                high = mid - 1;
+            }
+            else {
+                low = mid + 1;
+            }
+
+        }
+
+        return result;
+    }
+    
+    
+    private int boundedLis(List<Integer> obstacles, int bound) {
+        List<Integer> lis = new ArrayList<>();
+        // lis[0] = obstacles.get(0);
+        // int lisPointer = 0;
+
+        for(int i = 0 ; i < obstacles.size() ; ++i) {
+            if(obstacles.get(i) > bound) continue;
+            
+            
+            if(lis.size() == 0 || obstacles.get(i) >= lis.get(lis.size() - 1)) {
+                lis.add(obstacles.get(i));
+            } else {
+                int position = binarySearch(lis, obstacles.get(i));
+                lis.set(position, obstacles.get(i));
+            }
+        }
+
+        return lis.size() + 1;
+    }
+    
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacless) {
+        int[] result = new int[obstacless.length];
+        List<Integer> obstacles = new ArrayList<>();
+        
+        for(int i = 0 ; i < obstacless.length ; ++i) {
+            // result[i] = boundedLis(list, obstacles[i]);
+            obstacles.add(obstacless[i]);
+        }
+        
+        
+        List<Integer> lis = new ArrayList<>();
+        // lis[0] = obstacles.get(0);
+        // int lisPointer = 0;
+
+        for(int i = 0 ; i < obstacles.size() ; ++i) {
+//             if(obstacles.get(i) > bound) {
+//                 continue;
+//             }
+            
+            
+            if(lis.size() == 0 || obstacles.get(i) >= lis.get(lis.size() - 1)) {
+                lis.add(obstacles.get(i));
+                result[i] = lis.size();
+            } else {
+                int position = binarySearch(lis, obstacles.get(i));
+                lis.set(position, obstacles.get(i));
+                result[i] = position + 1;
+            }
+        }
+
+        
+        
+        return result;
+    }
+}

@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& s) {
+        int n = s.size();
+        vector<int> f(n, 0);
+        vector<int> d(n+1, 0);
+        f[0] = 1;
+        d[1] = s[0];
+        for (int i = 1; i < n; ++i) {
+            //printf("i=%d\n", i);
+            //for (int j = 1; j <= i; ++j)
+            //    printf(" %d %d\n", j, d[j]);
+            if (d[1] > s[i]) {
+                f[i] = 1;
+                d[1] = min(d[1], s[i]);
+            } else {
+                int l = 1;
+                int r = i+1;
+                while (l+1 < r) {
+                    int m = (l+r)/2;
+                    if (d[m] > 0 && d[m] <= s[i])
+                        l = m;
+                    else 
+                        r = m;
+                }
+                f[i] = l + 1;
+                if (d[l+1] == 0 || s[i] < d[l+1]) d[l+1] = s[i];
+            }
+        }
+        return f;
+    }
+};

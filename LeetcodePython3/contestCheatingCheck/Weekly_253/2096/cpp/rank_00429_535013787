@@ -1,0 +1,50 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> bestof;
+        
+        vector<int> ans;
+        ans.push_back(1);
+        bestof.push_back(obstacles[0]);
+        for (int i=1;i<obstacles.size();i++){
+            auto pos = upper_bound(bestof.begin(), bestof.end(), obstacles[i]);
+            ans.push_back(distance(bestof.begin(), pos)+1);
+            if (pos == bestof.end()) bestof.push_back(obstacles[i]);
+            else *pos = obstacles[i];
+        }
+        return ans;
+        
+        //return helper(obstacles.begin(), obstacles.end())[1];
+    }
+    
+    /*vector<vector<int>> helper(vector<int>::iterator beg, vector<int>::iterator end){
+        int len = distance(beg, end);
+        if (len <= 1){
+            return {{beg, end}, vector<int>(len, 1)};
+        }
+        
+        int imid = len/2;
+        vector<int>::iterator mid = beg + len/2;
+        
+        auto ans1 = helper(beg, mid);
+        auto ans2 = helper(mid, end);
+        
+        vector<int> vec;
+        vector<int> ans(len);
+        for (int i=0;i<imid;i++) ans[i] = ans1[1][i];
+        for (int i=imid;i < len;i++) ans[i] = ans2[1][i-imid];
+        
+        int left = 0;
+        int right = imid;
+        while (left < imid && right < len){
+            if (ans1[0][left] > ans2[0][right-imid]){
+                left++;
+            }
+            else {
+                ans[right] += 
+            }
+        }
+        
+        return {vec, ans};
+    }*/
+};

@@ -1,0 +1,36 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        
+        
+        dp = []
+        ans = []
+        
+        def bin_search(arr, l, r, num):
+            
+            while l < r:
+                mid = l + (r-l)//2
+                
+                if arr[mid] > num:
+                    r = mid
+                else:
+                    l = mid + 1
+                    
+            return l
+        
+        i = 0
+        for num in obstacles:
+            
+            ind = bin_search(dp, 0, len(dp), num)
+            
+            if ind >= len(dp):
+                dp.append(num)
+                ans.append(ind+1)
+                
+            else:
+                if dp[ind] == num:
+                    ind += 1
+                dp[ind] = num
+                ans.append(ind+1)
+                
+            i += 1
+        return ans

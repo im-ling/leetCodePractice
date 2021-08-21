@@ -1,0 +1,92 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        set<pair<int,int>> s;
+        s.insert({INT_MIN,INT_MIN});
+        s.insert({INT_MAX,INT_MAX});
+
+        // we have to get current and the next;
+        vector<int> res;
+        for(int i=0;i<a.size();i++)
+        {
+            // cout<<"curreint-> "<<i<<" size-> "<<s.size()<<"\n";
+            auto it=s.lower_bound(make_pair(a[i],-1));
+            auto p=prev(it);
+            if((*it).first==INT_MAX)
+            {
+              // big of all;
+                int c=0;
+                if((*p).second!=INT_MIN)c=(*p).second;
+                s.insert({a[i],c+1});
+                res.push_back(c+1);   
+            }
+            else
+            {
+                if(a[i]==(*it).first)
+                {
+                  auto it1=it;
+                  it1++;
+                    //if current is 2==2 and next is null;
+                  if((*it1).first==INT_MAX)
+                  {
+                  int c=(*it).second;
+                  s.erase(it);
+                  s.insert({a[i],c+1});
+                  res.push_back(c+1);
+                        
+                  }
+                  else
+                  {// next is here;
+                      
+                    int c=(*it).second;
+                    int c1=(*it1).second;
+                    if(c+1==c1)
+                    {
+                        // delete both;
+                    s.erase(it);
+                    s.erase(it1);
+                    s.insert({a[i],c1});
+                    res.push_back(c1);
+                    }
+                    else
+                    {
+                        // delete current;
+                        s.erase(it);
+                        s.insert({a[i],c+1});
+                        res.push_back(c+1);
+                    }
+
+                  }
+                    
+                }
+                else
+                {
+                    // this condition;  if current is less than that;
+                  int ff=0;
+                  if((*p).second!=INT_MIN)ff=(*p).second;
+                  int cur=(*it).second;
+                  if(ff+1==cur)
+                  {
+                  s.erase(it);
+                  s.insert({a[i],cur});
+                  res.push_back(cur);                    
+                  }
+                  else
+                  {
+                      // current is bigger;
+                      s.insert({a[i],ff+1});
+                      res.push_back(ff+1);
+                  }
+
+                }
+            }
+            
+            
+//             cout<<"--> "<<i<<" "<<s.size()<<"\n";
+//             for(auto sd:s)cout<<sd.first<<" "<<sd.second<<"\n";
+            
+//             cout<<"\n";
+        }
+        return res;
+    }
+};

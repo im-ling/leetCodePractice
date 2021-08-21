@@ -1,0 +1,14 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, nums: List[int]) -> List[int]:
+        seq = [0]
+        ans = []
+
+        for i, x in enumerate(nums):
+            if seq and seq[-1] <= x:
+                seq.append(x)
+                p = len(seq) - 1
+            else:
+                p = bisect.bisect_right(seq, x)
+                seq[p] = x
+            ans.append(p)
+        return ans

@@ -1,0 +1,40 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        import bisect
+
+        basket = [[obstacles[0], 1]]
+
+        result = [1]
+
+        for i in range(1, len(obstacles)):
+            key = obstacles[i]
+            new_one = [key, float('inf')]
+            pos = bisect.bisect_left(basket, new_one)
+            if pos == 0:
+                value = 1
+                if basket[pos][1] == 1:
+                    basket[pos] = [key, value]
+                else:
+                    basket.insert(0, [key, value])
+            elif pos == len(basket):
+                value = basket[pos-1][1] + 1
+                if key == basket[pos-1][0]:
+                    basket[pos-1] = [key, value]
+                else:
+                    basket.append([key, value])
+            else:
+                value = basket[pos-1][1] + 1
+                if key == basket[pos-1][0]:
+                    if basket[pos][1] <= value:
+                        basket[pos-1:pos+1] = [[key, value]]
+                    else:
+                        basket[pos - 1] = [key, value]
+                else:
+                    if basket[pos][1] <= value:
+                        basket[pos] = [key, value]
+                    else:
+                        basket.insert(pos, [key, value])
+
+            result.append(value)
+
+        return result

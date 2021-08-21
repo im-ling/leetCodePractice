@@ -1,0 +1,62 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        tails = [0] * len(obstacles)
+        res = [0] * len(obstacles)
+        size = 0
+        for idx, x in enumerate(obstacles):
+            i, j = 0, size
+            while i != j:
+                m = (i + j) // 2
+                if tails[m] <= x:
+                    i = m + 1
+                else:
+                    j = m
+            tails[i] = x
+            # res[idx] = i + 1
+            size = max(i + 1, size)
+            res[idx] = i + 1
+        return res
+        # n = len(obstacles)
+        # res = [0 for _ in range(n)]
+        # res[0] = 1
+        # # obstacles = collections.deque(obstacles)
+        # lst = []
+        # lst.append((obstacles[0], 1))
+        # for i in range(1, n):
+        #     while lst[-1][0] > obstacles[i]:
+                
+        
+#         dp1 = (0, 0) #last_height, length
+#         dp2 = (obstacles[0], 1)
+#         res = [-1 for _ in range(len(obstacles))]
+#         res[0] = 1
+#         i = 1
+        
+#         for h in obstacles[1:]:
+#             print(dp1, dp2)
+#             if h >= dp1[0] and h >= dp2[0]:
+#                 dp2_temp = (h, max(dp1[1], dp2[1]) + 1)
+#             elif h >= dp1[0]:
+#                 dp2_temp = (h, dp1[1] + 1)
+#             elif h >= dp2[0]:
+#                 dp2_temp = (h, dp2[1] + 1)
+#             else:
+#                 dp2_temp = (h, 1)
+            
+#             if dp1[1] > dp2[1]:
+#                 dp1_temp = copy.deepcopy(dp1)
+#             elif dp2[1] > dp1[1]:
+#                 dp1_temp = copy.deepcopy(dp2)
+#             else:
+#                 if dp1[0] <= dp2[0]:
+#                     dp1_temp = copy.deepcopy(dp1)
+#                 else:
+#                     dp1_temp = copy.deepcopy(dp2)
+#             dp1 = copy.deepcopy(dp1_temp)
+#             dp2 = copy.deepcopy(dp2_temp)
+#             res[i] = dp2[1]
+#             i += 1
+        
+#         return res
+            
+            

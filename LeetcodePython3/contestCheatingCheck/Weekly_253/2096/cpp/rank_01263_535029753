@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        map<int, int, greater<int>> m;
+        vector<int> lis(obstacles.size(), 0), patience;
+        for(int i=0; i<obstacles.size(); i++) {
+            auto it = upper_bound(patience.begin(), patience.end(), obstacles[i]);
+            if(it == patience.end()) {
+                patience.push_back(obstacles[i]);
+                lis[i] = patience.size();
+            }
+            else {
+                *it = obstacles[i];
+                lis[i] = it - patience.begin() + 1;
+            }
+        }
+        return lis;
+    }
+};

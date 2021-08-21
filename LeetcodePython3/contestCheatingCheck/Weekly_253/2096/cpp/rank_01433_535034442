@@ -1,0 +1,229 @@
+// Author: Tyler Wang
+
+template <typename C>
+constexpr auto ssize(const C& c)
+    -> std::common_type_t<std::ptrdiff_t,
+                          std::make_signed_t<decltype(c.size())>> {  // C++20
+  using R = std::common_type_t<std::ptrdiff_t,
+                               std::make_signed_t<decltype(c.size())>>;
+  return (R)c.size();
+}
+
+template <typename T, std::ptrdiff_t N>
+constexpr std::ptrdiff_t ssize(const T (&)[N]) noexcept {  // C++20
+  return N;
+}
+
+template <typename T>
+constexpr std::enable_if_t<std::is_unsigned_v<T>, bool> has_single_bit(
+    T x) noexcept {  // C++20
+  return x != 0 && (x & (x - 1)) == 0;
+}
+
+template <typename T>
+constexpr std::enable_if_t<std::is_unsigned_v<T>, int> countl_zero(
+    T x) noexcept {  // C++20
+  if constexpr (sizeof(T) <= sizeof(unsigned)) {
+    return __builtin_clz(x) - (std::numeric_limits<unsigned>::digits -
+                               std::numeric_limits<T>::digits);
+  } else if constexpr (sizeof(T) <= sizeof(unsigned long)) {
+    return __builtin_clzl(x) - (std::numeric_limits<unsigned long>::digits -
+                                std::numeric_limits<T>::digits);
+  } else {
+    static_assert(sizeof(T) <= sizeof(unsigned long long));
+    return __builtin_clzll(x) -
+           (std::numeric_limits<unsigned long long>::digits -
+            std::numeric_limits<T>::digits);
+  }
+}
+
+template <typename T>
+constexpr std::enable_if_t<std::is_unsigned_v<T>, int> countr_zero(
+    T x) noexcept {  // C++20
+  if constexpr (sizeof(T) <= sizeof(unsigned)) {
+    return __builtin_ctz(x);
+  } else if constexpr (sizeof(T) <= sizeof(unsigned long)) {
+    return __builtin_ctzl(x);
+  } else {
+    static_assert(sizeof(T) <= sizeof(unsigned long long));
+    return __builtin_ctzll(x);
+  }
+}
+
+template <typename T>
+constexpr std::enable_if_t<std::is_unsigned_v<T>, int> popcount(
+    T x) noexcept {  // C++20
+  if constexpr (sizeof(T) <= sizeof(unsigned)) {
+    return __builtin_popcount(x);
+  } else if constexpr (sizeof(T) <= sizeof(unsigned long long)) {
+    return __builtin_popcountl(x);
+  } else {
+    static_assert(sizeof(T) <= sizeof(unsigned long long));
+    return __builtin_popcountll(x);
+  }
+}
+
+template <typename T>
+constexpr std::enable_if_t<std::is_unsigned_v<T>, T> bit_width(
+    T x) noexcept {  // C++20
+  return (T)(std::numeric_limits<T>::digits - countl_zero(x));
+}
+
+template <typename T>
+constexpr std::enable_if_t<std::is_unsigned_v<T>, T> bit_ceil(
+    T x) noexcept {  // C++20
+  return (T)(x <= 1 ? 1 : (T)1 << bit_width((T)(x - 1)));
+}
+
+template <typename T>
+constexpr std::enable_if_t<std::is_unsigned_v<T>, T> bit_floor(
+    T x) noexcept {  // C++20
+  return (T)(x == 0 ? 0 : (T)1 << (bit_width(x) - 1));
+}
+
+template <typename T, typename Merge>
+class seg_tree {
+  static_assert(
+      std::is_same_v<std::invoke_result_t<Merge, const T&, const T&>, T>);
+
+ public:
+  seg_tree(int n, const T& val = T(), const Merge& merge = Merge())
+      : merge_(merge),
+        n_(n),
+        n_ceil_(bit_ceil((unsigned)n_)),
+        data_(n_ceil_ + n_, val) {
+    for (int first = n_ceil_, last = n_ceil_ + n_ - 1; first != 1;
+         first >>= 1, last >>= 1) {
+      data_[last >> 1] = data_[last];
+      for (int i = first; i < last; i += 2) {
+        data_[i >> 1] = merge_(data_[i], data_[i + 1]);
+      }
+    }
+  }
+
+  seg_tree(const std::vector<T>& data, const Merge& merge = Merge())
+      : merge_(merge),
+        n_((int)data.size()),
+        n_ceil_(bit_ceil((unsigned)n_)),
+        data_(n_ceil_ + n_) {
+    std::copy(data.begin(), data.end(), data_.begin() + n_ceil_);
+    for (int first = n_ceil_, last = n_ceil_ + n_ - 1; first != 1;
+         first >>= 1, last >>= 1) {
+      data_[last >> 1] = data_[last];
+      for (int i = first; i < last; i += 2) {
+        data_[i >> 1] = merge_(data_[i], data_[i + 1]);
+      }
+    }
+  }
+
+  int size() const { return n_; }
+
+  template <typename U, typename NodeUpdate>
+  void update(int pos, const U& val, NodeUpdate node_update) {
+    static_assert(
+        std::is_void_v<std::invoke_result_t<NodeUpdate, T&, const U&>>);
+    node_update(data_[pos += n_ceil_], val);
+    for (int last = n_ceil_ + n_ - 1; last != 1; pos >>= 1, last >>= 1) {
+      if ((pos | 1) <= last) {
+        data_[pos >> 1] = merge_(data_[pos & ~1], data_[pos | 1]);
+      } else {
+        data_[pos >> 1] = data_[pos];
+      }
+    }
+  }
+
+  T get(int pos) const { return data_[n_ceil_ + pos]; }
+
+  // Queries the closed range [first, last].
+  T get(int first, int last) const {
+    assert(first <= last);
+    std::optional<T> left, right;
+    for (first += n_ceil_, last += n_ceil_; first <= last;
+         first >>= 1, last >>= 1) {
+      if ((first & 1) == 1) {
+        left = left ? merge_(*left, data_[first++]) : data_[first++];
+      }
+      if ((last & 1) == 0) {
+        right = right ? merge_(data_[last--], *right) : data_[last--];
+      }
+    }
+    return left ? (right ? merge_(*left, *right) : *left) : *right;
+  }
+
+  template <typename Contains>
+  int find(T val, Contains contains) const {
+    static_assert(
+        std::is_same_v<std::invoke_result_t<Contains, const T&, T&>, bool>);
+    if (!contains(data_[1], val)) {
+      return n_;
+    }
+    int pos = 1;
+    while (pos < n_ceil_) {
+      if (contains(data_[2 * pos], val)) {
+        pos = 2 * pos;
+      } else {
+        pos = 2 * pos + 1;
+      }
+    }
+    return pos - n_ceil_;
+  }
+
+  template <typename Contains>
+  int rfind(T val, Contains contains) const {
+    static_assert(
+        std::is_same_v<std::invoke_result_t<Contains, const T&, T&>, bool>);
+    if (!contains(data_[1], val)) {
+      return n_;
+    }
+    int pos = 1;
+    while (pos < n_ceil_) {
+      if (2 * pos + 1 < (int)data_.size() &&
+          contains(data_[2 * pos + 1], val)) {
+        pos = 2 * pos + 1;
+      } else {
+        pos = 2 * pos;
+      }
+    }
+    return pos - n_ceil_;
+  }
+
+  friend std::ostream& operator<<(std::ostream& os, const seg_tree& tree) {
+    os << '{';
+    for (int i = 0; i < tree.size(); ++i) {
+      os << (i == 0 ? "" : ", ") << tree.get(i);
+    }
+    return os << '}';
+  }
+
+ private:
+  Merge merge_;
+  int n_, n_ceil_;
+  std::vector<T> data_;
+};
+
+template <typename T, typename Merge>
+seg_tree<T, Merge> make_seg_tree(int n, const T& val, const Merge& merge) {
+  return seg_tree<T, Merge>(n, val, merge);
+}
+
+template <typename T, typename Merge>
+seg_tree<T, Merge> make_seg_tree(const std::vector<T>& data,
+                                 const Merge& merge) {
+  return seg_tree<T, Merge>(data, merge);
+}
+
+class Solution {
+ public:
+  vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+    int n = *max_element(obstacles.begin(), obstacles.end());
+    auto merge = [](int a, int b) { return max(a, b); };
+    auto tree = make_seg_tree(n + 1, 0, merge);
+    vector<int> ans;
+    for (int x : obstacles) {
+      int y = 1 + tree.get(1, x);
+      tree.update(x, y, [](int& a, int b) { a = b; });
+      ans.push_back(y);
+    }
+    return ans;
+  }
+};

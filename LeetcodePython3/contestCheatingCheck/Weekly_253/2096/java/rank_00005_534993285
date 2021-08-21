@@ -1,0 +1,29 @@
+	class Solution {
+		public int[] longestObstacleCourseAtEachPosition(int[] a) {
+			int n = a.length;
+			long[] b = new long[n];
+			for(int i = 0;i < n;i++){
+				b[i] = (long)a[i]<<32|i;
+			}
+			return lis(b);
+		}
+
+		public int[] lis(long[] in)
+		{
+			int n = in.length;
+			int ret = 0;
+			long[] h = new long[n + 1];
+			Arrays.fill(h, Long.MIN_VALUE / 2);
+			int[] rets = new int[n];
+			for(int i = 0;i < n;i++){
+				int ind = Arrays.binarySearch(h, 0, ret + 1, in[i]);
+				if(ind < 0){
+					ind = -ind-2;
+					h[ind+1] = in[i];
+					if(ind >= ret)ret++;
+				}
+				rets[i] = ind + 1;
+			}
+			return rets;
+		}
+	}

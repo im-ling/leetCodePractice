@@ -1,0 +1,33 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        
+        int[] tail = new int[n + 1]; // the index i is the largest length of incresing, tail[i] is the latest/update elements for that lagest length
+        tail[1] = obstacles[0];
+        Arrays.fill(tail, Integer.MAX_VALUE);
+        int[] res = new int[n];
+        for (int i = 0; i < n; i++) {
+            int index = binarySearch(tail, obstacles[i]);
+            if (index != 0) {
+                tail[index] = obstacles[i];
+            }
+            res[i] = index;
+        }
+        
+        return res;
+    }
+    
+    public int binarySearch(int[] tail, int target) {     
+        int left = 1, right = tail.length - 1;
+        while(left < right) {
+            int mid = left + (right - left)/2;
+            if (tail[mid] <= target) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        
+        return left;
+    }
+}

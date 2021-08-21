@@ -1,0 +1,69 @@
+class Solution {
+public:
+    // int A[MAX],seg[4*MAX];
+    void Build(int ind, int low, int high,vector<int> &A,vector<int> &seg){
+        if(low == high){
+            seg[ind] = A[low];
+            return;
+        }
+        int mid = (low+high)/2;
+        Build(2*ind+1,low,mid,A,seg);
+        Build(2*ind+2,mid+1,high,A,seg);
+        seg[ind] = max(seg[2*ind+1],seg[2*ind+2]);
+    }
+
+    int query(int ind, int low, int high, int l, int r,vector<int> &A,vector<int> &seg){
+        if(low>=l && high<=r)//segment lying fully inside the given range
+        {
+            return seg[ind];
+        }
+        if(high<l || low>r)//segment lying fully outside l and r
+        {
+            return 0;
+        }
+        // else case if segment is overlapping with l and r
+        int mid = (low+high)/2;
+        int left = query(2*ind+1,low,mid,l,r,A,seg);
+        int right = query(2*ind+2,mid+1,high,l,r,A,seg);
+        return max(left,right);
+    }
+    
+    void update(int ind,int low,int high,int idx,int val,vector<int> &A,vector<int> &seg){
+        if(low>high)return;
+        if(idx<low || idx>high)return;
+        if(low==high){
+            seg[ind] = val;
+            A[idx]=val;
+            return;
+        }
+        int mid = (low+high)/2;
+        update(2*ind+1,low,mid,idx,val,A,seg);
+        update(2*ind+2,mid+1,high,idx,val,A,seg);
+        seg[ind] = max(seg[2*ind+1],seg[2*ind+2]);
+    }
+
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& B) {
+        int n = B.size();
+        vector<int>C=B;
+        vector<int>A(n+1,0);
+        sort(C.begin(),C.end());
+        int cur = 0;
+        map<int,int>mark;
+        for(int i = 0;i<n;i++){
+            if(i>=1 && C[i]==C[i-1])continue;
+            mark[C[i]]=cur;
+            cur++;
+        }
+        vector<int> seg(4*n+10);
+        Build(0,0,cur-1,A,seg);
+        vector<int> ans;
+        for(int i = 0;i<n;i++){
+            int v = mark[B[i]];
+            int q = query(0,0,cur-1,0,v,A,seg);
+            ans.push_back(1+q);
+            update(0,0,cur-1,v,1+q,A,seg);
+        }
+        return ans;
+    }
+};

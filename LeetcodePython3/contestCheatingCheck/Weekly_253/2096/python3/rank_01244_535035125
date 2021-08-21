@@ -1,0 +1,22 @@
+#keep list seq
+#for each obstacle
+#   bisect right, if bisect_right == len, put entire length, append
+#                   if == 0, put 1, replace with height
+#                   else, put index, replace with height
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        res = []
+        seq = []
+        for obs in obstacles:
+            i = bisect.bisect_right(seq, obs)
+            if i == len(seq):
+                res.append(len(seq)+1)
+                seq.append(obs)
+            elif i == 0:
+                res.append(1)
+                seq[0] = obs
+            else:
+                res.append(i+1)
+                seq[i] = obs
+        return res

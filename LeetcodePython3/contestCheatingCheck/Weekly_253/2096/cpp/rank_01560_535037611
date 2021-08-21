@@ -1,0 +1,37 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        map<int, int, greater<int>> KO; //keyOrderWLastIndex;
+        
+        vector<int> res(obs.size(), 1);
+        
+        for(int i = 0 ; i < obs.size() ; ++i) {
+            auto it = KO.lower_bound(obs[i]);
+            
+            if(it == KO.end()) {
+                res[i] = 1;
+            } else {
+                int lastPos = it->second;
+                res[i] = res[lastPos] + 1;
+                
+                vector<int> toRemove;
+                
+                //remove lower count with higher key
+                while(it != KO.begin()) {
+                    --it;
+                    if(res[it->second] < res[i]) {
+                        toRemove.emplace_back(it->first);
+                    } else {
+                        break;
+                    }
+                }
+                for(int j: toRemove) {
+                    KO.erase(j);
+                }
+            }
+            KO[obs[i]] = i;
+        }
+        
+        return res;
+    }
+};

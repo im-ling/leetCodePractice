@@ -1,0 +1,34 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] res = new int[n];
+        List<int[]> list = new LinkedList<>();
+        list.add(new int[] {0, 0});
+        for (int j= 0;j<obstacles.length;j++) {
+            int pos = bisearch(list, obstacles[j]);
+            res[j] = list.get(pos)[1] + 1;
+            if (pos == list.size() - 1) {
+                list.add(new int[] {obstacles[j], res[j]});
+            } else {
+                list.set(pos + 1, new int[] {obstacles[j], res[j]});
+            }
+        }
+        return res;
+    }
+    private int bisearch(List<int[]> list, int num) {
+        int lo = 0;
+        int hi = list.size()-1;
+        if (list.get(hi)[0] <= num) {
+            return hi;
+        }
+        while (lo<hi) {
+            int mid = lo + (hi-lo+1)/2;
+            if (list.get(mid)[0] <= num) {
+                lo = mid;
+            } else {
+                hi = mid-1;
+            }
+        }
+        return lo;
+    }
+}

@@ -1,0 +1,23 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        TreeMap<Integer, Integer> maxToVal = new TreeMap<>();
+        maxToVal.put(0, 0);
+        int[] res = new int[obstacles.length];
+        int idx = 0;
+        for (int val: obstacles) {
+            int currNum = maxToVal.floorEntry(val).getValue() + 1;
+            res[idx++] = currNum;
+            while (true) {
+                Integer higherKey = maxToVal.higherKey(val);
+                if (higherKey == null || maxToVal.get(higherKey) > currNum) {
+                    break;
+                }
+                maxToVal.remove(higherKey);
+            }
+            maxToVal.put(val, currNum);
+        }
+        return res;
+    }
+}
+
+// dp[i] = max[dp[k] + 1], nums[k] < nums[i]

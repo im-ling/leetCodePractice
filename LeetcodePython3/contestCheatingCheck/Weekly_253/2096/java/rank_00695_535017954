@@ -1,0 +1,117 @@
+class Solution {
+    
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        // Construct array with indices
+        int N = obstacles.length;
+        int[][] input = new int[N][2];
+        for (int i = 0; i < N; i++) {
+            input[i][0] = obstacles[i];
+            input[i][1] = i;
+        }
+
+        // Sort
+        Arrays.sort(input, (a1, a2) -> {
+            if (a1[0] == a2[0]) {
+                return Integer.compare(a1[1], a2[1]);
+            } else {
+                return Integer.compare(a1[0], a2[0]);
+            }
+        });
+
+        // Map obstacle indices to input indices
+        Map<Integer, Integer> indexMap = new HashMap<>();
+        for (int i = 0; i < N; i++) {
+            indexMap.put(input[i][1], i);
+        }
+
+        // Single pass while querying from segment tree
+        SegmentTree segTree = SegmentTreeNode.build(new int[N], Integer::max);
+        segTree.update(indexMap.get(0), 1);
+
+        int[] output = new int[N];
+        output[0] = 1;
+
+        for (int i = 1; i < N; i++) {
+            int inputIndex = indexMap.get(i);
+
+            output[i] = 1 + segTree.query(0, inputIndex);
+            segTree.update(inputIndex, output[i]);
+        }
+
+        return output;
+    }
+
+    interface SegmentTree {
+
+        void update(int index, int value);
+        int query(int start, int end);
+    }
+
+
+    public static class SegmentTreeNode implements SegmentTree {
+
+        int start;
+        int end;
+        int value;
+        SegmentTreeNode left;
+        SegmentTreeNode right;
+        BinaryOperator<Integer> op;
+
+        private SegmentTreeNode() {}
+
+        public static SegmentTreeNode build(int[] nums, BinaryOperator<Integer> op) {
+            return build(nums, op, 0, nums.length - 1);
+        }
+
+        private static SegmentTreeNode build(int[] nums, BinaryOperator<Integer> op, int start, int end) {
+            if (start > end) return null;
+            SegmentTreeNode root = new SegmentTreeNode();
+            root.start = start;
+            root.end = end;
+            root.op = op;
+            if (start == end) {
+                root.value = nums[start];
+            } else {
+                int middle = start + (end - start) / 2;
+                root.left = build(nums, op, start, middle);
+                root.right = build(nums, op, middle + 1, end);
+                root.value = op.apply(root.left.value, root.right.value);
+            }
+            return root;
+        }
+
+        @Override
+        public void update(int index, int value) {
+            if (this.start == this.end) {
+                this.value = value;
+            } else {
+                int middle = this.start + (this.end - this.start) / 2;
+                if (index <= middle) {
+                    this.left.update(index, value);
+                } else {
+                    this.right.update(index, value);
+                }
+                this.value = this.op.apply(this.left.value, this.right.value);
+            }
+        }
+
+        @Override
+        public int query(int queryStart, int queryEnd) {
+            if (this.start == queryStart && this.end == queryEnd) {
+                return this.value;
+            } else {
+                int middle = this.start + (this.end - this.start) / 2;
+                if (queryEnd <= middle) {
+                    // Only recurse left
+                    return this.left.query(queryStart, queryEnd);
+                } else if (queryStart >= middle + 1) {
+                    // Only recurse right
+                    return this.right.query(queryStart, queryEnd);
+                } else {
+                    // Check both
+                    return this.op.apply(this.left.query(queryStart, middle), this.right.query(middle + 1, queryEnd));
+                }
+            }
+        }
+    }
+}

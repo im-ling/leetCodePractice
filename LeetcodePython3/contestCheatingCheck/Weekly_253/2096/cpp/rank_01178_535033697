@@ -1,0 +1,44 @@
+class Solution {
+public:
+    int binarySearch(vector<int>& list, int s) {
+        int left = 0, right = list.size()-1, mid = left/2+right/2;
+        while(left < right) {
+            // cout << left << " " << right << " " << mid << " " << list[mid] << endl; 
+            if(list[mid] <= s) {
+                left = mid+1;
+            }else {
+                right = mid;
+            }
+            mid = left/2+right/2;
+        }
+        if(list[left] <= s) {
+            return list.size();
+        }else{
+            return left;
+        }
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> maxnumber; 
+        vector<int> ans;
+        maxnumber.push_back(obstacles[0]);
+        ans.push_back(1);
+        for(int i = 1; i < obstacles.size(); i++) {
+            // cout << "now: " << obstacles[i] << endl;
+            // for(int i = 0; i < maxnumber.size(); i++) {
+            //     cout << maxnumber[i] << " " ;
+            // }
+            // cout << endl;
+            int io = binarySearch(maxnumber, obstacles[i]);
+            // cout << "index: " << io << endl;
+            if(io == maxnumber.size()) {
+                maxnumber.push_back(obstacles[i]);
+                ans.push_back(io + 1);
+            }else{
+                maxnumber[io] = obstacles[i];
+                ans.push_back(io + 1);
+            }
+        }
+        return ans;
+    }
+};

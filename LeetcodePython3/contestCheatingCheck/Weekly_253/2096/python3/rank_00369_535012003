@@ -1,0 +1,31 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        if not obstacles:
+            return []
+        n = len(obstacles)
+        end_subseq = [float('inf')]
+        result = []
+        for num in obstacles:
+            sub_index = self.find_first_gte(end_subseq, num)
+            if 0 <= sub_index < len(end_subseq):
+                end_subseq[sub_index] = num
+                result.append(sub_index + 1)
+            else:
+                end_subseq.append(num)
+                result.append(len(end_subseq))
+        return result
+    
+    def find_first_gte(self, end_seq, target):
+        left, right = 0, len(end_seq) - 1
+        while left + 1 < right:
+            mid = left + (right - left) // 2
+            if end_seq[mid] <= target:
+                left = mid
+            else:
+                right = mid
+        if end_seq[left] > target:
+            return left
+        if end_seq[right] > target:
+            return right
+        return right + 1
+        

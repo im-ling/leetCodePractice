@@ -1,0 +1,41 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n=obstacles.length;
+        int []dp=new int [n];
+        int []arr=new int [n];
+        Arrays.fill(dp,1);
+        arr[0]=obstacles[0];
+        int len=0;
+        for(int i=1;i<n;i++)
+        {
+            if(arr[len]<=obstacles[i])
+            {
+                len++;
+                dp[i]=len+1;
+                arr[len]=obstacles[i];
+            }
+            else
+            {
+                int pos=binarySearch(arr,len,obstacles[i]);
+                arr[pos]=obstacles[i];
+                dp[i]=pos+1;
+            }
+        }
+        
+        return dp;
+    }
+                                            
+    private int binarySearch(int a[], int len, int ans) {
+        int low = 0;
+        int height = len;
+        while(low <= height) {
+            int mid = (height + low) / 2;
+            if(a[mid] > ans) {
+                height = mid - 1;
+            }else {
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
+}

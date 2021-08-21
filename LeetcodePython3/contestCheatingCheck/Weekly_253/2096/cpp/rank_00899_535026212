@@ -1,0 +1,37 @@
+#define inf 1000000000
+#define ll long long
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int N = obstacles.size();
+        
+        vector<int> Hash(N+1,inf);
+        
+        Hash[0] = 0;
+        vector<int> result(N);
+        for(int i=0;i<N;i++){
+            int x = obstacles[i];
+            
+            ll lo,ho,mid;
+            
+            lo = 0;
+            ho = N+1;
+            
+            while(lo < ho){
+                mid = (lo + ho)/2;
+                
+                if(x < Hash[mid])
+                    ho = mid;
+                else
+                    lo = mid+1;
+            }
+            
+            //cout<<i<<" "<<x<<" : "<<lo<<"\n";
+            Hash[lo] = min(Hash[lo],x);
+            result[i] = lo;
+        }
+        
+        return result;
+    }
+};

@@ -1,0 +1,38 @@
+class Solution {
+public:
+    int findCeiling(int x, const vector<int> &v)
+    {
+        int low = 0, high = v.size() - 1;
+        while(low < high)
+        {
+            int mid = low + (high - low)/2;
+            if(v[mid] > x)
+                high = mid;
+            else
+                low = mid + 1;
+        }
+        return high;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> res(n), v;
+        v.push_back(obstacles[0]);
+        res[0] = 1;
+        for(int i=1; i<n; i++)
+        {
+            if(v[v.size()-1] <= obstacles[i])
+            {
+                v.push_back(obstacles[i]);
+                res[i] = v.size();
+            }
+            else
+            {
+                int idx = findCeiling(obstacles[i], v);
+                v[idx] = obstacles[i];
+                res[i] = idx + 1;
+            }
+        }
+        return res;
+    }
+};

@@ -1,0 +1,214 @@
+#include <cassert>
+#include <cctype>
+#include <climits>
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <functional>
+#include <vector>
+#include <string>
+#include <queue>
+#include <deque>
+#include <stack>
+#include <set>
+#include <map>
+#include <utility>
+#include <algorithm>
+#include <iostream>
+#include <sstream>
+#include <numeric>
+#include <unordered_map>
+#include <unordered_set>
+using namespace std;
+
+#ifdef DBG
+  #define dbg 1
+  #define dpf(...) fprintf(stderr, __VA_ARGS__);fflush(stderr);
+#else
+  #define dbg 0
+  #define dpf(...) 42
+#endif
+ 
+#define SIZE(c) int((c).size())
+#define REP(i,c) for(auto &i : (c))
+#define ALL(c) (c).begin(),(c).end()
+#define pb push_back
+#define eb emplace_back
+#define fi first
+#define se second 
+typedef long long i64;
+typedef unsigned long long u64;
+const double EPS = 1e-12;
+const int INF = 1e9 + 10;
+typedef vector<int> VI;
+typedef vector<string> VS;
+typedef pair<int, int> PI;
+
+template <typename T>
+using MinPQ = priority_queue<T, vector<T>, greater<T>>;
+
+// Segment Tree base class.
+template <typename T>
+class BaseSegTree {
+ public:
+  int max_node;
+
+  BaseSegTree() {}
+  inline virtual T default_value() const = 0;
+  virtual T CombineValue(const T& lv, const T& rv) = 0;
+
+  void Init(const vector<T> &a) {
+    Init(SIZE(a) - 1);
+    if(max_node >= 0) Build(0, max_node, 0, a);
+  }
+
+  void Init(int max_node) {
+    assert(max_node >= -1);
+    this->max_node = max_node;
+    if(max_node < 0) {
+      value.clear();
+    } else {
+      int v = max_node;
+      int c = 1;
+      while (v) {
+        ++c;
+        v >>= 1;
+      }
+      value.assign((1 << c) - 1, default_value());
+    }
+    InitCustom();
+  }
+
+  void Set(int i, T v) {
+    assert(i >= 0 && i <= max_node);
+    Set(i, v, 0, max_node, 0);
+  }
+
+  T Get(int i) {
+    assert(i >= 0 && i <= max_node);
+    return Get(i, 0, max_node, 0);
+  }
+
+  T Query(int l, int r) {
+    return Query(l, r, 0, max_node, 0);
+  }
+
+  T QueryAll() {
+    return Query(0, max_node);
+  }
+
+ protected:
+  vector<T> value;
+
+  // Called after this.value is initialized.
+  virtual void InitCustom() {}
+
+  virtual void PropgateCustom(int p, int p1, int p2) {
+  }
+
+  // Propgates value to children.
+  void Propgate(int p, int &p1, int &p2) {
+    p1 = (p << 1) | 1;
+    p2 = p1 + 1;
+    PropgateCustom(p, p1, p2);
+  }
+
+ private:
+  // Combines left and right children to current node.
+  void CombineChildren(int p, int p1, int p2) {
+    value[p] = CombineValue(value[p1], value[p2]);
+  }
+
+  void Build(int l, int r, int p, const vector<T> &a) {
+    if (l == r) {
+      value[p]=a[l];
+      return;
+    }
+    int p1 = (p << 1) | 1, p2 = p1 + 1;
+    int m = (l + r) >> 1;
+    Build(l, m, p1, a);
+    Build(m+1, r, p2, a);
+    CombineChildren(p, p1, p2);
+  }
+
+  void Set(int i, T v, int l, int r, int p) {
+    if (l == r) {
+      value[p] = v;
+      return;
+    }
+    int p1, p2;
+    Propgate(p, p1, p2);
+    int m = (l + r) >> 1;
+    if (i<=m) Set(i, v, l, m, p1);
+    else Set(i, v, m + 1, r, p2);
+    CombineChildren(p, p1, p2);
+  }
+
+  T Get(int i, int l, int r, int p) {
+    if (l == r) return value[p];
+    int p1, p2;
+    Propgate(p, p1, p2);
+    int m = (l + r) >> 1;
+    T res;
+    if (i<=m) res=Get(i, l, m, p1);
+    else res=Get(i, m + 1, r, p2);
+    CombineChildren(p, p1, p2);
+    return res;
+  }
+
+  T Query(int ql, int qr, int l, int r, int p) {
+    if (ql > qr) return default_value();
+    if (ql <= l && qr >= r) {
+      return value[p];
+    }
+    int p1, p2;
+    Propgate(p, p1, p2);
+    int m = (l + r) >> 1;
+    T res = CombineValue(Query(ql, min(qr, m), l, m, p1),
+                         Query(max(ql, m + 1), qr, m + 1, r, p2));
+    CombineChildren(p, p1, p2);
+    return res;
+  }
+};
+
+// Segment Tree: query min.
+template <typename T>
+class MaxSegTree : public BaseSegTree<T> {
+ public:
+  inline virtual T default_value() const {
+    return -INF;
+  }
+
+  virtual T CombineValue(const T& lv, const T& rv) {
+    return max(lv, rv);
+  }
+};
+
+class Solution {
+ public:
+  vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+    int n = SIZE(a);
+    VI b=a;
+    sort(ALL(b));
+    b.resize(unique(ALL(b))-b.begin());
+    unordered_map<int,int> id;
+    for(int i=0;i<SIZE(b);++i) id[b[i]]=i;
+
+    MaxSegTree<int> st;
+    st.Init(SIZE(b));
+
+    VI ans(n);
+    for(int i=0;i<n;++i) {
+      int x=a[i];
+      int idx=id[x];
+
+      int w=st.Query(0, idx);
+      if(w==-INF) ans[i]=1;
+      else ans[i]=w+1;
+      st.Set(idx, ans[i]);
+    }
+
+    return ans;
+  }
+};

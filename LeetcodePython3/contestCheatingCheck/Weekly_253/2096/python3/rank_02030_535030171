@@ -1,0 +1,32 @@
+import bisect
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        # longest inclus
+        memo=[]
+        n=len(obstacles)
+        ans=[]
+        for i in range(n):
+            # print(memo)
+            if not memo or obstacles[i]>=memo[-1]:
+                memo.append(obstacles[i])
+                ans.append(len(memo))
+                # print(memo)
+            else:
+                # find pos to replace and ans+=pos,1
+                l=0
+                r=len(memo)
+                while(l<r):
+                    m=l+(r-l)//2
+                    if memo[m]>obstacles[i]:
+                        r=m
+                    else:
+                        l=m+1
+                memo[l]=obstacles[i]
+                # print(memo,l,r)
+                ans.append(l+1)
+        #print(memo)
+        return ans
+            
+            
+            
+            

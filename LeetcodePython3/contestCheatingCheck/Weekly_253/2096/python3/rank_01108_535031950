@@ -1,0 +1,41 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        if not obstacles:
+            return []
+        
+        res = []
+        stack = []
+        
+        def bs(n, stack):
+            start = 0
+            end = len(stack) - 1
+            
+            while start < end:
+                mid = (start + end) // 2
+                if stack[mid] > n:
+                    end = mid
+                else:
+                    start = mid + 1
+            
+            stack[start] = n
+            return start
+                    
+        
+        for index, n in enumerate(obstacles):
+            if stack:
+                if n >= stack[-1]:
+                    stack.append(n)
+                    res.append(len(stack))
+                else:
+                    replace = bs(n, stack)
+                    res.append(replace + 1)
+            else:
+                stack.append(n)
+                res.append(1)
+        
+        return res 
+                    
+                
+                
+                
+          

@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int MAXN;
+    void update(vector<int> &bit ,int i , int v , int n)
+    {
+        while(i <= n) bit[i] = max(bit[i] , v) , i += (i & -i);
+    }
+    int query(vector<int> &bit , int i)
+    {
+        int mx = 0;
+        while(i) mx = max(mx , bit[i]), i -= (i & -i);
+        return mx;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        MAXN = *max_element(obstacles.begin() , obstacles.end());
+        vector<int> bit(MAXN + 1) , ans;
+        for(auto i : obstacles) {
+            int q = query(bit , i);
+            ans.push_back(q + 1);
+            update(bit , i , q + 1 , MAXN);
+        }
+        return ans;
+    }
+};

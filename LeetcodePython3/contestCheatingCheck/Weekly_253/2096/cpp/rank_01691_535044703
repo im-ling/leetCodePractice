@@ -1,0 +1,39 @@
+class Solution {
+public:
+      int Ceil(int tail[], int l, int h,int k) 
+        { 
+            while (h>l) 
+            {         
+                int m=l+(h-l)/2; 
+                if (tail[m] > k) 
+                    h = m; 
+                else
+                    l = m+1; 
+            } 
+            return h; 
+        }  
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& arr) 
+    {
+        int n= arr.size(),l=1;
+        int tail[n]; 
+        vector<int> ans;
+        tail[0] = arr[0]; 
+        ans.push_back(1);
+        for (int i = 1; i < n; i++) 
+        {    
+            if(arr[i] >= tail[l - 1])
+            {
+                tail[l] = arr[i];
+                l++;
+                ans.push_back(l);
+            }
+            else
+            {
+                int x= Ceil(tail, 0, l - 1, arr[i]);
+                ans.push_back(x+1);
+                tail[x] = arr[i];
+            }
+        } 
+        return ans;
+    }
+};

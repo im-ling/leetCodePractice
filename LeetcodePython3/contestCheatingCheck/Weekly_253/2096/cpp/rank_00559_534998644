@@ -1,0 +1,83 @@
+#pragma GCC optimize ("Ofast")
+#include<bits/stdc++.h>
+using namespace std;
+void*wmem;
+char memarr[96000000];
+template<class T> inline void walloc1d(T **arr, int x, void **mem = &wmem){
+  static int skip[16] = {0, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+  (*mem) = (void*)( ((char*)(*mem)) + skip[((unsigned long long)(*mem)) & 15] );
+  (*arr)=(T*)(*mem);
+  (*mem)=((*arr)+x);
+}
+template<class T> inline void walloc1d(T **arr, int x1, int x2, void **mem = &wmem){
+  walloc1d(arr, x2-x1, mem);
+  (*arr) -= x1;
+}
+template<class T, class S> int weaklyLIS_ends(int n, T a[], S res[], void *mem = wmem){
+  int i;
+  int k;
+  int sz;
+  T*arr;
+  if(n==0){
+    return 0;
+  }
+  walloc1d(&arr, n, &mem);
+  arr[0] = a[0];
+  res[0] = 1;
+  sz = 1;
+  int djQeACzd = n;
+  for(i=(1);i<(djQeACzd);i++){
+    k = upper_bound(arr, arr+sz, a[i]) - arr;
+    arr[k] = a[i];
+    res[i] = k + 1;
+    if(sz==k){
+      sz++;
+    }
+  }
+  return sz;
+}
+#define main dummy_main
+int main(){
+  wmem = memarr;
+  return 0;
+}
+#undef main
+int a[100000+10];
+int res[100000+10];
+class Solution{
+  public:
+  vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles){
+    int i;
+    dummy_main();
+    int n = obstacles.size();
+    for(i=(0);i<(n);i++){
+      a[i] = obstacles[i];
+    }
+    weaklyLIS_ends(n, a, res);
+    vector<int> ret(n);
+    for(i=(0);i<(n);i++){
+      ret[i] = res[i];
+    }
+    return ret;
+  }
+}
+;
+// cLay version 20210405-1
+
+// --- original code ---
+// #define main dummy_main
+// {}
+// #undef main
+// int a[1d5+10], res[1d5+10];
+// class Solution {
+// public:
+//     vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+//         dummy_main();
+//         int n = obstacles.size();
+//         rep(i, n) a[i] = obstacles[i];
+//         weaklyLIS_ends(n, a, res);
+//         vector<int> ret(n);
+//         rep(i, n) ret[i] = res[i];
+//         return ret;
+//     }
+// };

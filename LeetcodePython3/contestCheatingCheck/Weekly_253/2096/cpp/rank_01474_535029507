@@ -1,0 +1,70 @@
+int N = 2 << 17;
+
+class RMQ {
+  public:
+    
+    RMQ() {
+        n = N;
+        offset = n - 1;
+        a.resize(n + offset);
+    }
+    
+    void update(int k, int v) {
+        int p = offset + k;
+        a[p] = v;
+        
+        while (p != 0) {
+            p = (p - 1) / 2;
+            a[p] = max(a[p * 2 + 1], a[p * 2 + 2]);
+        }
+    }
+    
+    int get(int v, int r, int L, int R) {
+        if (R <= r) return a[v];
+        if (L > r) return 0;
+        
+        return max(
+            get(v * 2 + 1, r, L, (L + R) / 2),
+            get(v * 2 + 2, r, 1 + (L + R) / 2, R)
+        );
+    }
+    
+
+    int n;
+    int offset;
+    vector<int> a;
+};
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n = a.size();
+        
+        auto b = a;
+        sort(b.begin(), b.end());
+        
+        int cur = 0;
+        map<int, int> replace;
+        for (int i = 0; i < n; i++) {
+            if (!replace.count(b[i])) {
+                replace[b[i]] = cur;
+                cur++;
+            }
+        }
+        
+        for (int i = 0; i < n; i++) {
+            a[i] = replace[a[i]];
+        }
+        
+        RMQ rmq;
+        vector<int> res;
+        res.reserve(n);
+        
+        for (auto r : a) {
+            res.push_back(rmq.get(0, r, 0, N - 1) + 1);
+            rmq.update(r, res.back());
+        }
+        
+        return res;
+    }
+};

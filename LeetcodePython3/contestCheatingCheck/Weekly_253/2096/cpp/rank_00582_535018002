@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> minHeight(1, 0), ans(n);
+        for (int i = 0; i < n; i++) {
+            int l = 0, r = minHeight.size() - 1;
+            while (l < r) {
+                int mid = (l + r + 1) / 2;
+                if (obstacles[i] < minHeight[mid]) {
+                    r = mid - 1;
+                }
+                else {
+                    l = mid;
+                }
+            }
+            if (l == minHeight.size() - 1) {
+                minHeight.resize(l + 2);
+            }
+            minHeight[l + 1] = obstacles[i];
+            ans[i] = l + 1;
+        }
+        return ans;
+    }
+};

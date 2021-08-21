@@ -1,0 +1,14 @@
+from bisect import *
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        res = []
+        cur = []
+        for n in obstacles:
+            idx = bisect_right(cur, n)
+            res.append(idx + 1)
+            if idx == len(cur):
+                cur.append(n)
+            else:
+                cur[idx] = n
+        return res

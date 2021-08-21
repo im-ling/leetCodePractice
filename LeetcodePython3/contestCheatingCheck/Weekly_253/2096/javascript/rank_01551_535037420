@@ -1,0 +1,34 @@
+/**
+ * @param {number[]} obstacles
+ * @return {number[]}
+ */
+ var longestObstacleCourseAtEachPosition = function(obstacles) {
+  const candidates = Array(obstacles.length).fill(0);
+  candidates[1] = obstacles[0];
+  let ans = Array(obstacles.length);
+  ans[0] = 1;
+  let lis = 1;
+  for (let i = 1; i < obstacles.length; i++) {
+      const height = obstacles[i];
+      if (height >= candidates[lis]) {
+          lis++;
+          candidates[lis] = height;
+          ans[i] = lis;
+      } else {
+          let low = 1;
+          let high = lis + 1;
+          while (low < high) {
+              const mid = (low + high) >> 1;
+              if (height >= candidates[mid]) {
+                  low = mid + 1;
+              } else {
+                  high = mid;
+              }
+          }
+          candidates[low] = height;
+          ans[i] = low;
+      }
+  }
+
+  return ans;
+};

@@ -1,0 +1,34 @@
+class Solution {
+    
+    public int bs(int[] nums, int len, int num) {
+        int left = 0;
+        int right = len;
+        
+        while(left < right) {
+            int mid = left + (right - left)/2;
+            //System.out.println(mid);
+            if(nums[mid] > num) right = mid;
+            else left = mid+1;
+        }
+        return left;
+    }
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int[] dp = new int[obstacles.length];
+        int n = obstacles.length;
+        int[] ans = new int[n];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        int len = 0;
+        
+        for(int i = 0; i < obstacles.length; i++) {
+            int j = bs(dp, len, obstacles[i]);
+            dp[j] = obstacles[i];
+            ans[i] = j + 1;
+             if (j == len) {
+                len++;
+            }
+            //System.out.println(j + " " + Arrays.toString(dp));
+        }
+        //System.out.println(Arrays.toString(dp));
+        return ans;
+    }
+}

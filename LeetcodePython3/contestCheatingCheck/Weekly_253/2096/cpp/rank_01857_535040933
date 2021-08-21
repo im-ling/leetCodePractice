@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        
+        int N = obstacles.size();
+        
+        vector<int> validObs;
+        vector<int> res;
+        
+        for(auto& obs: obstacles) {
+            auto biggerIt = upper_bound(validObs.begin(), validObs.end(), obs);
+            
+            if (validObs.empty()) {
+                res.push_back(1);
+            } else {
+                res.push_back(biggerIt - validObs.begin() + 1);
+            }
+            
+            if (biggerIt == validObs.end()) {
+                validObs.push_back(obs);
+            } else {
+                *biggerIt = obs;
+            }
+            
+            
+            
+        }
+        
+        return res;
+    }
+};

@@ -1,0 +1,45 @@
+public class Solution {
+    public int[] LongestObstacleCourseAtEachPosition(int[] obstacles) {
+        var res = new int[obstacles.Length];
+        var list = new List<int>();
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            var x = BinarySearch(list, obstacles[i]);
+            if (x < 0)
+            {
+                x = ~x;
+            }
+            
+            if (x == list.Count)
+            {
+                res[i] = x+1;
+                list.Add(obstacles[i]);
+            }
+            else
+            {
+                res[i] = x+1;
+                list[x] = obstacles[i];
+            }
+        }
+        return res;
+    }
+    
+    private int BinarySearch(List<int> list, int target)
+    {
+        var left = 0;
+        var right = list.Count;
+        while (left < right)
+        {
+            var mid = left + (right - left) /2 ;
+            if (list[mid] <= target)
+            {
+                left = mid + 1;
+            }
+            else
+            {
+                right = mid;
+            }
+        }
+        return left;
+    }
+}

@@ -1,0 +1,42 @@
+class Solution {
+public:
+    int CeilIndex(vector<int> & v , int  l , int r , int key)
+    {
+        while(r-l>1)
+        {
+            int m = l + (r-l)/2;
+            if(v[m] > key)
+                r = m;
+            else
+                l =m ;
+        }
+        return r;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& v) {
+        int n = v.size() , length = 1;
+        vector<int> ans(n , 0);
+        vector<int> tail(n , 0);
+        ans[0] = 1 ;
+        tail[0] = v[0];
+        for(int i =1 ; i<n;i++)
+        {
+            if(v[i]<tail[0])
+            {
+                ans[i] = 1;
+                tail[0] = v[i];
+            }
+            else if(v[i]>=tail[length-1])
+            {
+                ans[i] = length + 1;
+                tail[length++] = v[i];
+            }
+            else
+            {
+                int temp = CeilIndex(tail , -1 , length-1 , v[i]);
+                ans[i] = temp +1;
+                tail[temp] = v[i];
+            }
+        }
+        return ans;
+    }
+};

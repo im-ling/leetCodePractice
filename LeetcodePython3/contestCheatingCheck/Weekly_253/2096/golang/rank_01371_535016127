@@ -1,0 +1,40 @@
+func longestObstacleCourseAtEachPosition(obstacles []int) []int {
+    res := make([]int, len(obstacles))
+    lis := make([]int, 1)
+    lis[0] = obstacles[0]
+    res[0] = 1
+    for i := 1; i < len(obstacles); i++{
+        last := lis[len(lis) - 1]
+        if obstacles[i] >= last {
+            lis = append(lis, obstacles[i])
+            res[i] = len(lis)
+        } else {
+            // binary search to find the swap index
+            index := getIndex(lis, obstacles[i])
+            lis[index] = obstacles[i]
+            res[i] = index + 1
+        }
+    }
+    return res
+}
+
+func getIndex(arr []int, val int) int {
+    start, end := 0, len(arr) - 1
+    for start < end {
+        mid := start + ((end - start) >> 1)
+        if arr[mid] > val {
+            end = mid
+        } else {
+            start = mid + 1
+        }
+    }
+    return start
+}
+
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}

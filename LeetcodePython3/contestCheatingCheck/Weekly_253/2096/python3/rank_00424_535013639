@@ -1,0 +1,28 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        ans = []
+        seq = []
+        N = len(obstacles)
+        def search(seq, target):
+            if not seq or seq[-1] <= target:
+                return len(seq)
+            lo = 0
+            hi = len(seq) - 1
+            while lo < hi:
+                mid = (lo+hi) // 2
+                cur = seq[mid]
+                if cur <= target:
+                    lo = mid + 1
+                else:
+                    hi = mid
+            return lo
+        
+        for i in range(N):
+            target = obstacles[i]
+            tidx = search(seq, target)
+            if tidx == len(seq):
+                seq.append(target)
+            else:
+                seq[tidx] = target
+            ans.append(tidx + 1)
+        return ans

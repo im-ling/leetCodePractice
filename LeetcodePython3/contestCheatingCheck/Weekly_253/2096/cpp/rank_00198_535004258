@@ -1,0 +1,38 @@
+
+class Solution {
+public:
+  void update(vector<int> & ft,int ind,int val)
+  {
+    for(int i=ind;i<ft.size();i+=(i&(-i)))ft[i]=max(ft[i],val); 
+    
+  }
+  int query(vector<int> & ft,int ind)
+  {
+    int ans=0; 
+    for(int i=ind;i;i-=(i&(-i)))ans=max(ans,ft[i]); 
+    return ans; 
+  }
+  
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> ans(obstacles.size()); 
+        map<int,int> mapp; 
+        for(auto it:obstacles)mapp[it]++; 
+      int id=0; 
+      for(auto & it:mapp)it.second=id++;
+      vector<int> & a=obstacles; 
+      vector<int> ft(mapp.size()+1); 
+      for(int i=0;i<obstacles.size();i++)
+      {
+        int q=query(ft,mapp[a[i]]+1);
+        //cout<<q<<" "; 
+        ans[i]=q+1; 
+        update(ft,mapp[a[i]]+1,q+1); 
+      }//cout<<endl; 
+      //for(auto & it:ft)it=0; 
+      //fill(ft.begin(),ft.end(),0); 
+      //for(auto it:ft)cout<<it<<" "; cout<<endl; 
+       
+      return ans;
+        
+    }
+};

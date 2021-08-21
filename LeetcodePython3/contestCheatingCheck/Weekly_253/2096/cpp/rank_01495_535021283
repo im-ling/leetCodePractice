@@ -1,0 +1,45 @@
+class Solution {
+public:
+    int st[400001] = {0};
+    void update(int left, int right, int si, int idx, int val) {
+        if (left > right) {
+            return;
+        }
+        if (left == right) {
+            st[si] = max(st[si], val);
+            return;
+        }
+        int mid = (left + right) / 2;
+        if (idx <= mid) {
+            update(left, mid, si * 2 + 1, idx, val);    
+        } else {
+            update(mid + 1, right, si * 2 + 2, idx, val);
+        }
+        st[si] = max(st[si * 2 + 1], st[si * 2 + 2]);
+    }
+    int query(int left, int right, int si, int lq, int rq) {
+        if (left > rq or lq > right) {
+            return 0;
+        }
+        if (lq <= left and right <= rq) {
+            return st[si];
+        }
+        int mid = (left + right) / 2;
+        return max(query(left, mid, si * 2 + 1, lq, min(rq, mid)), query(mid + 1, right, si * 2 + 2, max(mid + 1, lq), rq)); 
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        set<int> st(obstacles.begin(), obstacles.end());
+        int cnt = 0;
+        vector<int> answer(obstacles.size());
+        unordered_map<int, int> mp;
+        for (int i : st) {
+            mp[i] = cnt++;
+        }
+        int n = st.size();
+        for (int i = 0; i < obstacles.size(); i++) {
+            answer[i] = query(0, n - 1, 0, 0, mp[obstacles[i]]) + 1;
+            update(0, n - 1, 0, mp[obstacles[i]], answer[i]);
+        }
+        return answer;
+    }
+};

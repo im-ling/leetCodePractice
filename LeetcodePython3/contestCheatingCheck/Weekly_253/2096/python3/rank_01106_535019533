@@ -1,0 +1,34 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, A: List[int]) -> List[int]:
+        
+        lis = []
+        result = []
+        
+        def search(x):
+            if not lis:
+                return 0
+            l, r = 0, len(lis) - 1
+            while l + 1 < r:
+                mid = l + (r - l) // 2
+                if lis[mid] > x :
+                    r = mid
+                else:
+                    l = mid
+            if lis[l] > x:
+                return l
+            if lis[r] > x:
+                return r
+            return r + 1
+        
+        for o in A:
+            # print(lis)
+            index = search(o)
+            if index == len(lis):
+                lis.append(o)
+                result.append(len(lis))
+            else:
+
+                lis[index] = min(o, lis[index])
+                result.append(index + 1)
+                    
+        return result

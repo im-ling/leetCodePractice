@@ -1,0 +1,39 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        def bs(arr, t):
+            if not arr:
+                return 0
+            if t < arr[0]:
+                return 0
+            if t >= arr[-1]:
+                return len(arr)
+            head = 0
+            tail = len(arr)-1
+            while head < tail:
+                mid = head + (tail-head)//2
+                if arr[mid] > t:
+                    tail = mid-1
+                else:
+                    head = mid+1
+            if arr[head] <= t:
+                head += 1
+            return head
+        
+        rank = []
+        ans = []
+        prev = -1
+        for i in obstacles:
+            index = bs(rank, i)
+            # if i >= prev:
+            #     rank.insert(index, i)
+            #     ans.append(index+1)
+            # else:
+            #     rank[index] = i
+            #     ans.append(index+1)
+            if index == len(rank):
+                rank.append(i)
+                ans.append(index+1)
+            else:
+                rank[index] = i
+                ans.append(index+1)
+        return ans

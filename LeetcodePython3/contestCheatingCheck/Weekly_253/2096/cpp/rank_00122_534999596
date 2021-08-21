@@ -1,0 +1,43 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        
+        {
+            vector<int> comp;
+            for (int x : obstacles)
+                comp.push_back(x);
+            sort(comp.begin(), comp.end());
+            comp.resize(unique(comp.begin(), comp.end()) - comp.begin());
+            
+            for (int &x : obstacles)
+                x = lower_bound(comp.begin(), comp.end(), x) - comp.begin();
+        }
+        
+        vector<int> st(2*n);
+        const auto modify = [&](int p, int val) -> void
+        {
+            for (st[p += n] = val; p > 1; p >>= 1)
+                st[p >> 1] = max(st[p], st[p ^ 1]);
+        };
+        const auto query = [&](int l, int r) -> int
+        {
+            int res = 0;
+            for (l += n, r += n; l < r; l >>= 1, r >>= 1)
+            {
+                if (l & 1) res = max(res, st[l++]);
+                if (r & 1) res = max(res, st[--r]);
+            }
+            return res;
+        };
+        
+        vector<int> res;
+        for (int x : obstacles)
+        {
+            int tmp = 1 + query(0, x+1);
+            res.push_back(tmp);
+            modify(x, tmp);
+        }
+        return res;
+    }
+};

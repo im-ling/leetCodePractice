@@ -1,0 +1,45 @@
+class Solution {
+    int getPosition(int val, vector<int>& arr) {
+        int n = arr.size();
+        if(n == 0) {
+            return 0;
+        }
+        
+        int left = 0;
+        int right = n - 1;
+        
+        while(left < right) {
+            int mid = left + (right - left)/2;
+            
+            if(arr[mid] > val) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        
+        return arr[left] <= val ? n : left;
+    }
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        
+        vector<int> res(n);
+        vector<int> course;
+        
+        for(int i = 0; i < n; ++i) {
+            int obstacle = obstacles[i];
+            int pos = getPosition(obstacle, course);
+            
+            if(pos == course.size()) {
+                course.push_back(obstacle);
+            } else {
+                course[pos] = obstacle;
+            }
+            
+            res[i] = pos + 1;
+        }
+        
+        return res;
+    }
+};

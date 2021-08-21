@@ -1,0 +1,109 @@
+const int inf=1<<25;
+
+struct segTree
+{                       //1-based indexing.
+    int size, n;
+    vector<int> arr;
+    
+    vector<pair<int, int>> st;
+
+    void init(int sizeOfTree)
+    {
+        n=sizeOfTree;
+        arr.resize(n+1);
+        size=1;
+        while(size<sizeOfTree) size<<=1;
+
+        size<<=1;
+        st.assign(size+1, {0, 0});
+    }
+
+    void set(int si, int ss, int se, int idx, int val)
+    {
+        if(ss==se)
+        {
+            st[si].first=val;
+            st[si].second=idx;
+            arr[idx]=val;
+            return;
+        }
+
+        int mid=(ss+se)/2;
+
+        if(idx<=mid)
+            set(2*si, ss, mid, idx, val);
+        else 
+            set(2*si+1, mid+1, se, idx, val);
+        
+        st[si].first=max(st[2*si].first, st[2*si+1].first);
+        
+        if(st[2*si].first>=st[2*si+1].first)
+            st[si].second=st[2*si].second;
+        else
+            st[si].second=st[2*si+1].second;
+    }
+
+    pair<int, int> query(int si, int ss, int se, int l, int r)
+    {
+        if(ss>r || se<l)
+            return {0, 0};
+
+        if(l<=ss && r>=se)
+            return st[si];    
+
+        int mid=(ss+se)/2;
+
+        pair<int, int> sumLeft=query(2*si, ss, mid, l, r);
+        pair<int, int> sumRight=query(2*si+1, mid+1, se, l, r);
+        pair<int, int> ans;
+        ans.first= max(sumLeft.first, sumRight.first);
+        if(sumLeft.first>=sumRight.first)
+            st[si].second=sumLeft.second;
+        else
+            st[si].second=sumRight.second;
+        
+        return ans;
+    }
+
+    void set(int idx, int val)
+    {
+        set(1, 1, n, idx, val);
+    }
+
+    pair<int, int> query(int l, int r)
+    {
+        return query(1, 1, n, l, r);
+    }
+};
+const int N=1e7+5;
+int arr[N];
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        int n=obs.size();
+        vector<int> ans(n, 1);
+        
+        set<int> stt;
+        for(int ii:obs)
+            stt.insert(ii);
+        
+        int idx=1;
+        
+        for(auto it:stt)
+        {
+            arr[it]=idx++;
+        }
+        
+        
+        segTree mx;
+        mx.init(idx+2);
+        mx.set(arr[obs[0]], 1);
+        for(int i=1; i<n; i++)
+        {
+            pair<int, int> aa=mx.query(1, arr[obs[i]]);
+            ans[i]+=aa.first;
+            mx.set(arr[obs[i]], aa.first+1);
+        }
+        return ans;
+    }
+};

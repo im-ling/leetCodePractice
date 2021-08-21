@@ -1,0 +1,33 @@
+const int N = 1e5 + 9;
+class Solution {
+private:
+    vector<int> x;
+    int tree[N];
+    inline int low_bit(int x){
+        return x & (-x);
+    }
+    void update(int x , int y){
+        for ( ; x < N ; x += low_bit(x)) tree[x] = max(tree[x] , y);
+    }
+    int query(int x) {
+        int res = 0;
+        for ( ; x ; x -= low_bit(x)) res = max(res , tree[x]);
+        return res;
+    }
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        x = a;
+        sort(x.begin() , x.end());
+        x.resize(unique(x.begin() , x.end()) - x.begin());
+        int n = a.size();
+        for (int i = 0 ; i < n ; ++i) a[i] = lower_bound(x.begin() , x.end() , a[i]) - x.begin() + 1;
+        vector<int> ans;
+        ans.clear();
+        for (int i = 0 ; i < n ; ++i) {
+            int y = query(a[i]) + 1;
+            ans.push_back(y);
+            update(a[i] , y);
+        }
+        return ans;
+    }
+};

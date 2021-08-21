@@ -1,0 +1,34 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] ans = new int[n];
+        List<Integer> dp = new ArrayList<>();
+        dp.add(obstacles[0]);
+        ans[0] = dp.size();
+        for(int i=1; i < n; i++) {
+            if(dp.get(dp.size()-1) <= obstacles[i]) {
+                dp.add(obstacles[i]);
+                ans[i] = dp.size();
+            }else {
+                int pos = lowerBound(dp, obstacles[i]);
+                dp.set(pos,obstacles[i]);
+                ans[i] = pos+1;
+            }
+        }
+        return ans;
+    }
+    
+    public static int lowerBound(List<Integer> array, int value) {
+        int low = 0;
+        int high = array.size() - 1;
+        while (low < high) {
+            int mid = (low + high) / 2;
+            if (value < array.get(mid)) {
+                high = mid;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
+}

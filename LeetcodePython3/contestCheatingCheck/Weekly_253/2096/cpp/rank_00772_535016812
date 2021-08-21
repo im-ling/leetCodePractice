@@ -1,0 +1,24 @@
+#define ll int
+#define pb push_back
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        vector<ll>ans;
+        
+        ll i,j,k,l,m,n=(ll)ob.size();
+        vector<ll>d(n+1,INT_MAX);
+        d[0]=INT_MIN;
+        
+        for(i=0;i<n;i++)
+        {
+            j=upper_bound(d.begin(),d.end(),ob[i])-d.begin();
+            if(d[j-1]<=ob[i]&&ob[i]<d[j])
+            {
+                d[j]=ob[i];
+                ans.pb(j);
+            }
+        }
+        return ans;
+    }
+};

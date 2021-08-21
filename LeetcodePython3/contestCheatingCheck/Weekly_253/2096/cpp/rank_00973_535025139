@@ -1,0 +1,30 @@
+class Solution {
+    int bin_search(vector<int> &lis, int l, int r, int t) {
+        // find the first element inside [l, r), that is greater than t, otherwise return r;
+        while (l + 1 < r) {
+            int mid = (l + r) / 2;
+            if (lis[mid] > t) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        if (lis[l] > t) return l;
+        return r;
+    }
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        int n = obs.size();
+        vector<int> lis(n, 0);
+        vector<int> res(n, 0);
+        int w = 0;  // next pos to write
+        
+        for (int i = 0; i < n; ++i) {
+            int pos = bin_search(lis, 0, w, obs[i]);
+            lis[pos] = obs[i];
+            w = max(w, pos + 1);
+            res[i] = pos + 1;
+        }
+        return res;
+    }
+};

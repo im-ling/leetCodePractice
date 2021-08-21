@@ -1,0 +1,42 @@
+class Solution {
+      public static int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] result = new int[n];
+        List<Integer> list = lengthOfLIS(obstacles, result);
+        return result;
+    }
+    public static List<Integer> lengthOfLIS(int[] nums, int[] result) {
+
+        List<Integer> list = new ArrayList<>();
+        int index = 0;
+        for (Integer num: nums){
+            result[index++] = insert(list, num)+1;
+        }
+
+
+        return list;
+    }
+    public static int insert(List<Integer> list, int val){
+        int index = binarySearch(list, 0, list.size()-1 , val);
+        index++;
+        if (index<0)
+            index = -index-1;
+        if (index == list.size())
+            list.add(val);
+        list.set(index, val);
+        return index;
+
+    }
+
+    public static int binarySearch(List<Integer> list, int left, int right, int val){
+        if (left>right){
+            return right;
+        }
+        int mid = left + (right-left)/2;
+        if (list.get(mid)<=val)
+            return binarySearch(list, mid+1, right, val);
+        else
+            return binarySearch(list, left, mid-1, val);
+
+    }
+}

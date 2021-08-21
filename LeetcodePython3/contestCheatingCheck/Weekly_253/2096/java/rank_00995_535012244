@@ -1,0 +1,142 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        
+        
+        
+        TreeSet<Integer> ts = new TreeSet<Integer>();
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        
+        for (int obstacle : obstacles) {
+            ts.add(obstacle);
+        }
+        
+        int v = 0;
+        while (ts.size() > 0) {
+            int key = ts.pollFirst();
+            map.put(key, v++);
+        }
+        
+        
+        ArrayDeque<Integer> q = new ArrayDeque<Integer>();
+        q.offer(obstacles[0]);
+        int[] ans = new int[n];
+        ans[0] = 1;
+        
+//         for (int i = 1; i < n; i++) {
+//             while (q.size() > 0 && q.peekLast() > obstacles[i]) {
+//                 q.pollLast();
+//             }
+            
+//             //I have obstacles[i] as current size
+//             //I want to query the largest prefix less than this value
+//             q.offerLast(obstacles[i]);
+//             ans[i] = q.size();
+//         }
+        
+        int big = 0;
+        
+        for (int obstacle : obstacles) big = Math.max(big, obstacle);
+        long[] vals = new long[v];
+        SegmentTree st = new SegmentTree(vals);
+        st.update(st.head, map.get(obstacles[0]), 1);
+                
+        for (int i = 1; i < n; i++) {
+            int curVal = map.get(obstacles[i]);
+            int prefMax = (int)st.query(st.head, 0, curVal);
+            ans[i] = prefMax + 1;
+            st.update(st.head, curVal, prefMax + 1);
+        }
+
+        
+        return ans;
+    }
+    
+    class SegmentTree {
+        long[] arr;
+        int n;
+        Node head;
+
+        SegmentTree(long[] nums) {
+            this.arr = nums;
+            this.n = nums.length;
+
+            head = buildTree(0, n - 1);
+
+            // print(head);
+        }
+
+        void print(Node root) {
+            if (root == null)
+                return;
+            System.out.println(root);
+            print(root.left);
+            print(root.right);
+        }
+
+        Node buildTree(int l, int r) {
+            if (l > r) {
+                return null;
+            } else if (l == r) {
+                Node n = new Node(l, l);
+                n.val = arr[l];
+                return n;
+            } else {
+                Node n = new Node(l, r);
+
+                int mid = (l + r) / 2;
+
+                n.left = buildTree(l, mid);
+                n.right = buildTree(mid + 1, r);
+                n.val = Math.max(n.left.val, n.right.val);
+                return n;
+            }
+        }
+
+        long query(Node root, int qL, int qR) {
+
+            int sL = root.l;
+            int sR = root.r;
+
+            if (qL <= sL && qR >= sR) { // total overlap
+                return root.val;
+            } else if (!(qR < sL || qL > sR)) { // partial overlap
+                return Math.max(query(root.left, qL, qR), query(root.right, qL, qR));
+            } else {
+                return 0;
+            }
+
+            // completely contained inside l r
+        }
+
+        Node update(Node root, int ind, long val) {
+            int sL = root.l;
+            int sR = root.r;
+
+            if (ind <= sL && ind >= sR) { // total overlap
+                root.val = val;
+            } else if (!(ind < sL || ind > sR)) { // partial overlap
+                root.val = Math.max(update(root.left, ind, val).val, update(root.right, ind, val).val);
+            }
+
+            return root;
+        }
+
+        class Node {
+            Node left;
+            Node right;
+            int l;
+            int r;
+            long val;
+
+            Node(int l, int r) {
+                this.l = l;
+                this.r = r;
+            }
+
+            public String toString() {
+                return "(" + l + "," + r + ")" + " = " + val;
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+class Solution {
+public:
+    
+    const int N=1e7+5;
+    vector<int> bit;
+    int find(int x){
+        int c=0;
+        while(x>0){
+            c=max(c,bit[x]);
+            x-=x&-x;
+        }
+        return c;
+    }
+    void update(int x, int mx){
+        while(x<N){
+            bit[x]=max(bit[x],mx);
+            x+=x&-x;
+        }
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        bit=vector<int>(N,0);
+        int n=obstacles.size();
+        vector<int> ans(n);
+        for(int i=0;i<n;i++){
+            int x=find(obstacles[i]);
+            ans[i]=x+1;
+            update(obstacles[i],x+1);
+        }
+    
+        return ans;
+        
+        
+        
+        
+    }
+};

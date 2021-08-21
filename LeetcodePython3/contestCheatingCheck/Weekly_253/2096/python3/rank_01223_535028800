@@ -1,0 +1,36 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, A: List[int]) -> List[int]:
+        n = len(A)
+        dp = [0] * n
+        stack = []
+        
+        def search(target):
+            # in stack, find the smallest index "idx" such that stack[idx] > target
+            l, r = 0, len(stack) - 1
+            
+            while l + 1 < r:
+                m = (l + r) // 2
+                
+                if stack[m] > target:
+                    r = m
+                else:
+                    l = m
+                    
+            if stack[l] > target:
+                return l
+            if stack[r] > target:
+                return r
+            return 0
+                    
+        
+        for i in range(n):
+            if not stack or A[i] >= stack[-1]:
+                stack.append(A[i])
+                dp[i] = len(stack)
+                continue
+                
+            idx = search(A[i])
+            stack[idx] = A[i]
+            dp[i] = idx + 1
+        
+        return dp

@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int bs(vector<int>& qb, int tar){
+        int l=0;
+        int h=qb.size()-1;
+        
+        while(l<=h){
+            int m=(l+h)/2;
+            
+            if(qb[m]<=tar){
+                l=m+1;
+            } else {
+                h=m-1;
+            }
+        }
+        return l;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& nums) {
+        int n=nums.size();
+        vector<int> qb;
+        vector<int> ans(n,1);
+        
+        for(int i=0; i<n; i++){
+            if(qb.size()==0){
+                qb.push_back(nums[i]);
+                ans[i]=1;
+            } else {
+                int t=bs(qb,nums[i]);
+                if(t==qb.size()){
+                    qb.push_back(nums[i]);
+                } else {
+                    qb[t]=min(nums[i],qb[t]);
+                }
+                ans[i]=t+1;
+            }
+        }
+        return ans;
+    }
+};

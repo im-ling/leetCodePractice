@@ -1,0 +1,26 @@
+class Solution {
+public:
+ 
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> bit;
+        int n=obstacles.size();
+        int mx=1;
+        for(auto it:obstacles) mx=max(mx,it);
+        mx+=3;
+        bit.assign(mx, 0);
+        vector<int> ans(n);
+        for(int i=0;i<n;i++)
+        {
+            int ret = 0;
+            int r=obstacles[i];
+            for (; r >= 0; r = (r & (r + 1)) - 1)
+                ret =max(ret, bit[r]);
+            ans[i]=ret+1;
+            int idx=obstacles[i];
+            for (; idx < mx; idx = idx | (idx + 1))
+                bit[idx] =max(bit[idx], ans[i]);
+        }
+        return ans;
+        
+    }
+};

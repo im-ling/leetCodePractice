@@ -1,0 +1,34 @@
+class Solution {    
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        
+        Map<Integer, Integer> lengthToMin = new HashMap<>(n);
+        TreeMap<Integer, Integer> minToLength = new TreeMap<>();
+        
+        int[] result = new int[n];
+        
+        for (int i = 0; i < n; i++) {
+            int num = obstacles[i];
+            
+            Integer floorKey = minToLength.floorKey(num);
+            int value = (floorKey == null) ? 1 : 1 + minToLength.get(floorKey);
+            
+            result[i] = value;
+            
+            if (!lengthToMin.containsKey(value)) {
+                lengthToMin.put(value, num);
+            }
+            else if (num < lengthToMin.get(value)) {
+                int prev = lengthToMin.get(value);
+                lengthToMin.put(value, num);
+                if (minToLength.get(prev) <= value) {
+                    minToLength.remove(prev);
+                }
+            }
+            
+            minToLength.put(num, value);
+        }
+        
+        return result;
+    }
+}

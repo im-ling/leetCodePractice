@@ -1,0 +1,45 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] nums) {
+        int len = nums.length;
+        int[] dp = new int[len + 1];
+        int[] length = new int[len];
+        int tail = 1;
+        dp[tail] = nums[0];
+        length[0] = 1;
+        for(int i=1;i<len;i++){
+            if(nums[i] >= dp[tail]){
+                dp[++tail] = nums[i];
+                length[i] = tail;
+            }
+            else{
+                int index = binSearch(dp, 1, tail, nums[i]);
+                dp[index + 1] = nums[i];
+                length[i] = index + 1;
+            }
+        }
+
+        // 输出最长子序列，字典序
+        // int[] ans = new int[tail];
+        // for (int i = len - 1, j = tail; i >= 0; i--) {
+        //     if (length[i] == j) {
+        //         ans[--j]  = nums[i];
+        //     }
+        // }
+        
+        return length;
+    }
+    private int binSearch(int[] nums, int left, int right, int target){
+        int res = 0;
+        while(left <= right){
+            int mid = (left + right) / 2;
+            if(nums[mid] <= target){
+                res = mid;
+                left = mid + 1;
+            }
+            else{
+                right = mid - 1;
+            }
+        }
+        return res;
+    }
+}

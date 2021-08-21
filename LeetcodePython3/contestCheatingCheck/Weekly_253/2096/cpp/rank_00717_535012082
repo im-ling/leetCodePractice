@@ -1,0 +1,57 @@
+// int MAXN = 100005;
+vector<int> t;
+
+int getmax(int v, int tl, int tr, int l, int r) {
+    if (l > r) 
+        return 0;
+    if (l == tl && r == tr) {
+        return t[v];
+    }
+    int tm = (tl + tr) / 2;
+    return max(getmax(v*2, tl, tm, l, min(r, tm)), getmax(v*2+1, tm+1, tr, max(l, tm+1), r));
+}
+
+void update(int v, int tl, int tr, int pos, int new_val) {
+    if (tl == tr) {
+        t[v] = new_val;
+    } else {
+        int tm = (tl + tr) / 2;
+        if (pos <= tm)
+            update(v*2, tl, tm, pos, new_val);
+        else
+            update(v*2+1, tm+1, tr, pos, new_val);
+        t[v] = max(t[v*2], t[v*2+1]);
+    }
+}
+
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        t.assign(4*n + 5, 0);
+        
+        
+        vector<int> sorted = obstacles;
+        sort(sorted.begin(), sorted.end());
+        
+        unordered_map<int, int> ump;
+        for(int i = 0; i < n; ++i) {
+            ump[sorted[i]] = i;
+        }
+        
+        for(int i = 0; i < n; ++i) {
+            obstacles[i] = ump[obstacles[i]];
+        }
+        
+        vector<int> res;
+        for(int i = 0; i < n; ++i) {
+            int num = getmax(1, 0, n, 0, obstacles[i]);
+            res.push_back(num + 1);
+            update(1, 0, n, obstacles[i], num + 1);
+        }
+        
+        return res;
+        
+    }
+};

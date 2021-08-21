@@ -1,0 +1,35 @@
+class Solution {
+private:
+    map<int, int> dp;
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        dp[0] = 0;
+        vector<int> res;
+        for(auto o: obstacles){
+            auto next_greater_it = dp.upper_bound(o);
+            auto pre_it = prev(next_greater_it);
+            //cout<<pre_it->first<<endl;
+            
+            int cur_res = pre_it->second + 1;
+            res.push_back(cur_res);
+            
+            dp[o] = cur_res;
+            
+            auto it = dp.find(o);
+            
+            it++;
+            if(it == dp.end()) continue;
+            
+            auto next = it;
+            for(; next != dp.end() && next->second <= cur_res; next++){
+                
+            }
+            dp.erase(it, next);
+            
+            
+        }
+        
+        return res;
+        
+    }
+};

@@ -1,0 +1,55 @@
+typedef vector<int> vi;
+class Solution {
+public:
+    
+    //  find lower / upper bound in log n time
+    int ub(const vi &nums, int n, int val)
+    {
+        int lb = 0, ub = n-1;
+        while(lb < ub)
+        {
+            int mid = (lb + ub) / 2;
+            if(nums[mid] <= val) lb = mid + 1;
+            else    ub = mid;
+        }
+        return lb;
+    }
+
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& arr) 
+    {
+        vi dp;
+        int size = 0;
+        int i = 0;
+        vi ans(arr.size(), 0);
+        for(int val : arr)
+        {
+            // for(int d : dp)
+            //     cout << d << " " ;
+            // cout << endl;
+            // check for strictly increasing remove =
+            if(size == 0 or dp[size - 1] <= val)
+            {
+                dp.push_back(val);
+                size++;
+                ans[i++] = size;
+            }
+            else
+            {
+                int index = ub(dp, size, val);
+                // cout << "check : " << val << " " << index << " " << dp[index] << endl;
+                
+                ans[i] = index+1;
+                if(dp[index] == val)
+                {
+                    if(index + 1 < size)
+                        dp[index+1] = val;
+                    ans[i]++;
+                }
+                dp[index] = val;
+                i++;
+            }
+        }
+        // for(int i : dp) cout<<i<<endl;
+        return ans;
+    }
+};

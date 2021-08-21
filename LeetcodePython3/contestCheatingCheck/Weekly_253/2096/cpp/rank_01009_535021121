@@ -1,0 +1,44 @@
+class Solution {
+public:
+    int search(int low,int high,int len[],vector<int> &a,int val)
+    {
+        if(high==low)
+        {
+            if(len[low]!=-1&&a[len[low]]<=val)
+            {
+                return low+1;
+            }
+            else
+            {
+                return low;
+            }
+        }
+        int mid=(low+high)/2;
+        if(len[mid]!=-1&&a[len[mid]]<=val)
+        {
+            return search(mid+1,high,len,a,val);
+        }
+        else
+        {
+            return search(low,mid,len,a,val);
+        }
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        vector<int> ans;
+        int n=a.size();
+        int len[n];
+        len[0]=0;
+        ans.push_back(1);
+        for(int i=1;i<n;i++)
+        {
+            len[i]=-1;
+        }
+        for(int i=1;i<n;i++)
+        {
+            int index=search(0,i-1,len,a,a[i]);
+            ans.push_back(index+1);
+            len[index]=i;
+        }
+        return ans;
+    }
+};

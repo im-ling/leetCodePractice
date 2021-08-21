@@ -1,0 +1,34 @@
+/*
+Input: obstacles = [1,2,3,2]
+Output: [1,2,3,3]
+Explanation: The longest valid obstacle course at each position is:
+- i = 0: [1], [1] has length 1.
+- i = 1: [1,2], [1,2] has length 2.
+- i = 2: [1,2,3], [1,2,3] has length 3.
+- i = 3: [1,2,3,2], [1,2,2] has length 3.
+*/
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int size = obstacles.size();
+        vector<int> vp;
+        vector<int> ans(size);
+        for(int i = 0 ; i < obstacles.size();i++) {
+            if(vp.empty()) {
+                ans[i] = 1;
+                vp.push_back(obstacles[i]);
+            } else {
+                auto it = upper_bound(vp.begin(), vp.end(), obstacles[i]);
+                ans[i] = 1 + distance(vp.begin(), it);
+                if(it == vp.end()) {
+                    vp.push_back(obstacles[i]);
+                } else {
+                    vp[distance(vp.begin(), it)] = obstacles[i];    
+                }
+
+            }
+        }
+        return ans;
+    }
+};

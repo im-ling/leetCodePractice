@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> result(obstacles.size());
+        vector<int> piles(obstacles.size());
+        
+        piles[0] = obstacles[0];
+        int pileSize = 1;
+        result[0] = 1;
+        for (int i = 1; i < obstacles.size(); ++i) {
+            piles[i] = INT_MAX;
+            if (obstacles[i] >= piles[pileSize - 1]) {
+                piles[pileSize] = obstacles[i];
+                pileSize += 1;
+                result[i] = pileSize;
+            } else {
+                auto first = upper_bound(piles.begin(), piles.begin() + pileSize, obstacles[i]);
+                result[i] = distance(piles.begin(), first) + 1;
+                *first = obstacles[i];
+            }
+            // for (int j = 0; j < pileSize; ++j) {
+            //     cout << piles[j] << " ";
+            // }
+            // cout << endl;
+        }
+        // cout << endl;
+        
+        return result;
+    }
+};

@@ -1,0 +1,24 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] res = new int[n];
+        int[] dp = new int[n + 1];
+        Arrays.fill(dp, 10000001);
+        for(int i = 0; i < obstacles.length; i++){
+            int index = findFirstLarger(dp, obstacles[i], 0, n - 1);
+            dp[index] = obstacles[i];
+            res[i] = index + 1;
+            //System.out.println(index + " " + dp[index]);
+        }
+        return res;
+    }
+    
+    private int findFirstLarger(int[] dp, int target, int left, int right){
+        if (left > right) return left;
+        int mid = left + (right - left) / 2;
+        if (dp[mid] > target){
+            return findFirstLarger(dp, target, left, mid - 1);
+        }
+        return findFirstLarger(dp, target, mid + 1, right);
+    }
+}

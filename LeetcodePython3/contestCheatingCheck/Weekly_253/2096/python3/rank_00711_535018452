@@ -1,0 +1,33 @@
+from sortedcontainers import SortedList
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        res = []
+        sl = SortedList()
+        for i, ob in enumerate(obstacles):
+            if i == 0:
+                res.append(1)
+                sl.add((ob, 1))
+                continue
+            j = sl.bisect_left((ob, 0))
+            if j == 0 and sl[j][0] != ob:
+                sl.add((ob, 1))
+                res.append(1)
+                continue
+            if j == len(sl):
+                sl.add((ob, sl[j - 1][1] + 1))
+                res.append(sl[j - 1][1] + 1)
+                continue
+            if sl[j][0] == ob:
+                new_node = (ob, sl[j][1] + 1)
+                res.append(new_node[1])
+                sl.pop(j)
+                sl.add(new_node)
+            else:
+                new_node = (ob, sl[j - 1][1] + 1)
+                res.append(new_node[1])
+                sl.add(new_node)
+            j = sl.bisect_left(new_node)
+            j += 1
+            while j < len(sl) and sl[j][1] < new_node[1]:
+                sl.pop(j)
+        return res

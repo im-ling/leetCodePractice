@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int>b;
+        vector<int>res;
+        b.push_back(obstacles[0]);
+        res.push_back(1);
+        for(int i = 1;i < obstacles.size();i++)
+        {
+            if(obstacles[i] >= b[b.size() - 1]){//直接把大于等于b[cnt - 1]的数加到b数组里面
+                b.push_back(obstacles[i]);
+                res.push_back(b.size());
+            }else
+            //总是把较小的数往b数组前面放
+            {
+                int temp = upper_bound(b.begin(), b.end(), obstacles[i]) - b.begin();
+                b[temp] = obstacles[i];
+                //c[i]代表a[i]这个数放到了第C[i]个位置
+                //通过c[i]来找到这个最长上升子序列
+                res.push_back(temp + 1);
+            }
+        }
+        return res;
+    }
+};

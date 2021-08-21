@@ -1,0 +1,13 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, nums: List[int]) -> List[int]:
+        sub = []
+        ans = []
+        for x in nums:
+            if len(sub) == 0 or sub[-1] <= x:
+                sub.append(x)
+                ans.append(len(sub))
+            else:
+                idx = bisect_right(sub, x)  # Find the index of the smallest number >= x
+                sub[idx] = x  # Replace that number with x
+                ans.append(idx + 1)
+        return ans

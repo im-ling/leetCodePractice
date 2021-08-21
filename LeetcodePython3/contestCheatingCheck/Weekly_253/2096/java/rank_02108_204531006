@@ -1,0 +1,28 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        //长度为i的最小值
+        int[] dp = new int[obstacles.length];
+        dp[0] = obstacles[0];
+        int l = 0, r = 1;
+        int[] res = new int[obstacles.length];
+        res[0] = 1;
+        for (int i = 1; i < obstacles.length; i++){
+            int left = l, right = r;
+            while (left < right){
+                int middle = (left + right) / 2;
+                //找到第一个大于他的值
+                if (dp[middle] > obstacles[i]){
+                    right = middle;
+                }else {
+                    left = middle + 1;
+                }
+            }
+            dp[left] = obstacles[i];
+            res[i] = left+1;
+            if (left == r){
+                r++;
+            }
+        }
+        return res;
+    }
+}

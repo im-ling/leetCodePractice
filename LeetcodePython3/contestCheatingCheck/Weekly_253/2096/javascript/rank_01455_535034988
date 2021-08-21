@@ -1,0 +1,49 @@
+/**
+ * @param {number[]} obstacles
+ * @return {number[]}
+ */
+var longestObstacleCourseAtEachPosition = function(obstacles) {
+    const piles = [obstacles[0]];
+    const res = [1];
+    
+    for (let i = 1; i < obstacles.length; i++) {
+        let [l, r] = [0, piles.length - 1];
+        while (l < r) {
+          const m = (r+l) >> 1;
+
+          if (piles[m] <= obstacles[i]) {
+              l = m + 1;
+          } else r = m; 
+        }
+
+        if (piles[l] <= obstacles[i]) l++;
+        piles[l] = obstacles[i];
+
+        res.push(l + 1);
+    }
+    
+    return res;
+};
+
+/*
+  function (A) {
+  const piles = [A[0]];
+  const res = [1];
+  for (let i = 1; i < A.length; i++) {
+    // Find the first piles[m] >= A[i]
+    let [l, r] = [0, piles.length - 1];
+    while (l < r) {
+      const m = (l + r) >> 1;
+
+      if (piles[m] <= A[i]) l = m + 1;
+      else r = m; // It's valid, should include m
+    }
+
+    if (piles[l] <= A[i]) l++;
+    piles[l] = A[i];
+
+    res.push(l + 1);
+  }
+  return res;
+};
+*/

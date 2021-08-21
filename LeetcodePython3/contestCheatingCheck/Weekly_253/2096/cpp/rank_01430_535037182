@@ -1,0 +1,59 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        int m = 0, n = ob.size();
+        vector<int> ans(n);
+        vector<int> pos;
+        pos.emplace_back(0);
+        ans[0] = 1;
+        for (int i = 1; i < n; ++i) {
+            if (ob[i] >= ob[pos[pos.size()-1]]) {
+                pos.emplace_back(i);
+                ans[i] = pos.size();
+            } else if (ob[i] < ob[pos[0]]) {
+                pos[0] = i;
+                ans[i] = 1;
+            } else {
+                // there exists a j such that ob[pos[j]] <= ob[i]
+                // also ob[pos[j]] <= ob[pos[j+1]]
+                // we have ob[pos[0]] <= ob[i] < ob[pos[posn-1]]
+                // ans[i] is the largest j+1(+1) where ob[pos[j]] <= ob[i]
+                // update to pos is those smallest ob[pos[j]] > ob[i] to get pos[j] = i
+                // for ans, find the largest j <=
+                // for pos, find the smallest j >
+                int l,r;
+                // for ans, find largest j such that ob[pos[j]] <= ob[i]
+                l = 0; r = pos.size() - 1;
+                while (l < r) {
+                    int m = l + (r-l+1) / 2;
+                    if (ob[pos[m]] <= ob[i]) {
+                        l = m;
+                    } else {
+                        r = m - 1;
+                    }
+                }
+                ans[i] = l + 2;
+                
+                // for pos, find smallest j s.t. ob[pos[j]] > ob[i]
+                l = 0; r = pos.size() - 1;
+                while (l < r) {
+                    int m = l + (r-l) / 2;
+                    if (ob[pos[m]] > ob[i]) {
+                        r = m;
+                    } else {
+                        l = m + 1;
+                    }
+                }
+                pos[l] = i;
+                // printf("Here i = %d, l = %d \n", i, l);
+                
+            }
+            // for (int i : pos) {
+            //     cout << i << " ";
+            // }
+            // cout << endl;
+        }
+        // cout << "-----------------" << endl;
+        return ans;
+    }
+};

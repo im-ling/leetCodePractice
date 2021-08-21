@@ -1,0 +1,51 @@
+class Solution {
+public:
+    
+    static const int MAX=(int)(1e7)+1;
+    int BIT[MAX];
+    
+    int getNext(int x){
+        return x+(x&-x);
+    }
+    
+    int getParent(int x){
+        return x-(x&-x);
+    }
+    
+    int query(int index){
+        int maxi=-1;
+        
+        while(index>0){
+            
+            maxi=max(maxi,BIT[index]);    
+            index=getParent(index);
+        }
+        return maxi;
+    }
+    
+    void update(int index){
+        
+        int val=query(index)+1;
+        BIT[index]=val;
+        while(index<=MAX){
+            BIT[index]=max(BIT[index],val);
+            
+            index=getNext(index);
+        }
+        
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        
+        
+        vector<int>ans;
+        for(auto ele:obstacles){
+            
+            update(ele);
+            ans.push_back(query(ele));
+            
+        }
+        return ans;
+        
+    }
+};

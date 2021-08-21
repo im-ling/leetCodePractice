@@ -1,0 +1,23 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        
+        
+        n = len(obstacles)
+        op = []
+        tails = [0]*(n)
+        size = 0
+        
+        for i,n in enumerate(obstacles):
+            low = 0; high = size
+            while low < high:
+                mid = (high + low) // 2
+                if tails[mid] <= n:
+                    low = mid + 1
+                else:
+                    high = mid
+            # jab while loop se bahar aege matlab; low == high; and they are on ceil of n,
+            tails[low] = n
+            size = max(low + 1, size) # low index can be at extreme of tails or in b/w, so accordingly max size will be set
+            po = low + 1
+            op.append(po)
+        return op

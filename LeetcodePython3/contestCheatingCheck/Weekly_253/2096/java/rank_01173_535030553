@@ -1,0 +1,85 @@
+class Solution {
+    // find lis ends with i
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] res = new int[n];
+        int[] lis = new int[n];
+        int[] lds = new int[n];
+        
+        int[] seq = new int[n];
+        int len = 0;
+        for(int i = 0; i < n; i++) {
+            int idx = 0;
+            if(len == 0 || obstacles[i] >= seq[len - 1]) {
+                idx = len;
+                len++;
+            } else {
+                idx = binarySearchCeiling(seq, len, obstacles[i]);
+            }
+            
+            //System.out.println(idx);
+            seq[idx] = obstacles[i];
+            lis[i] = idx + 1;
+        }
+        
+//         seq = new int[n];
+//         len = 0;
+//         for(int i = n - 1; i >= 0; i--) {
+//             int idx = binarySearchFloor(seq, len, obstacles[i]);
+            
+//             if(idx == len) {
+//                 len++;
+//             }
+            
+//             seq[idx] = obstacles[i];
+//             lds[i] = idx + 1;
+//         }
+        
+        // for(int i = 0; i < n; i++) {
+        //     res[i] = lis[i];
+        // }
+        
+        return lis;
+    }
+    
+    private int binarySearchCeiling(int[] nums, int len, int target) {
+        int lo = 0;
+        int hi = len - 1;
+        int res = len;
+        while(lo <= hi) {
+            int mid = lo + (hi - lo) / 2;
+            
+            if(nums[mid] == target) {
+                //res = mid;
+                lo = mid + 1;
+            } else if(nums[mid] > target) {
+                res = mid;
+                hi = mid - 1;
+            } else {
+                lo = mid + 1;
+            }
+        }
+        return res;
+    }
+    
+//     private int binarySearchFloor(int[] nums, int len, int target) {
+//         int lo = 0;
+//         int hi = len - 1;
+//         int res = len;
+//         while(lo <= hi) {
+//             int mid = lo + (hi - lo) / 2;
+            
+//             if(nums[mid] == target) {
+//                 res = mid;
+//                 lo = mid + 1;
+//             } else if(nums[mid] < target) {
+//                 res = mid;
+//                 hi = mid - 1;
+//             } else {
+//                 lo = mid + 1;
+//             }
+//         }
+        
+//         return res;
+//     }
+}

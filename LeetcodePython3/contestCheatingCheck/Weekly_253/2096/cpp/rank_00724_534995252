@@ -1,0 +1,38 @@
+class Solution {
+public:
+    int sum[100010], cnt;
+    unordered_map<int, int> mp;
+    void update(int x, int v) {
+        while(x <= cnt) {
+            sum[x] = max(sum[x], v);
+            x += x &(-x);
+        }
+    }
+    int get(int x) {
+        int res(0);
+        while(x) {
+            res = max(res, sum[x]);
+            x -= x & (-x);
+        }
+        return res;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        auto original = obstacles;
+        sort(obstacles.begin(), obstacles.end());
+        int pre(-1);
+        cnt = 0;
+        for(int i = 0; i < obstacles.size(); ++i) {
+            if(i == 0 || obstacles[i] != obstacles[i-1]) {
+                mp[obstacles[i]] = ++cnt;
+            }
+            pre = obstacles[i];
+        }
+        vector<int> ans;
+        for(auto v : original) {
+            int h = get(mp[v]) + 1;
+            ans.push_back(h);
+            update(mp[v], h);
+        }
+        return ans;
+    }
+};

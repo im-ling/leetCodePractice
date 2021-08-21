@@ -1,0 +1,124 @@
+
+int segtree[400000+5] ; 
+typedef int ll ; 
+
+ll query(ll node,ll start,ll end,ll l,ll r)
+{
+    
+    if(start>r || end<l)
+    {
+        return 0; //RAM__RAM!!
+    }
+    
+    if(start>=l && end<=r)
+    {
+        return segtree[node];
+    }
+    
+   
+        ll mid=(start+end)/2;
+        
+        ll left=query(node*2,start,mid,l,r);
+        ll right=query(node*2+1,mid+1,end,l,r);
+        
+        return max(left,right);
+    
+}
+
+
+void update(ll node,ll start,ll end,ll ind,ll value)
+{
+    if(start==end)
+    {
+        segtree[node]=value;
+        //a[ind]=value;
+    }
+    else
+    {
+        ll mid=(start+end)/2;
+        
+        if(ind<=mid)
+        {
+            update(2*node,start,mid,ind,value);
+        }
+        else
+        {
+             update(2*node+1,mid+1,end,ind,value);
+        }
+        
+        segtree[node]=max(segtree[2*node] , segtree[2*node+1]);
+        
+        }
+}
+
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ok) {
+        vector <int> ram = ok; 
+        int n = ok.size();
+        vector <int> se(n,0) ; 
+        sort(ram.begin(),ram.end()) ; 
+        int i = 0  ;
+        int d = 1 ; 
+        while(i<ram.size())
+        {
+            if(i==0)
+            {
+            se[i] = d ; 
+            }
+            else
+            {
+                if(ram[i]==ram[i-1])
+                {
+                    se[i] = d ; 
+                    
+                }
+                else
+                {
+                    d++;
+                    se[i] = d ; 
+                }
+            }
+            i++;
+        }
+        unordered_map <int,int> a1 ; //RAM__rAMM!!!
+        
+        i = 0 ; 
+        while(i<n)
+        {
+            a1[ram[i]]=se[i] ; 
+            //cout<<ram[i]<<" "<<se[i]<<endl ; 
+            i++;
+            
+        }
+        int range = n + 5 ; 
+        //cout<<endl ; 
+        vector <int> godram ; 
+         i = 0 ; 
+        while(i<n)
+        {
+            int k = ok[i] ; 
+            int reel = a1[k];
+            
+            int g = query(1,0,range,0,reel);
+            int root = g + 1 ; 
+            //RAM__RAM!!!!!
+            update(1,0,range,reel,root); 
+            //cout<<root<<" "; 
+            godram.push_back(root);
+            i++;
+        }
+        //cout<<endl ; 
+        i = 0 ; 
+        while(i<=400000)
+        {
+            segtree[i] = 0 ; 
+            i++;
+        }
+        
+        
+        return godram  ; 
+        
+    }
+};

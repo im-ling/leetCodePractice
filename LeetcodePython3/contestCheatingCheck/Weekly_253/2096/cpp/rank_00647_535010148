@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int ins(vector<int>& v, int x) {
+        int n = v.size(), l = 0, r = n-1;
+        while (l < r) {
+            int mid = l + (r-l)/2;
+            if (v[mid] > x) r = mid;
+            else l = mid+1;
+        }
+        v[l] = x;
+        return l;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        vector<int> v, ans;
+        for (int i : obs) {
+            if (v.empty() || i >= v.back()) {
+                v.push_back(i);
+                ans.push_back(v.size());
+            }
+            else {
+                ans.push_back(ins(v, i)+1);
+            }
+        }
+        
+        return ans;
+    }
+};

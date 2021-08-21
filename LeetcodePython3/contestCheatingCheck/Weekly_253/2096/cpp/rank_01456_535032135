@@ -1,0 +1,35 @@
+class Solution {
+public:
+    
+    int LSOne(int s) {
+        return s & (-s);
+    }
+    
+    int rsq(vector<int>& ft, int b) {
+        int ret = 0; 
+        for(;b;b-= LSOne(b)) {
+            ret = max(ret,ft[b]);
+        }
+        return ret; 
+    }
+    
+    void update(vector<int>& ft, int k, int v) {
+        for(;k<(int)ft.size();k+= LSOne(k)) {
+            ft[k] = max(ft[k],v);
+        }
+    }
+    
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& os) {
+        int m = *max_element(os.begin(),os.end());
+        vector<int> ft(m+5);
+        vector<int> ret(os.size());
+        ret[0] = 1;
+        update(ft,os[0],1);
+        for(int i = 1;i<os.size();i++) {
+            ret[i] = rsq(ft,os[i]) + 1; 
+            update(ft,os[i],ret[i]);
+        }
+        return ret; 
+    }
+};

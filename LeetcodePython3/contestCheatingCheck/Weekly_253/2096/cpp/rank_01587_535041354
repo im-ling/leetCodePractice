@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        // longest increasing subsequence
+        vector<int> minSeqEnd, ans(n, 1);
+        
+        // initialize
+        minSeqEnd.push_back(obstacles[0]);
+        
+        for (int i = 1; i < n; i++) {
+            if (obstacles[i] >= minSeqEnd.back()) {
+                minSeqEnd.push_back(obstacles[i]);
+                ans[i] = minSeqEnd.size();
+            } else {
+                int idx = upper_bound(minSeqEnd.begin(), minSeqEnd.end(), obstacles[i]) - minSeqEnd.begin();
+                minSeqEnd[idx] = obstacles[i];
+                ans[i] = idx + 1;
+            }
+        }
+        return ans;
+    }
+};

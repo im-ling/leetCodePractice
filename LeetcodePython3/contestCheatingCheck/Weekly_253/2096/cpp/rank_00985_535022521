@@ -1,0 +1,44 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> ans = {1};
+        vector<int> peaks = {0}; // position of things that have a higher ans value than anything of the same of smaller height, sorted by height
+        ans.reserve(n);
+        for(int i = 1; i<n; i++){
+            //cout << i << endl;
+            int lo = -1; // <=obstacles[i]
+            int hi = peaks.size(); // >obstacles[i]
+            while(lo!=hi-1){
+                int mi = (lo+hi)/2;
+                if(obstacles[peaks[mi]]<=obstacles[i]){
+                    lo = mi;
+                }else{
+                    hi = mi;
+                }
+            }
+            int deletespot;
+            if(lo==-1){
+                ans.push_back(1);
+                peaks.insert(peaks.begin(),i);
+                deletespot = 1;
+            }else{
+                ans.push_back(ans[peaks[lo]]+1);
+                if(obstacles[peaks[lo]] == obstacles[i]){
+                    peaks[lo] = i;
+                    deletespot = lo+1;
+                }else{
+                    peaks.insert(peaks.begin()+(lo+1),i);
+                    deletespot = lo+2;
+                }
+            }
+            while(peaks.size()==deletespot?false:ans[i]>ans[peaks[deletespot]]){
+                peaks.erase(peaks.begin()+deletespot); // this probably should use the range erase
+            }
+            // cout << "peaks:";
+            // for(int i : peaks) cout << i << ",";
+            // cout << endl;
+        }
+        return ans;
+    }
+};

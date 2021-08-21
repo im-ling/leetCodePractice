@@ -1,0 +1,50 @@
+class Solution {
+public:
+    int mid(vector<int> t,int k){
+       // cout<<k<<endl;
+        int s=0,e=t.size()-1;
+        if(t[s]>k){
+            return s;
+        }
+        if(t[e]==k){
+            return e+1;
+        }
+        s++;
+        e--;
+        while(s<=e){
+            int m=s+(e-s)/2;
+           //cout<<s<<" "<<e<<" "<<m<<" "<<t[m]<<" "<<k<<" "<<t[m+1]<<endl;
+            if(t[m]<=k&&t[m+1]>k){
+               // cout<<m+1<<endl;
+                return m+1;
+            }
+            else if(t[m+1]>k){
+                e=m-1;
+            }
+            else if(t[m]<=k){
+                s=m+1;
+            }
+        }
+        return s;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        vector<int> t;
+         t.push_back(a[0]);
+        vector<int> e;
+        e.push_back(1);
+         for(int i=1;i<a.size();i++){
+            vector<int>::iterator j=lower_bound(t.begin(),t.end(),a[i]+1);
+             if(j==t.end()){
+                 t.push_back(a[i]);
+                 e.push_back(t.size());
+             }
+            else{
+                int d=mid(t,a[i]);
+                //cout<<d<<endl;
+                e.push_back(d+1);
+                *j=a[i];
+             }
+         }
+        return e;
+    }
+};

@@ -1,0 +1,29 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        r = [0]*len(obstacles)
+        bs = []
+        for i,v in enumerate(obstacles):
+            if i==0:
+                r[i]=1
+                bs += [[v,1]]
+                continue
+            j=bisect.bisect(bs,[v,10000000])
+            if j == 0:
+                bisect.insort(bs,[v,1])
+                r[i]=1
+            elif bs[j-1][0] == v:
+                bs[j-1][1] += 1
+                r[i]=bs[j-1][1]
+                j=j-1
+            else:
+                bisect.insort(bs,[v,bs[j-1][1]+1])
+                r[i]=bs[j-1][1]+1
+            k=j+1
+            while k<len(bs):
+                if bs[j][1] < bs[k][1]:break
+                bs.remove(bs[k])
+                
+            #print(obstacles[:i+1],bs)
+        return r
+                
+        

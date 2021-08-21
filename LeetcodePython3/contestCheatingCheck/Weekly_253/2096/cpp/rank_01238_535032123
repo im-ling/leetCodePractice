@@ -1,0 +1,33 @@
+class Solution {
+public:
+    // like LC 300, use the binary-search way to fill the answer at each position
+    // greedy, O(nlogn) time, O(n) space. maintain a result array, everytime the most smaller item will be replaced
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& A) {
+      vector<int> res, st;
+      
+      for (int i : A) {
+        // cout << "i: " << i << endl;
+        
+        if (st.empty() || st.back() < i) {
+          st.push_back(i);
+          
+          res.push_back(st.size());
+        } else {
+          int idx = upper_bound(st.begin(), st.end(), i) - st.begin();
+          // cout << " - st.size: " << st.size() << ", idx: " << idx;
+          
+          if (idx == st.size()) {
+            st.push_back(i);
+          } else {
+            st[idx] = i;
+          }
+          
+          res.push_back(idx + 1);
+        }
+        
+        // cout << " ["; for (int j : st) cout << j << ","; cout << "]" << endl;
+      }
+        
+      return res;
+    }
+};

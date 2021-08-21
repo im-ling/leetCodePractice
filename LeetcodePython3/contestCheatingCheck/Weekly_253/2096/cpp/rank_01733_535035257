@@ -1,0 +1,40 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> V;
+        V.push_back(1);
+        int i,Z,M,C,Ans;
+        C=1;
+        M=1;
+        unordered_map<int,int> U;
+        unordered_map<int,int> G;
+        U[obstacles[0]]=0;
+        multiset<int> S;
+        S.insert(obstacles[0]);
+        G[1]=obstacles[0];
+        for(i=1;i<obstacles.size();i++){
+            auto it=S.upper_bound(obstacles[i]);
+            if(it==S.begin()){
+                V.push_back(1);
+                Ans=1;
+            }
+            else{
+                Z=*(prev(it));
+                V.push_back(V[U[Z]]+1);
+                Ans=V[U[Z]]+1;
+            }
+            if(G.find(Ans) != G.end()){
+                if(G[Ans]>obstacles[i]){
+                    auto it=S.lower_bound(G[Ans]);
+                    S.erase(it);
+                    G[Ans]=obstacles[i];
+                }
+            }
+            else
+                G[Ans]=obstacles[i];
+            U[obstacles[i]]=i;
+            S.insert(obstacles[i]);
+        }
+        return V;
+    }
+};

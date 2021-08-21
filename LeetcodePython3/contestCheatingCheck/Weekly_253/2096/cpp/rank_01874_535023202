@@ -1,0 +1,46 @@
+class Solution {
+public:
+    int getIndexOfGreaterEle( vector<int>&ar,int k){
+        int l=0, u=ar.size()-1,m,ans=0;
+        
+        while(l<=u){
+            m = l +(u-l)/2;
+            
+            if(ar[m]>k){
+                ans = m;
+                u = m-1;
+            }
+            else
+                l = m+1;
+        }
+        
+        return ans;
+    }
+    
+    // [2,2,3]  2
+    
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int>temp;
+        temp.push_back(obstacles[0]);
+        vector<int>ans(obstacles.size());
+        ans[0]=1;
+        
+        for(int i=1;i<obstacles.size();i++){
+            int noInc = temp.size();
+            
+            if(temp[noInc-1]<=obstacles[i]){
+                temp.push_back(obstacles[i]);
+                ans[i]=noInc+1;
+            }
+            else{
+                int inx = getIndexOfGreaterEle(temp,obstacles[i]);
+                ans[i] =inx+1;
+                temp[inx]=obstacles[i];
+            }
+            
+        }
+        
+        return ans;
+    }
+};

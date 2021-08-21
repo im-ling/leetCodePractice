@@ -1,0 +1,36 @@
+class Solution {
+    const static int N = 1e7 + 5;
+    int bit[N];
+public:
+    static inline int lowbit(int x) {
+        return x & -x;
+    }
+    
+    inline void update(int i, int x) {
+        while (i <= N) {
+            bit[i] = max(x, bit[i]);
+            i += lowbit(i);
+        }
+    }
+    
+    inline int query(int i) {
+        int ret = 0;
+        while (i >= 1) {
+            ret = max(ret, bit[i]);
+            i -= lowbit(i);
+        }
+        return ret;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n = a.size();
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            int x = a[i];
+            int mx = query(x);
+            update(x, mx + 1);
+            ans[i] = mx + 1;
+        }
+        return ans;
+    }
+};

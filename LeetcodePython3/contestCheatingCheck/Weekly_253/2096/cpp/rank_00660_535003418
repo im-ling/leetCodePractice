@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int bit[10000005];
+    static const int N = 1e7 + 5;
+    void updateMax(int idx, int val)
+{
+	while(idx <= N)
+	{
+		bit[idx] = max(bit[idx], val);
+		idx += idx & -idx;
+	}
+}
+int prefMax(int idx)
+{
+	int ans = -2e9;
+	while(idx > 0)
+	{
+		ans = max(ans, bit[idx]);
+		idx -= idx & -idx;
+	}
+	return ans;
+}
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n = a.size();
+        vector <int> dp(n,0);
+        for (int i = 0; i < n; ++i) {
+            dp[i] = 1 + prefMax(a[i]);
+            updateMax(a[i],dp[i]);
+        }
+        return dp;
+    }
+};

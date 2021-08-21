@@ -1,0 +1,41 @@
+
+public class Solution {
+    public int[] LongestObstacleCourseAtEachPosition(int[] obstacles) {
+        return LongestIncreasingSubSequence(obstacles);
+    }
+
+    private static int UpperBound<T>(List<T> A, T x) where T : IComparable<T> {
+        int lower = 0, upper = A.Count - 1;
+        int result = -1;
+        while (lower <= upper) {
+            int pos = (lower + upper) / 2;
+            if (x.CompareTo(A[pos]) < 0) {
+                result = pos;
+                upper = pos - 1;
+            } else {
+                lower = pos + 1;
+            }
+        }
+
+        return result;
+    }
+
+    public static int[] LongestIncreasingSubSequence<T>(IEnumerable<T> A) where T : IComparable<T> {
+        var sortedList = new List<T>();
+        var res = new List<int>();
+
+        foreach (var a in A) {
+            int p = UpperBound(sortedList, a);
+            if (p == -1) {
+                sortedList.Add(a);
+                res.Add(sortedList.Count);
+            } else {
+                sortedList[p] = a;
+                res.Add(p + 1);
+            }
+        }
+
+        return res.ToArray();
+    }
+
+}

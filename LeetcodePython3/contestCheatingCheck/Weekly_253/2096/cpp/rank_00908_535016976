@@ -1,0 +1,18 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        size_t n = obstacles.size();
+        vector<int> ans(n);
+        vector<int> buffer(n, numeric_limits<int>::max());
+        buffer.front() = obstacles.front();
+        size_t cur_index = 0;
+        ans.front() = 1;
+        for (size_t i = 1; i < n; ++i) {
+            size_t j = upper_bound(buffer.begin(), buffer.begin()+cur_index+1, obstacles[i]) - buffer.begin();
+            buffer[j] = obstacles[i];
+            cur_index = max(cur_index, j);
+            ans[i] = j+1;
+        }
+        return ans;
+    }
+};

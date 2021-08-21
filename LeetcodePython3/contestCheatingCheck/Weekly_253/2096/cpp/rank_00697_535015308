@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> res(obstacles.size(), 1);
+        vector<int> fake_LIS;
+        for (int i = 0; i < obstacles.size(); i++) {
+            int obs = obstacles[i];
+            auto iter = upper_bound(fake_LIS.begin(), fake_LIS.end(), obs);
+            if (iter == fake_LIS.end()) {
+                fake_LIS.push_back(obs);
+                res[i] = fake_LIS.size();
+            }
+            else {
+                int len = iter - fake_LIS.begin() + 1;
+                *iter = obs;
+                res[i] = len;
+            }
+        }
+        
+        return res;
+    }
+};

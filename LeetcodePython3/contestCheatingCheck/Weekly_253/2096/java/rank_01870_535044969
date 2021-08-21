@@ -1,0 +1,77 @@
+class Solution {
+    //[3,1,5,6,4,2]
+    // 1 5  6
+    // 1 4
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int len = obstacles.length;
+        int  [] res = new int[len];
+        List<Integer> list = new ArrayList<>();
+        int end = list.size();
+        int limit = list.size();
+        for(int i=0;i<len;i+=1){
+           
+            int ob = obstacles[i];
+            int start = 0;
+            //  if(i ==9){
+            //     System.out.println(start +"----"+ end);
+            // }
+            while(start< end){
+                int mid = (start+end)>>1;
+                if(list.get(mid)> ob){
+                    end = mid;
+                }else{
+                    start = mid+1;
+                }
+                
+                
+                
+            }
+           
+            //System.out.println(i +","+ start);
+            if(start == limit){
+                if(limit< list.size()){
+                   list.set(limit, ob);
+                     res[i] = limit+1;
+                    end= limit+1;
+                    limit = end;
+                    
+                //      if(i==9){
+                //     System.out.println("place1="+ limit);
+                // }
+                }else{
+                    list.add(ob);
+                     end = list.size();
+                limit = list.size();
+                     res[i] = list.size();
+                //      if(i==9){
+                //     System.out.println("place2="+ list.size());
+                // }
+                }
+                
+               
+               
+            }else{
+                list.set(start, ob);
+                // if(i==9){
+                //     System.out.println("place3="+ start);
+                // }
+                  res[i]  = start+1;
+                end +=1;
+                limit = end;
+                start = 0;
+               
+            }
+             end = list.size();
+                limit = list.size();
+                    // res[i] = list.size();
+            //  System.out.println(res[i]);
+            // System.out.println(list);
+            
+            
+            
+            
+        }
+        return res;
+        
+    }
+}

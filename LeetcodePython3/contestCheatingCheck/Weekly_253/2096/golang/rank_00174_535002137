@@ -1,0 +1,42 @@
+func longestObstacleCourseAtEachPosition(nums []int) []int {
+    ans := make([]int,0,len(nums))
+    dp := make([]int,0,len(nums))
+    for _,n := range nums {
+        idx := binSearch(dp,n)
+         ans = append(ans,idx+1)
+        if len(dp) == idx {
+            dp = append(dp,n)
+        } else {
+            dp[idx] = n
+        }
+    }
+    return ans
+}
+// dp中大于target的最小值
+func binSearch(dp []int,target int) int {
+    if len(dp) == 0 {
+        return 0
+    }
+    if target > dp[len(dp)-1] {
+        return len(dp)
+    }
+    if dp[0] > target {
+        return 0
+    }
+    l := 0
+    r := len(dp)-1
+    for l <= r {
+        m := (l+r)/2
+        if dp[m] > target {
+            if m-1<0 || dp[m-1]<target {
+                return m
+            }
+            r = m - 1
+        } else if dp[m] <= target {
+            l = m + 1
+        } else {
+            return m
+        }
+    }
+    return l
+}

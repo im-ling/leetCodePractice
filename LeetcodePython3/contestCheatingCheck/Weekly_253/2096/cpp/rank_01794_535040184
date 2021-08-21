@@ -1,0 +1,52 @@
+class Solution {
+public:
+    int GetCeilIndex(vector< int >&arr, vector<int>& T, int l, int r,int key)
+    {
+        int ans=-1;
+        while (l<=r) {
+            int m = (l+r)/2;
+            if (arr[T[m]] > key){
+                r = m-1;
+            }
+            else
+            {
+                ans=m;
+                l = m+1;
+            }
+        }
+
+        return ans;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& arr) {
+        int n=arr.size();
+        vector<int> tailIndices(n, 0); 
+        int len = 1;
+        vector< int >dp(arr.size(),0);
+        dp[0]=1;
+        for (int i = 1; i < n; i++) {
+            // cout<<i<<endl;
+            if (arr[i] < arr[tailIndices[0]]) {
+                dp[i]=1;
+                tailIndices[0] = i;
+            }
+            else if (arr[i] >= arr[tailIndices[len - 1]]) {
+                dp[i]=dp[tailIndices[len - 1]]+1;
+                tailIndices[len++] = i;
+            }
+            else {
+                // cout<<i<<" "<<0<<" "<<len-1<<endl;
+                int pos = GetCeilIndex(arr, tailIndices, 0,
+                                       len-1, arr[i]);
+                // for(int j=0;j<len;j++){
+                //     cout<<arr[tailIndices[j]]<<" ";
+                // }
+                // cout<<endl;
+                // cout<<i<<" "<<pos<<endl;
+                dp[i]=dp[tailIndices[pos]]+1;
+                tailIndices[pos+1] = i;
+            }
+        }
+        // cout<<"_"<<endl;
+        return dp;
+    }
+};

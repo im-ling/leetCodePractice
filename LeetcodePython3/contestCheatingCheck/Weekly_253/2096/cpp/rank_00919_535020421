@@ -1,0 +1,45 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& v) {
+        int n = v.size();
+        vector<int> dp(n);
+        set<int> s;
+        map<int,int> m1;
+        dp[0] = 1;
+        s.insert(v[0]);
+        m1[v[0]] = 1;
+        for(int i = 1; i < n; i++){
+            auto itr = s.upper_bound(v[i]);
+            if(itr == s.begin()){
+                dp[i] = 1;
+            }
+            else{
+                auto p = prev(itr);
+                dp[i] = m1[*p] + 1;
+            }
+            itr = s.lower_bound(v[i]);
+            while(itr != s.end()){
+                if(m1[*itr] <= dp[i]){
+                    m1[*itr] = 0;
+                    s.erase(itr);
+                }
+                else{
+                    if(*itr > v[i]){
+                        m1[v[i]] = dp[i];
+                        s.insert(v[i]);
+                        break;
+                    }
+                    else
+                        break;
+                }
+                itr = s.lower_bound(v[i]);
+            }
+            if(itr == s.end()){
+                m1[v[i]] = dp[i];
+                s.insert(v[i]);
+            }
+        }
+        return dp;
+        
+    }
+};

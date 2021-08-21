@@ -1,0 +1,48 @@
+class Solution {
+    int maxlevel;
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        maxlevel=1;
+        int n = obstacles.length;
+        int[] res = new int[n];
+        int[] levels = new int[100001];
+        levels[1] = obstacles[0];
+        res[0] =1;
+        
+        for(int i=1;i<n;i++){
+            int count = helper(obstacles[i],levels);
+            res[i] = count;
+        }
+        
+        return res;
+    }
+    
+    public int helper( int o , int[] levels){
+        int left=1;
+        int right = maxlevel;
+        while(left < right){
+            int mid = right - (right - left)/2;
+            // System.out.println(mid);
+            if(levels[mid] <= o){
+                left = mid;
+            }else{
+                right = mid-1;
+            }
+        }
+        // System.out.println(o + "is in level " + left);
+        
+        if(levels[1] > o){
+            levels[1] = Math.min(levels[1],o);
+            return 1;
+        }else{
+            if(levels[left+1] == 0){
+                maxlevel = left+1;
+                levels[left+1] = o;
+                // System.out.println(left+1 + " level is " + o);
+            }else{
+                levels[left+1] = Math.min(levels[left+1],o);
+            }
+        }
+        
+        return left+1;
+    }
+}

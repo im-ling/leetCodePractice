@@ -1,0 +1,167 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+ 
+#define ordered_set tree<int, null_type,less<int>, rb_tree_tag,tree_order_statistics_node_update>
+#define ll              int
+#define ld              long double
+#define pb              push_back
+#define bp              __builtin_popcount
+#define sz              size()
+#define ff              first
+#define ss              second
+#define vll             vector<ll>
+#define vbool           vector<bool>
+#define vpll            vector<pair<ll,ll>>
+#define pll             pair<ll,ll>
+#define vllv            vector<vector<ll>>
+#define setpri(x)       cout<<setprecision(x)<<fixed;
+#define all(v)          v.begin(),v.end()
+#define allr(v)         v.rbegin(),v.rend()
+#define yesr {cout<<"YES"<<endl;return;}
+#define nor {cout<<"NO"<<endl;return;}
+// getline (std::cin,name);
+ll MOD=1e9+7;
+ll ceil1(ll n,ll x){return (n-1)/x+(n>0);}
+ 
+ll gcd(ll a,ll b){return __gcd(a,b);}
+ll lcm(ll a,ll b){return (max(a,b)/gcd(a,b))*min(a,b);}
+ 
+ll pow1(ll n,ll m,ll mod){
+        if(m==0)return 1;
+ 
+        if(m%2==0)return pow1((n*n)%mod,m/2,mod);
+ 
+        return (pow1((n*n)%mod,m/2,mod)*n)%mod;
+}
+ 
+ll pow2(ll n,ll k){
+        ll ans=1;
+            while(k>0){
+                if(k%2==1)ans=ans*n;
+                n=n*n;
+                k/=2;
+            }
+            return ans;
+}
+
+ll modinv(ll n,ll mod=MOD){  return pow1(n,mod-2,mod);}
+ 
+bool func(pair<ll,ll> &a,pair<ll,ll> &b ){
+        if(a.ff != b.ff)return a.ff < b.ff;
+        return a.ss > b.ss;
+}
+ 
+ll const N=(ll)2e5+11;
+ll const LG=(ll)log2(N)+1;
+ 
+
+
+
+template<typename T>
+class seg{
+        public:
+        ll n,q;
+        vector<T> tree;
+        vector<T> L;
+        vector<T> R;
+        ll len;
+        seg(ll _n, ll _q){
+                n=_n;
+                q=_q;
+                ll m=q * ((ll) log2(n)  + 1);
+                tree.resize(m);
+                L.resize(m);
+                R.resize(m);
+                len=1;
+        }
+        
+        T merge(T l, T r){
+                return max(l,r);
+        }
+	T defult(){
+		return 0;
+	}
+        
+        ll update(ll node,ll l,ll r,ll ind,ll val){
+                if(!node)node = ++len;
+                if(ind<l || ind > r)return node;               
+                if(l==r){
+                        tree[node]=val;
+                        return node;
+                }
+               
+                ll mid=(l+r)/2;
+                if(ind<=mid)
+                        L[node] = update(L[node],l,mid,ind,val);
+                else
+                        R[node] = update(R[node],mid+1,r,ind,val);
+                tree[node]=merge(tree[L[node]],tree[R[node]]);
+                return node;
+        }
+        
+        
+        void update(ll ind,ll val){
+                update(1,1,n,ind,val);
+        }
+        T query(ll node,ll l,ll r,ll ind){
+                if(!node) return defult();
+                if(l==r)return tree[node];
+                ll mid=(l+r)/2;
+                if(ind<=mid){
+                        return query(L[node],l,mid,ind);
+                }else{
+                        return query(R[node],mid+1,r,ind);
+                }
+        }
+        T query(ll ind){
+                return query(1,1,n,ind);
+        }
+        T BSquery(ll node,ll l,ll r,ll val){
+                if(!node) return val ? -1 : l;
+                if(l==r)return val<=tree[node] ? l : -1;
+                ll mid=(l+r)/2;
+               
+                if(tree[L[node]]>=val){
+                        return BSquery(L[node],l,mid,val);
+                }else{
+                        return BSquery(R[node],mid+1,r,val-tree[L[node]]);
+                }
+        }
+        T BSquery(ll val){
+                return BSquery(1,1,n,val);
+        }
+        T query(ll node,ll l,ll r,ll start,ll end){
+                if(start>r || end<l || !node ) return defult();
+                
+                if(l>=start && r<=end)return tree[node];
+                
+                ll mid=(l+r)/2;
+                
+                return merge(query(L[node],l,mid,start,end),query(R[node],mid+1,r,start,end));
+        }
+        T query(ll l,ll r){
+                return query(1,1,n,l,r);
+        }
+        
+};
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+            
+            int i,j,n;
+            n=a.size();
+            seg<int> tree(1e7+3,n+1);
+            vector<int> ans(n);
+            
+            for(i=0;i<n;i++){
+                    ans[i]=tree.query(1,a[i])+1;
+                    tree.update(a[i],ans[i]);
+            }
+            return ans;
+        
+    }
+};

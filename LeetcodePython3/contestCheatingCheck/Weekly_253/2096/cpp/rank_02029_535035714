@@ -1,0 +1,47 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& h) {
+      int n=h.size();
+      
+      vector<int> dp(n,0);
+      dp[0]=1;
+      
+      vector<int> temp(n);
+      temp[0]=h[0];
+      int left=0, right=0;
+      int mid;
+      for(int i=1;i<n;i++) {
+        //position-
+        //replace krega
+        //uska jo positon aaega vhi mra ans jaega dp array m
+        //cout<<left<<":"<<right<<":";
+        int pos=right+1;
+        int end=right;
+        while(left<=right) {
+          mid=left+(right-left)/2;
+          if(temp[mid]>h[i]) {
+            pos=mid;
+            right=mid-1;
+          }
+          else 
+            left=mid+1;
+        }
+        dp[i]=pos+1;
+        temp[pos]=h[i];
+        //cout<<pos<<":";
+        left=0;
+        if(pos<=end) {
+          right=end;
+          //cout<<'a'<<":";
+        }
+        else {
+          right=end+1;
+          //cout<<'b'<<":";
+        }
+        //cout<<right<<" ";
+        
+      }
+      return dp;
+        
+    }
+};

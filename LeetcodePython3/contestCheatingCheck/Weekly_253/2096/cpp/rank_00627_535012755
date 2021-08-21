@@ -1,0 +1,79 @@
+const int maxn = 1e5 + 5;
+int mx[maxn << 2];
+
+#define lson l, m, rt << 1
+#define rson m + 1, r, rt << 1 | 1
+
+void build(int l, int r, int rt) {
+    mx[rt] = 0;
+    if (l == r) {
+        return;
+    }
+    int m = l + r >> 1;
+    build(lson);
+    build(rson);
+    
+    
+}
+
+void update(int L, int val, int l, int r, int rt) {
+    if (l == r) {
+        mx[rt] = val;
+        return;
+    }
+    int m = l + r >> 1;
+    if (L <= m) {
+        update(L, val, lson);
+    } else {
+        update(L, val, rson);
+    }
+    mx[rt] = max(mx[rt << 1], mx[rt << 1 | 1]);
+}
+
+int query(int L, int R, int l, int r, int rt) {
+    if (L <= l && r <= R) {
+        return mx[rt];
+    }
+    int m = l + r >> 1;
+    int res = 0;
+    if (L <= m) {
+        res = max(res, query(L, R, lson));
+    }
+    if (R > m) {
+        res = max(res, query(L, R, rson));
+    }
+    return res;
+}
+
+
+
+
+
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int n = a.size();
+        vector<int>x(n);
+        for (int i = 0; i < n ; i++) {
+            x[i] = a[i];
+        }
+        sort(x.begin(), x.end());
+        int xcnt = unique(x.begin(), x.end()) - x.begin();
+        build(1, xcnt, 1);
+        vector<int>dp(n, 0);
+        for (int i = 0; i < n; i++) {
+            int idx = lower_bound(x.begin(), x.begin() + xcnt, a[i]) - x.begin() + 1;
+            
+            int tmp = query(1, idx, 1, xcnt, 1);
+            // cout << "zz" <<i<< ' ' <<  query(1, 2, 1, xcnt , 1) << endl; 
+            // cout << i << ' ' << idx << ' ' << tmp << endl;
+            dp[i] = tmp + 1;
+        
+            update(idx, dp[i], 1, xcnt, 1);
+        }
+        return dp;
+        
+        
+    }
+};

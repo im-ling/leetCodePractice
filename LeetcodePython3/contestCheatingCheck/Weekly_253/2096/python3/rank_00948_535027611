@@ -1,0 +1,45 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        return longestObstacleCourseAtEachPosition(obstacles)
+    
+    
+    
+"""
+LIS(i): LIS ending at i
+LIS(i) = 1 + max(LIS(j)) where j is smaller than i
+
+END(i): min value of the last element of an IS of length i.
+
+bisect(a, x, lo=0, hi=len(a)) returns an insertion point which comes after (to the right of) any existing entries of x in a.
+
+#k s.t. end[k-1] < array[i] < end[k]
+#k s.t. L[k-1] < x < L[k]
+"""
+
+def longestObstacleCourseAtEachPosition(L):
+    n = len(L)
+    lis = n*[-1]
+    end = (n+1)*[math.inf]
+    end[0] = -math.inf
+    end[1] = L[0]
+    lis[0] = 1
+    sz = 1
+    for i in range(1, n):
+        if L[i] < end[1]:
+            end[1] = L[i]
+            lis[i] = 1
+        elif L[i] >= end[sz]:
+            end[sz+1] = L[i]
+            lis[i] = sz+1
+            sz += 1
+        else:
+            k = bisect.bisect(end, L[i]) 
+            end[k] = L[i]
+            lis[i] = k
+    return lis
+            
+        
+    
+        
+        
+        

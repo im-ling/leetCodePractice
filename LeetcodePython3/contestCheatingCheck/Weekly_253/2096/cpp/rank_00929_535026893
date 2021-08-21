@@ -1,0 +1,56 @@
+class Solution {
+public:
+    int s(vector<int> &l,int len,int val)
+    {
+        int low=1;
+        int high=len;
+        int ans=0;
+        while(low<=high)
+        {
+            //cout<<low<<" "<<high<<"\n";
+            int mid=low+(high-low)/2;
+            if(l[mid]>val)
+            {
+                high=mid-1;
+            }
+            else
+            {
+                 ans=max(ans,mid);   
+                low=mid+1;
+            }
+        }
+        cout<<"Hi:"<<ans<<"\n";
+        return ans+1;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int len = 1;
+        int n=a.size();
+        vector<int> l(n+1,0);
+        vector<int> dp(n,0);
+        l[1] = a[0]; 
+        dp[0] = 1;
+        for(int i=1;i<n;i++)
+        {
+           if(a[i]<l[1]) 
+           {
+              l[1]=a[i]; 
+              dp[i]=1;
+           }
+           else if(a[i]<l[len])
+           {
+              int idx=s(l,len,a[i]); 
+              l[idx]=a[i];
+              dp[i]=idx;
+              
+           }
+           else 
+           {
+              l[len+1]=a[i];
+              dp[i]=len+1;
+              len++;
+              
+           }
+        }
+        return dp;
+    }
+};

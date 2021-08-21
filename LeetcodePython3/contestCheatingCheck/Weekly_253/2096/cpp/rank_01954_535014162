@@ -1,0 +1,46 @@
+class Solution {
+public:
+    int insert(vector<int>&tail,int num)
+    {
+        int low=0 ;
+        int high=tail.size()-1 ;
+        int ans=-1 ;
+        while(low<=high)
+        {
+            int mid=(low+high)/2 ;
+            if(tail[mid]>num)
+            {
+                ans=mid ;
+                high=mid-1 ;
+            }
+            else
+            {
+                low=mid+1 ;
+            }
+        }
+        tail[ans]=num ;
+        return ans;
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        vector<int>tail ;
+        vector<int>ans;
+        tail.push_back(obs[0]);
+        ans.push_back(1);
+        for(int i=1;i<obs.size();i++)
+        {
+            if(obs[i]>=tail.back())
+            {
+                tail.push_back(obs[i]);
+                ans.push_back(tail.size());
+            }
+            else
+            {
+                int temp=insert(tail,obs[i]);
+                ans.push_back(temp+1);
+            }
+            
+        }
+        return ans;
+        
+    }
+};

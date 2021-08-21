@@ -1,0 +1,41 @@
+class Solution {
+public:
+    typedef map<int, int> M;
+
+    void clearLess(M& m, int key, int val) {
+        for (M::iterator it = m.upper_bound(key); it != m.end();) {
+            if (it->second < val) {
+                it = m.erase(it);
+            } else {
+                ++it;
+            }
+        }
+    }
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        M m;
+        vector<int> v(obs.size(), 1);
+        for (int i = 0; i < obs.size(); ++i) {
+            
+            // cout << i << "\t" ;
+            if (!m.empty()){
+                if (obs[i] > m.rbegin()->first) {
+                    m[obs[i]] = v[i] = m.rbegin()->second + 1;
+                } else if (obs[i] < m.begin()->first) {
+                    m[obs[i]] = v[i] = 1;
+                    clearLess(m, obs[i], v[i]);
+                } else {
+                    M::iterator it = m.lower_bound(obs[i]);
+                    if (it->first > obs[i]) {
+                        it = prev(it);
+                    }
+                    m[obs[i]] = v[i] = it->second + 1;
+                    clearLess(m, obs[i], v[i]);
+                }
+            } else {
+                m[obs[i]] = v[i] = 1;
+            }
+            // print(m);
+        }
+        return v;
+    }
+};

@@ -1,0 +1,31 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        def binary_search(A, s, first, last, x):
+            
+            while first <last:
+                mid = (first + last)//2 
+                if A[s[mid]] > x:
+                    last = mid 
+                else:
+                    first = mid +1
+                
+            return first 
+
+        def LongestIncreasingSubsequenceLength(A, n):
+            s = [0 for i in range(n+1)] 
+            index = 1 
+            s[1] = 0 
+            ans = [1]
+            for i in range(1, n):
+                if A[i] >= A[s[index]]:
+                    index+=1 
+                    s[index] = i 
+                    ans.append(index)
+                else:
+                    k = binary_search(A, s, 1, index, A[i])
+                    ans.append(k)
+                    if A[s[k]]>=A[i]:
+                        s[k] = i 
+            return ans 
+        return LongestIncreasingSubsequenceLength(obstacles, len(obstacles))
+

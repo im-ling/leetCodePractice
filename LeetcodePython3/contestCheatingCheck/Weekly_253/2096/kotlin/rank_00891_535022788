@@ -1,0 +1,21 @@
+class Solution {
+    fun longestObstacleCourseAtEachPosition(os: IntArray): IntArray {
+        val arr = IntArray(os.size) {10000002}
+        var end = 0
+        val ans = IntArray(os.size)
+        for(i in 0 until os.size) {
+            val index = find(os[i], arr, 0, end)
+            ans[i] = index + 1
+            arr[index] = os[i]
+            end = Math.max(index + 1, end)
+        }
+        return ans
+    }
+    
+    fun find(num: Int, arr: IntArray, start: Int, last: Int): Int {
+        if(start == last) return start
+        val mid = (start + last)/2
+        if(num >= arr[mid]) return find(num, arr, mid + 1, last)
+        return find(num, arr, start, mid)
+    }
+}

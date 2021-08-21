@@ -1,0 +1,32 @@
+
+def lis(arr, key=lambda xx: xx):
+    """ Length of longest increasing subsequence
+    :param key: comparison key similar to sort and max
+    Example: arr = [0, 6, 7, 4, 5, 6]
+        i = 0, sub = [0]
+        i = 1, sub = [0, 6]
+        i = 2, sub = [0, 6, 7]
+        i = 3, sub = [0, 4, 7]
+            this doesn't mean it is the actual increasing subsequence, but means
+                1. there is an increasing subsequence with length 3
+                2. in the future, any number larger than 4 is okay as the third element (as will see in next steps)
+        i = 4, sub = [0, 4, 5]
+        i = 5, sub = [0, 4, 5, 6]
+    """
+    sub = []
+    sol = []
+    for x in arr:
+        k = key(x)
+        i = bisect.bisect_left(sub, k)
+        if i == len(sub):
+            sub.append(k)
+        else:
+            sub[i] = k
+        sol.append(i+1)
+    return sol
+
+
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        arr = ((x, i) for i, x in enumerate(obstacles))
+        return lis(arr)

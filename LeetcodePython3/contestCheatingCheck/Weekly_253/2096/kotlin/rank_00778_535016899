@@ -1,0 +1,58 @@
+class Solution {
+    private fun findFirstGreater(t: MutableList<Int>, num: Int) : Int {
+        if (t.size == 0) {
+            return 0
+        }
+        
+        
+        if (t.size == 1) {
+            if (t[0] > num) {
+                return 0
+            } else {
+                return 1
+            }
+        }
+        
+        var left = 0
+        var right = t.size - 1
+        
+        while (left + 1 < right) {
+            val mid = left + (right - left) / 2
+            if (t[mid] > num) {
+                right = mid
+            } else {
+                left = mid + 1
+            }
+        }
+        
+        if (t[left] > num) {
+            return left
+        }
+        
+        if (t[right] > num) {
+            return right
+        }
+        
+        return right + 1
+    }
+    
+    fun longestObstacleCourseAtEachPosition(obstacles: IntArray): IntArray {
+        val result = IntArray(obstacles.size) { 0 }
+        
+        val t = mutableListOf<Int>()
+        
+        for (idx in obstacles.indices) {
+            
+            val s = findFirstGreater(t, obstacles[idx])
+            if (s >= t.size) {
+                t.add(obstacles[idx])
+            } else {
+                t[s] = obstacles[idx]
+            }
+            
+            result[idx] = s + 1
+        }
+        
+        return result
+    }
+}

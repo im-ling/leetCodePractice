@@ -1,0 +1,78 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] res = new int[n];
+        Arrays.fill(res, 1);
+        if (n == 1) return res;
+        if (isSorted(obstacles)) {
+            for (int i = 1; i < n; i++) res[i] += res[i-1];
+            return res;
+        }
+        
+        return dp(obstacles);
+    }
+    
+    private static int[] dp(int[] ar) {
+        int n = ar.length;
+        int[] res = new int[n+1];
+        int[] result = new int[n];
+        Arrays.fill(res, Integer.MAX_VALUE);
+        res[0] = Integer.MIN_VALUE;
+
+        for (int i = 0; i < n; i++) {
+            int v = ar[i];
+            int j = Arrays.binarySearch(res, ar[i]);
+            if (j < 0) j = -(j+1);
+            else {
+                while(j <= n && res[j] == ar[i]) j++;
+            }
+            result[i] = j;
+
+            if (res[j-1] <= ar[i] && ar[i] <= res[j]) res[j] = ar[i];
+        }
+
+        return result;
+    }
+    
+    private static boolean isSorted(int[] ar) {
+        for (int i = 1; i < ar.length; i++) {
+            if (ar[i] < ar[i-1]) return false;
+        }
+        
+        return true;
+    }
+    
+    private static boolean isRevSorted(int[] ar) {
+        for (int i = 1; i < ar.length; i++) {
+            if (ar[i] > ar[i-1]) return false;
+        }
+        
+        return true;
+    }
+    
+    private static int[] preHigh (int[] ar) {
+        int n = ar.length;
+        int[] map = new int[n];
+        map[0] = -1;
+        for (int i = 1; i < n; i++) {
+            int j = i-1;
+            while(j >= 0 && ar[j] <= ar[i]) j = map[j];
+            map[i] = j;
+        }
+        
+        return map;
+    }
+    
+    private static int[] prevLowOrEqual(int[] ar) {
+        int n = ar.length;
+        int[] map = new int[n];
+        map[0] = -1;
+        for (int i = 1; i < n; i++) {
+            int j = i-1;
+            while(j >= 0 && ar[j] > ar[i]) j = map[j];
+            map[i] = j;
+        }
+        
+        return map;
+    }
+}

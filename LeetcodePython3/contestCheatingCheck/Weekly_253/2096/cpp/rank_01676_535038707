@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& v){
+        int n=v.size(),x=0;
+        map<int,int> map;
+        for(int i=0;i<n;i++){
+            if(map.empty()==1)map[v[i]]=1,v[i]=1;
+            else {
+                auto p=map.lower_bound(v[i]+1),q=p;
+                if(p==map.begin())map[v[i]]=1;
+                else p--,map[v[i]]=p->second+1;
+                // cout<<v[i]<<" "<<p->first<<" "<<p->second<<endl;
+                int g=map[v[i]];while(p!=map.end()&&p->first<=v[i])p++;
+                while(p!=map.end()&&p->second<=g)q=p,q++,map.erase(p),p=q;
+                v[i]=g;
+            }
+        }
+        return v;
+    }
+};

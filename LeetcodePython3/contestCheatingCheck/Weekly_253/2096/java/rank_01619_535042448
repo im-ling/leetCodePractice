@@ -1,0 +1,31 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        ArrayList<Integer> stack = new ArrayList<>();
+        int[] answers = new int[obstacles.length];
+        for (int i = 0; i < obstacles.length; i++) {
+            if (stack.isEmpty() || obstacles[i] >= stack.get(stack.size() - 1)) {
+                stack.add(obstacles[i]);
+                answers[i] = stack.size();
+            } else {
+                int idx = search(stack, obstacles[i]);
+                answers[i] = idx + 1;
+                stack.set(idx, obstacles[i]);
+            }
+        }
+        return answers;
+    }
+    
+    private int search(ArrayList<Integer> stack, int value) {
+        int lo = 0, hi = stack.size();
+        while (lo < hi) {
+            int mid = (lo + hi) / 2;
+            if (stack.get(mid) <= value) {
+                lo = mid + 1;
+            } else {
+                hi = mid;
+            }
+        }
+        return lo;
+    }
+
+}

@@ -1,0 +1,78 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] arr) {
+        int N = arr.length;
+        int[] res = new int[N];
+        SegmentTree dp = new SegmentTree(1, N+2);
+        arr = compress(arr);
+        for(int i=0; i < N; i++)
+        {
+            int temp = dp.query(1, arr[i]);
+            res[i] = temp+1;
+            dp.update(arr[i], Math.max(dp.query(arr[i], arr[i]), res[i]));
+        }
+        return res;
+    }
+    public static int[] compress(int[] arr)
+    {
+        ArrayList<Integer> ls = new ArrayList<Integer>();
+        for(int x: arr)
+            ls.add(x);
+        Collections.sort(ls);
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        int boof = 1; //min value
+        for(int x: ls)
+            if(!map.containsKey(x))
+                map.put(x, boof++);
+        int[] brr = new int[arr.length];
+        for(int i=0; i < arr.length; i++)
+            brr[i] = map.get(arr[i]);
+        return brr;
+    }
+}
+class SegmentTree
+{
+    //Tlatoani's segment tree
+    //iterative implementation = low constant runtime factor
+    //range query, non lazy
+    final int[] val;
+    final int treeFrom;
+    final int length;
+
+    public SegmentTree(int treeFrom, int treeTo)
+    {
+        this.treeFrom = treeFrom;
+        int length = treeTo - treeFrom + 1;
+        int l;
+        for (l = 0; (1 << l) < length; l++);
+        val = new int[1 << (l + 1)];
+        this.length = 1 << l;
+    }
+    public void update(int index, int delta)
+    {
+        //replaces value
+        int node = index - treeFrom + length;
+        val[node] = delta;
+        for (node >>= 1; node > 0; node >>= 1)
+            val[node] = comb(val[node << 1], val[(node << 1) + 1]);
+    }
+    public int query(int from, int to)
+    {
+        //inclusive bounds
+        if (to < from)
+            return 0; //0 or 1?
+        from += length - treeFrom;
+        to += length - treeFrom + 1;
+        //0 or 1?
+        int res = 0;
+        for (; from + (from & -from) <= to; from += from & -from)
+            res = comb(res, val[from / (from & -from)]);
+        for (; to - (to & -to) >= from; to -= to & -to)
+            res = comb(res, val[(to - (to & -to)) / (to & -to)]);
+        return res;
+    }
+    public int comb(int a, int b)
+    {
+        //change this
+        return Math.max(a,b);
+    }
+}

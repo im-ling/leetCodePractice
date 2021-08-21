@@ -1,0 +1,88 @@
+#pragma GCC optimize("Ofast")
+#pragma GCC optimize("unroll-loops")
+#pragma GCC optimize("inline")
+#include<bits/stdc++.h>
+using namespace std;
+void*wmem;
+char memarr[96000000];
+template<class T> inline void walloc1d(T **arr, int x, void **mem = &wmem){
+  static int skip[16] = {0, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+  (*mem) = (void*)( ((char*)(*mem)) + skip[((unsigned long long)(*mem)) & 15] );
+  (*arr)=(T*)(*mem);
+  (*mem)=((*arr)+x);
+}
+template<class T> inline void walloc1d(T **arr, int x1, int x2, void **mem = &wmem){
+  walloc1d(arr, x2-x1, mem);
+  (*arr) -= x1;
+}
+template<class T, class S> int weaklyLIS_ends(int n, T a[], S res[], void *mem = wmem){
+  int i;
+  int k;
+  int sz;
+  T*arr;
+  if(n==0){
+    return 0;
+  }
+  walloc1d(&arr, n, &mem);
+  arr[0] = a[0];
+  res[0] = 1;
+  sz = 1;
+  int cTE1_r3A = n;
+  for(i=(1);i<(cTE1_r3A);i++){
+    k = upper_bound(arr, arr+sz, a[i]) - arr;
+    arr[k] = a[i];
+    res[i] = k + 1;
+    if(sz==k){
+      sz++;
+    }
+  }
+  return sz;
+}
+#define main dummy_main
+int main(){
+  wmem = memarr;
+  return 0;
+}
+#undef main
+int N;
+int A[100000];
+int b[100000];
+class Solution{
+  public:
+  vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles){
+    int i;
+    dummy_main();
+    vector<int> res;
+    N = obstacles.size();
+    for(i=(0);i<(N);i++){
+      A[i] = obstacles[i];
+    }
+    weaklyLIS_ends(N,A,b);
+    for(i=(0);i<(N);i++){
+      res.push_back(b[i]);
+    }
+    return res;
+  }
+}
+;
+// cLay version 20210717-1 [beta]
+
+// --- original code ---
+// #define main dummy_main
+// {}
+// #undef main
+// 
+// int N, A[1d5], b[];
+// 
+// class Solution {
+// public:
+//   vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+//     dummy_main();
+//     VI res;
+//     N = obstacles.size();
+//     rep(i,N) A[i] = obstacles[i];
+//     weaklyLIS_ends(N,A,b);
+//     rep(i,N) res.push_back(b[i]);
+//     return res;
+//   }
+// };

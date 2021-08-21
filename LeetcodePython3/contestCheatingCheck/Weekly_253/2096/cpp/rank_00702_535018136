@@ -1,0 +1,54 @@
+typedef signed long long ll;
+typedef pair<int, int> p;
+typedef vector<int> vi;
+typedef vector<p> vp;
+#define f first
+#define s second
+#define F(x,to) for(int x=0;x<(to);++x)
+#define FF(x,from,to) for(int x=(from);x<(to);++x)
+#define RF(x,from) for(int x=(from)-1;x>=0;--x)
+#define RFF(x,from,to) for(int x=(from)-1;x>=(to);--x)
+#define FR(x,arr) for(auto& x:arr)
+#define I(x,c) for(__typeof(c.begin()) x=c.begin();x!=c.end();++x)
+#define A(a) (a.begin()),(a.end())
+#define R(a) (a.rbegin()),(a.rend())
+#define S(x) (int)(x).size()
+#define F1(x,val) fill_n(x,sizeof(x)/sizeof(*x),val)
+#define F2(x,val) fill_n(*x,sizeof(x)/sizeof(**x),val)
+#define F3(x,val) fill_n(**x,sizeof(x)/sizeof(***x),val)
+#define F4(x,val) fill_n(***x,sizeof(x)/sizeof(****x),val)
+//-------------------------------------------------------
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        vector<int> res(S(ob));
+        /*map<int,int> m;
+        F(i,S(ob)) {
+            auto x=m.lower_bound(-ob[i]);
+            if (x==m.end()) {
+                m[-ob[i]]=1;
+            }
+            else {
+                m[-ob[i]]=x->second+1;
+            }
+            res[i]=m[-ob[i]];
+        }*/
+        vi dp(S(ob)+1,1e9);
+        dp[0]=0;
+        F(i,S(ob)) {
+            int l=0,r=i;
+            while (l<r) {
+                int cur=(l+r+1)/2;
+                if (dp[cur]>ob[i]) {
+                    r=cur-1;
+                }
+                else {
+                    l=cur;
+                }
+            }
+            res[i]=l+1;
+            dp[res[i]]=min(dp[res[i]],ob[i]);
+        }
+        return res;
+    }
+};

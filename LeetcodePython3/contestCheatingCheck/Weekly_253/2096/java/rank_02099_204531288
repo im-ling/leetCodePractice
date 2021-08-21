@@ -1,0 +1,73 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] o) {
+    	int len = o.length;
+    	int maxn = 0;
+    	for(int i = 0; i < len; i++) {
+    		maxn = Math.max(maxn, o[i]);
+    	}
+    	NumArray nn = new NumArray(maxn + 1);
+    	int dp[] = new int[len];
+    	dp[0] = 1;
+    	nn.update(o[0], 1);
+    	for(int i = 1; i < len; i++) {
+    		dp[i] = nn.sumRange(0, o[i]) + 1;
+    		nn.update(o[i], dp[i]);
+    	}
+    	return dp;
+    }
+}
+
+class NumArray {
+	int arr[];
+	int n;
+	
+    public NumArray(int len) {
+    	n = len;
+    	arr = new int[2 * n];
+    }
+    
+
+    //自下而上
+	public void update(int i, int val) {
+    	i += n;
+    	arr[i] = val;
+    	
+    	while(i > 0) {
+    		int left = i;
+    		int right = i;
+    		
+    		
+    		if((left & 1) == 1) {
+    			left--;
+    		}else {
+    			right++;
+    		}
+    		
+    		arr[i / 2] = Math.max(arr[left], arr[right]);
+    		i /= 2;
+    	}
+    }
+    
+    public int sumRange(int l, int r) {
+    	l += n;
+    	r += n;
+    	int max = arr[l];
+    	
+    	while(l <= r) {
+    		if((l & 1) == 1) {
+    			max = Math.max(max, arr[l]);
+    			l++;
+    		}
+    		
+    		if((r & 1) == 0) {
+    			max = Math.max(max, arr[r]);
+    			r--;
+    		}
+    		
+    		l /= 2;
+    		r /= 2;
+    	}
+    	
+    	return max;
+    }
+}

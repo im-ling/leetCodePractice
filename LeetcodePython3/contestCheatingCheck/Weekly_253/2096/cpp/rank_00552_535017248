@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& nums) {
+        vector<int> res, ans;
+        
+        for(int i = 0; i < nums.size();i++) {
+            auto it = std::upper_bound(res.begin(), res.end(), nums[i]);
+            
+            if(it == res.end()) {
+                ans.push_back(res.size()+1);
+                res.push_back(nums[i]);
+            }
+            else {
+                ans.push_back((it - res.begin()) + 1);
+                *it = nums[i];
+            }
+            //cout << it << " " cout << res.begin() << endl;
+            
+        }
+        return ans;
+    }
+};

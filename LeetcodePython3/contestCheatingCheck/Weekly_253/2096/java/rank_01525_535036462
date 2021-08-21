@@ -1,0 +1,51 @@
+class Solution
+{
+    public int[] longestObstacleCourseAtEachPosition(int[] obs)
+    {
+        int n = obs.length;
+        int[] res = new int[n];
+        List<Integer> endings = new ArrayList<>();
+        for (int i = 0; i < n; i++)
+        {
+            int ob = obs[i];
+            int idx = getIndex(endings, ob);
+            if (idx == endings.size())
+            {
+                endings.add(ob);
+            }
+            else
+            {
+                endings.set(idx, ob);
+            }
+            res[i] = idx + 1;
+        }
+        return res;
+    }
+    
+    private int getIndex(List<Integer> endings, int num)
+    {
+        if (endings.size() == 0 || num < endings.get(0))
+        {
+            return 0;
+        }
+        else if (num >= endings.get(endings.size() - 1))
+        {
+            return endings.size();
+        }
+        int left = 0;
+        int right = endings.size() - 1;
+        while (left <= right)
+        {
+            int mid = left + (right - left) / 2;
+            if (endings.get(mid) <= num)
+            {
+                left = mid + 1;
+            }
+            else
+            {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+}

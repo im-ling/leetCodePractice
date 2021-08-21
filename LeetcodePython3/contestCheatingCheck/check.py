@@ -268,7 +268,7 @@ if __name__ == '__main__':
     contest_number = 253
 
     # how many pages you wanna investigate 调查多少页的人
-    paginations = 40
+    paginations = 90
 
     # the question_id you wanna investigate [2095, 2096]
 

@@ -1,0 +1,31 @@
+#define ll long long 
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        
+        
+      int n=obstacles.size();
+      vector<ll> dp(n+1,INT_MAX);
+      vector<int> ans(n,0);
+        
+        
+      dp[0]= INT_MIN;
+      for(int i=0;i<n;i++){
+          
+          int x=upper_bound(dp.begin(),dp.end(),obstacles[i])-dp.begin();
+          
+          if(dp[x]>obstacles[i] && dp[x-1]<=obstacles[i]){
+              dp[x]=obstacles[i];
+              ans[i]=x;
+          }
+          else{
+              ans[i]=1;
+          }
+          
+      }
+    
+        return ans;
+        
+    }
+};

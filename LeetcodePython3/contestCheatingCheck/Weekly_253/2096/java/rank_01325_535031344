@@ -1,0 +1,48 @@
+class Solution {
+    
+    private int g(int[] a, int x) {
+        int mid, left = 0, right = a.length;
+        while (left < right) {
+            mid = left+right >> 1;
+            if (a[mid] > x) {
+                right = mid;
+            } else {
+                left = mid+1;
+            }
+        }
+        return left;
+    }
+    
+    private int[] f(int[] a) {
+        int n = a.length;
+        int[] dp = new int[n+1];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        dp[0] = Integer.MIN_VALUE;
+        int[] ans = new int[n];
+        for (int i = 0, idx; i < n; i++) {
+            idx = g(dp, a[i]);
+            dp[idx] = a[i];
+            ans[i] = idx;
+        }
+        return ans;
+    }
+    
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int[] a = obstacles;
+        int[] b = a.clone();
+        int t, n = b.length, i = 0, j = n-1;
+        while (i <= j) {
+            t = -b[i]; b[i] = -b[j]; b[j] = t;
+            ++i; --j;
+        }
+        a = f(a); b = f(b);
+        System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(b));
+        int[] ans = new int[n];
+        for (i = 0; i < n; i++) {
+            ans[i] = a[i] + b[n-i-1] - 1;
+        }
+        return a;
+    }
+    
+}

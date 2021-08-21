@@ -1,0 +1,76 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] result = new int[n];
+        Node node = new Node(1, 10000001);
+        for(int i = 0; i < n; ++i) {
+            int obstacle = obstacles[i];
+            int max = node.max(1, obstacle + 1);
+            int v = max + 1;
+            result[i] = v;
+            node.update(obstacle, v);
+        }
+        return result;
+    }
+    
+    static class Node {
+        
+        int start;
+        int end;
+        int max;
+        Node left;
+        Node right;
+        
+        Node(int start, int end) {
+            this.start = start;
+            this.end = end;
+        }
+        
+        void update(int i, int v) {
+            max = Math.max(max, v);
+            int middle = (start + end) / 2;
+            if (start == middle) {
+                return;
+            } else if (i < middle) {
+                if (left == null) {
+                    left = new Node(start, middle);
+                }
+                left.update(i, v);
+            } else { // i > middle
+                if (right == null) {
+                    right = new Node(middle, end);
+                }
+                right.update(i, v);
+            }
+        }
+        
+        int max(int x, int y) { // max[x,y).
+            if (x <= start && y >= end) {
+                return max;
+            }
+            int middle = (start + end) / 2;
+            if (y < middle) {
+                if (left == null) {
+                    return 0;
+                } else {
+                    return left.max(x, y);
+                }
+            } else if (x >= middle) {
+                if (right == null) {
+                    return 0;
+                } else {
+                    return right.max(x, y);
+                }
+            } else {
+                int result = 0;
+                if (left != null) {
+                    result = Math.max(result, left.max(x, middle));
+                }
+                if (right != null) {
+                    result = Math.max(result, right.max(middle, y));
+                }
+                return result;
+            }
+        }
+    }
+}

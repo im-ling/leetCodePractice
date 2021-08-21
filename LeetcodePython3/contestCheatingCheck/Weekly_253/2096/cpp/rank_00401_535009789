@@ -1,0 +1,62 @@
+template<typename T,
+         int IdFrom=0,
+         typename OpLs=less<T>,
+         typename OpEq=equal_to<T>>
+struct Dctz {
+    static OpLs ls;
+    static OpEq eq;
+    vector<T> x;
+    void clear() { x.clear(); }
+    void add(T v) { x.push_back(v); }
+    void init() { 
+        sort(x.begin(),x.end(),ls); 
+        x.erase(unique(x.begin(),x.end(),eq),x.end()); 
+    }
+    int size() { return x.size(); }
+    int id(const T &v) { 
+        return lower_bound(x.begin(),x.end(),v,ls)-x.begin()+IdFrom; }
+    // T& operator(int id) { return x[id-IdFrom]; };
+};
+Dctz<int> dc;
+
+const int M=1e5+5;
+int mn[M<<2];
+int query(int o,int l,int r,int v) {
+    if (r <= v) return mn[o];
+    if (l > v) return 0;
+    int mid = (l + r) >> 1;
+    int ans = 0;
+    ans = max(ans, query(o << 1, l, mid, v));
+    ans = max(ans, query(o << 1 | 1, mid + 1, r, v));
+    return ans;
+}
+void update(int o, int l, int r, int p, int v) {
+    if (l == r) {
+        mn[o] = max(mn[o], v);
+        return;
+    }
+    int mid = (l + r) >> 1;
+    if (p <= mid) update(o << 1, l, mid, p, v);
+    else update(o << 1 | 1, mid + 1, r, p, v);
+    mn[o] = max(mn[o], max(mn[o << 1], mn[o << 1 | 1]));
+}
+
+class Solution {
+public:
+    vector<int> seg;
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        dc.clear();
+        for (int i : obs) dc.add(i);
+        dc.init();
+        int n = dc.size();
+        memset(mn, 0, sizeof(int) * n * 4);
+        vector<int> ans;
+        for (int i : obs) {
+            i = dc.id(i);
+            int v = query(1, 0, n - 1, i) + 1;
+            update(1, 0, n - 1, i, v);
+            ans.push_back(v);
+        }
+        return ans;
+    }
+};

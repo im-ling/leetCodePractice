@@ -1,0 +1,46 @@
+class Solution {
+public:
+    
+    // {9, 8, 7, 6, 5 ,4}
+    
+    // find any value that is <= lower_bound
+    
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        
+        map<int, int, std::greater<>> ls;
+        
+        vector<int> ret;
+        for (int i = 0; i < obstacles.size(); i++)
+        {
+            int num = obstacles[i];
+            auto it = ls.lower_bound(num);
+            int newValue = (it == ls.end()) ? 1 : it->second + 1;
+
+            if (it != ls.begin())
+            {
+                --it;
+                if (newValue >= it->second)
+                {
+                    ls.erase(it);
+                }
+            }
+            
+            ls[num] = newValue;
+            
+            
+            /*
+            cout << "------------------" << endl;
+            for (auto& pair : ls)
+            {
+                cout << "(" << pair.first << ", " << pair.second << ")" << endl;
+            }
+            */
+            
+            ret.push_back(ls[obstacles[i]]);
+            
+        }
+        
+        return ret;
+    }
+};

@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+        /// longest increasing subsequence
+        vector<int>v,ans;
+        
+        for(auto x:ob)
+        {
+            int it = upper_bound(v.begin(),v.end(),x)-v.begin();
+            ans.push_back(it+1);
+            if(it==v.size())
+            {
+                v.push_back(x);          }
+            else
+            {
+                v[it] = x;
+       }
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,47 @@
+class Solution {
+    int binarySearch(int val, vector<int> &dp, int &len){
+        int start = 0, end = len, mid;
+        
+        while(end-start>1){
+            mid = (start+end)/2;
+            
+            if(dp[mid]<=val){
+                start = mid;
+            }else{
+                end = mid;
+            }
+        }
+        
+        if(dp[start]>val){
+            dp[start] = val;
+            return start;
+        }
+        else if(dp[end]==val){
+            end++;
+        }else{
+            dp[end] = val;
+        }
+        return end;
+    }
+    
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size(), curr = 0;
+        vector<int> result(n,1), dp;
+        
+        dp.push_back(obstacles[0]);
+        for(int i=1;i<n;i++){
+            if(dp[curr]<=obstacles[i]){
+                dp.push_back(obstacles[i]);
+                curr++;
+                result[i] = curr+1;
+            }else{
+                int idx = binarySearch(obstacles[i], dp, curr);
+                result[i] = idx+1;
+            }
+            
+        }
+        
+        return result;
+    }
+};

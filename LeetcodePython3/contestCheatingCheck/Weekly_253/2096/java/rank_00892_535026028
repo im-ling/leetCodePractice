@@ -1,0 +1,47 @@
+class Solution {
+    
+    class BIT {
+        
+        int n;
+        int[] l;
+        
+        BIT(int n) {
+            this.n = n;
+            this.l = new int[n + 1];
+        }
+        
+        void update(int u, int val) {
+            while (u <= n) {
+                l[u] = Math.max(l[u], val);
+                u += u & (-u);
+            }
+        }
+        
+        int get(int u) {
+            int ans = 0;
+            while (u > 0) {
+                ans = Math.max(ans, l[u]);
+                u -= u & (-u);
+            }
+            return ans;
+        }
+    }
+    
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        
+        int maxn = obstacles[0];
+        for(int o : obstacles) {
+            maxn = Math.max(o, maxn);
+        }
+        
+        int[] ans = new int[obstacles.length];
+        BIT bit = new BIT(maxn);
+        
+        for(int i=0; i<obstacles.length; i++) {
+            ans[i] = bit.get(obstacles[i]) + 1;
+            bit.update(obstacles[i], ans[i]);
+        }
+        
+        return ans;
+    }
+}

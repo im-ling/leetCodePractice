@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obs) {
+        int sz = obs.size();
+        vector<int> res(sz, 1);
+        stack<int> stk;
+        
+        unordered_map<int, set<int>> mp;
+        set<int> se;
+        
+        for (int i = 0; i < sz; i++) {
+            int n = obs[i];
+            
+            int s = 0, e = i + 1;
+            while (s < e) {
+                int m = (s + e + 1) / 2;
+                auto& see = mp[m];
+                auto itr2 = see.upper_bound(n);
+                if (itr2 != see.begin()) {
+                    s = m;
+                } else {
+                    e = m - 1;
+                }
+            }
+            res[i] = s + 1;
+            mp[res[i]].insert(n);
+            se.insert(res[i]);
+        }
+        return res;
+    }
+};

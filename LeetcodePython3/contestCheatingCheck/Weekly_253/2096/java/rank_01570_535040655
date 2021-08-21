@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+class Solution {
+  public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+    var ans = new int[obstacles.length];
+    var lis = new ArrayList<Integer>();
+    for (int i = 0; i < obstacles.length; i++) {
+      var o = obstacles[i];
+      int l = 0, r = lis.size();
+      while (l < r) {
+        int m = (r - l) / 2 + l;
+        int v = lis.get(m);
+        if (o >= v) {
+          l = m + 1; // l:ok
+        } else if (o < v){
+          r = m; // r:ng
+        }
+      }
+      ans[i] = l + 1;
+      if (l == lis.size()) {
+        lis.add(o);
+      } else {
+        lis.set(l, o);
+      }
+    }
+    return ans;
+  }
+}

@@ -1,0 +1,83 @@
+class Solution {
+public:
+        map<int, int> ch; 
+
+    vector<int> nai;
+    
+
+    int kor(int man)
+    {
+
+        int uttor;
+
+        auto vv=ch.upper_bound(man);
+
+        if(ch.empty()||vv==ch.begin()) 
+        {
+
+            uttor=1;
+
+        }else{
+
+            --vv;
+
+            uttor=vv->second+1;
+
+        }
+
+        ch[man]=uttor;
+
+        vv=ch.find(man);
+
+        nai.clear();
+
+        if(vv!=ch.end()) ++vv;
+
+        while(vv!=ch.end()){
+
+            if(vv->second<=uttor){
+
+                nai.push_back(vv->first);
+
+            }else{
+
+                break;
+
+            }
+
+            ++vv;
+
+            
+        }
+
+        for(auto &x:nai)
+            
+
+            ch.erase(x);
+
+        
+        return uttor;
+
+    }
+    
+
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) 
+    {
+
+        vector<int> uttor(obstacles.size());
+
+        int i=0;
+
+        for(auto &x:obstacles)
+        {
+
+            uttor[i++]=kor(x);
+
+        }
+
+        return uttor;
+
+    }
+        
+
+};

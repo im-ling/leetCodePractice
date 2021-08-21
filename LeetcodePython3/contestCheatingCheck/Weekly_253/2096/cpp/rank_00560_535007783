@@ -1,0 +1,72 @@
+struct segtree{
+    vector < int > v;
+    int size;
+
+    void init(int n){
+        size = 1;
+        while(size<n) size*=2;
+        v.resize(size*2, 0);
+    }
+
+    void set(int x, int val){ 
+        set(x, val, 0, 0, size);                              
+    }
+
+    void set(int x, int val, int cur, int lx, int rx){
+        if(rx-lx == 1){
+            v[cur] = val;
+        }else{
+            int mid = (lx+rx)/2;
+            if(x<mid){
+                set(x, val, 2*cur+1, lx, mid);
+            }else{
+                set(x, val, 2*cur+2, mid, rx);
+            }
+            v[cur] = max(v[2*cur+1],v[2*cur+2]);
+        } 
+    }
+
+    int get(int l, int r){
+        return get(l, r, 0, 0, size);
+    }
+    
+    int get(int l, int r, int cur, int lx, int rx){
+        if(l>=rx or r<=lx){
+            return (int)0; 
+        }
+        if(l<=lx and r>=rx){
+            return v[cur]; 
+        }
+        int m = (lx+rx)/2;
+        return max(get(l, r, 2*cur+1, lx, m) , get(l, r, 2*cur+2, m, rx) );
+    }
+
+};
+
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector < int > ans(n);   
+        map < int, int > mp;
+        int id = 0;
+        for(auto x: obstacles){
+            mp[x] = 1;
+        }
+        for(auto x: mp){
+            mp[x.first]=id++;
+        }
+        for(int i=0; i<n; ++i){
+            obstacles[i] = mp[obstacles[i]];
+        }
+        segtree st;
+        st.init(id);
+        for(int i = 0; i<n; ++i){
+            assert(obstacles[i]<=id);
+            ans[i] = st.get(0, obstacles[i]+1)+1;
+            st.set(obstacles[i], ans[i]);
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,28 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, ob: List[int]) -> List[int]:
+        ans = [1]
+        n = len(ob)
+        # map_dict = collections.defaultdict(int)
+        # map_dict[ob[0]] += 1
+        stack = [ob[0]]
+        for i in range(1, n):
+            # map_dict[ob[i]] += 1
+            # print(stack, map_dict)
+            if ob[i] >= stack[-1]:
+                stack.append(ob[i])
+                ans.append(len(stack))
+            # elif ob[i] == stack[-1]:
+            #     print(stack,map_dict[ob[i]])
+            #     ans.append(len(stack)+map_dict[ob[i]]-1)
+            else:
+                tt = bisect.bisect_right(stack,ob[i])
+                stack[tt] = ob[i]
+                
+                
+                ans.append(tt+1)
+            # print(stack)
+                
+            
+        return ans
+                
+            

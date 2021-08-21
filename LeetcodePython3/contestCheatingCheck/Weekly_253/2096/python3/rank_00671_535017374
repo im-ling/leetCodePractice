@@ -1,0 +1,28 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        L = len(obstacles)
+        BIT = [0]*(L+1)
+        
+        def update(BIT, i, v):
+            i+=1
+            while i <= L:
+                BIT[i] = max(v, BIT[i])
+                i += i & (-i)
+                
+        def getMAX(BIT, i):
+            res = 0
+            while i > 0:
+                res = max(BIT[i], res)
+                i -= i & (-i)
+            return res
+        
+        
+        res = [0]*L
+        order = sorted([(v, i) for i, v in enumerate(obstacles)])
+        
+        for v, i in order:
+            m = getMAX(BIT, i)
+            res[i] = m+1
+            update(BIT, i, m+1)
+        
+        return res

@@ -1,0 +1,45 @@
+class Solution {
+    private int binarySearch (int currentNumber, List<Integer> M) {
+	int begin = 0;
+	int end = M.size() - 1;
+	while (begin + 1 < end) {
+		int middle = begin + (end - begin) / 2;
+
+		if (M.get(middle) <= currentNumber) {
+			begin = middle;
+		}
+		else {
+			end = middle - 1;
+		}
+	}
+	if (currentNumber >= M.get(end)) {
+return end + 1;
+}
+else if (currentNumber < M.get(end) && currentNumber >= M.get(begin)) {
+return end;
+}
+return begin;
+ 
+}
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        // Write your solution here
+
+	List<Integer> M = new ArrayList<>();
+        int[] dp = new int[obstacles.length];
+	M.add(obstacles[0]);
+        dp[0] = 1;
+	for (int i = 1; i < obstacles.length; i++) {
+		int indexInserted = binarySearch(obstacles[i], M);
+		if (indexInserted == M.size() ) {
+			M.add(obstacles[i]);
+            dp[i] = M.size();
+		}
+		else {
+			M.set(indexInserted, obstacles[i]);
+            dp[i] = indexInserted + 1;
+		}
+	}
+        return dp;
+	
+    }
+}

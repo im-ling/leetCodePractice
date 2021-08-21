@@ -1,0 +1,49 @@
+#include <ext/pb_ds/assoc_container.hpp> 
+using namespace std;
+using namespace __gnu_pbds; 
+
+typedef tree<int, null_type, 
+     less_equal<int>, rb_tree_tag,
+          tree_order_statistics_node_update> pbds; 
+
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& arr) {
+            
+        /*
+            s.find_by_order(idx) find using index..!
+// s.order_of_key(val) Gives iterator to the key..! 
+
+        */
+        
+        vector<int> a, ans;
+        int n = arr.size();
+        // a.push_back(INT_MAX);
+        for(auto x: arr){
+            if(a.size() == 0){
+                a.push_back(x);
+                ans.push_back(a.size());
+                continue;
+            }
+            
+                
+                if(a.back() > x){
+                auto it = upper_bound(a.begin(), a.end(), x);
+                int idx = it - a.begin();
+                // cout<<idx<<endl;
+                a[idx] = x;
+                 ans.push_back(idx+1);
+            }
+            else{
+                a.push_back(x);
+                ans.push_back(a.size());
+            }
+        }
+        
+        // for(auto x: ans)
+        //     cout<<x<<' ';
+        // cout<<endl;
+        return ans;
+    }
+};

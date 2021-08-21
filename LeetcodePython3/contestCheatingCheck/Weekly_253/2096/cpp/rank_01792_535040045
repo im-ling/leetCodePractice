@@ -1,0 +1,65 @@
+#define ll long long
+
+void update(ll* tree,ll start,ll end,ll treenode,ll ind,ll val){
+    if(ind < start || ind > end){
+        return;
+    }
+    if(start == end){
+        tree[treenode] = val;
+        return;
+    }
+    ll mid = (start + end)/2;
+    update(tree,start,mid,2*treenode,ind,val);
+    update(tree,mid+1,end,2*treenode+1,ind,val);
+    tree[treenode] = max(tree[2*treenode],tree[2*treenode+1]);    
+}
+
+// left to right which is required range
+ll query(ll* tree,ll start,ll end,ll left,ll right,ll treenode){
+    if(right < start || end < left){
+        return 0;
+    }
+    if(left <= start && right >= end){
+        return tree[treenode];
+    }
+    ll mid = (start + end)/2;
+    ll q1 = query(tree,start,mid,left,right,2*treenode);
+    ll q2 = query(tree,mid+1,end,left,right,2*treenode+1);
+    return max(q1,q2);    
+}
+
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        unordered_map<int, int> mp;
+        set<int> s;
+        for(auto it:obstacles){
+            s.insert(it);
+        }
+        int c = 1;
+        for(auto it:s){
+            mp[it] = c;
+            c++;
+        }
+        int max_ele = 0;
+        for(int i = 0; i < obstacles.size(); i++){
+            obstacles[i] = mp[obstacles[i]];
+            max_ele = max(max_ele, obstacles[i]);
+        }
+        vector<int> arr(max_ele + 1, 0);
+        vector<int> ans;
+        
+        ll tree[4*max_ele];
+        for(int i = 0; i < 4*max_ele; i++){
+            tree[i] = 0;
+        }
+        int minval = 1;
+        for(int i = 0; i < obstacles.size(); i++){
+            minval = min(minval, obstacles[i]);
+            arr[obstacles[i]] = 1 + query(tree, 1, max_ele, minval, obstacles[i], 1);
+            ans.push_back(arr[obstacles[i]]);    
+            update(tree, 1, max_ele, 1, obstacles[i], arr[obstacles[i]]);
+        }
+        return ans;
+    }
+};

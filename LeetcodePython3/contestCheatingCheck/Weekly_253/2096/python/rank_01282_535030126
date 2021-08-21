@@ -1,0 +1,27 @@
+class Solution(object):
+    def longestObstacleCourseAtEachPosition(self, obstacles):
+        """
+        :type obstacles: List[int]
+        :rtype: List[int]
+        """
+        inf = 10 ** 9
+        
+        d = [inf] * (len(obstacles) +1)
+        d[0] = -inf
+        n = len(obstacles)
+        res = [1 for e in obstacles]
+        for j,v in enumerate(obstacles): 
+            lo,hi = 0 ,len(d)-1
+            while(lo < hi):
+                med = lo + hi
+                med >>= 1
+                if d[med] > v:
+                    hi = med
+                else:
+                    lo = med +1
+            d[lo] =v
+            res[j] = lo
+                
+            
+        return res
+        

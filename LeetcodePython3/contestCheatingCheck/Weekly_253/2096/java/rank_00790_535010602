@@ -1,0 +1,30 @@
+class Solution {
+    private int MAXN = 10000010;
+    private int[] fn = new int[MAXN];
+    
+    private int find(int x) {
+        int res = 0;
+        while(x>0) {
+            res = Math.max(res, fn[x]);
+            x -= (x & -x);
+        }
+        return res;
+    }
+    
+    public void add(int x, int v) {
+        while(x<MAXN) {
+            fn[x] = Math.max(fn[x], v);
+            x += (x & -x);
+        }
+    }
+
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int n = obstacles.length;
+        int[] ans = new int[n];
+        for(int i=0;i<n;i++) {
+            ans[i] = find(obstacles[i]) + 1;
+            add(obstacles[i], ans[i]);
+        }
+        return ans;
+    }
+}

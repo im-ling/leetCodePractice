@@ -1,0 +1,34 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, nums: List[int]) -> List[int]:
+        # for every i we need max len non increasing seq
+        
+        # for every i we want max len increasing sequence using 0 to i
+        sub = []
+        ans=[]
+        for num in nums:
+            if not sub or sub[-1]<=num:
+                sub.append(num)
+                ans.append(len(sub))
+                continue
+            # num is not equal to last number
+            # num is less than last number
+            # 1 2 2 3
+            # look for very first number which is greater than equal to num
+            
+            # this i will be def <len(sub)
+            # now get the sub[i] right most index
+            pos=len(sub)-1
+            l=0
+            r=len(sub)-1
+            while l<=r:
+                mid=l+((r-l)//2)
+                if sub[mid]<=num:
+                    l=mid+1
+                elif sub[mid]>num:
+                    pos=mid
+                    r=mid-1
+            sub[pos]=num
+            ans.append(pos+1)
+                    
+        return ans
+        

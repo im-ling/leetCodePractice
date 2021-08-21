@@ -1,0 +1,35 @@
+class Solution {
+public:
+    vector<int> lis(vector<int> &a, int n)
+    {
+  int tail[n];
+  tail[0] = a[0];
+  int len = 1;
+    vector<int> ans(n,0);
+        ans[0]=len;
+for (int i = 1; i < n; i++)
+  {
+    if (a[i] >=tail[len - 1])
+    {
+      tail[len] = a[i];
+      len++;
+        ans[i]=len;
+    }
+    else
+    {
+      auto it = upper_bound(tail, tail + len, a[i]);
+      int idx = it - tail;
+      tail[idx] = a[i];
+        ans[i]=idx+1;
+    }
+  }
+ 
+  return ans;
+}
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n=obstacles.size();
+        vector<int> ans;
+        ans=lis(obstacles,n);
+        return ans;
+    }
+};

@@ -1,0 +1,67 @@
+//                        YATIN KWATRA
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
+#define ll                      long long
+#define ar                      array
+#define sz(v)                   (int)(v.size())
+#define inf                     1e18
+#define ld                      long double
+#define ull                     unsigned long long
+#define fo(i,a,b)               for(int i = a; i<=b ; i++)
+#define rfo(i,a,b)              for(int i = a; i>=b ; i--)
+#define vii                     vector<int>
+#define pq                      priority_queue
+#define uomii                   unordered_map<int,int,best_hash>
+#define all(v)                  v.begin(),v.end()
+#define mp                      make_pair
+#define pb                      push_back
+#define pob                     pop_back
+#define ff                      first
+#define ss                      second
+#define pii                     pair<int,int>
+#define mii                     map<int,int>
+#define vvii                    vector<vii>
+#define mod                     1000000007
+#define MIN                     -1e9
+#define pi                      3.1415926535897932384626433832795
+#define cz(x)                   63 - __builtin_clzll(x)
+
+using namespace std;
+using namespace __gnu_pbds;
+template<class T> using oset =  tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+
+struct best_hash {
+	static uint64_t splitmix64(uint64_t x) {
+
+		x += 0x9e3779b97f4a7c15;
+		x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
+		x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
+		return x ^ (x >> 31);
+	}
+
+	size_t operator()(uint64_t x) const {
+		static const uint64_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
+		return splitmix64(x + FIXED_RANDOM);
+	}
+};
+
+
+
+class Solution {
+public:
+	vector<int> longestObstacleCourseAtEachPosition(vector<int>& v) {
+		vii ans;
+		vii r;
+		for (auto &i : v) {
+			int idx = upper_bound(all(r), i) - r.begin();
+			if (idx == sz(r)) r.pb(i);
+			else r[idx] = i;
+			ans.pb(idx+1);
+		}
+		return ans;
+	}
+};

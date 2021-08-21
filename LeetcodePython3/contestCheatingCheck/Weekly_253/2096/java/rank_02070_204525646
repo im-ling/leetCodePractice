@@ -1,0 +1,93 @@
+class Solution {
+    public class SegmentTree {
+        int[] seg;
+        int[] lazy;
+
+        public SegmentTree(int[] a, int n) {
+            seg = new int[4 * n];
+            lazy = new int[4 * n];
+            build(a, 0, n - 1, 0);
+        }
+
+        void build(int[] a, int begin, int end, int si) {
+            // if (begin == end) {
+            //     seg[si] = a[begin];
+            //     return;
+            // }
+            // int mid = (begin + end) >> 1;
+            // build(a, begin, mid, si * 2 + 1);
+            // build(a, mid + 1, end, si * 2 + 2);
+            // seg[si] = seg[si * 2 + 1] + seg[si * 2 + 2];
+        }
+
+        void pushDown(int begin, int end, int si) {
+            if (lazy[si] != 0) {
+                int mid = (begin + end) >> 1;
+                lazy[si * 2 + 1] = Math.max(lazy[si * 2 + 1], lazy[si]);
+                lazy[si * 2 + 2] = Math.max(lazy[si * 2 + 2], lazy[si]);
+                seg[si * 2 + 1] = Math.max(seg[si * 2 + 1], lazy[si]);
+                seg[si * 2 + 2] = Math.max(seg[si * 2 + 2], lazy[si]);
+                lazy[si] = 0;
+            }
+        }
+
+        int queryRange(int begin, int end, int si, int l, int r) {
+            if (l <= begin && end <= r) {
+                return seg[si];
+            }
+            pushDown(begin, end, si);
+            int mid = (begin + end) >> 1;
+            int result = 0;
+            if (l <= mid) result += queryRange(begin, mid, si * 2 + 1, l, r);
+            if (r > mid) result += queryRange(mid + 1, end, si * 2 + 2, l, r);
+            return result;
+        }
+
+        void updateRange(int begin, int end, int si, int us, int ue, int diff) {
+            if (us <= begin && end <= ue) {
+                lazy[si] = Math.max(lazy[si], diff);
+                seg[si] = Math.max(seg[si], diff);
+                return;
+            }
+            pushDown(begin, end, si);
+            int mid = (begin + end) >> 1;
+            if (us <= mid) {
+                updateRange(begin, mid, si * 2 + 1, us, ue, diff);
+            }
+            if (ue > mid) {
+                updateRange(mid + 1, end, si * 2 + 2, us, ue, diff);
+            }
+            seg[si] = seg[si * 2 + 1] + seg[si * 2 + 2];
+        }
+    }
+
+    public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
+        int segsize = 100001;
+        int[] tmp = new int[obstacles.length];
+        System.arraycopy(obstacles, 0, tmp, 0, obstacles.length);
+        Arrays.sort(tmp);
+        SegmentTree segtree = new SegmentTree(null, segsize);
+        int[] ans = new int[obstacles.length];
+        int ansi = -1;
+        for (int i = 0; i < obstacles.length; i++) {
+            int lb = lower_bound(tmp, obstacles[i]);
+            int pre = segtree.queryRange(0, segsize - 1, 0, lb, lb);
+            segtree.updateRange(0, segsize - 1, 0, lb, segsize - 1, pre + 1);
+            ans[++ansi] = pre + 1;
+        }
+        return ans;
+    }
+
+    int lower_bound(int[] a, int v) {
+        int l = 0, r = a.length - 1;
+        while (l <= r) {
+            int m = (l + r) >> 1;
+            if (a[m] < v) {
+                l = m + 1;
+            } else {
+                r = m - 1;
+            }
+        }
+        return r + 1;
+    }
+}

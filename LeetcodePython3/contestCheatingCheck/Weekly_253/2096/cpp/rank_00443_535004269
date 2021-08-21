@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& a) {
+        int t,i=1,j,k,n=a.size(),m;
+        map<int,int>ma;
+        for(int k:a)ma[k]=0;
+        for(auto [l,r]:ma){
+            ma[l]=i++;
+        }
+        m=i;
+        vector<int>dp(m,0);
+        vector<int>ans(n,0);
+        i=0;
+        for(int k:a){
+            int mx=0;
+            for(j=ma[k];j>0;j-=(j&-j))mx=max(mx,dp[j]);
+            mx++;
+            ans[i++]=mx;
+            for(j=ma[k];j<m;j+=(j&-j))dp[j]=max(dp[j],mx);
+        }
+        return ans;
+    }
+};

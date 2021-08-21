@@ -1,0 +1,62 @@
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n = obstacles.size();
+        vector<int> res(n, 1);
+        vector<int> dp(1, INT_MAX); //dp[i] max value of increasing subsequence wih length i+1
+        //dp[0] = 0;//nums[0];
+        for(int i=0; i<n; i++)
+        {
+            if(dp[0]>obstacles[i]){
+                dp[0] = obstacles[i];
+                res[i] = 1;
+                continue;
+            }
+            else if(dp.back()<=obstacles[i]){                
+                dp.push_back(obstacles[i]);
+                res[i] = dp.size();
+                continue;
+            }
+            int left = 0; 
+            int right = dp.size()-1;
+            while(left<right)
+            {
+                int mid = left+(right-left)/2;
+              
+                if(dp[mid]<=obstacles[i])
+                    left = mid+1;
+                else
+                    right = mid;
+            }
+            dp[left] = obstacles[i];
+            res[i] = left+1;
+        }
+        return res;
+        /*
+        int n = obstacles.size();
+        vector<int> res(n, 1);
+        map<int, int> visit;//can also write a vector myself to maintain the increasing oreder
+        visit[0] = 0;
+        //vector<pair<int, int>> visit;
+        for(int i=0; i<n; i++)
+        {
+            
+            //TLE
+            //for(int j=i-1; j>=0; j--)
+            //{
+            //    if(obstacles[j]<=obstacles[i])
+            //        res[i] = max(res[i], res[j]+1);
+            //}
+            
+            auto lb = visit.upper_bound(obstacles[i]);
+            while(--lb!=visit.begin())
+            {
+                res[i] = max(res[i], lb->second+1);
+            }
+            visit[obstacles[i]] = res[i];
+
+        }
+        return res;
+        */
+    }
+};

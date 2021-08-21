@@ -1,0 +1,27 @@
+int h[100005];
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        int n=obstacles.size();
+        for(int i=1;i<=n;i++)
+        {
+            h[i]=99999999;
+        }
+        vector<int> ans;
+        int most=0;
+        for(int i=0;i<n;i++)
+        {
+            int l=1,r=most;
+            while(l<=r)
+            {
+                int m=(l+r)/2;
+                if(h[m]<=obstacles[i])l=m+1;
+                else r=m-1;
+            }
+            if(l>most)most=l;
+            h[l]=obstacles[i];
+            ans.push_back(l);
+        }
+        return ans;
+    }
+};

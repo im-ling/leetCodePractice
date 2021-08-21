@@ -1,0 +1,17 @@
+class Solution {
+ public:
+  vector<int> longestObstacleCourseAtEachPosition(vector<int>& ob) {
+    int n = ob.size();
+    vector<int> ans, aux;
+    for (int num : ob) {
+      int idx = upper_bound(aux.begin(), aux.end(), num) - aux.begin();
+      if (idx == aux.size()) {
+        aux.push_back(num);
+      } else {
+        aux[idx] = num;
+      }
+      ans.push_back(idx + 1);
+    }
+    return ans;
+  }
+};

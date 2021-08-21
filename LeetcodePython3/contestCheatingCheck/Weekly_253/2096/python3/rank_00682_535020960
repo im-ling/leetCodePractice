@@ -1,0 +1,19 @@
+class Solution:
+    def longestObstacleCourseAtEachPosition(self, obstacles: List[int]) -> List[int]:
+        partials = [obstacles[0]]
+        n = len(obstacles)
+        answer = [1]
+        for i in range(1, n):
+            nums_i = obstacles[i]
+            cursor = bisect.bisect_right(partials, nums_i)
+            if cursor == len(partials):
+                if nums_i >= partials[-1]:
+                    partials.append(nums_i)
+            elif cursor > 0:
+                if nums_i >= partials[cursor - 1]:
+                    partials[cursor] = nums_i
+            else:  # cursor == 0:
+                partials[cursor] = nums_i
+            x = bisect.bisect_right(partials, nums_i)
+            answer.append(x)
+        return answer

@@ -1,0 +1,55 @@
+class Solution {
+public:
+    vector<int>tree;
+    
+    int query_tree(int idx,int s,int e,int l,int r){
+        if(s>e or e<l or r<s or l>r)return 0;
+        //cout<<idx<<" "<<s<<" "<<e<<" "<<l<<" "<<r<<endl;
+        if(s<=l and e>=r)return tree[idx];
+        int mid=(l+r)/2;
+        return max(query_tree(2*idx,s,e,l,mid),query_tree(2*idx+1,s,e,mid+1,r));
+    }
+    
+    void update_tree(int idx,int l,int r,int pos,int val){
+        if(l>r or pos>r or pos<l)return ;
+        if(l==r){
+            tree[idx]=val;
+            return ;
+        }
+        
+        int mid=(l+r)/2;
+        update_tree(2*idx,l,mid,pos,val);
+        update_tree(2*idx+1,mid+1,r,pos,val);
+        tree[idx]=max(tree[2*idx],tree[2*idx+1]);
+        return ;
+    }
+    
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        set<int>st;
+        for(auto u:obstacles)st.insert(u);
+        map<int,int>m;
+        int id=1,n=obstacles.size();
+        while(!st.empty()){
+            m[*st.begin()]=id;
+            id++;
+            st.erase(st.begin());
+        }
+        
+        for(int i=0;i<obstacles.size();i++){
+            obstacles[i]=m[obstacles[i]];
+        }
+        tree.clear();
+        tree.resize(4*n+10);
+        vector<int>ans(n);
+        for(int i=0;i<obstacles.size();i++){
+            ans[i]=query_tree(1,1,obstacles[i],1,n)+1;
+            update_tree(1,1,n,obstacles[i],ans[i]);
+        }
+        return ans;
+    }
+};
+/*
+[1,2,3,2]
+[2,2,1]
+
+*/

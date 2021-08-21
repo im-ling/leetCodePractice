@@ -1,0 +1,37 @@
+class Solution {
+    public int[] longestObstacleCourseAtEachPosition(int[] nums) {
+        int n = nums.length;
+        int[] res = new int[n];
+        res[0] = 1;
+        int[] arr = new int[n];
+        arr[0] = nums[0];
+        int len = 1;
+        for (int i = 1; i < n; i++) {
+            int cur = nums[i];
+            int left = 0, right = len;
+            while (left + 1 < right) {
+                int mid = left + (right - left) / 2;
+                if (arr[mid] > cur) {
+                    right = mid;
+                } else {
+                    left = mid;
+                }
+            }
+            int index = 0;
+            if (arr[left] > cur) {
+                index = left;
+            } else {
+                index = right;
+            }
+            res[i] = index + 1;
+            
+            if (index == len) {
+                arr[len] = cur;
+                len++;
+            } else {
+                arr[index] = cur;
+            }
+        }
+        return res;
+    }
+}

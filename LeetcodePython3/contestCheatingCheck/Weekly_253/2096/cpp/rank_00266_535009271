@@ -1,0 +1,32 @@
+class fenwick {
+    int M;
+    int count[10000001];
+public:
+    fenwick(vector<int>& nums) {
+        M=*max_element(nums.begin(),nums.end());
+        fill(count,count+M+1,0);
+    }
+    int get(int x) {
+        int ans=0;
+        for(;x>0;x-=(x&-x))
+            ans=max(ans,count[x]);
+        return ans;
+    }
+    void update(int x, int y) {
+        for(;x<=M;x+=(x&-x))
+            count[x]=max(count[x],y);
+    }
+};
+class Solution {
+public:
+    vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) {
+        vector<int> ans;
+        fenwick f(obstacles);
+        for(auto& x:obstacles){
+            int temp=f.get(x);
+            ans.push_back(temp+1);
+            f.update(x,temp+1);
+        }
+        return ans;
+    }
+};

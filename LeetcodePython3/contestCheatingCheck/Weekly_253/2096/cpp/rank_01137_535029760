@@ -1,0 +1,57 @@
+class BIT
+{
+public:
+    vector<int> values;
+    
+    BIT(int n)
+    {
+        values = vector<int>(n+1, 0);
+    }
+    
+    void set(int i, int v)
+    {
+        i++;
+        for (; i < values.size(); i += i&-i)
+            values[i] = max(values[i], v);
+    }
+    
+    int query(int i)
+    {
+        int v = 0;
+        i++;
+        
+        for (; i > 0; i -= i&-i)
+            v = max(v, values[i]);
+        return v;
+    }
+};
+
+class Solution {
+    vector<int> sortAndRemoveDuplicates(const vector<int>& obstacles)
+    {
+        set<int> s(obstacles.begin(), obstacles.end());
+        return vector<int>(s.begin(), s.end());
+    }
+    
+public:
+    vector<int> longestObstacleCourseAtEachPosition(const vector<int>& obstacles) {
+        vector<int> sizes = sortAndRemoveDuplicates(obstacles);
+        unordered_map<int, int> indexes;
+        for (int i = 0; i < sizes.size(); i++)
+            indexes[sizes[i]] = i;
+        
+        int n = obstacles.size();
+        BIT bit(sizes.size());
+        vector<int> res(n);
+        
+        for (int i = 0; i < n; i++)
+        {
+            int idx = indexes[obstacles[i]];
+            int v = bit.query(idx) + 1;
+            res[i] = v;
+            bit.set(idx, v);
+        }
+        
+        return res;
+    }
+};
