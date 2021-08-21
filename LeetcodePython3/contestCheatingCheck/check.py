@@ -271,8 +271,9 @@ if __name__ == '__main__':
     paginations = 90
 
     # the question_id you wanna investigate [2095, 2096]
+    # you can use url "https://leetcode.com/contest/api/ranking/weekly-contest-253/?pagination=1&region=global" to
+    # search the question_id of the question of the contest
 
-    # you can use url "https://leetcode.com/contest/api/ranking/weekly-contest-253/?pagination=1&region=global" to search the question_id of the question of the contest
     # 需要查抄袭的题目[2095, 2096]
     # question_id 可用 https://leetcode.com/contest/api/ranking/weekly-contest-253/?pagination=1&region=global 查询
     question_ids = [2096]
