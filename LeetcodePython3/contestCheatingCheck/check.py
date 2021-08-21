@@ -63,8 +63,6 @@ def download_codes(urls, urls_results, question_ids, weekly_folder_name):
         return gathered
 
     async def download_code_with_submissions_number(submissions_number, prefix, file_name, lock):
-        print(file_name)
-        return
         url = "https://leetcode-cn.com/api/submissions/" + str(submissions_number) + "/"
         req = requests.get(url)
         await lock.acquire()
