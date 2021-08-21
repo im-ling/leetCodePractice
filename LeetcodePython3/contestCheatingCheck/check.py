@@ -164,7 +164,6 @@ def get_url_returns(urls, local_urls_results, writen_lock):
 
 def cheating_check_compute_similar(question_ids, weekly_folder_name, threshold):
     def language_check_similar(path, threshold):
-        records = {}
         def compute_similars(oneline_dic, one_line, file):
             local_result = []
             one_line_len = len(one_line)
@@ -212,6 +211,7 @@ def cheating_check_compute_similar(question_ids, weekly_folder_name, threshold):
                 oneline_dic[file] = one_line
         return result
 
+    records = {}
     for qid in question_ids:
         question_path = os.path.join(weekly_folder_name, str(qid))
         languages = os.listdir(question_path)
@@ -219,12 +219,12 @@ def cheating_check_compute_similar(question_ids, weekly_folder_name, threshold):
         for language in languages:
             language_folder = os.path.join(question_path, language)
             if os.path.isdir(language_folder):
-                result = language_check_similar(language_folder, threshold)
-                result.sort(key=lambda x: x[0])
-                if len(result) > 0:
-                    print(language_folder)
-                    for record in reversed(result):
-                        print("%.4f" % record[0], record[1], record[2])
+                language_check_result = language_check_similar(language_folder, threshold)
+                language_check_result.sort(key=lambda x: x[0])
+                if len(language_check_result) > 0:
+                    records[language_folder] = language_check_result[::-1]
+    return records
+
 
 def cheating_check(contest_number, paginations, question_ids, similar_threshold):
     # create folder
@@ -244,13 +244,16 @@ def cheating_check(contest_number, paginations, question_ids, similar_threshold)
 
     download_codes(urls, urls_results, question_ids, folder_names[0])
     print(f"download codes finished at {time.strftime('%X')}")
-
-
-    print("\n\n---- reports: ----")
-    cheating_check_compute_similar(question_ids, folder_names[0], similar_threshold)
-    print("---- reports end: ----\n\n")
-
+    reports = cheating_check_compute_similar(question_ids, folder_names[0], similar_threshold)
     print(f"similar checking finished at {time.strftime('%X')}")
+
+    # output
+    print("\n\n---- reports: ----")
+    for key in reports.keys():
+        print(key)
+        for record in reports[key]:
+            print("%.4f" % record[0], record[1], record[2])
+    print("---- reports end: ----\n\n")
 
 
 if __name__ == '__main__':
