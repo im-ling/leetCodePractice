@@ -261,14 +261,20 @@ if __name__ == '__main__':
 
     # contest number
     contest_number = 253
-    # 调查多少页的人
+
+    # how many pages you wanna investigate 调查多少页的人
     paginations = 35
-    # 需要查抄袭的题目 [2095, 2096]
+
+    # the question_id you wanna investigate [2095, 2096]
+    # you can use url https://leetcode-cn.com/contest/api/ranking/weekly-contest-253/?pagination=0 to search the question_id of the question of the contest
+    # 需要查抄袭的题目[2095, 2096]
     # question_id 可用 https://leetcode-cn.com/contest/api/ranking/weekly-contest-253/?pagination=0 查询
     question_ids = [2096]
+
+    # similarity threshold, only the similarity over the setting will be record
     # 相似度（高于这个阈值会被记录）
     similar_threshold = 0.85
 
-    result = cheating_check(contest_number, paginations, question_ids, similar_threshold)
+    cheating_check(contest_number, paginations, question_ids, similar_threshold)
 
     print(f"End at {time.strftime('%X')}")
