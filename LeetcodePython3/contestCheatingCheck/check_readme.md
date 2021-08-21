@@ -8,12 +8,12 @@
     # 调查多少页的人
     paginations = 35
     # 需要查抄袭的题目 [2095, 2096]
-    # question_id 可用 https://leetcode-cn.com/contest/api/ranking/weekly-contest-253/?pagination=0 查询
+    # question_id 可用 https://leetcode.com/contest/api/ranking/weekly-contest-253/?pagination=1&region=global 查询
     question_ids = [2096]
     # 相似度（高于这个阈值会被记录）
     similar_threshold = 0.85
 ```
-2. 运行check.py
+2. 运行check.py (由于有时请求异常，你可能需要运行第二次)
 
 
 

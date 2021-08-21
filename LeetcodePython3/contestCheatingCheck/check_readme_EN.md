@@ -8,12 +8,12 @@
     # how many pages you wanna investigate
     paginations = 35
     # the question_id you wanna investigate [2095, 2096]
-    # you can use url https://leetcode-cn.com/contest/api/ranking/weekly-contest-253/?pagination=0 to search the question_id of the question of the contest
+    # you can use url "https://leetcode.com/contest/api/ranking/weekly-contest-253/?pagination=1&region=global" to search the question_id of the question of the contest
     question_ids = [2096]
     # similarity threshold, only the similarity over the setting will be record
     similar_threshold = 0.85
 ```
-2. run check.py
+2. run check.py (Due to occasional requests being abandoned, you may need to run twice)
 
 
 

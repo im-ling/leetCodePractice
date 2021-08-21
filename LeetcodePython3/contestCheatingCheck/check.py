@@ -13,8 +13,9 @@ int_format_len = 5
 
 def generate_urls(contest_number, paginations):
     urls = []
-    prefix = "https://leetcode-cn.com/contest/api/ranking/weekly-contest-" + str(contest_number) + "/?pagination="
-    suffix = "&region=local"
+
+    prefix = "https://leetcode.com/contest/api/ranking/weekly-contest-" + str(contest_number) + "/?pagination="
+    suffix = "&region=global"
     for i in range(1, paginations + 1):
         urls.append(prefix + str(i) + suffix)
     return urls
@@ -58,24 +59,29 @@ def download_codes(urls, urls_results, question_ids, weekly_folder_name):
         return files
 
     async def gather_url_jobs(todo, writen_lock):
-        jobs = (download_code_with_submissions_number(cur[0], cur[1], cur[2], writen_lock) for cur in todo)
+        jobs = (download_code_with_submissions_number(cur[0], cur[1], cur[2], cur[3], writen_lock) for cur in todo)
         gathered = await asyncio.gather(*jobs)
         return gathered
 
-    async def download_code_with_submissions_number(submissions_number, prefix, file_name, lock):
-        url = "https://leetcode-cn.com/api/submissions/" + str(submissions_number) + "/"
+    async def download_code_with_submissions_number(submissions_number, prefix, file_name, region, lock):
+        if region == "CN":
+            url = "https://leetcode-cn.com/api/submissions/" + str(submissions_number) + "/"
+        else:
+            url = "https://leetcode.com/api/submissions/" + str(submissions_number) + "/"
+        # print(url)
         req = requests.get(url)
         await lock.acquire()
         try:
             content = req.content.decode(req.apparent_encoding)
-            dic = json.loads(content)
-            code = dic["code"]
-            lang = dic["lang"]
-            folder_name = os.path.join(prefix, lang)
-            if not os.path.isdir(folder_name):
-                os.mkdir(folder_name)
-            file_path = os.path.join(folder_name, file_name)
-            write_lines_to_path(code, file_path)
+            if len(content) > 0:
+                dic = json.loads(content)
+                code = dic["code"]
+                lang = dic["lang"]
+                folder_name = os.path.join(prefix, lang)
+                if not os.path.isdir(folder_name):
+                    os.mkdir(folder_name)
+                file_path = os.path.join(folder_name, file_name)
+                write_lines_to_path(code, file_path)
         finally:
             lock.release()
 
@@ -97,10 +103,11 @@ def download_codes(urls, urls_results, question_ids, weekly_folder_name):
                 qid_str = str(qid)
                 if qid_str in submission:
                     submission_id_str = str(submission[qid_str]["submission_id"])
+                    region = str(submission[qid_str]["data_region"])
                     file_name = "rank_" + str(rank).zfill(int_format_len) + "_" + submission_id_str
                     prefix = os.path.join(weekly_folder_name, qid_str)
                     if file_name not in submissions_cache[qid]:
-                        todo.append((submission_id_str, prefix, file_name))
+                        todo.append((submission_id_str, prefix, file_name, region))
 
     writen_lock = asyncio.Lock()
     gather = gather_url_jobs(todo, writen_lock)
@@ -261,12 +268,13 @@ if __name__ == '__main__':
     contest_number = 253
 
     # how many pages you wanna investigate 调查多少页的人
-    paginations = 35
+    paginations = 40
 
     # the question_id you wanna investigate [2095, 2096]
-    # you can use url https://leetcode-cn.com/contest/api/ranking/weekly-contest-253/?pagination=0 to search the question_id of the question of the contest
+
+    # you can use url "https://leetcode.com/contest/api/ranking/weekly-contest-253/?pagination=1&region=global" to search the question_id of the question of the contest
     # 需要查抄袭的题目[2095, 2096]
-    # question_id 可用 https://leetcode-cn.com/contest/api/ranking/weekly-contest-253/?pagination=0 查询
+    # question_id 可用 https://leetcode.com/contest/api/ranking/weekly-contest-253/?pagination=1&region=global 查询
     question_ids = [2096]
 
     # similarity threshold, only the similarity over the setting will be record
